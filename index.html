@@ -12,16 +12,19 @@
 </head>
 
 <body>
+    <canvas id="statsCanvas"></canvas>
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">Dahron<span class="highlight">.</span></div>
+            <div class="logo">Maksum<span class="highlight">.</span></div>
             <ul class="nav-links">
                 <li><a href="#home">Beranda</a></li>
                 <li><a href="#about">Tentang</a></li>
+                <li><a href="#skills">Kemampuan</a></li>
                 <li><a href="#experience">Pengalaman</a></li>
                 <li><a href="#education">Pendidikan</a></li>
-                <li><a href="#skills">Kemampuan</a></li>
+                <li><a href="#achievements">Prestasi</a></li>
                 <li><a href="#media">Liputan Media</a></li>
+                <li><a href="#gallery">Galeri</a></li>
             </ul>
             <div class="hamburger">
                 <i class="fas fa-bars"></i>
@@ -31,12 +34,14 @@
 
     <main>
         <section id="home" class="hero">
-            <div class="hero-content fade-in">
+            <div class="hero-top" style="position: relative; z-index: 1;">
+                <div class="hero-content fade-in">
                 <div class="role-badge">
                     <i class="fas fa-chart-line"></i> Data Analyst & <i class="fas fa-users"></i> Social Impact Enthusiast
                 </div>
-                <h1>Halo, Saya <span class="highlight">Muhammad Dahron</span></h1>
-                <h2>Mahasiswa Statistika Universitas Negeri Yogyakarta</h2>
+                <h1>Halo, Saya <span class="highlight">Maksum</span></h1>
+                <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text-primary);">Muhammad Dahron Mustofa Maksum</h2>
+                <h3 style="color: var(--text-secondary); font-weight: 400; font-size: 1.2rem; margin-bottom: 1.5rem;">Mahasiswa Statistika Universitas Negeri Yogyakarta</h3>
                 <p>Menggabungkan keahlian <strong>Analisis Data</strong> dengan <strong>Pemberdayaan Komunitas</strong> untuk menciptakan dampak sosial yang nyata. Aktif memimpin program inovatif dan menggerakkan potensi lokal melalui data dan kolaborasi.</p>
                 <div class="social-links">
                     <a href="mailto:muhammaddahron.2024@student.uny.ac.id" class="social-icon" title="Email"><i
@@ -51,12 +56,38 @@
                 <div class="profile-main">
                     <img src="pas foto.jpeg" alt="Muhammad Dahron" onerror="this.src='https://via.placeholder.com/400'">
                 </div>
-                <div class="photo-gallery">
+            </div>
+            </div>
+            <div class="photo-gallery">
+                    <!-- Photo set 1 -->
                     <img src="http://www.uny.ac.id/sites/default/files/2026-06/DSCF0754.JPG" alt="Kegiatan SEGARA 1">
                     <img src="http://www.uny.ac.id/sites/default/files/2026-06/DSCF0713.JPG" alt="Kegiatan SEGARA 2">
                     <img src="http://www.uny.ac.id/sites/default/files/2026-06/DSCF0812.JPG" alt="Kegiatan SEGARA 3">
+                    <img src="https://fmipa.uny.ac.id/sites/fmipa.uny.ac.id/files/styles/blog_berita/public/field/image/ksi%205%20%28FILEminimizer%29.jpg" alt="Kegiatan SEGARA 4">
+                    <img src="https://fmipa.uny.ac.id/sites/fmipa.uny.ac.id/files/styles/blog_berita/public/field/image/ksi1%20%28FILEminimizer%29.jpg" alt="Kegiatan SEGARA 5">
+                    <img src="https://fmipa.uny.ac.id/sites/fmipa.uny.ac.id/files/styles/blog_berita/public/field/image/ksi2%20%28FILEminimizer%29.jpg" alt="Kegiatan SEGARA 6">
+                    <!-- Photo set 2 -->
+                    <img src="http://www.uny.ac.id/sites/default/files/2026-06/DSCF0754.JPG" alt="Kegiatan SEGARA 7">
+                    <img src="http://www.uny.ac.id/sites/default/files/2026-06/DSCF0713.JPG" alt="Kegiatan SEGARA 8">
+                    <img src="http://www.uny.ac.id/sites/default/files/2026-06/DSCF0812.JPG" alt="Kegiatan SEGARA 9">
+                    <img src="https://fmipa.uny.ac.id/sites/fmipa.uny.ac.id/files/styles/blog_berita/public/field/image/ksi%205%20%28FILEminimizer%29.jpg" alt="Kegiatan SEGARA 10">
+                    <img src="https://fmipa.uny.ac.id/sites/fmipa.uny.ac.id/files/styles/blog_berita/public/field/image/ksi1%20%28FILEminimizer%29.jpg" alt="Kegiatan SEGARA 11">
+                    <img src="https://fmipa.uny.ac.id/sites/fmipa.uny.ac.id/files/styles/blog_berita/public/field/image/ksi2%20%28FILEminimizer%29.jpg" alt="Kegiatan SEGARA 12">
+                    <!-- Photo set 3 -->
+                    <img src="http://www.uny.ac.id/sites/default/files/2026-06/DSCF0754.JPG" alt="Kegiatan SEGARA 13">
+                    <img src="http://www.uny.ac.id/sites/default/files/2026-06/DSCF0713.JPG" alt="Kegiatan SEGARA 14">
+                    <img src="http://www.uny.ac.id/sites/default/files/2026-06/DSCF0812.JPG" alt="Kegiatan SEGARA 15">
+                    <img src="https://fmipa.uny.ac.id/sites/fmipa.uny.ac.id/files/styles/blog_berita/public/field/image/ksi%205%20%28FILEminimizer%29.jpg" alt="Kegiatan SEGARA 16">
+                    <img src="https://fmipa.uny.ac.id/sites/fmipa.uny.ac.id/files/styles/blog_berita/public/field/image/ksi1%20%28FILEminimizer%29.jpg" alt="Kegiatan SEGARA 17">
+                    <img src="https://fmipa.uny.ac.id/sites/fmipa.uny.ac.id/files/styles/blog_berita/public/field/image/ksi2%20%28FILEminimizer%29.jpg" alt="Kegiatan SEGARA 18">
+                    <!-- Photo set 4 -->
+                    <img src="http://www.uny.ac.id/sites/default/files/2026-06/DSCF0754.JPG" alt="Kegiatan SEGARA 19">
+                    <img src="http://www.uny.ac.id/sites/default/files/2026-06/DSCF0713.JPG" alt="Kegiatan SEGARA 20">
+                    <img src="http://www.uny.ac.id/sites/default/files/2026-06/DSCF0812.JPG" alt="Kegiatan SEGARA 21">
+                    <img src="https://fmipa.uny.ac.id/sites/fmipa.uny.ac.id/files/styles/blog_berita/public/field/image/ksi%205%20%28FILEminimizer%29.jpg" alt="Kegiatan SEGARA 22">
+                    <img src="https://fmipa.uny.ac.id/sites/fmipa.uny.ac.id/files/styles/blog_berita/public/field/image/ksi1%20%28FILEminimizer%29.jpg" alt="Kegiatan SEGARA 23">
+                    <img src="https://fmipa.uny.ac.id/sites/fmipa.uny.ac.id/files/styles/blog_berita/public/field/image/ksi2%20%28FILEminimizer%29.jpg" alt="Kegiatan SEGARA 24">
                 </div>
-            </div>
         </section>
 
         <section id="about" class="about section">
@@ -89,6 +120,39 @@
             </div>
         </section>
 
+        <section id="skills" class="skills section">
+            <div class="section-title">
+                <h2><span class="highlight">Kemampuan</span> Utama</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category glass-card slide-up">
+                    <h3><i class="fas fa-chart-bar"></i> Analisis dan Teknis</h3>
+                    <div class="skill-tags">
+                        <span class="tag"><i class="fab fa-python" style="color: #3776AB;"></i> Python</span>
+                        <span class="tag"><i class="fas fa-database" style="color: #00758F;"></i> SQL</span>
+                        <span class="tag"><i class="fab fa-r-project" style="color: #276DC3;"></i> R</span>
+                        <span class="tag"><i class="fas fa-file-excel" style="color: #217346;"></i> Microsoft Excel</span>
+                        <span class="tag"><i class="fas fa-file-word" style="color: #2B579A;"></i> Microsoft Word</span>
+                        <span class="tag"><i class="fas fa-chart-pie" style="color: var(--primary-color);"></i> Analisis Data</span>
+                        <span class="tag"><i class="fas fa-calculator" style="color: var(--accent-color);"></i> Statistik</span>
+                        <span class="tag"><i class="fas fa-robot" style="color: #4CAF50;"></i> Machine Learning</span>
+                        <span class="tag"><i class="fas fa-broom" style="color: #795548;"></i> Data Wrangling</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card slide-up">
+                    <h3><i class="fas fa-users"></i> Soft Skills</h3>
+                    <div class="skill-tags">
+                        <span class="tag"><i class="fas fa-sitemap" style="color: var(--primary-color);"></i> Manajemen Organisasi</span>
+                        <span class="tag"><i class="fas fa-user-tie" style="color: var(--accent-color);"></i> Kepemimpinan</span>
+                        <span class="tag"><i class="fas fa-microphone" style="color: var(--primary-color);"></i> Public Speaking</span>
+                        <span class="tag"><i class="fas fa-comments" style="color: var(--accent-color);"></i> Komunikasi</span>
+                        <span class="tag"><i class="fas fa-pen-nib" style="color: var(--primary-color);"></i> Penulisan Artikel Ilmiah</span>
+                        <span class="tag"><i class="fas fa-palette" style="color: #e83e8c;"></i> Desain Grafis (Dasar)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="experience" class="experience section">
             <div class="section-title">
                 <h2><span class="highlight">Pengalaman</span> Organisasi</h2>
@@ -99,7 +163,7 @@
                     <h3>Ketua</h3>
                     <h4>Ikatan Pemuda Masjid Baiturrahman (Tingkat Dusun)</h4>
                     <p class="date">2024 – Sekarang</p>
-                    <ul style="text-align: left; margin-top: 1rem; color: var(--text-secondary); font-size: 0.95rem; padding-left: 1.2rem;">
+                    <ul style="text-align: justify; margin-top: 1rem; color: var(--text-secondary); font-size: 0.95rem; padding-left: 1.2rem;">
                         <li>Mengelola program kerja pemuda masjid selama periode 3 tahun.</li>
                         <li>Memimpin koordinasi kegiatan keagamaan dan sosial.</li>
                         <li>Mengembangkan inovasi kegiatan berbasis kolaborasi antar komunitas.</li>
@@ -107,62 +171,62 @@
                 </div>
 
                 <div class="edu-card glass-card slide-up">
-                    <div class="icon"><i class="fas fa-hands-helping"></i></div>
+                    <div class="icon"><img src="logo satyawala_tp.png" alt="Karang Taruna Satyawala" style="height: 120px; width: 100%; object-fit: contain; border-radius: 4px;"></div>
                     <h3>Koordinator Keagamaan & Pengumuman</h3>
                     <h4>Karang Taruna Satyawala (Tingkat Dusun)</h4>
                     <p class="date">2023 – Sekarang</p>
-                    <ul style="text-align: left; margin-top: 1rem; color: var(--text-secondary); font-size: 0.95rem; padding-left: 1.2rem;">
+                    <ul style="text-align: justify; margin-top: 1rem; color: var(--text-secondary); font-size: 0.95rem; padding-left: 1.2rem;">
                         <li>Mengkoordinasi kegiatan keagamaan di tingkat dusun.</li>
                     </ul>
                 </div>
 
                 <div class="edu-card glass-card slide-up">
-                    <div class="icon"><i class="fas fa-camera"></i></div>
+                    <div class="icon"><img src="budiluhur_tp.png" alt="Karang Taruna Budiluhur" style="height: 120px; width: 100%; object-fit: contain; border-radius: 4px;"></div>
                     <h3>Staf Bidang Media dan Informasi</h3>
                     <h4>Karang Taruna Budiluhur</h4>
                     <p class="date">2024 – Sekarang</p>
-                    <ul style="text-align: left; margin-top: 1rem; color: var(--text-secondary); font-size: 0.95rem; padding-left: 1.2rem;">
+                    <ul style="text-align: justify; margin-top: 1rem; color: var(--text-secondary); font-size: 0.95rem; padding-left: 1.2rem;">
                         <li>Mengelola dokumentasi dan publikasi kegiatan Karang Taruna.</li>
                     </ul>
                 </div>
 
                 <div class="edu-card glass-card slide-up">
-                    <div class="icon"><i class="fas fa-chart-pie"></i></div>
+                    <div class="icon"><img src="logo himatika_tp.png" alt="HIMATIKA" style="height: 120px; width: 100%; object-fit: contain; border-radius: 4px;"></div>
                     <h3>Anggota</h3>
                     <h4>HIMATIKA DEPIKMAT UNY</h4>
                     <p class="date">2024 – Sekarang</p>
-                    <ul style="text-align: left; margin-top: 1rem; color: var(--text-secondary); font-size: 0.95rem; padding-left: 1.2rem;">
+                    <ul style="text-align: justify; margin-top: 1rem; color: var(--text-secondary); font-size: 0.95rem; padding-left: 1.2rem;">
                         <li>Berpartisipasi dalam kegiatan akademik, lomba, dan pengembangan keilmuan statistika.</li>
                     </ul>
                 </div>
 
                 <div class="edu-card glass-card slide-up">
-                    <div class="icon"><i class="fas fa-microscope"></i></div>
+                    <div class="icon"><img src="logo ksi mist_tp.png" alt="KSI Mist" style="height: 120px; width: 100%; object-fit: contain; border-radius: 4px;"></div>
                     <h3>Staf Departemen Penalaran dan Lomba</h3>
                     <h4>KSI Mist FMIPA UNY</h4>
                     <p class="date">2025 – Sekarang</p>
-                    <ul style="text-align: left; margin-top: 1rem; color: var(--text-secondary); font-size: 0.95rem; padding-left: 1.2rem;">
+                    <ul style="text-align: justify; margin-top: 1rem; color: var(--text-secondary); font-size: 0.95rem; padding-left: 1.2rem;">
                         <li>Melakukan monitoring dan evaluasi prestasi mahasiswa.</li>
                         <li>Mendukung program riset dan pengembangan kompetisi mahasiswa.</li>
                     </ul>
                 </div>
                 
                 <div class="edu-card glass-card slide-up">
-                    <div class="icon"><i class="fas fa-comments"></i></div>
+                    <div class="icon"><img src="ihmsi logo_tp.png" alt="IHMSI" style="height: 120px; width: 100%; object-fit: contain; border-radius: 4px;"></div>
                     <h3>Staf Bidang Kajian Strategis (Kastrat)</h3>
                     <h4>Ikatan Himpunan Mahasiswa Statistika Indonesia (IHMSI)</h4>
                     <p class="date">2025 – Sekarang</p>
-                    <ul style="text-align: left; margin-top: 1rem; color: var(--text-secondary); font-size: 0.95rem; padding-left: 1.2rem;">
+                    <ul style="text-align: justify; margin-top: 1rem; color: var(--text-secondary); font-size: 0.95rem; padding-left: 1.2rem;">
                         <li>Mengkaji isu-isu strategis nasional maupun internasional yang relevan dengan mahasiswa statistika di tingkat nasional.</li>
                     </ul>
                 </div>
 
                 <div class="edu-card glass-card slide-up">
-                    <div class="icon"><i class="fas fa-project-diagram"></i></div>
-                    <h3>Anggota Tim PPK Ormawa</h3>
+                    <div class="icon"><img src="logo segara_tp.png" alt="SEGARA" style="height: 120px; width: 100%; object-fit: contain; border-radius: 4px;"></div>
+                    <h3>Ketua Tim PPK Ormawa</h3>
                     <h4>KSI Mist FMIPA UNY (Program SEGARA)</h4>
                     <p class="date">2026</p>
-                    <ul style="text-align: left; margin-top: 1rem; color: var(--text-secondary); font-size: 0.95rem; padding-left: 1.2rem;">
+                    <ul style="text-align: justify; margin-top: 1rem; color: var(--text-secondary); font-size: 0.95rem; padding-left: 1.2rem;">
                         <li>Meluncurkan program SEGARA (Senta Gerak Agromina) di Kalurahan Sidoagung, Sleman.</li>
                         <li>Memberdayakan sektor perikanan berbasis potensi lokal dan teknologi digital.</li>
                     </ul>
@@ -172,11 +236,11 @@
 
         <section id="education" class="education section">
             <div class="section-title">
-                <h2>Pendidikan & <span class="highlight">Sertifikasi</span></h2>
+                <h2>Riwayat <span class="highlight">Pendidikan</span></h2>
             </div>
             <div class="edu-grid">
                 <div class="edu-card glass-card slide-up">
-                    <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="icon"><img src="logo uny.svg" alt="UNY" style="height: 120px; width: 100%; object-fit: contain; border-radius: 4px;"></div>
                     <h3>Universitas Negeri Yogyakarta</h3>
                     <h4>S1 - Statistika, FMIPA</h4>
                     <p class="date">2024 - Sekarang</p>
@@ -184,14 +248,43 @@
                 </div>
 
                 <div class="edu-card glass-card slide-up">
-                    <div class="icon"><i class="fas fa-school"></i></div>
+                    <div class="icon"><img src="logoman 3_tp.png" alt="MAN 3 Bantul" style="height: 120px; width: 100%; object-fit: contain; border-radius: 4px;"></div>
                     <h3>MAN 3 Bantul</h3>
                     <h4>Sekolah Menengah Atas</h4>
                     <p class="date">Lulus 2024</p>
                 </div>
 
                 <div class="edu-card glass-card slide-up">
-                    <div class="icon"><i class="fas fa-medal"></i></div>
+                    <div class="icon"><img src="mtsn 6 bantul_tp.png" alt="MTsN 6 Bantul" style="height: 120px; width: 100%; object-fit: contain; border-radius: 4px;"></div>
+                    <h3>MTsN 6 Bantul</h3>
+                    <h4>Sekolah Menengah Pertama</h4>
+                    <p class="date">Lulus 2021</p>
+                </div>
+
+                <div class="edu-card glass-card slide-up">
+                    <div class="icon"><img src="sd sindet_tp.png" alt="SD Sindet" style="height: 120px; width: 100%; object-fit: contain; border-radius: 4px;"></div>
+                    <h3>SD Sindet</h3>
+                    <h4>Sekolah Dasar</h4>
+                    <p class="date">Lulus 2018</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="achievements" class="education section">
+            <div class="section-title">
+                <h2>Prestasi dan <span class="highlight">Sertifikat</span></h2>
+            </div>
+            <div class="edu-grid">
+                <div class="edu-card glass-card slide-up">
+                    <div class="icon"><img src="logo ppk ormawa dikti_tp.png" alt="PPK Ormawa Dikti" style="height: 120px; width: 100%; object-fit: contain; border-radius: 4px;"></div>
+                    <h3>Penerima Pendanaan PPK Ormawa</h3>
+                    <h4>Kemdikbudristek RI</h4>
+                    <p class="date">2026</p>
+                </div>
+
+                <div class="edu-card glass-card slide-up">
+                    <div class="icon"><img src="Logo POSI (Pusat Olimpiade Sains Indonesia)_tp.png" alt="POSI" style="height: 120px; width: 100%; object-fit: contain; border-radius: 4px;"></div>
                     <h3>Medali Perunggu Matematika Nasional</h3>
                     <h4>National Young Science Innovation</h4>
                     <p class="date">2022</p>
@@ -205,14 +298,14 @@
                 </div>
 
                 <div class="edu-card glass-card slide-up">
-                    <div class="icon"><i class="fas fa-certificate"></i></div>
+                    <div class="icon"><i class="fab fa-kaggle" style="color: #20BEFF;"></i></div>
                     <h3>Sertifikat Python</h3>
                     <h4>Kaggle</h4>
                     <p class="date">2025</p>
                 </div>
 
                 <div class="edu-card glass-card slide-up">
-                    <div class="icon"><i class="fas fa-award"></i></div>
+                    <div class="icon"><img src="logo blkpp diy_tp.png" alt="BLKPP DIY" style="height: 120px; width: 100%; object-fit: contain; border-radius: 4px;"></div>
                     <h3>Sertifikat Pelatihan Desain Grafis</h3>
                     <h4>BLKPP DIY</h4>
                     <p class="date">2024</p>
@@ -220,39 +313,9 @@
             </div>
         </section>
 
-        <section id="skills" class="skills section">
-            <div class="section-title">
-                <h2><span class="highlight">Kemampuan</span> Utama</h2>
-            </div>
-            <div class="skills-container">
-                <div class="skill-category glass-card slide-up">
-                    <h3><i class="fas fa-chart-bar"></i> Analisis & Teknis</h3>
-                    <div class="skill-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">SQL</span>
-                        <span class="tag">R</span>
-                        <span class="tag">Microsoft Excel</span>
-                        <span class="tag">Analisis Data</span>
-                        <span class="tag">Statistik</span>
-                    </div>
-                </div>
-                <div class="skill-category glass-card slide-up">
-                    <h3><i class="fas fa-users"></i> Soft Skills</h3>
-                    <div class="skill-tags">
-                        <span class="tag">Manajemen Organisasi</span>
-                        <span class="tag">Kepemimpinan</span>
-                        <span class="tag">Public Speaking</span>
-                        <span class="tag">Komunikasi</span>
-                        <span class="tag">Penulisan Artikel Ilmiah</span>
-                        <span class="tag">Desain Grafis (Dasar)</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section id="media" class="media section">
             <div class="section-title">
-                <h2>Liputan & <span class="highlight">Publikasi Media</span></h2>
+                <h2>Liputan dan <span class="highlight">Publikasi Media</span></h2>
             </div>
             <p style="text-align: center; margin-top: -2rem; margin-bottom: 3rem; color: var(--text-secondary);">Dokumentasi Program PPK Ormawa KSI Mist FMIPA UNY (SEGARA)</p>
             
@@ -340,19 +403,19 @@
                     </div>
                 </div>
 
-                <!-- Segara Karya 2 & Dinkop -->
+                <!-- Segara Karya 2 dan Dinkop -->
                 <div class="media-card glass-card slide-up">
-                    <h3>Segara Karya 2 & Dinkop</h3>
+                    <h3>Segara Karya 2 dan Dinkop</h3>
                     <div class="media-links">
-                        <a href="https://www.kompasiana.com/galuhpitakencana/6a85aa20c925c46308413622/ppko-ksi-mist-kembali-gelar-pelatihan-pengolahan-produk-ikan-di-sidoagung" target="_blank"><i class="fas fa-newspaper"></i> Kerupuk & Kecap: Kompasiana</a>
-                        <a href="https://www.ksimist.or.id/blog/tim-ppko-ksi-mist-fmipa-uny-kembali-gelar-pelatihan-pengolahan-produk-ikan-di-sidoagung" target="_blank"><i class="fas fa-users"></i> Kerupuk & Kecap: KSI Mist</a>
+                        <a href="https://www.kompasiana.com/galuhpitakencana/6a85aa20c925c46308413622/ppko-ksi-mist-kembali-gelar-pelatihan-pengolahan-produk-ikan-di-sidoagung" target="_blank"><i class="fas fa-newspaper"></i> Kerupuk dan Kecap: Kompasiana</a>
+                        <a href="https://www.ksimist.or.id/blog/tim-ppko-ksi-mist-fmipa-uny-kembali-gelar-pelatihan-pengolahan-produk-ikan-di-sidoagung" target="_blank"><i class="fas fa-users"></i> Kerupuk dan Kecap: KSI Mist</a>
                         <a href="https://www.kompasiana.com/galuhpitakencana/6a85b88cc925c412ae400b40/ppko-ksi-mist-fmipa-uny-gandeng-dinkop-sleman-tingkatkan-usaha-sidoagung" target="_blank"><i class="fas fa-newspaper"></i> Dinkop: Kompasiana</a>
                     </div>
                 </div>
 
                 <!-- Bupati dan DPRD -->
                 <div class="media-card glass-card slide-up">
-                    <h3>Kunjungan Bupati & DPRD</h3>
+                    <h3>Kunjungan Bupati dan DPRD</h3>
                     <div class="media-links">
                         <a href="https://fmipa.uny.ac.id/id/berita/bupati-sleman-apresiasi-ppko-ksi-mist-fmipa-uny-siap-dukung-pengembangan-program" target="_blank"><i class="fas fa-university"></i> FMIPA UNY (Bupati)</a>
                         <a href="https://fmipa.uny.ac.id/id/berita/dprd-kabupaten-sleman-dukung-ppko-ksi-mist-fmipa-uny-perkuat-pemberdayaan-masyarakat" target="_blank"><i class="fas fa-university"></i> FMIPA UNY (DPRD)</a>
@@ -365,6 +428,40 @@
                         <a href="https://www.ksimist.or.id/blog/bupati-sleman-apresiasi-ppko-ksi-mist-fmipa-uny-dukung-pengembangan-program-pemberdayaan-masyarakat" target="_blank"><i class="fas fa-users"></i> KSI Mist (Bupati)</a>
                         <a href="https://www.ksimist.or.id/blog/dprd-kabupaten-sleman-dukung-ppko-ksi-mist-fmipa-uny-perkuat-pemberdayaan-masyarakat-sidoagung" target="_blank"><i class="fas fa-users"></i> KSI Mist (DPRD)</a>
                     </div>
+                </div>
+
+            </div>
+        </section>
+    
+
+        <section id="gallery" class="gallery section">
+            <div class="section-title">
+                <h2>Galeri</h2>
+            </div>
+            <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; max-width: 1200px; margin: 0 auto; width: 100%; justify-items: center;">
+                
+                <div class="gallery-item slide-up" style="width: 100%; display: flex; justify-content: center;">
+                    <iframe src="https://www.instagram.com/p/DI_sBzXzehS/embed" width="100%" height="560" frameborder="0" scrolling="no" allowtransparency="true" style="max-width: 400px; display: block; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 4px 6px rgba(0,0,0,0.05); background: white;"></iframe>
+                </div>
+                
+                <div class="gallery-item slide-up" style="width: 100%; display: flex; justify-content: center;">
+                    <iframe src="https://www.instagram.com/p/DX1PO_jk4R9/embed" width="100%" height="560" frameborder="0" scrolling="no" allowtransparency="true" style="max-width: 400px; display: block; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 4px 6px rgba(0,0,0,0.05); background: white;"></iframe>
+                </div>
+
+                <div class="gallery-item slide-up" style="width: 100%; display: flex; justify-content: center;">
+                    <iframe src="https://www.instagram.com/p/DLSHsERzNEC/embed" width="100%" height="560" frameborder="0" scrolling="no" allowtransparency="true" style="max-width: 400px; display: block; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 4px 6px rgba(0,0,0,0.05); background: white;"></iframe>
+                </div>
+
+                <div class="gallery-item slide-up" style="width: 100%; display: flex; justify-content: center;">
+                    <iframe src="https://www.instagram.com/p/C3oTFNvv0h7/embed" width="100%" height="560" frameborder="0" scrolling="no" allowtransparency="true" style="max-width: 400px; display: block; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 4px 6px rgba(0,0,0,0.05); background: white;"></iframe>
+                </div>
+
+                <div class="gallery-item slide-up" style="width: 100%; display: flex; justify-content: center;">
+                    <iframe src="https://www.instagram.com/p/CiZ_fbFPs_4/embed" width="100%" height="560" frameborder="0" scrolling="no" allowtransparency="true" style="max-width: 400px; display: block; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 4px 6px rgba(0,0,0,0.05); background: white;"></iframe>
+                </div>
+
+                <div class="gallery-item slide-up" style="width: 100%; display: flex; justify-content: center;">
+                    <iframe src="https://www.instagram.com/p/Czgde8Fvgtu/embed" width="100%" height="560" frameborder="0" scrolling="no" allowtransparency="true" style="max-width: 400px; display: block; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 4px 6px rgba(0,0,0,0.05); background: white;"></iframe>
                 </div>
 
             </div>
