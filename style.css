@@ -438,6 +438,48 @@ body {
     border-color: var(--primary-color);
 }
 
+/* Media Section */
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.media-card h3 {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 0.5rem;
+}
+
+.media-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.media-links a {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.media-links a i {
+    color: var(--primary-color);
+    width: 16px;
+}
+
+.media-links a:hover {
+    color: var(--primary-color);
+}
+
 /* Footer */
 footer {
     text-align: center;
