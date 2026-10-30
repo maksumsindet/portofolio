@@ -82,9 +82,9 @@ export const personalInfo = {
     email: "mailto:muhammaddahron.2024@student.uny.ac.id",
     linkedin: "https://www.linkedin.com/in/muhammad-dahron-mustofa-maksum-055905382",
     instagram: "https://www.instagram.com/mksmetrics/",
-    github: "#"
+    github: "https://github.com/maksumsindet"
   },
-  profileImage: "assets/images/profile.jpeg",
+  profileImage: "assets/images/profile-abdidaya.jpg",
   projectDriveUrl: "https://drive.google.com/drive/folders/1H6HgFSFGwxvSwdGxksj6OziAQxvSrjA0?usp=drive_link"
 };
 
@@ -564,6 +564,14 @@ export const documentaryPhotos: DocumentaryPhoto[] = [
     category: "Prestasi & Riset",
     tag: "Abdidaya Ormawa 2026",
     source: "Kemdiktisaintek / UMI"
+  },
+  {
+    src: "assets/images/portfolio/abdidaya-stage-uny.jpg",
+    alt: "Penganugerahan Terbaik 2 Nasional Abdidaya Ormawa di UMI Makassar",
+    caption: "Penganugerahan Juara Terbaik 2 Nasional Tim Pelaksana di Panggung Utama Abdidaya Ormawa (UMI Makassar)",
+    category: "Prestasi & Riset",
+    tag: "Juara 2 Nasional",
+    source: "Dokumentasi Resmi Abdidaya"
   },
   {
     src: "assets/images/portfolio/photo-4.jpg",
