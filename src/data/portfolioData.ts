@@ -611,6 +611,14 @@ export const mediaData: MediaCategory[] = [
 
 export const documentaryPhotos: DocumentaryPhoto[] = [
   {
+    src: "assets/images/portfolio/podium-abdidaya-uny-terbaik-2.jpg",
+    alt: "Muhammad Dahron di podium utama Abdidaya Ormawa 2026 membentangkan bendera Universitas Negeri Yogyakarta sebagai peraih Terbaik 2 Nasional",
+    caption: "Podium Kejuaraan Nasional Abdidaya Ormawa 2026: Muhammad Dahron Membentangkan Bendera UNY di Panggung Utama UMI Makassar",
+    category: "Prestasi & Riset",
+    tag: "Podium Nasional",
+    source: "Dokumentasi Resmi Abdidaya Kemdiktisaintek"
+  },
+  {
     src: "assets/images/portfolio/dahron-abdidaya-terbaik-2.jpg",
     alt: "Muhammad Dahron memegang piagam Terbaik 2 Pemahaman Pemberdayaan Masyarakat dan maskot Abdidaya Ormawa 2026",
     caption: "Penerimaan Piagam Juara Terbaik 2 Nasional Tim Pelaksana Abdidaya Ormawa 2026 di UMI Makassar",
