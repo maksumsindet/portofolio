@@ -1,6 +1,6 @@
 ---
 // ProgramsShowcase.astro
-// Recreates "Programs Built for Real Change" & "Turn Insight Into Action" with Taste Skill craftsmanship
+// Recreates Section 2 of "Bernstein": "Committed to Real Social Action", 2x2 Feature Grid, Overlapping Quote Box, and Executive Program Cards
 const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
 
 const programs = [
@@ -46,6 +46,29 @@ const programs = [
   }
 ];
 
+const commitmentPillars = [
+  {
+    icon: "fas fa-chart-line",
+    title: "Analisis Data Terukur",
+    desc: "Eksplorasi statistika, komputasi R & Python, serta pemodelan inferensial teruji."
+  },
+  {
+    icon: "fas fa-users",
+    title: "Pemberdayaan Komunitas",
+    desc: "Penguatan kelembagaan 6 kelompok budidaya dan hilirisasi produk bernilai tambah."
+  },
+  {
+    icon: "fas fa-laptop-code",
+    title: "Transformasi Digital",
+    desc: "Perancangan SEGARA App teruji keamanan sistem bersama Diskominfo Sleman."
+  },
+  {
+    icon: "fas fa-balance-scale",
+    title: "Kajian Kebijakan Strategis",
+    desc: "Perumusan rekomendasi kebijakan berbasis bukti data di tingkat mahasiswa nasional."
+  }
+];
+
 const featurePills = [
   { icon: "fas fa-mobile-alt", label: "SEGARA App (Uji Diskominfo)" },
   { icon: "fas fa-handshake", label: "Kemitraan B2B Pasar Ikan" },
@@ -55,20 +78,75 @@ const featurePills = [
 ---
 
 <section id="programs" class="programs-section">
-  <!-- Decorative background elements -->
-  <div class="shape-sage-circle deco-circle-top"></div>
-  <div class="shape-sage-circle deco-circle-bottom"></div>
-
   <div class="programs-container">
-    <!-- Header: Programs Built for Real Change -->
-    <div class="section-title fade-in">
-      <h2>Program & Inisiatif Perubahan Nyata</h2>
-      <p>
-        Inisiatif nyata yang dirancang untuk membangun kemandirian, kepercayaan diri, dan aksi bermakna bagi masyarakat serta komunitas.
-      </p>
+    <!-- Part 1: Bernstein Signature "Committed to Your Mission" Split Section -->
+    <div class="commitment-split-wrap slide-up">
+      <!-- Left Column: Kicker, Heading, Description & 2x2 Grid -->
+      <div class="commitment-left">
+        <div class="accent-lead-wrap">
+          <span class="accent-rule"></span>
+          <span class="lead-phrase">Dedikasi Kepemimpinan & Integritas</span>
+        </div>
+
+        <h2 class="commitment-heading">
+          <span class="heading-dark">KOMITMEN UNTUK</span>
+          <span class="heading-gold">Aksi Nyata Berdampak</span>
+        </h2>
+
+        <p class="commitment-intro">
+          Kami memadukan ketajaman analisis statistika multivariat dengan kepemimpinan lapangan untuk mengorkestrasi kemitraan multi-pihak yang menghasilkan dampak nyata bagi masyarakat.
+        </p>
+
+        <div class="commitment-grid-2x2">
+          {commitmentPillars.map((pillar) => (
+            <div class="pillar-box">
+              <div class="pillar-icon-halo">
+                <i class={pillar.icon}></i>
+              </div>
+              <div class="pillar-text">
+                <h3 class="pillar-title">{pillar.title}</h3>
+                <p class="pillar-desc">{pillar.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right Column: Documentary Photo with Overlapping Navy Quote Card -->
+      <div class="commitment-right">
+        <div class="commitment-visual-frame">
+          <div class="visual-img-wrap">
+            <img
+              src={`${base}assets/images/portfolio/uny-dscf0754.jpg`}
+              alt="Pemberdayaan Masyarakat di Kalurahan Sidoagung"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- Overlapping Dark Navy Quote Box (Bernstein Signature Tell) -->
+          <div class="quote-callout-card">
+            <p class="quote-text">
+              "Wawasan data tidak berhenti pada angka di atas kertas, melainkan menjadi kompas aksi nyata yang menggerakkan kemandirian masyarakat."
+            </p>
+            <div class="quote-author">
+              <span class="author-name">Muhammad Dahron M. Maksum</span>
+              <span class="author-role">Ketua Tim Pelaksana PPK Ormawa SEGARA</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- 4 Vertical Cards Grid: Photos Fully Visible in Dedicated Top Frames -->
+    <!-- Part 2: 4 Executive Program Cards -->
+    <div class="section-title fade-in" style="margin-top: 6rem; margin-bottom: 3.5rem;">
+      <div class="accent-lead-wrap" style="justify-content: center;">
+        <span class="accent-rule"></span>
+        <span class="lead-phrase">Pilar Inisiatif Perubahan</span>
+        <span class="accent-rule"></span>
+      </div>
+      <h2>Program Unggulan Teruji</h2>
+    </div>
+
     <div class="program-cards-grid">
       {programs.map((item) => (
         <div class="program-card slide-up">
@@ -99,24 +177,18 @@ const featurePills = [
       ))}
     </div>
 
-    <!-- Wide Showcase Card: Turn Insight Into Action with Split Layout & Clear Photo Showcase -->
+    <!-- Part 3: Wide Showcase Card with Split Layout & Gold Metric Numbers -->
     <div class="cinematic-showcase slide-up">
-      <div class="script-accent-left">
-        <span class="font-script">Ideas today<br/>A better tomorrow</span>
-      </div>
-      <div class="script-accent-right">
-        <span class="font-script">Make<br/>Change<br/>Happen</span>
-      </div>
-
       <div class="cinematic-card-inner">
         <div class="cinematic-grid">
           <!-- Left Column: Impact Content -->
           <div class="cinematic-content">
-            <div class="script-badge-inline">
-              <span class="font-script">Ideas today · A better tomorrow</span>
+            <div class="accent-lead-wrap">
+              <span class="accent-rule"></span>
+              <span class="lead-phrase">Turn Insight Into Action</span>
             </div>
             <h3 class="cinematic-heading">
-              Mengubah Wawasan Menjadi <em>Aksi Nyata</em>
+              Mengubah Wawasan Menjadi <span class="headline-gold">Aksi Nyata</span>
             </h3>
             <p class="cinematic-sub">
               Kolaborasi strategis multi-pihak antara Ormawa, FMIPA UNY, Pemkab Sleman, dan 20 Dinas dalam menggerakkan potensi lokal perikanan Kalurahan Sidoagung.
@@ -142,7 +214,7 @@ const featurePills = [
                 href="https://drive.google.com/drive/folders/1H6HgFSFGwxvSwdGxksj6OziAQxvSrjA0?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="btn-terracotta"
+                class="btn-gold"
               >
                 <i class="fas fa-folder-open"></i>
                 <span>Buka Dokumentasi & Galeri Proyek</span>
@@ -170,7 +242,7 @@ const featurePills = [
 
         <!-- Floating Pills at Bottom of Cinematic Card -->
         <div class="cinematic-pills-bar">
-          <span class="listen-label">SOROTAN:</span>
+          <span class="listen-label">SOROTAN PROGRAM:</span>
           <div class="pills-scroll">
             {featurePills.map((pill) => (
               <span class="feature-pill">
@@ -188,7 +260,7 @@ const featurePills = [
 <style>
   .programs-section {
     background-color: var(--color-cream);
-    padding: 6.5rem 6%;
+    padding: 7rem 6%;
     position: relative;
     overflow: hidden;
   }
@@ -200,23 +272,151 @@ const featurePills = [
     z-index: 5;
   }
 
-  /* Decorative Organic Circles */
-  .deco-circle-top {
-    top: 50px;
-    right: 4%;
-    width: 60px;
-    height: 60px;
+  /* Part 1: Bernstein Split Section */
+  .commitment-split-wrap {
+    display: grid;
+    grid-template-columns: 1.25fr 0.95fr;
+    gap: 4.5rem;
+    align-items: center;
+    margin-bottom: 4rem;
   }
 
-  .deco-circle-bottom {
-    bottom: 80px;
-    right: 3%;
-    width: 140px;
-    height: 140px;
-    opacity: 0.6;
+  .commitment-heading {
+    font-size: var(--step-head);
+    line-height: 1.05;
+    margin-bottom: 1.4rem;
+    display: flex;
+    flex-direction: column;
   }
 
-  /* 4 Cards Grid */
+  .heading-dark {
+    color: var(--color-text-dark);
+    font-weight: 400;
+  }
+
+  .heading-gold {
+    color: var(--color-gold);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .commitment-intro {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin-bottom: 2.5rem;
+    max-width: 620px;
+  }
+
+  .commitment-grid-2x2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1.8rem;
+  }
+
+  .pillar-box {
+    display: flex;
+    gap: 1.1rem;
+    align-items: flex-start;
+  }
+
+  .pillar-icon-halo {
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+    background: #141C2B;
+    border: none;
+    color: var(--color-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .pillar-title {
+    font-family: var(--font-serif);
+    font-size: 1.08rem;
+    color: var(--color-text-dark);
+    line-height: 1.25;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+  }
+
+  .pillar-desc {
+    font-size: 0.86rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+  }
+
+  /* Visual Frame with Overlapping Quote (Bernstein Signature) */
+  .commitment-visual-frame {
+    position: relative;
+    width: 100%;
+  }
+
+  .visual-img-wrap {
+    width: 100%;
+    height: 440px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #141C2B;
+  }
+
+  .visual-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+
+  .commitment-visual-frame:hover .visual-img-wrap img {
+    transform: scale(1.04);
+  }
+
+  .quote-callout-card {
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    width: 88%;
+    background-color: var(--color-midnight-deep);
+    border: none;
+    border-radius: 6px;
+    padding: 1.8rem 1.6rem;
+    color: #ffffff;
+    z-index: 5;
+  }
+
+  .quote-text {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #F8FAFC;
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  .quote-author {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .author-name {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-gold);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .author-role {
+    font-size: 0.78rem;
+    color: var(--color-text-muted-light);
+  }
+
+  /* Part 2: 4 Program Cards */
   .program-cards-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -226,9 +426,10 @@ const featurePills = [
 
   .program-card {
     position: relative;
-    border-radius: 20px;
+    border-radius: 8px;
     overflow: hidden;
-    background: #1c1114;
+    background: #0B101B;
+    border: none;
     display: flex;
     flex-direction: column;
     min-height: 520px;
@@ -239,12 +440,11 @@ const featurePills = [
     transform: translateY(-6px);
   }
 
-  /* Dedicated Media Frame on Top (100% Unobscured Photo) */
   .card-media-box {
     position: relative;
     width: 100%;
-    height: 230px;
-    background-color: #2a171d;
+    height: 220px;
+    background-color: #141C2B;
     overflow: hidden;
   }
 
@@ -268,21 +468,20 @@ const featurePills = [
     z-index: 2;
     display: inline-block;
     padding: 0.3rem 0.8rem;
-    border-radius: 20px;
+    border-radius: 4px;
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.04em;
-    background: var(--color-terracotta);
-    color: #ffffff;
+    background: var(--color-gold);
+    color: #0B101B;
   }
 
-  /* Content Body Below Photo */
   .card-body {
     padding: 1.6rem 1.5rem 1.6rem;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    background: #1c1114;
+    background: #0B101B;
     color: #ffffff;
   }
 
@@ -293,9 +492,10 @@ const featurePills = [
   .card-category {
     font-size: 0.76rem;
     font-weight: 600;
-    color: var(--color-terracotta);
+    color: var(--color-gold);
     letter-spacing: 0.04em;
     display: block;
+    text-transform: uppercase;
   }
 
   .card-title {
@@ -309,7 +509,7 @@ const featurePills = [
 
   .card-role {
     font-size: 0.88rem;
-    color: var(--color-terracotta);
+    color: var(--color-gold);
     font-weight: 600;
     margin-bottom: 0.75rem;
   }
@@ -317,7 +517,7 @@ const featurePills = [
   .card-desc {
     font-size: 0.86rem;
     line-height: 1.55;
-    color: #E2DADB;
+    color: #CBD5E1;
     margin-bottom: 1.4rem;
     flex-grow: 1;
     display: -webkit-box;
@@ -346,69 +546,21 @@ const featurePills = [
   }
 
   .card-link:hover {
-    color: var(--color-terracotta);
+    color: var(--color-gold);
   }
 
-  .btn-circle {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background-color: var(--color-terracotta);
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    text-decoration: none;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-  }
-
-  .btn-circle:hover {
-    background-color: var(--color-terracotta-hover);
-    transform: scale(1.08);
-  }
-
-  /* Wide Showcase with Split 2-Column Layout */
+  /* Part 3: Wide Showcase Card */
   .cinematic-showcase {
     position: relative;
     margin-top: 2rem;
   }
 
-  .script-accent-left {
-    position: absolute;
-    left: -120px;
-    top: 30%;
-    transform: rotate(-10deg);
-    z-index: 15;
-    pointer-events: none;
-  }
-
-  .script-accent-left span {
-    font-size: 2.1rem;
-    color: var(--color-text-secondary);
-    line-height: 1.1;
-  }
-
-  .script-accent-right {
-    position: absolute;
-    right: -100px;
-    top: 25%;
-    transform: rotate(8deg);
-    z-index: 15;
-    pointer-events: none;
-  }
-
-  .script-accent-right span {
-    font-size: 2.1rem;
-    color: var(--color-text-secondary);
-    line-height: 1.1;
-  }
-
   .cinematic-card-inner {
     position: relative;
-    border-radius: 24px;
+    border-radius: 8px;
     overflow: hidden;
-    background: #1e1115;
+    background: #0B101B;
+    border: none;
   }
 
   .cinematic-grid {
@@ -423,15 +575,6 @@ const featurePills = [
     color: #ffffff;
   }
 
-  .script-badge-inline {
-    margin-bottom: 0.8rem;
-  }
-
-  .script-badge-inline span {
-    font-size: 1.5rem;
-    color: var(--color-terracotta);
-  }
-
   .cinematic-heading {
     font-size: 2.4rem;
     line-height: 1.1;
@@ -440,15 +583,10 @@ const featurePills = [
     font-weight: 400;
   }
 
-  .cinematic-heading em {
-    font-style: italic;
-    color: var(--color-terracotta);
-  }
-
   .cinematic-sub {
     font-size: 1.02rem;
     line-height: 1.65;
-    color: #DDD4D6;
+    color: #CBD5E1;
     margin-bottom: 2rem;
   }
 
@@ -465,16 +603,19 @@ const featurePills = [
 
   .stat-number {
     font-family: var(--font-serif);
-    font-size: 1.9rem;
-    color: #ffffff;
+    font-size: 2.2rem;
+    color: var(--color-gold);
     line-height: 1;
+    font-weight: 600;
   }
 
   .stat-label {
     font-size: 0.8rem;
-    color: var(--color-terracotta);
+    color: #CBD5E1;
     font-weight: 600;
     margin-top: 0.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   .cinematic-cta-wrap {
@@ -493,9 +634,10 @@ const featurePills = [
     position: relative;
     width: 100%;
     height: 340px;
-    border-radius: 16px;
+    border-radius: 6px;
     overflow: hidden;
-    background-color: #2a171d;
+    background-color: #141C2B;
+    border: none;
   }
 
   .cinematic-photo {
@@ -515,10 +657,11 @@ const featurePills = [
     position: absolute;
     bottom: 14px;
     left: 14px;
-    background: rgba(20, 8, 12, 0.75);
+    background: rgba(11, 16, 27, 0.88);
+    border: none;
     color: #ffffff;
     padding: 0.4rem 0.9rem;
-    border-radius: 20px;
+    border-radius: 4px;
     font-size: 0.75rem;
     font-weight: 600;
     display: flex;
@@ -526,11 +669,15 @@ const featurePills = [
     gap: 0.4rem;
   }
 
+  .photo-badge i {
+    color: var(--color-gold);
+  }
+
   /* Cinematic Pills Bar */
   .cinematic-pills-bar {
     position: relative;
     z-index: 10;
-    background: #14080B;
+    background: #080D16;
     padding: 1.2rem 3.8rem;
     display: flex;
     align-items: center;
@@ -540,7 +687,7 @@ const featurePills = [
   .listen-label {
     font-size: 0.8rem;
     font-weight: 700;
-    color: var(--color-terracotta);
+    color: var(--color-gold);
     white-space: nowrap;
     letter-spacing: 0.05em;
   }
@@ -555,18 +702,29 @@ const featurePills = [
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    background: rgba(255, 255, 255, 0.12);
-    padding: 0.55rem 1.1rem;
-    border-radius: 50px;
-    font-size: 0.88rem;
+    background: rgba(197, 168, 128, 0.1);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
     color: #ffffff;
     font-weight: 500;
     transition: background-color 0.2s ease;
   }
 
+  .feature-pill i {
+    color: var(--color-gold);
+  }
+
   @media (max-width: 1200px) {
-    .script-accent-left, .script-accent-right {
-      display: none;
+    .commitment-split-wrap {
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+    }
+    .quote-callout-card {
+      position: static;
+      width: 100%;
+      margin-top: 1rem;
     }
     .program-cards-grid {
       grid-template-columns: repeat(2, 1fr);
@@ -587,6 +745,9 @@ const featurePills = [
   }
 
   @media (max-width: 650px) {
+    .commitment-grid-2x2 {
+      grid-template-columns: 1fr;
+    }
     .program-cards-grid {
       grid-template-columns: 1fr;
     }

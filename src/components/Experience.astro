@@ -5,10 +5,8 @@ import { experienceProgramAndWork, experienceOrganization } from '../data/portfo
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
 
-// Filter work experience for professional section
-const professionalWork = experienceProgramAndWork.filter(
-  item => item.role.includes("ShopeeFood") || item.organization.includes("Shopee") || item.badge?.includes("Profesional")
-);
+// Use all program and work experiences (including PPK Ormawa SEGARA & ShopeeFood)
+const professionalWork = experienceProgramAndWork;
 ---
 
 <section id="experience" class="experience-section">
@@ -78,8 +76,8 @@ const professionalWork = experienceProgramAndWork.filter(
         <div class="group-header">
           <div class="group-icon-pill"><i class="fas fa-briefcase"></i></div>
           <div>
-            <h3 class="group-title">Pengalaman Kerja & Profesional</h3>
-            <p class="group-subtitle">Etos kerja nyata, dedikasi operasional lapangan, kepatuhan SOP tinggi, dan ketepatan waktu.</p>
+            <h3 class="group-title">Pengalaman Profesional</h3>
+            <p class="group-subtitle">Kepemimpinan eksekusi program nasional, dedikasi operasional lapangan, kepatuhan SOP tinggi, dan ketepatan waktu.</p>
           </div>
         </div>
 

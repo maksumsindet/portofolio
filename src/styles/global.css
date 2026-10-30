@@ -2,35 +2,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap');
 
 :root {
-  /* Dark Burgundy Palette */
-  --color-burgundy-dark: #1E0F13;
-  --color-burgundy: #2F171D;
-  --color-burgundy-light: #42222A;
-  --color-burgundy-card: #3A1C23;
+  /* Executive Midnight Navy Palette (Theme: Bernstein) */
+  --color-midnight-deep: #0B101B;
+  --color-midnight: #111827;
+  --color-midnight-card: #182234;
+  --color-midnight-border: #23314B;
+  --color-midnight-subtle: #1E293B;
+
+  /* Luxury Champagne Gold / Bronze Palette */
+  --color-gold: #C5A880;
+  --color-gold-hover: #B8976C;
+  --color-gold-light: rgba(197, 168, 128, 0.14);
+  --color-gold-border: rgba(197, 168, 128, 0.35);
+  --color-gold-glow: rgba(197, 168, 128, 0.2);
+
+  /* Backwards compatibility aliases mapped to Bernstein palette */
+  --color-burgundy-dark: #080D16;
+  --color-burgundy: #0B101B;
+  --color-burgundy-light: #182234;
+  --color-burgundy-card: #141C2B;
   
-  /* Accent Warm Terracotta / Coral */
-  --color-terracotta: #C86D56;
-  --color-terracotta-hover: #B55B44;
-  --color-terracotta-light: rgba(200, 109, 86, 0.15);
-  
-  /* Accent Muted Sage Green */
-  --color-sage: #829584;
-  --color-sage-dark: #697C6B;
-  --color-sage-light: #A4B5A6;
-  --color-sage-bg: #E1E8E2;
-  
-  /* Warm Linen / Cream Body Palette */
-  --color-cream: #F6F2EC;
-  --color-cream-subtle: #EEE7DD;
+  --color-terracotta: #C5A880;
+  --color-terracotta-hover: #B8976C;
+  --color-terracotta-light: rgba(197, 168, 128, 0.14);
+
+  --color-sage: #7E9285;
+  --color-sage-dark: #63776A;
+  --color-sage-light: #9CB0A3;
+  --color-sage-bg: #E8ECE9;
+
+  /* Alabaster & Crisp Light Palette */
+  --color-cream: #FBF9F6;
+  --color-cream-subtle: #F3EFE9;
   --color-cream-card: #FFFFFF;
-  --color-cream-border: #E4DCD0;
-  
+  --color-cream-border: #E8E2D9;
+
   /* Text colors */
-  --color-text-dark: #221417;
-  --color-text-secondary: #6B5E61;
-  --color-text-light: #FAF6F4;
-  --color-text-muted-light: #D1C4C7;
-  
+  --color-text-dark: #0F172A;
+  --color-text-secondary: #526071;
+  --color-text-light: #F8FAFC;
+  --color-text-muted-light: #CBD5E1;
+  --color-text-gold: #C5A880;
+
   /* Typography */
   --font-serif: 'Gambarino', Georgia, serif;
   --font-sans: 'General Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -53,7 +66,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 90px;
-  background-color: var(--color-burgundy);
+  background-color: var(--color-midnight-deep);
   color: var(--color-text-dark);
   font-family: var(--font-sans);
 }
@@ -78,6 +91,35 @@ h1, h2, h3, h4, .font-serif {
 
 .font-script {
   font-family: var(--font-script);
+}
+
+/* Gold Accent Lead with Bar */
+.accent-lead-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.1rem;
+}
+
+.accent-rule {
+  width: 32px;
+  height: 2px;
+  background-color: var(--color-gold);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.lead-phrase {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+}
+
+.headline-gold {
+  color: var(--color-gold);
+  font-style: italic;
 }
 
 .section-title {
@@ -107,36 +149,36 @@ h1, h2, h3, h4, .font-serif {
   position: relative;
 }
 
-/* Buttons */
-.btn-terracotta {
+/* Buttons (Bernstein Style) */
+.btn-terracotta, .btn-gold {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  background-color: var(--color-terracotta);
-  color: #ffffff;
+  background-color: var(--color-gold);
+  color: #0B101B;
   padding: 0.9rem 1.9rem;
-  border-radius: 50px;
-  font-weight: 600;
+  border-radius: 4px;
+  font-weight: 700;
   font-size: 0.95rem;
   text-decoration: none;
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
   border: none;
 }
 
-.btn-terracotta:hover {
-  background-color: var(--color-terracotta-hover);
+.btn-terracotta:hover, .btn-gold:hover {
+  background-color: var(--color-gold-hover);
   transform: translateY(-2px);
-  color: #ffffff;
+  color: #0B101B;
 }
 
-.btn-outline-light {
+.btn-outline-light, .btn-navy-outline {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--color-text-light);
+  background: #141C2B;
+  color: #FFFFFF;
   padding: 0.9rem 1.9rem;
-  border-radius: 50px;
+  border-radius: 4px;
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
@@ -144,8 +186,8 @@ h1, h2, h3, h4, .font-serif {
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
 }
 
-.btn-outline-light:hover {
-  background: rgba(255, 255, 255, 0.2);
+.btn-outline-light:hover, .btn-navy-outline:hover {
+  background: #1E293B;
   transform: translateY(-2px);
 }
 
@@ -153,8 +195,8 @@ h1, h2, h3, h4, .font-serif {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background-color: var(--color-terracotta);
-  color: white;
+  background-color: var(--color-gold);
+  color: #0B101B;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -166,7 +208,7 @@ h1, h2, h3, h4, .font-serif {
 }
 
 .btn-circle:hover {
-  background-color: var(--color-terracotta-hover);
+  background-color: var(--color-gold-hover);
   transform: scale(1.08);
 }
 
@@ -174,7 +216,7 @@ h1, h2, h3, h4, .font-serif {
 .card-cream {
   background: var(--color-cream-card);
   border: none;
-  border-radius: 16px;
+  border-radius: 12px;
   padding: 2.2rem;
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -187,8 +229,8 @@ h1, h2, h3, h4, .font-serif {
 .shape-sage-circle {
   position: absolute;
   border-radius: 50%;
-  background: var(--color-sage);
-  opacity: 0.75;
+  background: var(--color-gold);
+  opacity: 0.12;
   pointer-events: none;
   z-index: 0;
 }
@@ -196,8 +238,8 @@ h1, h2, h3, h4, .font-serif {
 .shape-terracotta-pill {
   position: absolute;
   border-radius: 100px;
-  background: var(--color-terracotta);
-  opacity: 0.1;
+  background: var(--color-gold);
+  opacity: 0.08;
   pointer-events: none;
   z-index: 0;
 }

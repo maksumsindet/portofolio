@@ -1,5 +1,6 @@
 ---
 // Footer.astro
+// Executive Bernstein theme footer with gold monogram and clean corporate typography
 interface Props {
   name?: string;
 }
@@ -11,8 +12,11 @@ const currentYear = new Date().getFullYear();
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-left">
-      <span class="footer-brand">MAKSUM<span class="dot">.</span></span>
-      <p class="footer-sub">Statistika UNY &bull; Data Analyst &bull; Social Impact</p>
+      <div class="footer-brand-wrap">
+        <span class="footer-monogram">M.</span>
+        <span class="footer-brand">MAKSUM</span>
+      </div>
+      <p class="footer-sub">S1 Statistika FMIPA UNY &bull; Data Analyst &bull; Social Impact Leadership</p>
     </div>
 
     <div class="footer-center">
@@ -20,7 +24,7 @@ const currentYear = new Date().getFullYear();
     </div>
 
     <div class="footer-right">
-      <a href="#home" class="back-to-top" title="Kembali ke Atas">
+      <a href="#home" class="back-to-top" title="Kembali ke Atas" aria-label="Kembali ke Atas">
         <span>Atas</span>
         <i class="fas fa-arrow-up"></i>
       </a>
@@ -30,7 +34,7 @@ const currentYear = new Date().getFullYear();
 
 <style>
   .site-footer {
-    background-color: var(--color-burgundy-dark);
+    background-color: #080D16;
     padding: 2.8rem 6%;
     color: var(--color-text-muted-light);
     font-size: 0.9rem;
@@ -46,22 +50,39 @@ const currentYear = new Date().getFullYear();
     flex-wrap: wrap;
   }
 
+  .footer-brand-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .footer-monogram {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background-color: var(--color-gold);
+    color: #080D16;
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-radius: 3px;
+    line-height: 1;
+  }
+
   .footer-brand {
     font-family: var(--font-serif);
     font-size: 1.35rem;
     font-weight: 400;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     color: #ffffff;
-  }
-
-  .footer-brand .dot {
-    color: var(--color-terracotta);
   }
 
   .footer-sub {
     font-size: 0.84rem;
     color: var(--color-text-muted-light);
-    margin-top: 0.2rem;
+    margin-top: 0.35rem;
   }
 
   .copyright-text {
@@ -73,19 +94,20 @@ const currentYear = new Date().getFullYear();
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--color-text-muted-light);
+    color: var(--color-gold);
     text-decoration: none;
     font-size: 0.88rem;
     font-weight: 600;
     padding: 0.5rem 1rem;
-    border-radius: 50px;
-    background: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    background: #141C2B;
+    border: none;
     transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, color 0.2s ease;
   }
 
   .back-to-top:hover {
-    color: #ffffff;
-    background: var(--color-terracotta);
+    color: #080D16;
+    background: var(--color-gold);
     transform: translateY(-2px);
   }
 

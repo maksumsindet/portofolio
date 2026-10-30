@@ -1,56 +1,128 @@
 ---
 // Hero.astro
+// Recreates the executive "Bernstein" theme: Midnight navy, Champagne gold, mosaic accents, and floating spotlight cards
 import { personalInfo } from '../data/portfolioData';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
+
+const spotlightCards = [
+  {
+    tag: "PEMBERDAYAAN 224 KOLAM",
+    title: "PPK ORMAWA SEGARA",
+    desc: "Sentra Gerak Agromina di Sidoagung dengan 4 pilar pemberdayaan, Gapokkan Segara Agung, dan SEGARA App.",
+    image: `${base}assets/images/portfolio/segara-event-1.jpg`,
+    link: "#programs",
+    linkLabel: "Jelajahi Program"
+  },
+  {
+    tag: "PRESTASI TERTINGGI KEMDIKTISAINTEK",
+    title: "TERBAIK 2 NASIONAL",
+    desc: "Penganugerahan Juara Nasional Tim Pelaksana pada Anugerah Abdidaya Ormawa 2026 di UMI Makassar.",
+    image: `${base}assets/images/portfolio/abdidaya-stage-uny.jpg`,
+    link: "#achievements",
+    linkLabel: "Lihat Rekognisi"
+  },
+  {
+    tag: "ANALISIS DATA & SAINS",
+    title: "STATISTIKA & RISET",
+    desc: "Presidium I Mukernas XIX IHMSI & Kepala Departemen KPL KSI Mist UNY dengan IPK 3.84 / 4.00.",
+    image: `${base}assets/images/portfolio/man3-medali-matematika.jpg`,
+    link: "#experience",
+    linkLabel: "Eksplorasi Jejak"
+  }
+];
 ---
 
 <section id="home" class="hero-section">
-  <div class="hero-container">
-    <!-- Left Column: Content -->
-    <div class="hero-text-block fade-in">
-      <h1 class="hero-headline">
-        Wawasan Data Menggerakkan Perubahan Nyata
-      </h1>
-      <p class="hero-description">
-        Menggabungkan keahlian <strong>Analisis Data Statistik</strong> & <strong>Machine Learning</strong> dengan <strong>Pemberdayaan Komunitas</strong> untuk menciptakan solusi nyata yang terukur, berdampak sosial, dan berkelanjutan.
-      </p>
-      
-      <div class="hero-buttons">
-        <a href="#about" class="btn-terracotta">
-          <span>Kenal Lebih Dekat</span>
-          <i class="fas fa-arrow-right"></i>
-        </a>
-        <a href="#programs" class="btn-outline-light">
-          <span>Eksplorasi Program</span>
-        </a>
+  <!-- Subtle Mosaic Background Texture Motif (Bernstein Tell) -->
+  <div class="mosaic-bg-overlay" aria-hidden="true">
+    <div class="mosaic-tile t-1"></div>
+    <div class="mosaic-tile t-2"></div>
+    <div class="mosaic-tile t-3"></div>
+    <div class="mosaic-tile t-4"></div>
+    <div class="mosaic-tile t-5"></div>
+    <div class="mosaic-tile t-6"></div>
+  </div>
+
+  <div class="hero-main-container">
+    <div class="hero-grid">
+      <!-- Left Column: Content -->
+      <div class="hero-text-block fade-in">
+        <div class="accent-lead-wrap">
+          <span class="accent-rule"></span>
+          <span class="lead-phrase">A Heritage of Data & Impact</span>
+        </div>
+
+        <h1 class="hero-headline">
+          <span class="headline-white">DIBANGUN DI ATAS</span>
+          <span class="headline-gold">KEMITRAAN & DATA</span>
+        </h1>
+
+        <p class="hero-description">
+          Menggabungkan keahlian <strong>Analisis Data Statistik</strong> & <strong>Machine Learning</strong> dengan kepemimpinan sosial berkelanjutan untuk menciptakan aksi nyata yang terukur, berdampak luas, dan diakui secara nasional.
+        </p>
+        
+        <div class="hero-buttons">
+          <a href="#programs" class="btn-gold">
+            <span>Eksplorasi Program</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="#contact" class="btn-navy-outline">
+            <i class="fas fa-calendar-check"></i>
+            <span>Konsultasi & Kontak</span>
+          </a>
+        </div>
+
+        <div class="hero-social">
+          <span class="social-label">Terhubung:</span>
+          <a href={personalInfo.social.email} class="social-pill" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href={personalInfo.social.linkedin} class="social-pill" title="LinkedIn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href={personalInfo.social.instagram} class="social-pill" title="Instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://github.com/maksumsindet" class="social-pill" title="GitHub" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        </div>
       </div>
 
-      <div class="hero-social">
-        <span class="social-label">Terhubung:</span>
-        <a href={personalInfo.social.email} class="social-pill" title="Email"><i class="fas fa-envelope"></i></a>
-        <a href={personalInfo.social.linkedin} class="social-pill" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-        <a href={personalInfo.social.instagram} class="social-pill" title="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-        <a href="https://github.com/maksumsindet" class="social-pill" title="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+      <!-- Right Column: Professional Portrait with Mosaic Framing -->
+      <div class="hero-visual-block fade-in">
+        <div class="portrait-mosaic-frame">
+          <div class="mosaic-corner-tile c-1"></div>
+          <div class="mosaic-corner-tile c-2"></div>
+          
+          <div class="portrait-img-wrap">
+            <img
+              src={`${base}${personalInfo.profileImage}`}
+              alt={personalInfo.name}
+              class="portrait-img"
+              loading="eager"
+            />
+          </div>
+
+          <div class="executive-caption-badge">
+            <span class="badge-org">S1 Statistika FMIPA UNY</span>
+            <span class="badge-val">IPK 3.84 / 4.00</span>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Right Column: Styled Portrait Arch -->
-    <div class="hero-visual-block fade-in">
-      <div class="script-badge">
-        <span class="font-script">A Brighter Tomorrow</span>
-      </div>
-
-      <div class="arch-wrapper">
-        <div class="arch-backdrop"></div>
-        <div class="portrait-container">
-          <img
-            src={`${base}${personalInfo.profileImage}`}
-            alt={personalInfo.name}
-            class="portrait-img"
-          />
+    <!-- 3 Floating Spotlight Cards (Bridging Hero to Section 2 - Signature Bernstein Tell) -->
+    <div class="floating-cards-row slide-up">
+      {spotlightCards.map((card) => (
+        <div class="spotlight-card">
+          <div class="spotlight-img-wrap">
+            <img src={card.image} alt={card.title} loading="lazy" />
+          </div>
+          <div class="spotlight-card-body">
+            <span class="spotlight-tag">{card.tag}</span>
+            <h3 class="spotlight-title">{card.title}</h3>
+            <p class="spotlight-desc">{card.desc}</p>
+            <a href={card.link} class="spotlight-link">
+              <span>{card.linkLabel}</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
         </div>
-      </div>
+      ))}
     </div>
   </div>
 </section>
@@ -58,25 +130,53 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
 <style>
   .hero-section {
     position: relative;
-    background-color: var(--color-burgundy);
+    background-color: var(--color-midnight-deep);
     color: var(--color-text-light);
-    padding: 8.5rem 6% 6.5rem;
+    padding: 8.5rem 6% 7rem;
     min-height: 100svh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     overflow: hidden;
   }
 
-  .hero-container {
+  /* Mosaic Background Squares (Bernstein Tell) */
+  .mosaic-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .mosaic-tile {
+    position: absolute;
+    background-color: rgba(197, 168, 128, 0.04);
+  }
+
+  .t-1 { top: 12%; left: 8%; width: 90px; height: 90px; }
+  .t-2 { top: 22%; left: 14%; width: 60px; height: 60px; background-color: rgba(197, 168, 128, 0.07); }
+  .t-3 { top: 15%; right: 28%; width: 110px; height: 110px; background-color: rgba(197, 168, 128, 0.05); }
+  .t-4 { top: 40%; right: 12%; width: 75px; height: 75px; }
+  .t-5 { bottom: 25%; right: 6%; width: 130px; height: 130px; background-color: rgba(197, 168, 128, 0.06); }
+  .t-6 { bottom: 35%; left: 4%; width: 80px; height: 80px; }
+
+  .hero-main-container {
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1.25fr 0.95fr;
-    gap: 4rem;
-    align-items: center;
     position: relative;
     z-index: 10;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.22fr 0.98fr;
+    gap: 4.5rem;
+    align-items: center;
+    margin-bottom: 4.5rem;
   }
 
   /* Left Column */
@@ -86,11 +186,24 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
 
   .hero-headline {
     font-size: var(--step-display);
-    line-height: 0.98;
+    line-height: 1.02;
     color: #ffffff;
     margin-bottom: 1.6rem;
     letter-spacing: -0.035em;
     text-wrap: balance;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .headline-white {
+    color: #ffffff;
+    font-weight: 400;
+  }
+
+  .headline-gold {
+    color: var(--color-gold);
+    font-style: italic;
+    font-weight: 400;
   }
 
   .hero-description {
@@ -98,20 +211,18 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
     line-height: 1.7;
     color: var(--color-text-muted-light);
     margin-bottom: 2.4rem;
-    max-width: 600px;
   }
 
   .hero-description strong {
     color: #ffffff;
-    font-weight: 600;
   }
 
   .hero-buttons {
     display: flex;
-    gap: 1.2rem;
     align-items: center;
+    gap: 1.2rem;
     flex-wrap: wrap;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.8rem;
   }
 
   .hero-social {
@@ -121,82 +232,78 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
   }
 
   .social-label {
-    font-size: 0.88rem;
-    color: var(--color-text-muted-light);
-    font-weight: 500;
-    margin-right: 0.3rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    margin-right: 0.4rem;
   }
 
   .social-pill {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.12);
-    color: var(--color-text-muted-light);
-    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    background: #141C2B;
+    border: none;
+    color: var(--color-gold);
+    display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
     font-size: 0.95rem;
+    text-decoration: none;
     transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, color 0.2s ease;
-    border: none;
   }
 
   .social-pill:hover {
-    background: var(--color-terracotta);
-    color: #ffffff;
+    background-color: var(--color-gold);
+    color: #0B101B;
     transform: translateY(-2px);
   }
 
-  /* Visual Block */
+  /* Right Column: Portrait */
   .hero-visual-block {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .portrait-mosaic-frame {
     position: relative;
-  }
-
-  .script-badge {
-    position: absolute;
-    top: 5px;
-    right: 15px;
-    z-index: 15;
-    transform: rotate(-8deg);
-  }
-
-  .script-badge span {
-    font-size: 2.2rem;
-    color: #ffffff;
-    opacity: 0.88;
-    white-space: nowrap;
-  }
-
-  .arch-wrapper {
-    position: relative;
-    width: 320px;
-    height: 430px;
-  }
-
-  .arch-backdrop {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    background-color: var(--color-sage);
-    border-radius: 160px 160px 24px 24px;
+    max-width: 440px;
+  }
+
+  .mosaic-corner-tile {
+    position: absolute;
+    background-color: rgba(197, 168, 128, 0.18);
     z-index: 1;
   }
 
-  .portrait-container {
-    position: absolute;
-    bottom: 0;
-    left: 5%;
-    width: 90%;
-    height: 96%;
-    z-index: 2;
+  .c-1 {
+    top: -18px;
+    right: -18px;
+    width: 65px;
+    height: 65px;
+  }
+
+  .c-2 {
+    bottom: -15px;
+    left: -15px;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(197, 168, 128, 0.12);
+  }
+
+  .portrait-img-wrap {
+    position: relative;
+    width: 100%;
+    height: 530px;
+    border-radius: 8px;
     overflow: hidden;
-    border-radius: 140px 140px 18px 18px;
+    background-color: #141C2B;
+    border: none;
+    z-index: 2;
   }
 
   .portrait-img {
@@ -205,25 +312,159 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
     object-fit: cover;
     object-position: center 25%;
     display: block;
+    transition: transform 0.6s ease;
   }
 
-  /* Responsive Adjustments */
-  @media (max-width: 850px) {
-    .hero-section {
-      padding: 7.5rem 5% 4.5rem;
-    }
-    .hero-container {
+  .portrait-mosaic-frame:hover .portrait-img {
+    transform: scale(1.03);
+  }
+
+  .executive-caption-badge {
+    position: absolute;
+    bottom: -18px;
+    right: 20px;
+    z-index: 5;
+    background: #0B101B;
+    border: none;
+    padding: 0.75rem 1.4rem;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+
+  .badge-org {
+    font-size: 0.75rem;
+    color: var(--color-gold);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .badge-val {
+    font-size: 1.05rem;
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  /* 3 Floating Spotlight Cards (Signature Bernstein Tell) */
+  .floating-cards-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  .spotlight-card {
+    background: #FFFFFF;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .spotlight-card:hover {
+    transform: translateY(-6px);
+  }
+
+  .spotlight-img-wrap {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    background-color: #F3EFE9;
+  }
+
+  .spotlight-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .spotlight-card:hover .spotlight-img-wrap img {
+    transform: scale(1.06);
+  }
+
+  .spotlight-card-body {
+    padding: 1.8rem 1.6rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    color: #0F172A;
+  }
+
+  .spotlight-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--color-gold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .spotlight-title {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    color: #0B101B;
+    line-height: 1.2;
+    margin-bottom: 0.65rem;
+    font-weight: 600;
+  }
+
+  .spotlight-desc {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: #526071;
+    margin-bottom: 1.4rem;
+    flex-grow: 1;
+  }
+
+  .spotlight-link {
+    color: #0B101B;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.2s ease, gap 0.2s ease;
+    margin-top: auto;
+  }
+
+  .spotlight-link:hover {
+    color: var(--color-gold);
+    gap: 0.6rem;
+  }
+
+  @media (max-width: 1100px) {
+    .hero-grid {
       grid-template-columns: 1fr;
-      text-align: center;
-      gap: 3rem;
+      gap: 3.5rem;
     }
-    .hero-text-block {
-      max-width: 100%;
+    .portrait-img-wrap {
+      height: 440px;
+    }
+    .floating-cards-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 650px) {
+    .hero-section {
+      padding: 7.5rem 5% 5rem;
+    }
+    .portrait-img-wrap {
+      height: 360px;
     }
     .hero-buttons {
-      justify-content: center;
+      flex-direction: column;
+      align-items: stretch;
     }
-    .hero-social {
+    .hero-buttons a {
       justify-content: center;
     }
   }

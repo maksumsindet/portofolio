@@ -1,5 +1,6 @@
 ---
 // Achievements.astro
+// Recreates Achievements section in the executive Bernstein style with luxury gold badges and navy contrast
 import { achievementsData } from '../data/portfolioData';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
@@ -31,15 +32,23 @@ const coreHighlights = [
 <section id="achievements" class="achievements-section">
   <div class="achievements-container">
     <div class="section-title fade-in">
-      <h2>Prestasi & Penghargaan Kompetisi</h2>
+      <div class="accent-lead-wrap" style="justify-content: center;">
+        <span class="accent-rule"></span>
+        <span class="lead-phrase">Rekam Jejak Prestasi & Kejuaraan</span>
+        <span class="accent-rule"></span>
+      </div>
+      <h2>
+        <span class="headline-dark">PENGAKUAN &</span>
+        <span class="headline-gold">Prestasi Nasional</span>
+      </h2>
       <p>
-        Pengakuan tingkat nasional dan kompetensi tersertifikasi dalam inovasi program, matematika, komputasi, dan desain.
+        Pengakuan tingkat nasional dan kompetensi teruji dalam inovasi pemberdayaan masyarakat, olimpiade matematika, komputasi data, dan kepemimpinan.
       </p>
     </div>
 
-    <!-- 4-Column Highlights Banner -->
+    <!-- 4-Column Highlights Ribbon (Executive Navy & Gold in Bernstein Style) -->
     <div class="achieve-highlights-wrap slide-up">
-      <div class="achieve-highlights-card card-cream">
+      <div class="achieve-highlights-card">
         {coreHighlights.map((item) => (
           <div class="highlight-col">
             <div class="highlight-icon-wrap">
@@ -54,6 +63,7 @@ const coreHighlights = [
       </div>
     </div>
 
+    <!-- Achievement Cards Grid -->
     <div class="achieve-grid slide-up">
       {achievementsData.map((item) => (
         <div class="achieve-card card-cream">
@@ -62,7 +72,7 @@ const coreHighlights = [
               {item.logo ? (
                 <img src={`${base}${item.logo}`} alt={item.issuer} loading="lazy" />
               ) : (
-                <i class={item.icon || "fas fa-trophy"} style={`color: ${item.iconColor || 'var(--color-terracotta)'};`}></i>
+                <i class={item.icon || "fas fa-trophy"} style={`color: ${item.iconColor || 'var(--color-gold)'};`}></i>
               )}
             </div>
             <div class="achieve-badges">
@@ -86,7 +96,7 @@ const coreHighlights = [
 <style>
   .achievements-section {
     background-color: var(--color-cream);
-    padding: 6.5rem 6%;
+    padding: 7rem 6%;
     position: relative;
   }
 
@@ -95,13 +105,26 @@ const coreHighlights = [
     margin: 0 auto;
   }
 
-  /* Highlights Card Banner */
+  .headline-dark {
+    color: var(--color-text-dark);
+    font-weight: 400;
+  }
+
+  .headline-gold {
+    color: var(--color-gold);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  /* Highlights Card Banner (Executive Midnight Navy & Champagne Gold) */
   .achieve-highlights-wrap {
-    margin-bottom: 3.5rem;
+    margin-bottom: 4rem;
   }
 
   .achieve-highlights-card {
-    border-radius: 20px;
+    background-color: var(--color-midnight-deep);
+    border: none;
+    border-radius: 8px;
     padding: 2.2rem 2.8rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -118,8 +141,9 @@ const coreHighlights = [
     width: 52px;
     height: 52px;
     border-radius: 50%;
-    background: rgba(200, 109, 86, 0.12);
-    color: var(--color-terracotta);
+    background: #141C2B;
+    border: none;
+    color: var(--color-gold);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -129,23 +153,23 @@ const coreHighlights = [
   }
 
   .highlight-col:hover .highlight-icon-wrap {
-    background: var(--color-terracotta);
-    color: #ffffff;
+    background: var(--color-gold);
+    color: #0B101B;
     transform: scale(1.08);
   }
 
   .highlight-title {
     font-family: var(--font-serif);
     font-size: 1.25rem;
-    font-weight: 400;
-    color: var(--color-text-dark);
+    font-weight: 600;
+    color: #ffffff;
     margin-bottom: 0.25rem;
     line-height: 1.15;
   }
 
   .highlight-sub {
     font-size: 0.85rem;
-    color: var(--color-text-secondary);
+    color: var(--color-text-muted-light);
     line-height: 1.45;
   }
 
@@ -160,6 +184,14 @@ const coreHighlights = [
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    background: #FFFFFF;
+    border-radius: 8px;
+    border: none;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .achieve-card:hover {
+    transform: translateY(-4px);
   }
 
   .achieve-top {
@@ -172,8 +204,8 @@ const coreHighlights = [
   .achieve-icon-frame {
     width: 64px;
     height: 64px;
-    border-radius: 12px;
-    background: var(--color-cream);
+    border-radius: 6px;
+    background: #F8FAFC;
     border: none;
     display: flex;
     align-items: center;
@@ -200,38 +232,37 @@ const coreHighlights = [
   }
 
   .badge-cat {
-    display: inline-block;
-    padding: 0.25rem 0.65rem;
-    border-radius: 20px;
     font-size: 0.72rem;
     font-weight: 700;
+    color: var(--color-gold);
+    background: #0B101B;
+    border: none;
+    padding: 0.2rem 0.65rem;
+    border-radius: 4px;
     text-transform: uppercase;
-    background: rgba(131, 151, 136, 0.2);
-    color: var(--color-sage-dark);
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
   }
 
   .badge-year {
-    font-size: 0.84rem;
+    font-size: 0.8rem;
     font-weight: 700;
-    color: var(--color-terracotta);
+    color: var(--color-text-secondary);
   }
 
   .achieve-title {
     font-family: var(--font-serif);
     font-size: 1.3rem;
     color: var(--color-text-dark);
-    line-height: 1.25;
     margin-bottom: 0.4rem;
-    min-height: 3.3rem;
-    font-weight: 400;
+    line-height: 1.25;
+    font-weight: 500;
   }
 
   .achieve-issuer {
     font-size: 0.95rem;
     color: var(--color-text-secondary);
     font-weight: 600;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1.1rem;
   }
 
   .achieve-desc {
@@ -239,24 +270,22 @@ const coreHighlights = [
     line-height: 1.6;
     color: var(--color-text-secondary);
     margin-top: auto;
-    padding-top: 1rem;
   }
 
   @media (max-width: 1100px) {
     .achieve-highlights-card {
       grid-template-columns: repeat(2, 1fr);
-      padding: 2rem 2.2rem;
+      gap: 2.2rem;
+      padding: 2.2rem 2rem;
     }
     .achieve-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 768px) {
     .achieve-highlights-card {
       grid-template-columns: 1fr;
-      gap: 1.6rem;
-      padding: 1.8rem;
     }
     .achieve-grid {
       grid-template-columns: 1fr;
