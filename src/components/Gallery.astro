@@ -1,24 +1,539 @@
 ---
 // Gallery.astro
-import { galleryEmbeds } from '../data/portfolioData';
+import { documentaryPhotos, galleryEmbeds } from '../data/portfolioData';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
 ---
 
-<section id="gallery" class="gallery section">
-  <div class="section-title">
-    <h2>Galeri</h2>
-  </div>
-  <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; max-width: 100%; margin: 0 auto; width: 100%; justify-items: center;">
-    {galleryEmbeds.map((embedUrl) => (
-      <div class="gallery-item slide-up" style="width: 100%; display: flex; justify-content: center;">
-        <iframe
-          src={embedUrl}
-          width="100%"
-          height="560"
-          title="Instagram post"
-          scrolling="no"
-          style="max-width: 400px; display: block; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 4px 6px rgba(0,0,0,0.05); background: white;"
-        ></iframe>
+<section id="gallery" class="gallery-section">
+  <div class="gallery-container">
+    <div class="section-title fade-in">
+      <h2>Galeri Dokumentasi & Arsip Visual</h2>
+      <p>
+        Rekaman visual autentik kegiatan pengabdian masyarakat di Kalurahan Sidoagung, penganugerahan ajang nasional, dan rekam jejak kepemimpinan.
+      </p>
+    </div>
+
+    <!-- Category Filter Buttons -->
+    <div class="gallery-filters-wrap slide-up">
+      <div class="gallery-filters" role="tablist" aria-label="Kategori Galeri Foto">
+        <button type="button" class="filter-btn active" data-filter="all">
+          Semua Dokumentasi ({documentaryPhotos.length})
+        </button>
+        <button type="button" class="filter-btn" data-filter="Pemberdayaan">
+          Pemberdayaan Masyarakat
+        </button>
+        <button type="button" class="filter-btn" data-filter="Prestasi & Riset">
+          Prestasi & Riset
+        </button>
+        <button type="button" class="filter-btn" data-filter="Lapangan & Teknis">
+          Lapangan & Teknis
+        </button>
       </div>
-    ))}
+    </div>
+
+    <!-- Curated Photography Grid -->
+    <div class="doc-photo-grid slide-up" id="doc-photo-grid">
+      {documentaryPhotos.map((photo) => (
+        <article
+          class="doc-photo-card card-cream"
+          data-category={photo.category}
+        >
+          <div
+            class="doc-img-wrap"
+            tabindex="0"
+            role="button"
+            aria-label={`Buka pratinjau: ${photo.caption}`}
+            data-src={`${base}${photo.src}`}
+            data-alt={photo.alt}
+            data-caption={photo.caption}
+            data-tag={photo.tag}
+            data-source={photo.source || ''}
+          >
+            <img
+              src={`${base}${photo.src}`}
+              alt={photo.alt}
+              width="400"
+              height="260"
+              loading="lazy"
+              class="doc-img"
+            />
+            <div class="img-zoom-cue">
+              <i class="fas fa-magnifying-glass-plus"></i>
+              <span>Perbesar</span>
+            </div>
+          </div>
+
+          <div class="doc-card-body">
+            <div class="doc-meta-row">
+              <span class="doc-tag">{photo.tag}</span>
+              {photo.source && (
+                <span class="doc-source">
+                  <i class="fas fa-camera"></i> {photo.source}
+                </span>
+              )}
+            </div>
+            <h3 class="doc-caption">{photo.caption}</h3>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Lightbox Modal Dialog -->
+    <dialog id="photo-lightbox" class="photo-lightbox" aria-label="Pratinjau Foto Dokumentasi">
+      <div class="lightbox-dialog-inner">
+        <button type="button" id="lightbox-close" class="lightbox-close-btn" aria-label="Tutup pratinjau">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="lightbox-media">
+          <img id="lightbox-img" src="" alt="" />
+        </div>
+        <div class="lightbox-details">
+          <div class="lightbox-meta">
+            <span id="lightbox-tag" class="doc-tag"></span>
+            <span id="lightbox-source" class="doc-source"></span>
+          </div>
+          <p id="lightbox-caption" class="lightbox-caption-text"></p>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- Social Media Embeds Section -->
+    <div class="social-showcase-section slide-up">
+      <div class="social-header">
+        <h3 class="social-subheading">Liputan Media Sosial & Cuplikan Video</h3>
+        <p class="social-subdesc">
+          Dokumentasi interaktif yang dipublikasikan secara terbuka melalui platform media sosial kegiatan kemahasiswaan dan pengabdian.
+        </p>
+      </div>
+
+      <div class="gallery-embed-grid">
+        {galleryEmbeds.map((embedUrl) => (
+          <div class="gallery-embed-wrap card-cream">
+            <iframe
+              src={embedUrl}
+              width="100%"
+              height="540"
+              title="Dokumentasi aktivitas di media sosial"
+              scrolling="no"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              class="instagram-iframe"
+            ></iframe>
+          </div>
+        ))}
+      </div>
+    </div>
   </div>
 </section>
+
+<script>
+  function setupGallery() {
+    // 1. Filter buttons functionality
+    const filterButtons = document.querySelectorAll<HTMLButtonElement>('.gallery-filters .filter-btn');
+    const photoCards = document.querySelectorAll<HTMLElement>('.doc-photo-card');
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filterVal = btn.getAttribute('data-filter') || 'all';
+
+        photoCards.forEach((card) => {
+          const category = card.getAttribute('data-category');
+          if (filterVal === 'all' || category === filterVal) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // 2. Lightbox Modal
+    const lightbox = document.getElementById('photo-lightbox') as HTMLDialogElement | null;
+    const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement | null;
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const lightboxTag = document.getElementById('lightbox-tag');
+    const lightboxSource = document.getElementById('lightbox-source');
+    const lightboxClose = document.getElementById('lightbox-close');
+
+    if (!lightbox || !lightboxImg || !lightboxCaption || !lightboxTag || !lightboxSource) return;
+
+    const imgWraps = document.querySelectorAll<HTMLElement>('.doc-img-wrap');
+
+    imgWraps.forEach((wrap) => {
+      const openModal = () => {
+        const src = wrap.getAttribute('data-src') || '';
+        const alt = wrap.getAttribute('data-alt') || '';
+        const caption = wrap.getAttribute('data-caption') || '';
+        const tag = wrap.getAttribute('data-tag') || '';
+        const source = wrap.getAttribute('data-source') || '';
+
+        lightboxImg.src = src;
+        lightboxImg.alt = alt;
+        lightboxCaption.textContent = caption;
+        lightboxTag.textContent = tag;
+        lightboxSource.textContent = source ? `Sumber: ${source}` : '';
+
+        lightbox.showModal();
+      };
+
+      wrap.addEventListener('click', openModal);
+      wrap.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openModal();
+        }
+      });
+    });
+
+    lightboxClose?.addEventListener('click', () => {
+      lightbox.close();
+    });
+
+    // Close when clicking outside of dialog content
+    lightbox.addEventListener('click', (e) => {
+      const rect = lightbox.getBoundingClientRect();
+      const isInDialog = (
+        rect.top <= e.clientY &&
+        e.clientY <= rect.top + rect.height &&
+        rect.left <= e.clientX &&
+        e.clientX <= rect.left + rect.width
+      );
+      if (!isInDialog) {
+        lightbox.close();
+      }
+    });
+  }
+
+  // Initialize on load and on astro page-load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupGallery);
+  } else {
+    setupGallery();
+  }
+  document.addEventListener('astro:page-load', setupGallery);
+</script>
+
+<style>
+  .gallery-section {
+    background-color: var(--color-cream);
+    padding: 6.5rem 6%;
+    position: relative;
+  }
+
+  .gallery-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Filter Buttons */
+  .gallery-filters-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2.8rem;
+  }
+
+  .gallery-filters {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: 0.4rem;
+    background: var(--color-cream-deep);
+    border-radius: 999px;
+    justify-content: center;
+  }
+
+  .filter-btn {
+    border: none;
+    background: transparent;
+    color: var(--color-text-secondary);
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.6rem 1.3rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .filter-btn:hover {
+    color: var(--color-burgundy);
+  }
+
+  .filter-btn.active {
+    background: var(--color-burgundy);
+    color: var(--color-cream);
+  }
+
+  /* Curated Photography Grid */
+  .doc-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 5.5rem;
+  }
+
+  .doc-photo-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 1.2rem;
+    border-radius: 16px;
+    transition: transform 0.25s ease;
+  }
+
+  .doc-photo-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .doc-img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--color-burgundy);
+    cursor: pointer;
+  }
+
+  .doc-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+  }
+
+  .doc-img-wrap:hover .doc-img,
+  .doc-img-wrap:focus-visible .doc-img {
+    transform: scale(1.05);
+  }
+
+  .img-zoom-cue {
+    position: absolute;
+    bottom: 0.8rem;
+    right: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(47, 23, 29, 0.85);
+    color: var(--color-cream);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .doc-img-wrap:hover .img-zoom-cue,
+  .doc-img-wrap:focus-visible .img-zoom-cue {
+    opacity: 1;
+  }
+
+  .doc-card-body {
+    padding: 1.2rem 0.4rem 0.4rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .doc-meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    margin-bottom: 0.65rem;
+    flex-wrap: wrap;
+  }
+
+  .doc-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
+    background: rgba(200, 109, 86, 0.12);
+    color: var(--color-terracotta);
+  }
+
+  .doc-source {
+    font-size: 0.78rem;
+    color: var(--color-text-secondary);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .doc-caption {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    line-height: 1.35;
+    color: var(--color-text-dark);
+    font-weight: 400;
+    margin: 0;
+  }
+
+  /* Lightbox Dialog */
+  .photo-lightbox {
+    border: none;
+    border-radius: 16px;
+    padding: 0;
+    max-width: 900px;
+    width: 90vw;
+    background: var(--color-cream);
+    color: var(--color-text-dark);
+    overflow: hidden;
+  }
+
+  .photo-lightbox::backdrop {
+    background: rgba(26, 12, 16, 0.88);
+  }
+
+  .lightbox-dialog-inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .lightbox-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(47, 23, 29, 0.85);
+    color: var(--color-cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .lightbox-close-btn:hover {
+    background: var(--color-terracotta);
+  }
+
+  .lightbox-media {
+    width: 100%;
+    max-height: 70vh;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .lightbox-media img {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    display: block;
+  }
+
+  .lightbox-details {
+    padding: 1.6rem 2rem 2rem;
+    background: var(--color-cream);
+  }
+
+  .lightbox-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .lightbox-caption-text {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    line-height: 1.4;
+    color: var(--color-text-dark);
+    margin: 0;
+  }
+
+  /* Social Media Showcase Sub-section */
+  .social-showcase-section {
+    padding-top: 2rem;
+  }
+
+  .social-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 2.8rem;
+  }
+
+  .social-subheading {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: var(--color-text-dark);
+    margin-bottom: 0.75rem;
+    font-weight: 400;
+  }
+
+  .social-subdesc {
+    color: var(--color-text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .gallery-embed-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    justify-items: center;
+  }
+
+  .gallery-embed-wrap {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.8rem;
+    display: flex;
+    justify-content: center;
+    border-radius: 16px;
+  }
+
+  .instagram-iframe {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  @media (max-width: 1050px) {
+    .doc-photo-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-embed-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 700px) {
+    .doc-photo-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .gallery-embed-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .gallery-filters {
+      border-radius: 12px;
+    }
+
+    .filter-btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>

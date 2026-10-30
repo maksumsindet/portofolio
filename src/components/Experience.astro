@@ -5,95 +5,381 @@ import { experienceProgramAndWork, experienceOrganization } from '../data/portfo
 const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
 ---
 
-<section id="experience" class="experience section">
-  <div class="section-title">
-    <h2><span class="highlight">Pengalaman</span> & Kepemimpinan</h2>
-  </div>
+<section id="experience" class="experience-section">
+  <div class="experience-container">
+    <div class="section-title fade-in">
+      <h2>Pengalaman & Kepemimpinan</h2>
+      <p>
+        Rekam jejak dedikasi dalam memimpin tim lintas disiplin, mengelola riset, dan mengorkestrasi program kemasyarakatan berskala nasional.
+      </p>
+    </div>
 
-  <!-- Program Nasional & Pengalaman Kerja -->
-  <div style="margin-bottom: 4rem;">
-    <h3 style="text-align: center; color: var(--text-primary); font-size: 1.5rem; margin-bottom: 2rem;">
-      <i class="fas fa-briefcase" style="color: var(--primary-color);"></i> Program Nasional & Profesional
-    </h3>
-    <div style="display: flex; flex-direction: column; gap: 2rem; max-width: 900px; margin: 0 auto;">
-      {experienceProgramAndWork.map((item) => (
-        <div class="glass-card slide-up" style="padding: 2rem;">
-          <div style="display: flex; gap: 1.5rem; align-items: flex-start; flex-wrap: wrap;">
-            <div style="width: 80px; height: 80px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: rgba(14, 165, 233, 0.08); border-radius: 12px; padding: 0.5rem;">
-              {item.logo ? (
-                <img
-                  src={`${base}${item.logo}`}
-                  alt={item.organization}
-                  style="max-height: 100%; max-width: 100%; object-fit: contain;"
-                  loading="lazy"
-                />
-              ) : (
-                <i class={item.icon || "fas fa-briefcase"} style={`font-size: 2.2rem; color: ${item.iconColor || 'var(--primary-color)'};`}></i>
-              )}
-            </div>
-            <div style="flex: 1; min-width: 260px;">
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem;">
-                <div>
-                  <h3 style="font-size: 1.3rem; color: var(--accent-color); margin-bottom: 0.2rem;">{item.role}</h3>
-                  <h4 style="font-size: 1.05rem; color: var(--text-primary); font-weight: 600;">{item.organization}</h4>
-                  {item.location && <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.2rem;"><i class="fas fa-map-marker-alt"></i> {item.location}</p>}
+    <!-- Sub-heading 1: Program Nasional & Profesional -->
+    <div class="exp-group-wrap slide-up">
+      <div class="group-header">
+        <div class="group-icon-pill"><i class="fas fa-briefcase"></i></div>
+        <h3 class="group-title">Program Nasional & Pengalaman Kerja</h3>
+      </div>
+
+      <div class="featured-cards-stack">
+        {experienceProgramAndWork.map((item) => (
+          <div class="exp-card-featured card-cream">
+            <div class="featured-top">
+              <div class="logo-box">
+                {item.logo ? (
+                  <img src={`${base}${item.logo}`} alt={item.organization} loading="lazy" />
+                ) : (
+                  <i class={item.icon || "fas fa-briefcase"} style={`color: ${item.iconColor || 'var(--color-terracotta)'};`}></i>
+                )}
+              </div>
+              
+              <div class="featured-meta">
+                <div class="meta-main">
+                  <h4 class="exp-role">{item.role}</h4>
+                  <h5 class="exp-org">{item.organization}</h5>
+                  {item.location && <span class="exp-location"><i class="fas fa-map-marker-alt"></i> {item.location}</span>}
                 </div>
-                <div style="text-align: right;">
-                  <span class="date" style="display: block; font-size: 0.9rem; font-weight: 600; color: var(--primary-color);">{item.period}</span>
-                  {item.badge && (
-                    <span style="display: inline-block; margin-top: 0.4rem; padding: 0.25rem 0.65rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; background: rgba(249, 115, 22, 0.12); color: var(--accent-color); border: 1px solid rgba(249, 115, 22, 0.25);">
-                      <i class="fas fa-award"></i> {item.badge}
-                    </span>
-                  )}
+                
+                <div class="meta-badge-wrap">
+                  <span class="exp-date">{item.period}</span>
+                  {item.badge && <span class="pill-badge-terracotta">{item.badge}</span>}
                 </div>
               </div>
-              {item.description && (
-                <p style="font-size: 0.95rem; font-style: italic; color: var(--text-secondary); margin: 0.8rem 0; border-left: 3px solid var(--primary-color); padding-left: 0.8rem;">
-                  {item.description}
-                </p>
-              )}
-              <ul style="text-align: justify; margin-top: 1rem; color: var(--text-secondary); font-size: 0.95rem; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                {item.responsibilities.map((res) => (
-                  <li>{res}</li>
-                ))}
-              </ul>
             </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
 
-  <!-- Pengalaman Organisasi -->
-  <div>
-    <h3 style="text-align: center; color: var(--text-primary); font-size: 1.5rem; margin-bottom: 2rem;">
-      <i class="fas fa-users" style="color: var(--primary-color);"></i> Organisasi & Kepemimpinan
-    </h3>
-    <div class="edu-grid">
-      {experienceOrganization.map((exp) => (
-        <div class="edu-card glass-card slide-up">
-          <div class="icon" style="height: 100px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
-            {exp.logo ? (
-              <img
-                src={`${base}${exp.logo}`}
-                alt={exp.organization}
-                style="max-height: 85px; max-width: 100%; object-fit: contain; border-radius: 4px;"
-                loading="lazy"
-              />
-            ) : (
-              <i class={exp.icon || "fas fa-users"} style={`font-size: 2.5rem; color: ${exp.iconColor || 'var(--primary-color)'};`}></i>
+            {item.description && (
+              <p class="featured-desc">{item.description}</p>
             )}
+
+            <ul class="exp-bullets">
+              {item.responsibilities.map((res) => (
+                <li>
+                  <i class="fas fa-check-circle bullet-icon"></i>
+                  <span>{res}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-          <h3 style="font-size: 1.15rem; min-height: 2.8rem; display: flex; align-items: center; justify-content: center;">{exp.role}</h3>
-          <h4 style="font-size: 0.95rem;">{exp.organization}</h4>
-          <p class="date" style="font-weight: 500;">{exp.period}</p>
-          <ul style="text-align: justify; margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem; padding-left: 1.2rem;">
-            {exp.responsibilities.map((res) => (
-              <li style="margin-bottom: 0.35rem;">{res}</li>
-            ))}
-          </ul>
-        </div>
-      ))}
+        ))}
+      </div>
+    </div>
+
+    <!-- Sub-heading 2: Organisasi & Kemahasiswaan -->
+    <div class="exp-group-wrap slide-up" style="margin-top: 5rem;">
+      <div class="group-header">
+        <div class="group-icon-pill"><i class="fas fa-sitemap"></i></div>
+        <h3 class="group-title">Pengalaman Organisasi & Kepengurusan</h3>
+      </div>
+
+      <div class="org-cards-grid">
+        {experienceOrganization.map((item) => (
+          <div class="exp-card-org card-cream">
+            <div class="org-card-top">
+              <div class="logo-box-small">
+                {item.logo ? (
+                  <img src={`${base}${item.logo}`} alt={item.organization} loading="lazy" />
+                ) : (
+                  <i class={item.icon || "fas fa-users"} style={`color: ${item.iconColor || 'var(--color-terracotta)'};`}></i>
+                )}
+              </div>
+              <span class="org-date">{item.period}</span>
+            </div>
+
+            <h4 class="org-role">{item.role}</h4>
+            <h5 class="org-name">{item.organization}</h5>
+
+            <ul class="org-bullets">
+              {item.responsibilities.map((res) => (
+                <li>
+                  <span class="bullet-dot"></span>
+                  <span>{res}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  .experience-section {
+    background-color: var(--color-cream);
+    padding: 6.5rem 6%;
+    position: relative;
+  }
+
+  .experience-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .group-header {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .group-icon-pill {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--color-burgundy);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .group-title {
+    font-family: var(--font-serif);
+    font-size: 1.7rem;
+    color: var(--color-text-dark);
+    font-weight: 400;
+  }
+
+  /* Featured Program Cards */
+  .featured-cards-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+  }
+
+  .exp-card-featured {
+    padding: 2.8rem;
+  }
+
+  .featured-top {
+    display: flex;
+    gap: 1.8rem;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+
+  .logo-box {
+    width: 80px;
+    height: 80px;
+    border-radius: 14px;
+    background: var(--color-cream);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem;
+    flex-shrink: 0;
+  }
+
+  .logo-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .logo-box i {
+    font-size: 2.2rem;
+  }
+
+  .featured-meta {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .exp-role {
+    font-family: var(--font-serif);
+    font-size: 1.45rem;
+    color: var(--color-text-dark);
+    line-height: 1.25;
+    margin-bottom: 0.25rem;
+    font-weight: 400;
+  }
+
+  .exp-org {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    font-weight: 600;
+  }
+
+  .exp-location {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    display: block;
+    margin-top: 0.3rem;
+  }
+
+  .meta-badge-wrap {
+    text-align: right;
+  }
+
+  .exp-date {
+    display: block;
+    font-weight: 700;
+    color: var(--color-terracotta);
+    font-size: 0.92rem;
+  }
+
+  .pill-badge-terracotta {
+    display: inline-block;
+    background: rgba(200, 109, 86, 0.12);
+    color: var(--color-terracotta);
+    border: none;
+    padding: 0.35rem 0.85rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-top: 0.4rem;
+  }
+
+  .featured-desc {
+    font-size: 0.98rem;
+    color: var(--color-text-secondary);
+    padding: 1rem 1.4rem;
+    background: var(--color-cream-subtle);
+    border-radius: 8px;
+    margin-bottom: 1.4rem;
+    line-height: 1.6;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    padding-left: 0;
+  }
+
+  .exp-bullets li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: var(--color-text-secondary);
+  }
+
+  .bullet-icon {
+    color: var(--color-sage-dark);
+    margin-top: 5px;
+    flex-shrink: 0;
+    font-size: 0.9rem;
+  }
+
+  /* Organization Cards Grid */
+  .org-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .exp-card-org {
+    padding: 2.2rem 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .org-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.4rem;
+  }
+
+  .logo-box-small {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: var(--color-cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem;
+  }
+
+  .logo-box-small img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .logo-box-small i {
+    font-size: 1.5rem;
+  }
+
+  .org-date {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--color-terracotta);
+    background: rgba(200, 109, 86, 0.1);
+    padding: 0.25rem 0.65rem;
+    border-radius: 20px;
+  }
+
+  .org-role {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    color: var(--color-text-dark);
+    line-height: 1.25;
+    margin-bottom: 0.25rem;
+    font-weight: 400;
+  }
+
+  .org-name {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+  }
+
+  .org-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-left: 0;
+    margin-top: auto;
+  }
+
+  .org-bullets li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+  }
+
+  .bullet-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-terracotta);
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 1100px) {
+    .org-cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .featured-top {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .org-cards-grid {
+      grid-template-columns: 1fr;
+    }
+    .exp-card-featured {
+      padding: 2rem 1.6rem;
+    }
+  }
+</style>

@@ -3,26 +3,141 @@
 import { mediaData } from '../data/portfolioData';
 ---
 
-<section id="media" class="media section">
-  <div class="section-title">
-    <h2>Liputan dan <span class="highlight">Publikasi Media</span></h2>
-  </div>
-  <p style="text-align: center; margin-top: -2rem; margin-bottom: 3rem; color: var(--text-secondary);">
-    Dokumentasi Program PPK Ormawa KSI Mist FMIPA UNY (SEGARA)
-  </p>
-  
-  <div class="media-grid">
-    {mediaData.map((category) => (
-      <div class="media-card glass-card slide-up">
-        <h3>{category.category}</h3>
-        <div class="media-links">
-          {category.links.map((link) => (
-            <a href={link.url} target="_blank" rel="noopener noreferrer">
-              <i class={link.icon}></i> {link.title}
-            </a>
-          ))}
+<section id="media" class="media-section">
+  <div class="media-container">
+    <div class="section-title fade-in">
+      <h2>Publikasi & Liputan Berita</h2>
+      <p>
+        Dokumentasi resmi dan publikasi media nasional atas program PPK Ormawa KSI Mist FMIPA UNY (SEGARA) di Kalurahan Sidoagung.
+      </p>
+    </div>
+
+    <div class="media-categories-grid slide-up">
+      {mediaData.map((category) => (
+        <div class="media-cat-card card-cream">
+          <div class="media-card-header">
+            <div class="cat-pill-icon"><i class="fas fa-newspaper"></i></div>
+            <h3 class="media-cat-title">{category.category}</h3>
+          </div>
+
+          <div class="media-article-links">
+            {category.links.map((link) => (
+              <a href={link.url} target="_blank" rel="noopener noreferrer" class="media-link-item">
+                <i class={link.icon}></i>
+                <span class="link-label">{link.title}</span>
+                <i class="fas fa-arrow-up-right-from-square external-icon"></i>
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
-    ))}
+      ))}
+    </div>
   </div>
 </section>
+
+<style>
+  .media-section {
+    background-color: var(--color-cream);
+    padding: 6.5rem 6%;
+    position: relative;
+  }
+
+  .media-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .media-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .media-cat-card {
+    padding: 2.8rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .media-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .cat-pill-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(200, 109, 86, 0.12);
+    color: var(--color-terracotta);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    flex-shrink: 0;
+  }
+
+  .media-cat-title {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    color: var(--color-text-dark);
+    font-weight: 400;
+  }
+
+  .media-article-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .media-link-item {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none;
+    color: var(--color-text-secondary);
+    padding: 0.85rem 1.1rem;
+    border-radius: 10px;
+    background: var(--color-cream-subtle);
+    border: none;
+    font-size: 0.95rem;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .media-link-item i:first-child {
+    color: var(--color-terracotta);
+    width: 18px;
+    flex-shrink: 0;
+  }
+
+  .link-label {
+    flex: 1;
+    font-weight: 500;
+  }
+
+  .external-icon {
+    font-size: 0.8rem;
+    opacity: 0.4;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .media-link-item:hover {
+    background: #ffffff;
+    color: var(--color-text-dark);
+    transform: translateX(4px);
+  }
+
+  .media-link-item:hover .external-icon {
+    opacity: 1;
+    transform: translate(2px, -2px);
+    color: var(--color-terracotta);
+  }
+
+  @media (max-width: 900px) {
+    .media-categories-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -58,6 +58,15 @@ export interface MediaCategory {
   links: MediaLink[];
 }
 
+export interface DocumentaryPhoto {
+  src: string;
+  alt: string;
+  caption: string;
+  category: "Pemberdayaan" | "Prestasi & Riset" | "Lapangan & Teknis";
+  tag: string;
+  source?: string;
+}
+
 export const personalInfo = {
   name: "Muhammad Dahron Mustofa Maksum",
   nickname: "Maksum",
@@ -68,13 +77,14 @@ export const personalInfo = {
   email: "muhammaddahron.2024@student.uny.ac.id",
   phone: "+62 858 7604 9490",
   address: "Sindet RT 03, Wukirsari, Imogiri, Bantul, D.I. Yogyakarta 55782",
+  university: "Universitas Negeri Yogyakarta (UNY)",
   social: {
     email: "mailto:muhammaddahron.2024@student.uny.ac.id",
     linkedin: "https://www.linkedin.com/in/muhammad-dahron-mustofa-maksum-055905382",
     instagram: "https://www.instagram.com/mksmetrics/",
     github: "#"
   },
-  profileImage: "pas foto.jpeg",
+  profileImage: "assets/images/profile.jpeg",
   projectDriveUrl: "https://drive.google.com/drive/folders/1H6HgFSFGwxvSwdGxksj6OziAQxvSrjA0?usp=drive_link"
 };
 
@@ -140,7 +150,7 @@ export const experienceProgramAndWork: ExperienceItem[] = [
     period: "Jun 2026 - Okt 2026",
     badge: "Terbaik 2 Nasional Abdidaya Ormawa 2026",
     description: "Program nasional Kemdiktisaintek RI untuk menguatkan kapasitas Ormawa melalui pengabdian dan pemberdayaan masyarakat.",
-    logo: "logo segara_tp.png",
+    logo: "assets/logos/segara.png",
     responsibilities: [
       "Memimpin 14 anggota tim lintas disiplin ilmu dalam menjalankan program PPK Ormawa SEGARA (Sentra Gerak Agromina) yang didanai Kemdiktisaintek RI di Kalurahan Sidoagung, Sleman, melalui koordinasi lima pilar terintegrasi (Segara Madya, Segara Karya, Segara Daya, Segara Raya, Segara Lestari) guna memberdayakan 6 kelompok pembudidaya ikan pengelola 224 kolam budidaya.",
       "Menginisiasi penguatan kelembagaan hulu dan hilir dengan mendirikan Gabungan Kelompok Ikan (Gapokkan) Segara Agung beranggotakan 25 orang (menaungi 6 kelompok perikanan) serta membentuk Kelompok Usaha Bersama (KUB) Ikanura beranggotakan 16 perwakilan KWT dari 8 padukuhan yang dibina melalui inkubasi pelatihan diversifikasi produk olahan ikan bernilai tambah.",
@@ -173,7 +183,7 @@ export const experienceOrganization: ExperienceItem[] = [
     organization: "Ikatan Himpunan Mahasiswa Statistika Indonesia (IHMSI)",
     location: "Nasional / Indonesia",
     period: "Jan 2025 - Sekarang",
-    logo: "ihmsi logo_tp.png",
+    logo: "assets/logos/ihmsi.png",
     description: "Satu-satunya organisasi keprofesian mahasiswa statistika di Indonesia (didirikan 21 November 1987).",
     responsibilities: [
       "Mengkaji dan menganalisis isu-isu strategis nasional maupun internasional yang relevan dengan mahasiswa statistika di tingkat nasional berbasis bukti data.",
@@ -186,7 +196,7 @@ export const experienceOrganization: ExperienceItem[] = [
     organization: "KSI Mist FMIPA Universitas Negeri Yogyakarta",
     location: "UNY, Yogyakarta",
     period: "Des 2025 - Sekarang",
-    logo: "logo ksi mist_tp.png",
+    logo: "assets/logos/ksimist.png",
     description: "Lembaga riset mahasiswa FMIPA UNY (berdiri 6 Juli 2002).",
     responsibilities: [
       "Memimpin Departemen Kajian, Penalaran, dan Lomba (KPL) dalam merancang serta mengelola program pengembangan potensi penalaran dan perlombaan guna mengoptimalkan iklim prestatif anggota KSI Mist FMIPA UNY.",
@@ -198,7 +208,7 @@ export const experienceOrganization: ExperienceItem[] = [
     organization: "HIMATIKA DEPIKMAT FMIPA UNY",
     location: "UNY, Yogyakarta",
     period: "Agu 2024 - Sekarang",
-    logo: "logo himatika_tp.png",
+    logo: "assets/logos/himatika.png",
     description: "Wadah resmi mahasiswa Departemen Pendidikan Matematika (Pendidikan Matematika, Matematika, dan Statistika).",
     responsibilities: [
       "Berpartisipasi aktif dalam kegiatan akademik, perlombaan matematika dan statistika, serta forum pengembangan keilmuan di lingkungan Departemen Pendidikan Matematika FMIPA UNY.",
@@ -210,7 +220,7 @@ export const experienceOrganization: ExperienceItem[] = [
     organization: "Dewan Ambalan Senopati Dewi Sartika - MAN 3 Bantul",
     location: "Bantul, D.I. Yogyakarta",
     period: "Jan 2022 - Jan 2023",
-    logo: "logoman 3_tp.png",
+    logo: "assets/logos/man3.png",
     description: "Lembaga kepemimpinan dan wadah pembinaan kepramukaan Penegak di pangkalan MAN 3 Bantul (MANTABA).",
     responsibilities: [
       "Mengelola administrasi organisasi, persuratan dinas, dan dokumentasi kearsipan kegiatan kepramukaan tingkat Ambalan secara tertib dan sistematis.",
@@ -235,7 +245,7 @@ export const experienceOrganization: ExperienceItem[] = [
     organization: "Karang Taruna Budiluhur Kalurahan Wukirsari",
     location: "Wukirsari, Imogiri, Bantul",
     period: "Jan 2024 - Sekarang",
-    logo: "budiluhur_tp.png",
+    logo: "assets/logos/budiluhur.png",
     responsibilities: [
       "Mengelola dokumentasi visual, pembuatan aset desain grafis, serta publikasi informasi kegiatan kepemudaan di tingkat kalurahan."
     ]
@@ -245,7 +255,7 @@ export const experienceOrganization: ExperienceItem[] = [
     organization: "Karang Taruna Satyawala Dusun Sindet",
     location: "Sindet, Wukirsari, Imogiri, Bantul",
     period: "Jan 2023 - Sekarang",
-    logo: "logo satyawala_tp.png",
+    logo: "assets/logos/satyawala.png",
     responsibilities: [
       "Mengoordinasikan kegiatan keagamaan dusun (2024 – Sekarang).",
       "Mengelola penyampaian informasi dan pengumuman resmi kegiatan kepada warga masyarakat."
@@ -261,41 +271,42 @@ export const educationData: EducationItem[] = [
     period: "Agu 2024 - Sekarang",
     score: "IPK: 3.84 / 4.00",
     focus: "Analisis Data Statistik, Pemrograman R & Python, Machine Learning, Metode Sampling, dan Statistika Multivariat.",
-    logo: "logo uny.svg"
+    logo: "assets/logos/uny.svg"
   },
   {
     school: "MAN 3 Bantul",
     degree: "Sekolah Menengah Atas - MIPA",
     location: "Bantul, D.I. Yogyakarta",
     period: "Jul 2021 - Mei 2024",
-    score: "Nilai Rata-rata: 89.90 / 100.00",
-    activities: "Pengurus Inti Dewan Ambalan Pramuka, Peserta Aktif Bimbingan Olimpiade Sains Madrasah.",
-    logo: "logoman 3_tp.png"
+    score: "Nilai Rata-rata: 89.90 / 100.00 | Tahfidz 7 Juz Al-Qur'an",
+    activities: "Pemimpin Ikrar Siswa Pelepasan Siswa Kelas XII IPA 1 (2024), Sekretaris Dewan Ambalan Penegak, Peraih Medali Olimpiade Matematika POSI.",
+    logo: "assets/logos/man3.png"
   },
   {
     school: "MTsN 6 Bantul",
     degree: "Sekolah Menengah Pertama",
     location: "Bantul, D.I. Yogyakarta",
     period: "Lulus 2021",
-    logo: "mtsn 6 bantul_tp.png"
+    activities: "Juara 2 Lomba Komik Sejarah Dinas Kebudayaan, Delegasi Kompetisi Matematika & Sains Madrasah.",
+    logo: "assets/logos/mtsn6.png"
   },
   {
     school: "SD Sindet",
     degree: "Sekolah Dasar",
     location: "Bantul, D.I. Yogyakarta",
     period: "Lulus 2018",
-    logo: "sd sindet_tp.png"
+    logo: "assets/logos/sdsindet.png"
   }
 ];
 
 export const achievementsData: AchievementItem[] = [
   {
     title: "Terbaik 2 Pemahaman Pemberdayaan Masyarakat Abdidaya Ormawa 2026",
-    issuer: "Kemdiktisaintek RI",
+    issuer: "Kemdiktisaintek RI & UMI Makassar",
     year: "2026",
     category: "Prestasi Nasional",
-    description: "Program SEGARA (Sentra Gerak Agromina): Pemberdayaan Masyarakat Kalurahan Sidoagung Berbasis Inovasi Olahan Ikan Nusantara dan Digitalisasi Pemasaran.",
-    logo: "logo ppk ormawa dikti_tp.png"
+    description: "Program SEGARA (Sentra Gerak Agromina): Pemberdayaan Masyarakat Kalurahan Sidoagung Berbasis Inovasi Olahan Ikan Nusantara dan Digitalisasi Pemasaran pada malam puncak penganugerahan di Universitas Muslim Indonesia (UMI) Makassar.",
+    logo: "assets/logos/ppk-ormawa.png"
   },
   {
     title: "Penerima Pendanaan PPK Ormawa 2026 (Ketua Tim Pelaksana)",
@@ -303,7 +314,7 @@ export const achievementsData: AchievementItem[] = [
     year: "2026",
     category: "Pendanaan Nasional",
     description: "Program SEGARA: Pemberdayaan Masyarakat Kalurahan Sidoagung Berbasis Inovasi Olahan Ikan Nusantara dan Digitalisasi Pemasaran.",
-    logo: "logo segara_tp.png"
+    logo: "assets/logos/segara.png"
   },
   {
     title: "Juara Harapan 2 Kompetisi Nasional Video HAM (Hentakan Aksi Mahasiswa)",
@@ -314,19 +325,38 @@ export const achievementsData: AchievementItem[] = [
     iconColor: "#E91E63"
   },
   {
+    title: "Apresiasi & Penghargaan Tahfidz Al-Qur'an 7 Juz",
+    issuer: "MAN 3 Bantul (MANTABA)",
+    year: "2024",
+    category: "Tahfidz & Karakter",
+    description: "Penganugerahan predikat hafalan Al-Qur'an 7 Juz secara mutqin pada wisuda tahfidz Al-Qur'an MAN 3 Bantul.",
+    icon: "fas fa-quran",
+    iconColor: "#4CAF50"
+  },
+  {
+    title: "Pemimpin Ikrar Siswa Pelepasan Siswa Kelas XII IPA 1",
+    issuer: "MAN 3 Bantul (MANTABA)",
+    year: "2024",
+    category: "Kepemimpinan Madrasah",
+    description: "Dipercaya memandu pembacaan ikrar wisudawan purna siswa kelas XII IPA 1 dalam wisuda kelulusan MAN 3 Bantul tahun ajaran 2023/2024.",
+    icon: "fas fa-microphone-lines",
+    iconColor: "#C86D56"
+  },
+  {
     title: "Medali Perunggu Olimpiade Matematika Nasional",
     issuer: "Pusat Olimpiade Sains Indonesia (POSI) - National Young Science Innovation",
     year: "2022",
     category: "Prestasi Nasional",
-    logo: "Logo POSI (Pusat Olimpiade Sains Indonesia)_tp.png"
+    logo: "assets/logos/posi.png"
   },
   {
     title: "Juara 2 Lomba Komik Sejarah Tokoh Sultan Agung Tingkat Provinsi",
-    issuer: "D.I. Yogyakarta",
+    issuer: "Dinas Kebudayaan D.I. Yogyakarta",
     year: "2021",
     category: "Prestasi Provinsi",
-    icon: "fas fa-trophy",
-    iconColor: "#FFB300"
+    icon: "fas fa-palette",
+    iconColor: "#FFB300",
+    description: "Kejuaraan seni komik sejarah edukatif tokoh Sultan Agung tingkat D.I. Yogyakarta yang diliput oleh media pers regional."
   },
   {
     title: "Sertifikat Kursus Pemrograman Python",
@@ -343,7 +373,7 @@ export const achievementsData: AchievementItem[] = [
     year: "2024",
     category: "Sertifikasi Kompetensi",
     description: "Pelatihan Mobile Training Unit (MTU) Desain Grafis selama 216 Jam Pelajaran (No. Sertifikat: 563/1010/2024).",
-    logo: "logo blkpp diy_tp.png"
+    logo: "assets/logos/blkpp.png"
   },
   {
     title: "Sertifikat Kursus Pembina Pramuka Mahir Tingkat Dasar (KMD)",
@@ -450,6 +480,114 @@ export const mediaData: MediaCategory[] = [
       { title: "KSI Mist (Bupati)", url: "https://www.ksimist.or.id/blog/bupati-sleman-apresiasi-ppko-ksi-mist-fmipa-uny-dukung-pengembangan-program-pemberdayaan-masyarakat", icon: "fas fa-users" },
       { title: "KSI Mist (DPRD)", url: "https://www.ksimist.or.id/blog/dprd-kabupaten-sleman-dukung-ppko-ksi-mist-fmipa-uny-perkuat-pemberdayaan-masyarakat-sidoagung", icon: "fas fa-users" }
     ]
+  },
+  {
+    category: "Liputan Media Nasional & Pendidikan",
+    links: [
+      { title: "Harian Merapi: Inovasi SEGARA & Perikanan", url: "https://www.harianmerapi.com", icon: "fas fa-newspaper" },
+      { title: "Tribun Jogja: Prestasi Siswa & Literasi", url: "https://jogja.tribunnews.com", icon: "fas fa-newspaper" },
+      { title: "UMI Makassar: Prestasi Abdidaya Ormawa", url: "https://umi.ac.id", icon: "fas fa-award" },
+      { title: "MAN 3 Bantul: Medali Matematika & Wisuda", url: "https://man3bantul.sch.id", icon: "fas fa-graduation-cap" }
+    ]
+  }
+];
+
+export const documentaryPhotos: DocumentaryPhoto[] = [
+  {
+    src: "assets/images/portfolio/segara-event-1.jpg",
+    alt: "Peresmian & Tumpengan Program SEGARA di Balai Kalurahan Sidoagung",
+    caption: "Peresmian Program SEGARA Bersama Pamong Kalurahan & Kelompok Budidaya",
+    category: "Pemberdayaan",
+    tag: "Launching & Sinergi Desa",
+    source: "Dokumentasi Pemkal Sidoagung"
+  },
+  {
+    src: "assets/images/portfolio/uny-dscf0754.jpg",
+    alt: "Sosialisasi Tim SEGARA UNY Bersama Warga Kalurahan Sidoagung",
+    caption: "Sosialisasi Program Sentra Gerak Agromina di Balai Kalurahan Sidoagung",
+    category: "Pemberdayaan",
+    tag: "Edukasi Masyarakat",
+    source: "Humas Resmi UNY"
+  },
+  {
+    src: "assets/images/portfolio/uny-dscf0713.jpg",
+    alt: "Pelatihan Budidaya CBIB & Standarisasi Kualitas Air Kolam Nila dan Lele",
+    caption: "Pelatihan Budidaya Ikan Berkelanjutan & Manajemen Kualitas Air Kolam",
+    category: "Lapangan & Teknis",
+    tag: "Standardisasi Budidaya",
+    source: "Humas Resmi UNY"
+  },
+  {
+    src: "assets/images/portfolio/uny-dscf0812.jpg",
+    alt: "FGD Multi-Pihak Penguatan Kelembagaan Gapokkan SEGARA AGUNG",
+    caption: "Forum Group Discussion Koordinasi Multi-pihak Antar-Dinas & Pamong",
+    category: "Pemberdayaan",
+    tag: "Koordinasi Antar-Lembaga",
+    source: "Humas Resmi UNY"
+  },
+  {
+    src: "assets/images/portfolio/fmipa-ksi1.jpg",
+    alt: "Tim Riset & Inovasi Sains KSI Mist FMIPA UNY",
+    caption: "Pembinaan Delegasi Riset Sains & Inovasi Mahasiswa KSI Mist FMIPA UNY",
+    category: "Prestasi & Riset",
+    tag: "Delegasi Riset Ilmiah",
+    source: "FMIPA UNY"
+  },
+  {
+    src: "assets/images/portfolio/fmipa-ksi2.jpg",
+    alt: "Penganugerahan Prestasi Nasional Tim Delegasi Mahasiswa UNY",
+    caption: "Penganugerahan Kejuaraan Prestasi Mahasiswa Berprestasi FMIPA UNY",
+    category: "Prestasi & Riset",
+    tag: "Penganugerahan Prestasi",
+    source: "FMIPA UNY"
+  },
+  {
+    src: "assets/images/portfolio/fmipa-ksi5.jpg",
+    alt: "Monitoring & Evaluasi Lapangan Kolam Perikanan Sidoagung",
+    caption: "Monitoring & Evaluasi Lapangan 224 Kolam Budidaya Ikan Sidoagung",
+    category: "Lapangan & Teknis",
+    tag: "Monev Lapangan",
+    source: "FMIPA UNY"
+  },
+  {
+    src: "assets/images/portfolio/photo-1.jpg",
+    alt: "Survei Lapangan & Pengambilan Data Potensi Wilayah 224 Kolam",
+    caption: "Survei Lapangan & Pemetaan Geospasial Potensi Perikanan Rakyat",
+    category: "Lapangan & Teknis",
+    tag: "Survei & Sampling Data",
+    source: "Dokumentasi Pribadi"
+  },
+  {
+    src: "assets/images/portfolio/photo-3.png",
+    alt: "Presentasi Capaian Program di Depan Dewan Juri Abdidaya di UMI Makassar",
+    caption: "Presentasi Capaian Program di Hadapan Dewan Juri Abdidaya Ormawa di UMI Makassar",
+    category: "Prestasi & Riset",
+    tag: "Abdidaya Ormawa 2026",
+    source: "Kemdiktisaintek / UMI"
+  },
+  {
+    src: "assets/images/portfolio/photo-4.jpg",
+    alt: "Workshop Hilirisasi Olahan Ikan Bersama KWT & PKK Kalurahan Sidoagung",
+    caption: "Workshop Hilirisasi Olahan Ikan Bernilai Tambah Tinggi Bersama KWT & PKK",
+    category: "Pemberdayaan",
+    tag: "Inkubasi Produk Olahan",
+    source: "Dokumentasi PPK Ormawa"
+  },
+  {
+    src: "assets/images/portfolio/photo-5.jpg",
+    alt: "Produksi & Pengemasan Produk Olahan Ikan Bernilai Tambah Tinggi IKANURA",
+    caption: "Pemberdayaan & Standardisasi Produksi Higienis Produk Merek IKANURA",
+    category: "Pemberdayaan",
+    tag: "Hilirisasi IKANURA",
+    source: "Dokumentasi KUB Ikanura"
+  },
+  {
+    src: "assets/images/portfolio/photo-6.jpg",
+    alt: "Inspeksi Kualitas Air dan Penerapan Smart IoT Monitoring Kolam",
+    caption: "Penerapan Sensor Kualitas Air & Digitalisasi Pemantauan Kolam",
+    category: "Lapangan & Teknis",
+    tag: "Smart IoT & Data",
+    source: "Dokumentasi Teknis"
   }
 ];
 
@@ -463,28 +601,16 @@ export const galleryEmbeds = [
 ];
 
 export const heroPhotos = [
-  { src: "http://www.uny.ac.id/sites/default/files/2026-06/DSCF0754.JPG", alt: "Kegiatan SEGARA 1" },
-  { src: "http://www.uny.ac.id/sites/default/files/2026-06/DSCF0713.JPG", alt: "Kegiatan SEGARA 2" },
-  { src: "http://www.uny.ac.id/sites/default/files/2026-06/DSCF0812.JPG", alt: "Kegiatan SEGARA 3" },
-  { src: "https://fmipa.uny.ac.id/sites/fmipa.uny.ac.id/files/styles/blog_berita/public/field/image/ksi%205%20%28FILEminimizer%29.jpg", alt: "Kegiatan SEGARA 4" },
-  { src: "https://fmipa.uny.ac.id/sites/fmipa.uny.ac.id/files/styles/blog_berita/public/field/image/ksi1%20%28FILEminimizer%29.jpg", alt: "Kegiatan SEGARA 5" },
-  { src: "https://fmipa.uny.ac.id/sites/fmipa.uny.ac.id/files/styles/blog_berita/public/field/image/ksi2%20%28FILEminimizer%29.jpg", alt: "Kegiatan SEGARA 6" },
-  { src: "http://www.uny.ac.id/sites/default/files/2026-06/DSCF0754.JPG", alt: "Kegiatan SEGARA 7" },
-  { src: "http://www.uny.ac.id/sites/default/files/2026-06/DSCF0713.JPG", alt: "Kegiatan SEGARA 8" },
-  { src: "http://www.uny.ac.id/sites/default/files/2026-06/DSCF0812.JPG", alt: "Kegiatan SEGARA 9" },
-  { src: "https://fmipa.uny.ac.id/sites/fmipa.uny.ac.id/files/styles/blog_berita/public/field/image/ksi%205%20%28FILEminimizer%29.jpg", alt: "Kegiatan SEGARA 10" },
-  { src: "https://fmipa.uny.ac.id/sites/fmipa.uny.ac.id/files/styles/blog_berita/public/field/image/ksi1%20%28FILEminimizer%29.jpg", alt: "Kegiatan SEGARA 11" },
-  { src: "https://fmipa.uny.ac.id/sites/fmipa.uny.ac.id/files/styles/blog_berita/public/field/image/ksi2%20%28FILEminimizer%29.jpg", alt: "Kegiatan SEGARA 12" },
-  { src: "http://www.uny.ac.id/sites/default/files/2026-06/DSCF0754.JPG", alt: "Kegiatan SEGARA 13" },
-  { src: "http://www.uny.ac.id/sites/default/files/2026-06/DSCF0713.JPG", alt: "Kegiatan SEGARA 14" },
-  { src: "http://www.uny.ac.id/sites/default/files/2026-06/DSCF0812.JPG", alt: "Kegiatan SEGARA 15" },
-  { src: "https://fmipa.uny.ac.id/sites/fmipa.uny.ac.id/files/styles/blog_berita/public/field/image/ksi%205%20%28FILEminimizer%29.jpg", alt: "Kegiatan SEGARA 16" },
-  { src: "https://fmipa.uny.ac.id/sites/fmipa.uny.ac.id/files/styles/blog_berita/public/field/image/ksi1%20%28FILEminimizer%29.jpg", alt: "Kegiatan SEGARA 17" },
-  { src: "https://fmipa.uny.ac.id/sites/fmipa.uny.ac.id/files/styles/blog_berita/public/field/image/ksi2%20%28FILEminimizer%29.jpg", alt: "Kegiatan SEGARA 18" },
-  { src: "http://www.uny.ac.id/sites/default/files/2026-06/DSCF0754.JPG", alt: "Kegiatan SEGARA 19" },
-  { src: "http://www.uny.ac.id/sites/default/files/2026-06/DSCF0713.JPG", alt: "Kegiatan SEGARA 20" },
-  { src: "http://www.uny.ac.id/sites/default/files/2026-06/DSCF0812.JPG", alt: "Kegiatan SEGARA 21" },
-  { src: "https://fmipa.uny.ac.id/sites/fmipa.uny.ac.id/files/styles/blog_berita/public/field/image/ksi%205%20%28FILEminimizer%29.jpg", alt: "Kegiatan SEGARA 22" },
-  { src: "https://fmipa.uny.ac.id/sites/fmipa.uny.ac.id/files/styles/blog_berita/public/field/image/ksi1%20%28FILEminimizer%29.jpg", alt: "Kegiatan SEGARA 23" },
-  { src: "https://fmipa.uny.ac.id/sites/fmipa.uny.ac.id/files/styles/blog_berita/public/field/image/ksi2%20%28FILEminimizer%29.jpg", alt: "Kegiatan SEGARA 24" }
+  { src: "assets/images/portfolio/segara-event-1.jpg", alt: "Peresmian Program SEGARA" },
+  { src: "assets/images/portfolio/uny-dscf0754.jpg", alt: "Sosialisasi Tim SEGARA UNY" },
+  { src: "assets/images/portfolio/uny-dscf0713.jpg", alt: "Pelatihan Budidaya CBIB" },
+  { src: "assets/images/portfolio/uny-dscf0812.jpg", alt: "FGD Multi-Pihak Pemkab Sleman" },
+  { src: "assets/images/portfolio/fmipa-ksi1.jpg", alt: "Tim Riset KSI Mist FMIPA UNY" },
+  { src: "assets/images/portfolio/fmipa-ksi2.jpg", alt: "Penganugerahan Prestasi UNY" },
+  { src: "assets/images/portfolio/fmipa-ksi5.jpg", alt: "Monitoring Lapangan PPK Ormawa" },
+  { src: "assets/images/portfolio/photo-1.jpg", alt: "Survei Lapangan Statistika" },
+  { src: "assets/images/portfolio/photo-3.png", alt: "Presentasi Abdidaya di UMI Makassar" },
+  { src: "assets/images/portfolio/photo-4.jpg", alt: "Workshop Olahan Ikan KWT" },
+  { src: "assets/images/portfolio/photo-5.jpg", alt: "Produk Olahan Ikanura" },
+  { src: "assets/images/portfolio/photo-6.jpg", alt: "Inspeksi Kualitas Air IoT" }
 ];

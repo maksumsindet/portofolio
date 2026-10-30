@@ -92,7 +92,7 @@
         this.size = Math.random() * 3 + 1;
         this.speedX = Math.random() * 1 - 0.5;
         this.speedY = Math.random() * 1 - 0.5;
-        this.color = '#0ea5e9'; // primary color (Sky Blue)
+        this.color = 'rgba(200, 109, 86, 0.45)'; // Terracotta accent
       }
 
       update() {
@@ -141,8 +141,8 @@
             (particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y);
 
           if (distance < (w / 7) * (h / 7)) {
-            const opacityValue = 1 - distance / 20000;
-            ctx.strokeStyle = 'rgba(14, 165, 233,' + opacityValue + ')';
+            const opacityValue = (1 - distance / 20000) * 0.35;
+            ctx.strokeStyle = `rgba(200, 109, 86, ${opacityValue})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(particlesArray[a].x, particlesArray[a].y);

@@ -4,59 +4,211 @@ interface Props {
   nickname?: string;
 }
 
-const { nickname = "Maksum" } = Astro.props;
+const { nickname = "MAKSUM" } = Astro.props;
 
 const navItems = [
-  { href: "#home", label: "Beranda" },
   { href: "#about", label: "Tentang" },
-  { href: "#skills", label: "Kemampuan" },
+  { href: "#programs", label: "Program" },
   { href: "#experience", label: "Pengalaman" },
+  { href: "#skills", label: "Kemampuan" },
   { href: "#education", label: "Pendidikan" },
   { href: "#achievements", label: "Prestasi" },
-  { href: "#projects", label: "Proyek" },
+  { href: "#projects", label: "Portofolio" },
   { href: "#media", label: "Liputan Media" },
   { href: "#gallery", label: "Galeri" },
-  { href: "#contact", label: "Hubungi Saya" },
 ];
 ---
 
-<nav class="navbar">
+<header class="site-header">
   <div class="nav-container">
-    <a href="#home" class="logo">{nickname}<span class="highlight">.</span></a>
-    <ul class="nav-links">
-      {navItems.map((item) => (
-        <li><a href={item.href}>{item.label}</a></li>
-      ))}
-    </ul>
-    <div class="hamburger" aria-label="Toggle Navigation">
-      <i class="fas fa-bars"></i>
+    <a href="#home" class="brand-logo">
+      <span>{nickname}</span><span class="dot">.</span>
+    </a>
+
+    <nav class="nav-menu">
+      <ul class="nav-links">
+        {navItems.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="header-action">
+      <a href="#contact" class="btn-terracotta header-cta">
+        <span>Hubungi Saya</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+      <button class="hamburger" aria-label="Toggle Navigation">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
   </div>
-</nav>
+</header>
+
+<style>
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--color-burgundy);
+    transition: padding 0.25s ease, background-color 0.25s ease;
+    padding: 1.2rem 6%;
+  }
+
+  .site-header.scrolled {
+    padding: 0.9rem 6%;
+    background-color: var(--color-burgundy-dark);
+  }
+
+  .nav-container {
+    max-width: 1320px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .brand-logo {
+    font-family: var(--font-serif);
+    font-size: 1.55rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--color-text-light);
+    text-decoration: none;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+  }
+
+  .brand-logo .dot {
+    color: var(--color-terracotta);
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.75rem;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: var(--color-text-muted-light);
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: color 0.2s ease;
+    position: relative;
+    padding: 0.3rem 0;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: #ffffff;
+  }
+
+  .nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-terracotta);
+    border-radius: 2px;
+  }
+
+  .header-action {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .header-cta {
+    padding: 0.7rem 1.4rem;
+    font-size: 0.88rem;
+  }
+
+  .hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--color-text-light);
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 0.4rem;
+  }
+
+  @media (max-width: 1024px) {
+    .nav-links {
+      gap: 1.1rem;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .nav-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: var(--color-burgundy);
+      padding: 1.5rem 2rem;
+      transform: translateY(-150%);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+    }
+
+    .nav-menu.active {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .nav-links {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.2rem;
+    }
+
+    .hamburger {
+      display: block;
+    }
+
+    .header-cta {
+      display: none;
+    }
+  }
+</style>
 
 <script>
   function setupNavbar() {
-    const navbar = document.querySelector('.navbar');
-    const navLinks = document.querySelector('.nav-links');
+    const header = document.querySelector('.site-header');
     const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-links a');
 
-    if (!navbar || !navLinks || !hamburger) return;
-
-    // Scroll background
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
+        header?.classList.add('scrolled');
       } else {
-        navbar.classList.remove('scrolled');
+        header?.classList.remove('scrolled');
       }
     });
 
-    // Mobile menu toggle
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
+    hamburger?.addEventListener('click', () => {
+      navMenu?.classList.toggle('active');
       const icon = hamburger.querySelector('i');
       if (icon) {
-        if (navLinks.classList.contains('active')) {
+        if (navMenu?.classList.contains('active')) {
           icon.classList.remove('fa-bars');
           icon.classList.add('fa-times');
         } else {
@@ -66,11 +218,10 @@ const navItems = [
       }
     });
 
-    // Close mobile menu on nav link click
-    document.querySelectorAll('.nav-links a').forEach((link) => {
+    navLinks.forEach((link) => {
       link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        const icon = hamburger.querySelector('i');
+        navMenu?.classList.remove('active');
+        const icon = hamburger?.querySelector('i');
         if (icon) {
           icon.classList.remove('fa-times');
           icon.classList.add('fa-bars');
@@ -78,23 +229,22 @@ const navItems = [
       });
     });
 
-    // Active link highlighting on scroll
-    const sections = document.querySelectorAll('section');
-    const navAnchors = document.querySelectorAll('.nav-links a');
-
+    // Active Section Highlight on scroll
+    const sections = document.querySelectorAll('section[id]');
     window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach((section) => {
-        const sectionTop = (section as HTMLElement).offsetTop;
-        if (window.scrollY >= sectionTop - 200) {
-          current = section.getAttribute('id') || '';
-        }
-      });
-
-      navAnchors.forEach((item) => {
-        item.classList.remove('active');
-        if (item.getAttribute('href')?.slice(1) === current) {
-          item.classList.add('active');
+      const scrollY = window.pageYOffset;
+      sections.forEach((current) => {
+        const sectionHeight = (current as HTMLElement).offsetHeight;
+        const sectionTop = (current as HTMLElement).offsetTop - 120;
+        const sectionId = current.getAttribute('id');
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+          navLinks.forEach((link) => {
+            if (link.getAttribute('href') === `#${sectionId}`) {
+              link.classList.add('active');
+            } else {
+              link.classList.remove('active');
+            }
+          });
         }
       });
     });

@@ -5,41 +5,198 @@ import { educationData } from '../data/portfolioData';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
 ---
 
-<section id="education" class="education section">
-  <div class="section-title">
-    <h2>Riwayat <span class="highlight">Pendidikan</span></h2>
-  </div>
-  <div class="edu-grid">
-    {educationData.map((edu) => (
-      <div class="edu-card glass-card slide-up">
-        <div class="icon" style="height: 110px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
-          {edu.logo ? (
-            <img
-              src={`${base}${edu.logo}`}
-              alt={edu.school}
-              style="max-height: 90px; max-width: 100%; object-fit: contain; border-radius: 4px;"
-              loading="lazy"
-            />
-          ) : (
-            <i class={edu.icon || "fas fa-graduation-cap"} style="font-size: 2.5rem; color: var(--primary-color);"></i>
+<section id="education" class="education-section">
+  <div class="education-container">
+    <div class="section-title fade-in">
+      <h2>Riwayat Pendidikan Formal</h2>
+      <p>
+        Landasan akademik yang kuat dalam statistika inferensial, sains komputasi data, dan kepemimpinan berorganisasi.
+      </p>
+    </div>
+
+    <div class="edu-cards-grid slide-up">
+      {educationData.map((edu) => (
+        <div class="edu-item-card card-cream">
+          <div class="edu-top-row">
+            <div class="edu-logo-frame">
+              {edu.logo ? (
+                <img src={`${base}${edu.logo}`} alt={edu.school} loading="lazy" />
+              ) : (
+                <i class={edu.icon || "fas fa-graduation-cap"}></i>
+              )}
+            </div>
+            <span class="edu-period-badge">{edu.period}</span>
+          </div>
+
+          <h3 class="edu-school-name">{edu.school}</h3>
+          <h4 class="edu-degree-title">{edu.degree}</h4>
+          
+          {edu.location && (
+            <span class="edu-loc-text"><i class="fas fa-map-marker-alt"></i> {edu.location}</span>
+          )}
+
+          {edu.score && (
+            <div class="edu-score-pill">
+              <i class="fas fa-star"></i>
+              <span>{edu.score}</span>
+            </div>
+          )}
+
+          {edu.focus && (
+            <div class="edu-extra-box">
+              <span class="extra-label">Fokus Kajian:</span>
+              <p class="extra-desc">{edu.focus}</p>
+            </div>
+          )}
+
+          {edu.activities && (
+            <div class="edu-extra-box">
+              <span class="extra-label">Aktivitas:</span>
+              <p class="extra-desc">{edu.activities}</p>
+            </div>
           )}
         </div>
-        <h3 style="font-size: 1.25rem;">{edu.school}</h3>
-        <h4 style="font-size: 1rem; color: var(--text-primary);">{edu.degree}</h4>
-        <p class="date" style="font-weight: 500;">{edu.period}</p>
-        {edu.location && <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt"></i> {edu.location}</p>}
-        {edu.score && <p class="highlight-text" style="color: var(--primary-color); font-weight: 700; margin-bottom: 0.5rem;">{edu.score}</p>}
-        {edu.focus && (
-          <p style="font-size: 0.85rem; color: var(--text-secondary); text-align: center; margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px dashed var(--card-border);">
-            <strong>Fokus Studi:</strong> {edu.focus}
-          </p>
-        )}
-        {edu.activities && (
-          <p style="font-size: 0.85rem; color: var(--text-secondary); text-align: center; margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px dashed var(--card-border);">
-            <strong>Aktivitas:</strong> {edu.activities}
-          </p>
-        )}
-      </div>
-    ))}
+      ))}
+    </div>
   </div>
 </section>
+
+<style>
+  .education-section {
+    background-color: var(--color-cream);
+    padding: 6.5rem 6%;
+    position: relative;
+  }
+
+  .education-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .edu-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.8rem;
+  }
+
+  .edu-item-card {
+    padding: 2.2rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .edu-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .edu-logo-frame {
+    width: 68px;
+    height: 68px;
+    border-radius: 12px;
+    background: var(--color-cream);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+  }
+
+  .edu-logo-frame img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .edu-logo-frame i {
+    font-size: 1.8rem;
+    color: var(--color-burgundy);
+  }
+
+  .edu-period-badge {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-terracotta);
+    background: rgba(200, 109, 86, 0.1);
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+  }
+
+  .edu-school-name {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    color: var(--color-text-dark);
+    line-height: 1.3;
+    margin-bottom: 0.35rem;
+    min-height: 3.2rem;
+    font-weight: 400;
+  }
+
+  .edu-degree-title {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  .edu-loc-text {
+    font-size: 0.82rem;
+    color: var(--color-text-secondary);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .edu-score-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(131, 151, 136, 0.2);
+    color: var(--color-sage-dark);
+    border: none;
+    padding: 0.45rem 0.95rem;
+    border-radius: 50px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    align-self: flex-start;
+  }
+
+  .edu-score-pill i {
+    color: #E5A823;
+  }
+
+  .edu-extra-box {
+    margin-top: 1.2rem;
+  }
+
+  .extra-label {
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-secondary);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .extra-desc {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--color-text-dark);
+  }
+
+  @media (max-width: 1200px) {
+    .edu-cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .edu-cards-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

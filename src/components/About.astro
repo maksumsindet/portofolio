@@ -1,30 +1,267 @@
 ---
 // About.astro
 import { personalInfo, aboutData } from '../data/portfolioData';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
 ---
 
-<section id="about" class="about section">
-  <div class="section-title">
-    <h2>Tentang <span class="highlight">Saya</span></h2>
-  </div>
-  <div class="about-content glass-card slide-up">
-    {aboutData.paragraphs.map((p) => (
-      <p>{p}</p>
-    ))}
+<section id="about" class="about-section">
+  <div class="about-container">
+    <div class="section-title fade-in">
+      <h2>Tentang Saya & Dedikasi</h2>
+      <p>
+        Menghubungkan ketelitian statistik dengan kepekaan sosial untuk menciptakan dampak yang terukur bagi komunitas.
+      </p>
+    </div>
 
-    <div class="contact-info">
-      <div class="info-item">
-        <i class="fas fa-map-marker-alt"></i>
-        <span>{personalInfo.address}</span>
+    <div class="about-grid slide-up">
+      <!-- Left Card: Bio -->
+      <div class="about-bio-card card-cream">
+        <h3 class="bio-lead-heading">
+          Analisis Data untuk Pemberdayaan Nyata
+        </h3>
+        
+        <div class="bio-paragraphs">
+          {aboutData.paragraphs.map((p) => (
+            <p>{p}</p>
+          ))}
+        </div>
+
+        <div class="bio-signature-wrap">
+          <div class="sig-text font-script">Muhammad Dahron M. Maksum</div>
+          <span class="sig-title">Mahasiswa S1 Statistika UNY | IPK {personalInfo.gpa}</span>
+        </div>
       </div>
-      <div class="info-item">
-        <i class="fas fa-phone"></i>
-        <span>{personalInfo.phone}</span>
-      </div>
-      <div class="info-item">
-        <i class="fas fa-envelope"></i>
-        <span>{personalInfo.email}</span>
+
+      <!-- Right Column: Fast Facts & Contact -->
+      <div class="about-sidebar">
+        <div class="facts-card card-cream">
+          <h4 class="sidebar-title"><i class="fas fa-id-card"></i> Informasi Kontak</h4>
+          
+          <div class="contact-rows">
+            <div class="contact-row">
+              <div class="contact-icon-box"><i class="fas fa-map-marker-alt"></i></div>
+              <div class="contact-details">
+                <span class="contact-label">Domisili</span>
+                <span class="contact-val">{personalInfo.address}</span>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div class="contact-icon-box"><i class="fas fa-envelope"></i></div>
+              <div class="contact-details">
+                <span class="contact-label">Email Resmi</span>
+                <a href={personalInfo.social.email} class="contact-val email-link">{personalInfo.email}</a>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div class="contact-icon-box"><i class="fas fa-phone"></i></div>
+              <div class="contact-details">
+                <span class="contact-label">Telepon / WhatsApp</span>
+                <span class="contact-val">{personalInfo.phone}</span>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div class="contact-icon-box"><i class="fas fa-university"></i></div>
+              <div class="contact-details">
+                <span class="contact-label">Institusi</span>
+                <span class="contact-val">{personalInfo.university}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="focus-card card-cream">
+          <h4 class="sidebar-title"><i class="fas fa-bullseye"></i> Fokus & Keahlian</h4>
+          <div class="focus-tags">
+            <div class="focus-tag">
+              <i class="fas fa-chart-line"></i>
+              <span>Statistika Terapan & Regresi</span>
+            </div>
+            <div class="focus-tag">
+              <i class="fas fa-users-cog"></i>
+              <span>Pemberdayaan Masyarakat & PPK</span>
+            </div>
+            <div class="focus-tag">
+              <i class="fas fa-file-invoice"></i>
+              <span>Kajian Kebijakan Strategis</span>
+            </div>
+            <div class="focus-tag">
+              <i class="fas fa-palette"></i>
+              <span>Desain Grafis Muda BNSP</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  .about-section {
+    background-color: var(--color-cream);
+    padding: 6.5rem 6%;
+    position: relative;
+  }
+
+  .about-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 0.9fr;
+    gap: 2.5rem;
+  }
+
+  .about-bio-card {
+    padding: 3rem;
+  }
+
+  .bio-lead-heading {
+    font-size: 1.85rem;
+    color: var(--color-text-dark);
+    line-height: 1.25;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+  }
+
+  .bio-paragraphs p {
+    font-size: 1.08rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.4rem;
+  }
+
+  .bio-signature-wrap {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+  }
+
+  .sig-text {
+    font-size: 2.4rem;
+    color: var(--color-burgundy);
+    line-height: 1.1;
+  }
+
+  .sig-title {
+    font-size: 0.9rem;
+    color: var(--color-terracotta);
+    font-weight: 600;
+    display: block;
+    margin-top: 0.2rem;
+  }
+
+  /* Sidebar */
+  .about-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .sidebar-title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    color: var(--color-text-dark);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 400;
+  }
+
+  .sidebar-title i {
+    color: var(--color-terracotta);
+  }
+
+  .contact-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .contact-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .contact-icon-box {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(200, 109, 86, 0.12);
+    color: var(--color-terracotta);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    flex-shrink: 0;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-secondary);
+    font-weight: 600;
+  }
+
+  .contact-val {
+    font-size: 0.98rem;
+    color: var(--color-text-dark);
+    font-weight: 500;
+    line-height: 1.4;
+    word-break: break-word;
+  }
+
+  .email-link {
+    text-decoration: none;
+    color: var(--color-burgundy);
+    transition: color 0.2s ease;
+  }
+
+  .email-link:hover {
+    color: var(--color-terracotta);
+  }
+
+  .focus-tags {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .focus-tag {
+    background: var(--color-cream-subtle);
+    padding: 0.8rem 1.1rem;
+    border-radius: 10px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    border: none;
+  }
+
+  .focus-tag i {
+    color: var(--color-terracotta);
+  }
+
+  @media (max-width: 900px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+    .about-bio-card {
+      padding: 2.2rem 1.8rem;
+    }
+  }
+</style>

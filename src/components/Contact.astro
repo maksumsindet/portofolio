@@ -3,42 +3,120 @@
 import { personalInfo } from '../data/portfolioData';
 ---
 
-<section id="contact" class="section">
-  <div class="section-title">
-    <h2>Hubungi <span class="highlight">Saya</span></h2>
+<section id="contact" class="contact-footer-section">
+  <!-- Organic Wave Divider from Cream to Dark Burgundy -->
+  <div class="wave-transition">
+    <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,32 C360,110 720,0 1080,70 C1260,105 1380,50 1440,32 L1440,120 L0,120 Z" fill="#2F171D"></path>
+    </svg>
   </div>
-  <p style="text-align: center; margin-top: -2rem; margin-bottom: 3rem; color: var(--text-secondary);">
-    Jangan ragu untuk menghubungi saya untuk kolaborasi atau diskusi!
-  </p>
-  
-  <div class="glass-card slide-up" style="max-width: 100%; margin: 0 auto; text-align: center; padding: 3rem;">
-    <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem; color: var(--text-primary);">Mari Terhubung</h3>
-    <p style="color: var(--text-secondary); margin-bottom: 2.5rem; line-height: 1.6;">
-      Saya selalu terbuka untuk mendiskusikan proyek baru, ide-ide kreatif, atau peluang menjadi bagian dari visi Anda.
-    </p>
-    <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
-      <a
-        href={personalInfo.social.email}
-        style="padding: 0.8rem 1.5rem; border-radius: 8px; background: rgba(59, 130, 246, 0.1); color: var(--primary-color); text-decoration: none; font-weight: 600; transition: all 0.3s ease; border: 1px solid rgba(59, 130, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;"
-      >
-        <i class="fas fa-envelope"></i> Email Saya
-      </a>
-      <a
-        href={personalInfo.social.linkedin}
-        target="_blank"
-        rel="noopener noreferrer"
-        style="padding: 0.8rem 1.5rem; border-radius: 8px; background: rgba(59, 130, 246, 0.1); color: var(--primary-color); text-decoration: none; font-weight: 600; transition: all 0.3s ease; border: 1px solid rgba(59, 130, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;"
-      >
-        <i class="fab fa-linkedin"></i> LinkedIn
-      </a>
-      <a
-        href={personalInfo.social.instagram}
-        target="_blank"
-        rel="noopener noreferrer"
-        style="padding: 0.8rem 1.5rem; border-radius: 8px; background: rgba(59, 130, 246, 0.1); color: var(--primary-color); text-decoration: none; font-weight: 600; transition: all 0.3s ease; border: 1px solid rgba(59, 130, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;"
-      >
-        <i class="fab fa-instagram"></i> Instagram
-      </a>
+
+  <div class="contact-footer-inner">
+    <div class="contact-content-box slide-up">
+      <h2 class="contact-headline">
+        Langkah Nyata Menuju Dampak Lebih Luas
+      </h2>
+      <p class="contact-subtext">
+        Saya selalu terbuka untuk mendiskusikan peluang kolaborasi baru, riset analisis data statistik, maupun inisiatif pemberdayaan komunitas yang bermakna.
+      </p>
+
+      <div class="contact-cta-buttons">
+        <a href={personalInfo.social.email} class="btn-terracotta">
+          <i class="fas fa-envelope"></i>
+          <span>Kirim Email</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href={personalInfo.social.linkedin} target="_blank" rel="noopener noreferrer" class="btn-outline-light">
+          <i class="fab fa-linkedin-in"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href={personalInfo.social.instagram} target="_blank" rel="noopener noreferrer" class="btn-outline-light">
+          <i class="fab fa-instagram"></i>
+          <span>Instagram</span>
+        </a>
+      </div>
+
+      <div class="script-footer-quote">
+        <span class="font-script">Ideas today, a better tomorrow.</span>
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  .contact-footer-section {
+    background-color: var(--color-burgundy);
+    position: relative;
+    padding-bottom: 3.5rem;
+    color: var(--color-text-light);
+  }
+
+  .wave-transition {
+    position: relative;
+    top: -1px;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    background-color: var(--color-cream);
+  }
+
+  .wave-transition svg {
+    display: block;
+    width: 100%;
+    height: 70px;
+  }
+
+  .contact-footer-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 6% 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+  }
+
+  .contact-headline {
+    font-size: var(--step-head);
+    line-height: 1.1;
+    color: #ffffff;
+    margin-bottom: 1.4rem;
+    font-weight: 400;
+  }
+
+  .contact-subtext {
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: var(--color-text-muted-light);
+    margin-bottom: 2.8rem;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-cta-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .script-footer-quote {
+    font-size: 2.2rem;
+    color: var(--color-terracotta);
+    opacity: 0.9;
+    transform: rotate(-3deg);
+  }
+
+  @media (max-width: 600px) {
+    .contact-cta-buttons {
+      flex-direction: column;
+      width: 100%;
+    }
+    .contact-cta-buttons a {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

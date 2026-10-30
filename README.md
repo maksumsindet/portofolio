@@ -24,14 +24,20 @@ Proyek website portofolio pribadi **Muhammad Dahron Mustofa Maksum** (Mahasiswa 
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml          # Otomasi build & deploy ke GitHub Pages
-├── public/                     # Aset statis publik (foto, logo, PDF CV, .nojekyll)
+├── documents/                  # Berkas lokal privat (CV PDF, diabaikan Git)
+├── public/                     # Aset statis publik
+│   ├── .nojekyll               # Mencegah proses Jekyll di GitHub Pages
+│   └── assets/                 # Aset gambar & logo terorganisir
+│       ├── images/             # Foto profil & ilustrasi
+│       └── logos/              # Logo instansi, organisasi, & mitra
 ├── src/
-│   ├── components/             # Komponen Astro modular
+│   ├── components/             # Komponen Astro modular (MOMENTUM design)
 │   │   ├── Navbar.astro
 │   │   ├── Hero.astro
+│   │   ├── ProgramsShowcase.astro
 │   │   ├── About.astro
-│   │   ├── Skills.astro
 │   │   ├── Experience.astro
+│   │   ├── Skills.astro
 │   │   ├── Education.astro
 │   │   ├── Achievements.astro
 │   │   ├── Projects.astro

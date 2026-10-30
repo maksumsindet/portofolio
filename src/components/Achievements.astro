@@ -5,41 +5,158 @@ import { achievementsData } from '../data/portfolioData';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
 ---
 
-<section id="achievements" class="education section">
-  <div class="section-title">
-    <h2>Prestasi dan <span class="highlight">Sertifikat</span></h2>
-  </div>
-  <div class="edu-grid">
-    {achievementsData.map((item) => (
-      <div class="edu-card glass-card slide-up" style="display: flex; flex-direction: column; justify-content: space-between;">
-        <div>
-          <div class="icon" style="height: 100px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
-            {item.logo ? (
-              <img
-                src={`${base}${item.logo}`}
-                alt={item.issuer}
-                style="max-height: 85px; max-width: 100%; object-fit: contain; border-radius: 4px;"
-                loading="lazy"
-              />
-            ) : (
-              <i class={item.icon || "fas fa-award"} style={`font-size: 2.5rem; color: ${item.iconColor || 'var(--accent-color)'};`}></i>
-            )}
+<section id="achievements" class="achievements-section">
+  <div class="achievements-container">
+    <div class="section-title fade-in">
+      <h2>Prestasi & Penghargaan Kompetisi</h2>
+      <p>
+        Pengakuan tingkat nasional dan kompetensi tersertifikasi dalam inovasi program, matematika, komputasi, dan desain.
+      </p>
+    </div>
+
+    <div class="achieve-grid slide-up">
+      {achievementsData.map((item) => (
+        <div class="achieve-card card-cream">
+          <div class="achieve-top">
+            <div class="achieve-icon-frame">
+              {item.logo ? (
+                <img src={`${base}${item.logo}`} alt={item.issuer} loading="lazy" />
+              ) : (
+                <i class={item.icon || "fas fa-trophy"} style={`color: ${item.iconColor || 'var(--color-terracotta)'};`}></i>
+              )}
+            </div>
+            <div class="achieve-badges">
+              <span class="badge-cat">{item.category}</span>
+              <span class="badge-year">{item.year}</span>
+            </div>
           </div>
-          <span style="display: inline-block; padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; background: rgba(14, 165, 233, 0.1); color: var(--primary-color); margin-bottom: 0.6rem;">
-            {item.category}
-          </span>
-          <h3 style="font-size: 1.15rem; margin-bottom: 0.4rem; min-height: 2.8rem; display: flex; align-items: center; justify-content: center;">
-            {item.title}
-          </h3>
-          <h4 style="font-size: 0.95rem; color: var(--text-primary); margin-bottom: 0.4rem;">{item.issuer}</h4>
-          <p class="date" style="font-weight: 500;">{item.year}</p>
+
+          <h3 class="achieve-title">{item.title}</h3>
+          <h4 class="achieve-issuer">{item.issuer}</h4>
+
+          {item.description && (
+            <p class="achieve-desc">{item.description}</p>
+          )}
         </div>
-        {item.description && (
-          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.8rem; padding-top: 0.6rem; border-top: 1px dashed var(--card-border); text-align: center;">
-            {item.description}
-          </p>
-        )}
-      </div>
-    ))}
+      ))}
+    </div>
   </div>
 </section>
+
+<style>
+  .achievements-section {
+    background-color: var(--color-cream);
+    padding: 6.5rem 6%;
+    position: relative;
+  }
+
+  .achievements-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .achieve-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .achieve-card {
+    padding: 2.2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .achieve-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+
+  .achieve-icon-frame {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    background: var(--color-cream);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .achieve-icon-frame img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .achieve-icon-frame i {
+    font-size: 1.85rem;
+  }
+
+  .achieve-badges {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.35rem;
+  }
+
+  .badge-cat {
+    display: inline-block;
+    padding: 0.25rem 0.65rem;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: rgba(131, 151, 136, 0.2);
+    color: var(--color-sage-dark);
+    letter-spacing: 0.04em;
+  }
+
+  .badge-year {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--color-terracotta);
+  }
+
+  .achieve-title {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    color: var(--color-text-dark);
+    line-height: 1.25;
+    margin-bottom: 0.4rem;
+    min-height: 3.3rem;
+    font-weight: 400;
+  }
+
+  .achieve-issuer {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+  }
+
+  .achieve-desc {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin-top: auto;
+    padding-top: 1rem;
+  }
+
+  @media (max-width: 1100px) {
+    .achieve-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 650px) {
+    .achieve-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

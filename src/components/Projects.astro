@@ -1,28 +1,334 @@
 ---
 // Projects.astro
 import { personalInfo } from '../data/portfolioData';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
+
+// Row 1 Photos (Scrolls Left)
+const row1Photos = [
+  {
+    src: `${base}assets/images/portfolio/segara-event-1.jpg`,
+    alt: "Peresmian & Tumpengan Program SEGARA di Sidoagung",
+    caption: "Peresmian Program SEGARA"
+  },
+  {
+    src: `${base}assets/images/portfolio/uny-dscf0754.jpg`,
+    alt: "Sosialisasi Tim SEGARA UNY Bersama Warga Kalurahan Sidoagung",
+    caption: "Sosialisasi Komunitas Sidoagung"
+  },
+  {
+    src: `${base}assets/images/portfolio/photo-4.jpg`,
+    alt: "Pelatihan Budidaya Perikanan Agromina Bersama Masyarakat",
+    caption: "Pelatihan Budidaya Agromina"
+  },
+  {
+    src: `${base}assets/images/portfolio/fmipa-ksi1.jpg`,
+    alt: "Pembinaan Tim Riset Ilmiah KSI Mist FMIPA UNY",
+    caption: "Tim Riset Ilmiah KSI Mist"
+  },
+  {
+    src: `${base}assets/images/portfolio/photo-1.jpg`,
+    alt: "Survei Lapangan & Pengambilan Data Potensi Wilayah",
+    caption: "Survei & Analisis Lapangan"
+  },
+  {
+    src: `${base}assets/images/portfolio/uny-dscf0812.jpg`,
+    alt: "FGD Koordinasi Multi-pihak Kalurahan Sidoagung",
+    caption: "Forum Koordinasi Multi-pihak"
+  }
+];
+
+// Row 2 Photos (Scrolls Right)
+const row2Photos = [
+  {
+    src: `${base}assets/images/portfolio/photo-6.jpg`,
+    alt: "Monitoring Lapangan 224 Kolam Budidaya Ikan",
+    caption: "Monitoring 224 Kolam Ikan"
+  },
+  {
+    src: `${base}assets/images/portfolio/uny-dscf0713.jpg`,
+    alt: "Pelatihan Teknis Pengolahan Pakan & Manajemen Air",
+    caption: "Pelatihan Manajemen Pakan"
+  },
+  {
+    src: `${base}assets/images/portfolio/photo-5.jpg`,
+    alt: "Pemberdayaan UMKM Olahan Ikan KUB Ikanura",
+    caption: "Hilirisasi Produk KUB Ikanura"
+  },
+  {
+    src: `${base}assets/images/portfolio/fmipa-ksi5.jpg`,
+    alt: "Pendampingan Lapangan Tim PPK Ormawa UNY",
+    caption: "Pendampingan Tim Ormawa"
+  },
+  {
+    src: `${base}assets/images/portfolio/photo-3.png`,
+    alt: "Presentasi Capaian Program di Depan Dewan Juri Abdidaya",
+    caption: "Presentasi Abdidaya Ormawa"
+  },
+  {
+    src: `${base}assets/images/portfolio/fmipa-ksi2.jpg`,
+    alt: "Penerimaan Penghargaan Terbaik 2 Nasional Abdidaya",
+    caption: "Terbaik 2 Nasional Abdidaya"
+  }
+];
 ---
 
-<section id="projects" class="section">
-  <div class="section-title">
-    <h2>Proyek <span class="highlight">Saya</span></h2>
-  </div>
-  
-  <div class="glass-card slide-up" style="max-width: 100%; margin: 0 auto; text-align: center; padding: 3rem;">
-    <div style="font-size: 3rem; color: #34A853; margin-bottom: 1.5rem;">
-      <i class="fab fa-google-drive"></i>
+<section id="projects" class="projects-section">
+  <div class="projects-header-container">
+    <div class="section-title fade-in">
+      <h2>Portofolio & Dokumentasi Lapangan</h2>
+      <p>
+        Rekaman visual aktivitas pemberdayaan masyarakat, riset statistika, kepemimpinan organisasi, dan inovasi pengabdian di lapangan.
+      </p>
     </div>
-    <h3 style="margin-bottom: 1rem; font-size: 1.5rem; color: var(--text-primary);">Kumpulan Portofolio Proyek</h3>
-    <p style="color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.6;">
-      Anda dapat melihat berbagai detail proyek dan karya yang pernah saya kerjakan secara lengkap melalui folder Google Drive saya.
-    </p>
-    <a
-      href={personalInfo.projectDriveUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      style="display: inline-block; padding: 0.8rem 1.8rem; border-radius: 8px; background: var(--primary-color); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
-    >
-      Buka Google Drive
-    </a>
+  </div>
+
+  <!-- Dual Row Continuous Photo Marquee -->
+  <div class="marquee-showcase-wrap slide-up">
+    <!-- Row 1: Moves to the Left -->
+    <div class="marquee-row marquee-row-top" aria-label="Galeri kegiatan baris atas bergerak ke kiri">
+      <div class="marquee-track marquee-track-left">
+        {row1Photos.concat(row1Photos).map((item) => (
+          <div class="marquee-item">
+            <img
+              src={item.src}
+              alt={item.alt}
+              width="340"
+              height="220"
+              loading="lazy"
+              class="marquee-img"
+            />
+            <span class="marquee-caption">{item.caption}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Row 2: Moves to the Right -->
+    <div class="marquee-row marquee-row-bottom" aria-label="Galeri kegiatan baris bawah bergerak ke kanan">
+      <div class="marquee-track marquee-track-right">
+        {row2Photos.concat(row2Photos).map((item) => (
+          <div class="marquee-item">
+            <img
+              src={item.src}
+              alt={item.alt}
+              width="340"
+              height="220"
+              loading="lazy"
+              class="marquee-img"
+            />
+            <span class="marquee-caption">{item.caption}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Google Drive Repository Access Card -->
+  <div class="drive-access-wrapper slide-up">
+    <div class="project-drive-card card-cream">
+      <div class="drive-icon-halo">
+        <i class="fab fa-google-drive"></i>
+      </div>
+      
+      <h3 class="drive-heading">Folder Google Drive Portofolio</h3>
+      
+      <p class="drive-desc">
+        Jelajahi seluruh dokumentasi teknis, proposal program PPK Ormawa SEGARA, materi kajian strategis kebijakan, infografis data, serta sertifikat pendukung melalui penyimpanan cloud terpusat.
+      </p>
+
+      <a
+        href={personalInfo.projectDriveUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-terracotta"
+      >
+        <i class="fas fa-folder-open"></i>
+        <span>Buka Folder Google Drive</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
   </div>
 </section>
+
+<style>
+  .projects-section {
+    background-color: var(--color-cream);
+    padding: 6.5rem 0 7rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .projects-header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 6%;
+  }
+
+  /* Dual Row Marquee */
+  .marquee-showcase-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2.5rem 0 5rem;
+    position: relative;
+  }
+
+  .marquee-row {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    will-change: transform;
+  }
+
+  /* Row 1 moves to the left */
+  .marquee-track-left {
+    animation: scrollMarqueeLeft 40s linear infinite;
+  }
+
+  /* Row 2 moves to the right */
+  .marquee-track-right {
+    animation: scrollMarqueeRight 40s linear infinite;
+  }
+
+  .marquee-row:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  .marquee-item {
+    position: relative;
+    width: 340px;
+    height: 220px;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: var(--color-cream-subtle);
+    flex-shrink: 0;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .marquee-item:hover {
+    transform: scale(1.03);
+  }
+
+  .marquee-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .marquee-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background-color: rgba(24, 11, 15, 0.85);
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .marquee-item:hover .marquee-caption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Animations */
+  @keyframes scrollMarqueeLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes scrollMarqueeRight {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track-left,
+    .marquee-track-right {
+      animation: none;
+    }
+    .marquee-row {
+      overflow-x: auto;
+    }
+  }
+
+  /* Drive Access Wrapper */
+  .drive-access-wrapper {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 0 6%;
+  }
+
+  .project-drive-card {
+    text-align: center;
+    padding: 3.8rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .drive-icon-halo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(52, 168, 83, 0.12);
+    color: #34A853;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .drive-heading {
+    font-family: var(--font-serif);
+    font-size: 1.85rem;
+    color: var(--color-text-dark);
+    margin-bottom: 0.85rem;
+    font-weight: 400;
+  }
+
+  .drive-desc {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    max-width: 650px;
+    margin: 0 auto 2.2rem;
+  }
+
+  @media (max-width: 768px) {
+    .marquee-item {
+      width: 270px;
+      height: 180px;
+    }
+    .project-drive-card {
+      padding: 2.5rem 1.8rem;
+    }
+    .drive-heading {
+      font-size: 1.5rem;
+    }
+  }
+</style>

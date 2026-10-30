@@ -12,8 +12,8 @@ interface Props {
 }
 
 const {
-  title = `${personalInfo.name} | Portfolio`,
-  description = `Portfolio pribadi ${personalInfo.name}, Mahasiswa Statistika UNY.`
+  title = `${personalInfo.name} | Portofolio`,
+  description = `Portofolio Muhammad Dahron Mustofa Maksum, Mahasiswa Statistika UNY, Peneliti, Aktivis Pemberdayaan.`
 } = Astro.props;
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
@@ -24,18 +24,30 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="icon" type="image/jpeg" href={`${base}pas foto.jpeg`} />
+    <link rel="icon" type="image/jpeg" href={`${base}assets/images/profile.jpeg`} />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=gambarino@400&f[]=general-sans@400,500,600,700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap"
       rel="stylesheet"
     />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
   </head>
   <body>

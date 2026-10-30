@@ -1,0 +1,516 @@
+---
+// ProgramsShowcase.astro
+// Recreates "Programs Built for Real Change" & "Turn Insight Into Action" with Taste Skill craftsmanship
+const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
+
+const programs = [
+  {
+    category: "Pemberdayaan Masyarakat",
+    title: "PPK Ormawa SEGARA",
+    subtitle: "Sentra Gerak Agromina",
+    role: "Ketua Tim Pelaksana",
+    description: "Membina 6 kelompok perikanan, 224 kolam budidaya, pembentukan Gapokkan Segara Agung & KUB Ikanura bernilai tambah.",
+    image: `${base}assets/images/portfolio/uny-dscf0754.jpg`,
+    link: "#media",
+    tag: "Terbaik 2 Nasional"
+  },
+  {
+    category: "Advokasi & Kebijakan",
+    title: "Kajian Strategis IHMSI",
+    subtitle: "Kajian Nasional Berbasis Data",
+    role: "Presidium I Mukernas XIX",
+    description: "Mengkaji isu-isu strategis nasional berbasis data statistik dan memimpin persidangan permusyawaratan kerja nasional.",
+    image: `${base}assets/images/portfolio/fmipa-ksi1.jpg`,
+    link: "#experience",
+    tag: "Nasional"
+  },
+  {
+    category: "Riset & Keilmiahan",
+    title: "KSI Mist FMIPA UNY",
+    subtitle: "Penalaran & Lomba Mahasiswa",
+    role: "Kepala Departemen KPL",
+    description: "Mengoordinasikan pembinaan delegasi kompetisi ilmiah nasional, monitoring prestasi, dan pendampingan karya tulis.",
+    image: `${base}assets/images/portfolio/fmipa-ksi2.jpg`,
+    link: "#experience",
+    tag: "Departemen KPL"
+  },
+  {
+    category: "Operasional Profesional",
+    title: "Mitra ShopeeFood",
+    subtitle: "Layanan Antar Ekosistem Sea Group",
+    role: "Delivery Driver Partner",
+    description: "Penyelesaian pesanan 100%, optimasi navigasi real-time, pengantaran <30 menit, dan akurasi rekonsiliasi harian 100%.",
+    image: `${base}assets/images/portfolio/uny-dscf0713.jpg`,
+    link: "#experience",
+    tag: "Profesional"
+  }
+];
+
+const featurePills = [
+  { icon: "fas fa-mobile-alt", label: "SEGARA App (Uji Diskominfo)" },
+  { icon: "fas fa-handshake", label: "Kemitraan B2B Pasar Ikan" },
+  { icon: "fas fa-store", label: "Pasar Triwulan & Festival UMKM" },
+  { icon: "fas fa-trophy", label: "Abdidaya Ormawa 2026" },
+];
+---
+
+<section id="programs" class="programs-section">
+  <!-- Decorative background elements -->
+  <div class="shape-sage-circle deco-circle-top"></div>
+  <div class="shape-sage-circle deco-circle-bottom"></div>
+
+  <div class="programs-container">
+    <!-- Header: Programs Built for Real Change -->
+    <div class="section-title fade-in">
+      <h2>Program & Inisiatif Perubahan Nyata</h2>
+      <p>
+        Inisiatif nyata yang dirancang untuk membangun kemandirian, kepercayaan diri, dan aksi bermakna bagi masyarakat serta komunitas.
+      </p>
+    </div>
+
+    <!-- 4 Vertical Cards Grid -->
+    <div class="program-cards-grid">
+      {programs.map((item) => (
+        <div class="program-card slide-up">
+          <div class="card-image-wrap">
+            <img src={item.image} alt={item.title} loading="lazy" />
+            <div class="card-overlay"></div>
+          </div>
+          
+          <div class="card-content">
+            <span class="card-badge">{item.tag}</span>
+            <h3 class="card-title">{item.title}</h3>
+            <p class="card-role">{item.role}</p>
+            <p class="card-desc">{item.description}</p>
+            
+            <div class="card-footer">
+              <a href={item.link} class="card-link">
+                <span>Eksplorasi Detail</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+              <a href={item.link} class="btn-circle" aria-label={`Detail ${item.title}`}>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Wide Cinematic Card: Turn Insight Into Action -->
+    <div class="cinematic-showcase slide-up">
+      <div class="script-accent-left">
+        <span class="font-script">Ideas today<br/>A better tomorrow</span>
+      </div>
+      <div class="script-accent-right">
+        <span class="font-script">Make<br/>Change<br/>Happen</span>
+      </div>
+
+      <div class="cinematic-card-inner">
+        <div class="cinematic-media-bg">
+          <img
+            src={`${base}assets/images/portfolio/uny-dscf0812.jpg`}
+            alt="Dokumentasi Program SEGARA"
+            loading="lazy"
+          />
+          <div class="cinematic-overlay"></div>
+        </div>
+
+        <div class="cinematic-content">
+          <div class="cinematic-left">
+            <h3 class="cinematic-heading">
+              Mengubah Wawasan Menjadi Aksi Nyata
+            </h3>
+            <p class="cinematic-sub">
+              Kolaborasi strategis multi-pihak antara Ormawa, FMIPA UNY, Pemkab Sleman, dan 20 Dinas dalam menggerakkan potensi lokal perikanan Kalurahan Sidoagung.
+            </p>
+          </div>
+
+          <div class="cinematic-center">
+            <a href="https://drive.google.com/drive/folders/1H6HgFSFGwxvSwdGxksj6OziAQxvSrjA0?usp=drive_link" target="_blank" rel="noopener noreferrer" class="play-action-btn" title="Buka Dokumentasi & Galeri Proyek">
+              <i class="fas fa-play"></i>
+            </a>
+          </div>
+
+          <div class="cinematic-right">
+            <span class="impact-metric-tag">Pemberdayaan Masyarakat</span>
+            <span class="impact-metric-tag">Kolaborasi 20 Instansi</span>
+            <span class="impact-metric-tag">224 Kolam Budidaya</span>
+          </div>
+        </div>
+
+        <!-- Floating Pills at Bottom of Cinematic Card -->
+        <div class="cinematic-pills-bar">
+          <span class="listen-label">SOROTAN:</span>
+          <div class="pills-scroll">
+            {featurePills.map((pill) => (
+              <span class="feature-pill">
+                <i class={pill.icon}></i>
+                <span>{pill.label}</span>
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .programs-section {
+    background-color: var(--color-cream);
+    padding: 10rem 6% 6.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .programs-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 5;
+  }
+
+  /* Decorative Organic Circles */
+  .deco-circle-top {
+    top: 50px;
+    right: 4%;
+    width: 60px;
+    height: 60px;
+  }
+
+  .deco-circle-bottom {
+    bottom: 80px;
+    right: 3%;
+    width: 140px;
+    height: 140px;
+    opacity: 0.6;
+  }
+
+  /* 4 Cards Grid */
+  .program-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.8rem;
+    margin-bottom: 5.5rem;
+  }
+
+  .program-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 480px;
+    background: #1c1114;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .program-card:hover {
+    transform: translateY(-6px);
+  }
+
+  .card-image-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .card-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .program-card:hover .card-image-wrap img {
+    transform: scale(1.05);
+  }
+
+  .card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(20, 10, 13, 0.78);
+  }
+
+  .card-content {
+    position: relative;
+    z-index: 5;
+    padding: 2rem 1.6rem;
+    color: #ffffff;
+  }
+
+  .card-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    background: var(--color-terracotta);
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-title {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    line-height: 1.15;
+    margin-bottom: 0.3rem;
+    color: #ffffff;
+    font-weight: 400;
+  }
+
+  .card-role {
+    font-size: 0.9rem;
+    color: var(--color-terracotta);
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+
+  .card-desc {
+    font-size: 0.86rem;
+    line-height: 1.55;
+    color: #E2DADB;
+    margin-bottom: 1.4rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+  }
+
+  .card-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.2s ease;
+  }
+
+  .card-link:hover {
+    color: var(--color-terracotta);
+  }
+
+  /* Wide Cinematic Showcase */
+  .cinematic-showcase {
+    position: relative;
+    margin-top: 2rem;
+  }
+
+  .script-accent-left {
+    position: absolute;
+    left: -120px;
+    top: 30%;
+    transform: rotate(-10deg);
+    z-index: 15;
+    pointer-events: none;
+  }
+
+  .script-accent-left span {
+    font-size: 2.1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.1;
+  }
+
+  .script-accent-right {
+    position: absolute;
+    right: -100px;
+    top: 25%;
+    transform: rotate(8deg);
+    z-index: 15;
+    pointer-events: none;
+  }
+
+  .script-accent-right span {
+    font-size: 2.1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.1;
+  }
+
+  .cinematic-card-inner {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #1e1115;
+    border: none;
+  }
+
+  .cinematic-media-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .cinematic-media-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .cinematic-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(24, 11, 15, 0.84);
+  }
+
+  .cinematic-content {
+    position: relative;
+    z-index: 10;
+    padding: 4rem 3.8rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1.2fr 0.4fr 0.6fr;
+    gap: 2.5rem;
+    align-items: center;
+    color: #ffffff;
+  }
+
+  .cinematic-heading {
+    font-size: 2.4rem;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    font-weight: 400;
+  }
+
+  .cinematic-sub {
+    font-size: 1.02rem;
+    line-height: 1.65;
+    color: #DDD4D6;
+  }
+
+  .cinematic-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .play-action-btn {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background-color: var(--color-terracotta);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    text-decoration: none;
+    border: 6px solid rgba(200, 109, 86, 0.35);
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+    padding-left: 5px;
+  }
+
+  .play-action-btn:hover {
+    transform: scale(1.1);
+    background-color: var(--color-terracotta-hover);
+  }
+
+  .cinematic-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: right;
+  }
+
+  .impact-metric-tag {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  /* Cinematic Pills Bar */
+  .cinematic-pills-bar {
+    position: relative;
+    z-index: 10;
+    background: #14080B;
+    padding: 1.2rem 3.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .listen-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-terracotta);
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+  }
+
+  .pills-scroll {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .feature-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(255, 255, 255, 0.12);
+    border: none;
+    padding: 0.55rem 1.1rem;
+    border-radius: 50px;
+    font-size: 0.88rem;
+    color: #ffffff;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+  }
+
+  @media (max-width: 1200px) {
+    .script-accent-left, .script-accent-right {
+      display: none;
+    }
+    .program-cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .cinematic-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 2rem;
+      padding: 3rem 2rem 2rem;
+    }
+    .cinematic-right {
+      text-align: center;
+    }
+    .cinematic-pills-bar {
+      padding: 1.2rem 2rem;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media (max-width: 650px) {
+    .program-cards-grid {
+      grid-template-columns: 1fr;
+    }
+    .programs-section {
+      padding-top: 7rem;
+    }
+    .cinematic-heading {
+      font-size: 1.85rem;
+    }
+  }
+</style>
