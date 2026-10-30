@@ -1,8 +1,14 @@
 ---
 // Experience.astro
+// Recreates "Pengalaman & Kepemimpinan" with centered credential cards matching portfolio specifications
 import { experienceProgramAndWork, experienceOrganization } from '../data/portfolioData';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
+
+// Filter work experience for professional section
+const professionalWork = experienceProgramAndWork.filter(
+  item => item.role.includes("ShopeeFood") || item.organization.includes("Shopee") || item.badge?.includes("Profesional")
+);
 ---
 
 <section id="experience" class="experience-section">
@@ -10,85 +16,50 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
     <div class="section-title fade-in">
       <h2>Pengalaman & Kepemimpinan</h2>
       <p>
-        Rekam jejak dedikasi dalam memimpin tim lintas disiplin, mengelola riset, dan mengorkestrasi program kemasyarakatan berskala nasional.
+        Rekam jejak dedikasi dalam memimpin tim lintas disiplin, mengelola riset dan kajian strategis, serta mengorkestrasi program kemasyarakatan dari tingkat komunitas hingga nasional.
       </p>
     </div>
 
-    <!-- Sub-heading 1: Program Nasional & Profesional -->
+    <!-- Section 1: Pengalaman Organisasi (8 Centered Credential Cards) -->
     <div class="exp-group-wrap slide-up">
       <div class="group-header">
-        <div class="group-icon-pill"><i class="fas fa-briefcase"></i></div>
-        <h3 class="group-title">Program Nasional & Pengalaman Kerja</h3>
-      </div>
-
-      <div class="featured-cards-stack">
-        {experienceProgramAndWork.map((item) => (
-          <div class="exp-card-featured card-cream">
-            <div class="featured-top">
-              <div class="logo-box">
-                {item.logo ? (
-                  <img src={`${base}${item.logo}`} alt={item.organization} loading="lazy" />
-                ) : (
-                  <i class={item.icon || "fas fa-briefcase"} style={`color: ${item.iconColor || 'var(--color-terracotta)'};`}></i>
-                )}
-              </div>
-              
-              <div class="featured-meta">
-                <div class="meta-main">
-                  <h4 class="exp-role">{item.role}</h4>
-                  <h5 class="exp-org">{item.organization}</h5>
-                  {item.location && <span class="exp-location"><i class="fas fa-map-marker-alt"></i> {item.location}</span>}
-                </div>
-                
-                <div class="meta-badge-wrap">
-                  <span class="exp-date">{item.period}</span>
-                  {item.badge && <span class="pill-badge-terracotta">{item.badge}</span>}
-                </div>
-              </div>
-            </div>
-
-            {item.description && (
-              <p class="featured-desc">{item.description}</p>
-            )}
-
-            <ul class="exp-bullets">
-              {item.responsibilities.map((res) => (
-                <li>
-                  <i class="fas fa-check-circle bullet-icon"></i>
-                  <span>{res}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-    </div>
-
-    <!-- Sub-heading 2: Organisasi & Kemahasiswaan -->
-    <div class="exp-group-wrap slide-up" style="margin-top: 5rem;">
-      <div class="group-header">
         <div class="group-icon-pill"><i class="fas fa-sitemap"></i></div>
-        <h3 class="group-title">Pengalaman Organisasi & Kepengurusan</h3>
+        <div>
+          <h3 class="group-title">Pengalaman Organisasi</h3>
+          <p class="group-subtitle">Perjalanan kepemimpinan dari inisiatif akar rumput dusun hingga panggung delegasi nasional.</p>
+        </div>
       </div>
 
       <div class="org-cards-grid">
         {experienceOrganization.map((item) => (
-          <div class="exp-card-org card-cream">
-            <div class="org-card-top">
-              <div class="logo-box-small">
-                {item.logo ? (
-                  <img src={`${base}${item.logo}`} alt={item.organization} loading="lazy" />
-                ) : (
-                  <i class={item.icon || "fas fa-users"} style={`color: ${item.iconColor || 'var(--color-terracotta)'};`}></i>
-                )}
-              </div>
-              <span class="org-date">{item.period}</span>
+          <div class="exp-card-org card-cream slide-up">
+            <div class="org-logo-container">
+              {item.logo ? (
+                <img
+                  src={`${base}${item.logo}`}
+                  alt={item.organization}
+                  class="org-logo-img"
+                  loading="lazy"
+                />
+              ) : (
+                <div class="org-icon-halo">
+                  <i class={item.icon || "fas fa-users"}></i>
+                </div>
+              )}
             </div>
 
-            <h4 class="org-role">{item.role}</h4>
-            <h5 class="org-name">{item.organization}</h5>
+            <div class="org-header-meta">
+              <span class="org-role-title">{item.role}</span>
+              <h4 class="org-name-title">{item.organization}</h4>
+              <span class="org-period-text">{item.period}</span>
+              {item.badge && (
+                <span class="org-badge-pill">{item.badge}</span>
+              )}
+            </div>
 
-            <ul class="org-bullets">
+            <div class="org-card-divider"></div>
+
+            <ul class="org-bullets-list">
               {item.responsibilities.map((res) => (
                 <li>
                   <span class="bullet-dot"></span>
@@ -100,6 +71,61 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
         ))}
       </div>
     </div>
+
+    <!-- Section 2: Pengalaman Kerja & Operasional Profesional -->
+    {professionalWork.length > 0 && (
+      <div class="exp-group-wrap slide-up" style="margin-top: 5.5rem;">
+        <div class="group-header">
+          <div class="group-icon-pill"><i class="fas fa-briefcase"></i></div>
+          <div>
+            <h3 class="group-title">Pengalaman Kerja & Profesional</h3>
+            <p class="group-subtitle">Etos kerja nyata, dedikasi operasional lapangan, kepatuhan SOP tinggi, dan ketepatan waktu.</p>
+          </div>
+        </div>
+
+        <div class="featured-cards-stack">
+          {professionalWork.map((item) => (
+            <div class="exp-card-featured card-cream">
+              <div class="featured-top">
+                <div class="logo-box">
+                  {item.logo ? (
+                    <img src={`${base}${item.logo}`} alt={item.organization} loading="lazy" />
+                  ) : (
+                    <i class={item.icon || "fas fa-briefcase"} style={`color: ${item.iconColor || 'var(--color-terracotta)'};`}></i>
+                  )}
+                </div>
+                
+                <div class="featured-meta">
+                  <div class="meta-main">
+                    <h4 class="exp-role">{item.role}</h4>
+                    <h5 class="exp-org">{item.organization}</h5>
+                    {item.location && <span class="exp-location"><i class="fas fa-map-marker-alt"></i> {item.location}</span>}
+                  </div>
+                  
+                  <div class="meta-badge-wrap">
+                    <span class="exp-date">{item.period}</span>
+                    {item.badge && <span class="pill-badge-terracotta">{item.badge}</span>}
+                  </div>
+                </div>
+              </div>
+
+              {item.description && (
+                <p class="featured-desc">{item.description}</p>
+              )}
+
+              <ul class="exp-bullets">
+                {item.responsibilities.map((res) => (
+                  <li>
+                    <i class="fas fa-check-circle bullet-icon"></i>
+                    <span>{res}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
   </div>
 </section>
 
@@ -140,9 +166,161 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
     font-size: 1.7rem;
     color: var(--color-text-dark);
     font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 0.2rem;
   }
 
-  /* Featured Program Cards */
+  .group-subtitle {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+  }
+
+  /* Centered Organization Cards Grid */
+  .org-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.8rem;
+  }
+
+  .exp-card-org {
+    padding: 2.2rem 1.6rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 18px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .exp-card-org:hover {
+    transform: translateY(-5px);
+  }
+
+  /* Centered Logo Container */
+  .org-logo-container {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+  }
+
+  .org-logo-img {
+    max-height: 72px;
+    max-width: 80%;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .org-icon-halo {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(200, 109, 86, 0.12);
+    color: var(--color-terracotta);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+  }
+
+  /* Centered Meta */
+  .org-header-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .org-role-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-terracotta);
+    text-align: center;
+    margin-bottom: 0.35rem;
+    line-height: 1.3;
+    min-height: 2.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .org-name-title {
+    font-family: var(--font-serif);
+    font-size: 1.12rem;
+    color: var(--color-burgundy);
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 0.4rem;
+    min-height: 2.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .org-period-text {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #7a6e65;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+
+  .org-badge-pill {
+    display: inline-block;
+    padding: 0.2rem 0.65rem;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    background: rgba(200, 109, 86, 0.12);
+    color: var(--color-terracotta);
+    margin-bottom: 0.4rem;
+  }
+
+  .org-card-divider {
+    width: 36px;
+    height: 2px;
+    background-color: rgba(200, 109, 86, 0.25);
+    margin: 0.6rem auto 1.2rem;
+  }
+
+  /* Responsibilities List */
+  .org-bullets-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    padding-left: 0;
+    margin: 0;
+    width: 100%;
+    margin-top: auto;
+  }
+
+  .org-bullets-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: #4a3e38;
+    text-align: left;
+  }
+
+  .bullet-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--color-terracotta);
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+
+  /* Featured Work Experience */
   .featured-cards-stack {
     display: flex;
     flex-direction: column;
@@ -150,22 +328,23 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
   }
 
   .exp-card-featured {
-    padding: 2.8rem;
+    padding: 2.6rem;
+    background: #ffffff;
+    border-radius: 18px;
   }
 
   .featured-top {
     display: flex;
     gap: 1.8rem;
     align-items: flex-start;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.4rem;
   }
 
   .logo-box {
-    width: 80px;
-    height: 80px;
+    width: 76px;
+    height: 76px;
     border-radius: 14px;
     background: var(--color-cream);
-    border: none;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -229,7 +408,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
     display: inline-block;
     background: rgba(200, 109, 86, 0.12);
     color: var(--color-terracotta);
-    border: none;
     padding: 0.35rem 0.85rem;
     border-radius: 50px;
     font-size: 0.8rem;
@@ -253,13 +431,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
     flex-direction: column;
     gap: 0.85rem;
     padding-left: 0;
+    margin: 0;
   }
 
   .exp-bullets li {
     display: flex;
     align-items: flex-start;
     gap: 0.75rem;
-    font-size: 0.98rem;
+    font-size: 0.95rem;
     line-height: 1.65;
     color: var(--color-text-secondary);
   }
@@ -271,106 +450,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
     font-size: 0.9rem;
   }
 
-  /* Organization Cards Grid */
-  .org-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-
-  .exp-card-org {
-    padding: 2.2rem 2rem;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .org-card-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.4rem;
-  }
-
-  .logo-box-small {
-    width: 52px;
-    height: 52px;
-    border-radius: 12px;
-    background: var(--color-cream);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.4rem;
-  }
-
-  .logo-box-small img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-  }
-
-  .logo-box-small i {
-    font-size: 1.5rem;
-  }
-
-  .org-date {
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: var(--color-terracotta);
-    background: rgba(200, 109, 86, 0.1);
-    padding: 0.25rem 0.65rem;
-    border-radius: 20px;
-  }
-
-  .org-role {
-    font-family: var(--font-serif);
-    font-size: 1.25rem;
-    color: var(--color-text-dark);
-    line-height: 1.25;
-    margin-bottom: 0.25rem;
-    font-weight: 400;
-  }
-
-  .org-name {
-    font-size: 0.95rem;
-    color: var(--color-text-secondary);
-    font-weight: 600;
-    margin-bottom: 1.2rem;
-  }
-
-  .org-bullets {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    padding-left: 0;
-    margin-top: auto;
-  }
-
-  .org-bullets li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.6rem;
-    font-size: 0.9rem;
-    line-height: 1.55;
-    color: var(--color-text-secondary);
-  }
-
-  .bullet-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: var(--color-terracotta);
-    margin-top: 8px;
-    flex-shrink: 0;
-  }
-
-  @media (max-width: 1100px) {
+  @media (max-width: 1200px) {
     .org-cards-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 650px) {
     .featured-top {
       flex-direction: column;
       gap: 1rem;
@@ -379,7 +465,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
       grid-template-columns: 1fr;
     }
     .exp-card-featured {
-      padding: 2rem 1.6rem;
+      padding: 1.8rem 1.4rem;
     }
   }
 </style>

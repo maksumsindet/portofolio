@@ -179,86 +179,104 @@ export const experienceProgramAndWork: ExperienceItem[] = [
 
 export const experienceOrganization: ExperienceItem[] = [
   {
-    role: "Staf Bidang Kajian Strategis (Kastrat) | Presidium I Mukernas XIX",
-    organization: "Ikatan Himpunan Mahasiswa Statistika Indonesia (IHMSI)",
-    location: "Nasional / Indonesia",
-    period: "Jan 2025 - Sekarang",
-    logo: "assets/logos/ihmsi.png",
-    description: "Satu-satunya organisasi keprofesian mahasiswa statistika di Indonesia (didirikan 21 November 1987).",
+    role: "Ketua",
+    organization: "Ikatan Pemuda Masjid Baiturrahman (Tingkat Dusun)",
+    location: "Sindet, Wukirsari, Imogiri, Bantul",
+    period: "2024 - Sekarang",
+    icon: "fas fa-users",
+    description: "Organisasi kepemudaan berbasis masjid tingkat dusun.",
     responsibilities: [
-      "Mengkaji dan menganalisis isu-isu strategis nasional maupun internasional yang relevan dengan mahasiswa statistika di tingkat nasional berbasis bukti data.",
-      "Berperan sebagai delegasi pengurus pusat pada Musyawarah Kerja Nasional XIX (Mukernas XIX IHMSI) di Universitas Negeri Yogyakarta dalam perumusan program kerja dan kajian kebijakan berbasis data.",
-      "Terpilih dan bertindak sebagai Presidium I Musyawarah Kerja Nasional XIX (Mukernas XIX IHMSI) 2025, memimpin jalannya musyawarah tertinggi penetapan program kerja nasional."
+      "Mengelola program kerja pemuda masjid selama periode kepengurusan 3 tahun.",
+      "Memimpin koordinasi kegiatan keagamaan, sosial kemasyarakatan, dan kepemudaan.",
+      "Mengembangkan inovasi kegiatan berbasis kolaborasi antar-komunitas pemuda tingkat dusun."
     ]
   },
   {
-    role: "Kepala Departemen Kajian, Penalaran, dan Lomba (KPL)",
-    organization: "KSI Mist FMIPA Universitas Negeri Yogyakarta",
-    location: "UNY, Yogyakarta",
-    period: "Des 2025 - Sekarang",
-    logo: "assets/logos/ksimist.png",
-    description: "Lembaga riset mahasiswa FMIPA UNY (berdiri 6 Juli 2002).",
+    role: "Koordinator Keagamaan & Pengumuman",
+    organization: "Karang Taruna Satyawala (Tingkat Dusun)",
+    location: "Sindet, Wukirsari, Imogiri, Bantul",
+    period: "2023 - Sekarang",
+    logo: "assets/logos/satyawala.png",
+    description: "Organisasi kepemudaan pemuda-pemudi Dusun Sindet.",
     responsibilities: [
-      "Memimpin Departemen Kajian, Penalaran, dan Lomba (KPL) dalam merancang serta mengelola program pengembangan potensi penalaran dan perlombaan guna mengoptimalkan iklim prestatif anggota KSI Mist FMIPA UNY.",
-      "Mengoordinasikan pemantauan dan evaluasi (monitoring dan evaluasi) prestasi mahasiswa, pendampingan penulisan karya tulis ilmiah, serta pembinaan delegasi kompetisi tingkat nasional."
+      "Mengoordinasikan kegiatan keagamaan dan pembinaan pemuda di tingkat dusun.",
+      "Mengelola penyampaian informasi dan pengumuman resmi kegiatan kepada warga masyarakat."
+    ]
+  },
+  {
+    role: "Staf Bidang Media dan Informasi",
+    organization: "Karang Taruna Budiluhur (Tingkat Kalurahan)",
+    location: "Wukirsari, Imogiri, Bantul",
+    period: "2024 - Sekarang",
+    logo: "assets/logos/budiluhur.png",
+    description: "Lembaga kepemudaan tingkat kalurahan Wukirsari.",
+    responsibilities: [
+      "Mengelola dokumentasi visual, aset grafis, dan publikasi kegiatan Karang Taruna kalurahan.",
+      "Mendukung diseminasi program pemberdayaan dan komunikasi digital pemuda desa."
     ]
   },
   {
     role: "Anggota | Presidium I Sidang Umum 2024",
-    organization: "HIMATIKA DEPIKMAT FMIPA UNY",
+    organization: "HIMATIKA DEPIKMAT UNY",
     location: "UNY, Yogyakarta",
-    period: "Agu 2024 - Sekarang",
+    period: "2024 - Sekarang",
     logo: "assets/logos/himatika.png",
     description: "Wadah resmi mahasiswa Departemen Pendidikan Matematika (Pendidikan Matematika, Matematika, dan Statistika).",
     responsibilities: [
-      "Berpartisipasi aktif dalam kegiatan akademik, perlombaan matematika dan statistika, serta forum pengembangan keilmuan di lingkungan Departemen Pendidikan Matematika FMIPA UNY.",
-      "Dipercaya sebagai Presidium I Sidang Umum HIMATIKA DEPDIKMAT 2024, memimpin persidangan permusyawaratan tertinggi mahasiswa dan penetapan arah AD/ART organisasi."
+      "Berpartisipasi aktif dalam kegiatan akademik, lomba, dan pengembangan keilmuan statistika.",
+      "Dipercaya sebagai Presidium I Sidang Umum HIMATIKA DEPIKMAT 2024 memimpin penetapan AD/ART organisasi."
+    ]
+  },
+  {
+    role: "Kepala Departemen KPL (Kajian, Penalaran, dan Lomba)",
+    organization: "KSI Mist FMIPA Universitas Negeri Yogyakarta",
+    location: "UNY, Yogyakarta",
+    period: "2025 - Sekarang",
+    badge: "Kepala Departemen",
+    logo: "assets/logos/ksimist.png",
+    description: "Lembaga riset mahasiswa FMIPA UNY (berdiri 6 Juli 2002).",
+    responsibilities: [
+      "Memimpin Departemen KPL dalam merancang program pengembangan potensi penalaran dan iklim prestatif.",
+      "Mengoordinasikan monitoring & evaluasi prestasi, pendampingan karya tulis ilmiah, dan pembinaan delegasi kompetisi ilmiah nasional."
+    ]
+  },
+  {
+    role: "Staf Bidang Kajian Strategis (Kastrat) | Presidium I Mukernas XIX",
+    organization: "Ikatan Himpunan Mahasiswa Statistika Indonesia (IHMSI)",
+    location: "Nasional / Indonesia",
+    period: "2025 - Sekarang",
+    badge: "Pengurus Pusat",
+    logo: "assets/logos/ihmsi.png",
+    description: "Satu-satunya organisasi keprofesian mahasiswa statistika di Indonesia (didirikan 21 November 1987).",
+    responsibilities: [
+      "Mengkaji isu-isu strategis nasional maupun internasional yang relevan dengan mahasiswa statistika berbasis bukti data.",
+      "Terpilih sebagai Presidium I Musyawarah Kerja Nasional XIX (Mukernas XIX IHMSI) 2025 memimpin jalannya permusyawaratan tertinggi."
+    ]
+  },
+  {
+    role: "Ketua Tim Pelaksana PPK Ormawa",
+    organization: "KSI Mist FMIPA UNY (Program SEGARA)",
+    location: "Sidoagung, Godean, Sleman",
+    period: "2026",
+    badge: "Terbaik 2 Nasional",
+    logo: "assets/logos/segara.png",
+    description: "Program Penguatan Kapasitas Ormawa yang didanai Kemdiktisaintek RI.",
+    responsibilities: [
+      "Meluncurkan program SEGARA (Sentra Gerak Agromina) di Kalurahan Sidoagung memberdayakan 224 kolam budidaya.",
+      "Mendirikan kelembagaan Gapokkan Segara Agung, KUB Ikanura, dan transformasi digital melalui SEGARA App.",
+      "Mengantarkan tim meraih predikat Terbaik 2 Nasional Abdidaya Ormawa Kemdiktisaintek RI 2026 di UMI Makassar."
     ]
   },
   {
     role: "Sekretaris",
     organization: "Dewan Ambalan Senopati Dewi Sartika - MAN 3 Bantul",
     location: "Bantul, D.I. Yogyakarta",
-    period: "Jan 2022 - Jan 2023",
+    period: "2022 - 2023",
     logo: "assets/logos/man3.png",
-    description: "Lembaga kepemimpinan dan wadah pembinaan kepramukaan Penegak di pangkalan MAN 3 Bantul (MANTABA).",
+    description: "Lembaga kepemimpinan kepramukaan Penegak MAN 3 Bantul.",
     responsibilities: [
-      "Mengelola administrasi organisasi, persuratan dinas, dan dokumentasi kearsipan kegiatan kepramukaan tingkat Ambalan secara tertib dan sistematis.",
-      "Menyelesaikan latihan kepemimpinan siswa dan Kursus Pembina Pramuka Mahir Tingkat Dasar (KMD) 2022 bekerjasama dengan Kwarcab Bantul."
-    ]
-  },
-  {
-    role: "Ketua",
-    organization: "Ikatan Pemuda Masjid Baiturrahman (IPREMBA)",
-    location: "Sindet, Wukirsari, Imogiri, Bantul",
-    period: "Jan 2024 - Sekarang",
-    icon: "fas fa-mosque",
-    iconColor: "var(--primary-color)",
-    responsibilities: [
-      "Memimpin kepengurusan pemuda masjid selama masa bakti 3 tahun.",
-      "Menyusun arah program kerja kepemudaan, serta mengoordinasikan kegiatan keagamaan dan sosial kemasyarakatan.",
-      "Mengembangkan inovasi kegiatan berbasis kolaborasi antar komunitas pemuda tingkat dusun."
-    ]
-  },
-  {
-    role: "Staf Bidang Media & Informasi",
-    organization: "Karang Taruna Budiluhur Kalurahan Wukirsari",
-    location: "Wukirsari, Imogiri, Bantul",
-    period: "Jan 2024 - Sekarang",
-    logo: "assets/logos/budiluhur.png",
-    responsibilities: [
-      "Mengelola dokumentasi visual, pembuatan aset desain grafis, serta publikasi informasi kegiatan kepemudaan di tingkat kalurahan."
-    ]
-  },
-  {
-    role: "Koordinator Keagamaan & Bidang Pengumuman",
-    organization: "Karang Taruna Satyawala Dusun Sindet",
-    location: "Sindet, Wukirsari, Imogiri, Bantul",
-    period: "Jan 2023 - Sekarang",
-    logo: "assets/logos/satyawala.png",
-    responsibilities: [
-      "Mengoordinasikan kegiatan keagamaan dusun (2024 – Sekarang).",
-      "Mengelola penyampaian informasi dan pengumuman resmi kegiatan kepada warga masyarakat."
+      "Mengelola administrasi persuratan dinas dan kearsipan kegiatan kepramukaan Penegak tingkat ambalan.",
+      "Menyelesaikan Latihan Kepemimpinan Siswa dan Kursus Pembina Pramuka Mahir Tingkat Dasar (KMD) 2022."
     ]
   }
 ];
@@ -495,6 +513,30 @@ export const mediaData: MediaCategory[] = [
 ];
 
 export const documentaryPhotos: DocumentaryPhoto[] = [
+  {
+    src: "assets/images/portfolio/man3-medali-matematika.jpg",
+    alt: "Medali Perunggu Olimpiade Matematika Nasional di MAN 3 Bantul",
+    caption: "Penganugerahan Medali Perunggu National Young Science Innovation (POSI 2022) di MAN 3 Bantul",
+    category: "Prestasi & Riset",
+    tag: "Medali Matematika",
+    source: "Humas MAN 3 Bantul"
+  },
+  {
+    src: "assets/images/portfolio/segara-app-training.jpg",
+    alt: "Pelatihan & Sosialisasi SEGARA App di Kalurahan Sidoagung",
+    caption: "Pelatihan Transformasi Digital & Penggunaan SEGARA App Bersama Komunitas dan Pamong Sidoagung",
+    category: "Pemberdayaan",
+    tag: "Digitalisasi SEGARA App",
+    source: "Humas Resmi UNY & Diskominfo"
+  },
+  {
+    src: "assets/images/portfolio/segara-banner-sidoagung.jpg",
+    alt: "Grand Opening & Dokumentasi Kolaboratif Program SEGARA Sidoagung",
+    caption: "Peresmian & Sinergi Program Sentra Gerak Agromina SEGARA bersama Rektorat UNY, Pamong, dan Petani Ikan",
+    category: "Pemberdayaan",
+    tag: "Dokumentasi Kolaboratif",
+    source: "Dokumentasi PPK Ormawa"
+  },
   {
     src: "assets/images/portfolio/man3-medali-matematika.jpg",
     alt: "Medali Perunggu Olimpiade Matematika Nasional di MAN 3 Bantul",
