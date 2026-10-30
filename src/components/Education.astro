@@ -1,0 +1,45 @@
+---
+// Education.astro
+import { educationData } from '../data/portfolioData';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
+---
+
+<section id="education" class="education section">
+  <div class="section-title">
+    <h2>Riwayat <span class="highlight">Pendidikan</span></h2>
+  </div>
+  <div class="edu-grid">
+    {educationData.map((edu) => (
+      <div class="edu-card glass-card slide-up">
+        <div class="icon" style="height: 110px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+          {edu.logo ? (
+            <img
+              src={`${base}${edu.logo}`}
+              alt={edu.school}
+              style="max-height: 90px; max-width: 100%; object-fit: contain; border-radius: 4px;"
+              loading="lazy"
+            />
+          ) : (
+            <i class={edu.icon || "fas fa-graduation-cap"} style="font-size: 2.5rem; color: var(--primary-color);"></i>
+          )}
+        </div>
+        <h3 style="font-size: 1.25rem;">{edu.school}</h3>
+        <h4 style="font-size: 1rem; color: var(--text-primary);">{edu.degree}</h4>
+        <p class="date" style="font-weight: 500;">{edu.period}</p>
+        {edu.location && <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt"></i> {edu.location}</p>}
+        {edu.score && <p class="highlight-text" style="color: var(--primary-color); font-weight: 700; margin-bottom: 0.5rem;">{edu.score}</p>}
+        {edu.focus && (
+          <p style="font-size: 0.85rem; color: var(--text-secondary); text-align: center; margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px dashed var(--card-border);">
+            <strong>Fokus Studi:</strong> {edu.focus}
+          </p>
+        )}
+        {edu.activities && (
+          <p style="font-size: 0.85rem; color: var(--text-secondary); text-align: center; margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px dashed var(--card-border);">
+            <strong>Aktivitas:</strong> {edu.activities}
+          </p>
+        )}
+      </div>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,88 @@
+---
+// Layout.astro
+import '../styles/global.css';
+import StatsCanvas from '../components/StatsCanvas.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { personalInfo } from '../data/portfolioData';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${personalInfo.name} | Portfolio`,
+  description = `Portfolio pribadi ${personalInfo.name}, Mahasiswa Statistika UNY.`
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
+---
+
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/jpeg" href={`${base}pas foto.jpeg`} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <StatsCanvas />
+    <Navbar nickname={personalInfo.nickname} />
+
+    <slot />
+
+    <Footer name={personalInfo.name} />
+
+    <script>
+      function setupScrollAnimations() {
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .slide-up').forEach((element) => {
+          observer.observe(element);
+        });
+
+        // Trigger elements already visible in viewport
+        setTimeout(() => {
+          document.querySelectorAll('.fade-in, .slide-up').forEach((element) => {
+            const rect = element.getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+              element.classList.add('visible');
+            }
+          });
+        }, 100);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupScrollAnimations);
+      } else {
+        setupScrollAnimations();
+      }
+    </script>
+  </body>
+</html>

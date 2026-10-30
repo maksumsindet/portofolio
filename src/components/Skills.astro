@@ -1,0 +1,28 @@
+---
+// Skills.astro
+import { skillsCategories } from '../data/portfolioData';
+---
+
+<section id="skills" class="skills section">
+  <div class="section-title">
+    <h2><span class="highlight">Kemampuan</span> Utama</h2>
+  </div>
+  <div class="skills-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+    {skillsCategories.map((cat) => (
+      <div class="skill-category glass-card slide-up">
+        <h3><i class={cat.icon}></i> {cat.category}</h3>
+        <div class="skill-tags">
+          {cat.skills.map((skill) => (
+            <span class="tag" title={skill.details || skill.name} style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem;">
+              <i class={skill.icon} style={skill.color ? `color: ${skill.color}; font-size: 1.1rem;` : 'font-size: 1.1rem;'}></i>
+              <span>
+                <strong>{skill.name}</strong>
+                {skill.details && <small style="display: block; font-size: 0.75rem; color: var(--text-secondary);">{skill.details}</small>}
+              </span>
+            </span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

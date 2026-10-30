@@ -1,0 +1,44 @@
+---
+// Contact.astro
+import { personalInfo } from '../data/portfolioData';
+---
+
+<section id="contact" class="section">
+  <div class="section-title">
+    <h2>Hubungi <span class="highlight">Saya</span></h2>
+  </div>
+  <p style="text-align: center; margin-top: -2rem; margin-bottom: 3rem; color: var(--text-secondary);">
+    Jangan ragu untuk menghubungi saya untuk kolaborasi atau diskusi!
+  </p>
+  
+  <div class="glass-card slide-up" style="max-width: 100%; margin: 0 auto; text-align: center; padding: 3rem;">
+    <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem; color: var(--text-primary);">Mari Terhubung</h3>
+    <p style="color: var(--text-secondary); margin-bottom: 2.5rem; line-height: 1.6;">
+      Saya selalu terbuka untuk mendiskusikan proyek baru, ide-ide kreatif, atau peluang menjadi bagian dari visi Anda.
+    </p>
+    <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+      <a
+        href={personalInfo.social.email}
+        style="padding: 0.8rem 1.5rem; border-radius: 8px; background: rgba(59, 130, 246, 0.1); color: var(--primary-color); text-decoration: none; font-weight: 600; transition: all 0.3s ease; border: 1px solid rgba(59, 130, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;"
+      >
+        <i class="fas fa-envelope"></i> Email Saya
+      </a>
+      <a
+        href={personalInfo.social.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        style="padding: 0.8rem 1.5rem; border-radius: 8px; background: rgba(59, 130, 246, 0.1); color: var(--primary-color); text-decoration: none; font-weight: 600; transition: all 0.3s ease; border: 1px solid rgba(59, 130, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;"
+      >
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+      <a
+        href={personalInfo.social.instagram}
+        target="_blank"
+        rel="noopener noreferrer"
+        style="padding: 0.8rem 1.5rem; border-radius: 8px; background: rgba(59, 130, 246, 0.1); color: var(--primary-color); text-decoration: none; font-weight: 600; transition: all 0.3s ease; border: 1px solid rgba(59, 130, 246, 0.2); display: flex; align-items: center; gap: 0.5rem;"
+      >
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+    </div>
+  </div>
+</section>

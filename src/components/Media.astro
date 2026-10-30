@@ -1,0 +1,28 @@
+---
+// Media.astro
+import { mediaData } from '../data/portfolioData';
+---
+
+<section id="media" class="media section">
+  <div class="section-title">
+    <h2>Liputan dan <span class="highlight">Publikasi Media</span></h2>
+  </div>
+  <p style="text-align: center; margin-top: -2rem; margin-bottom: 3rem; color: var(--text-secondary);">
+    Dokumentasi Program PPK Ormawa KSI Mist FMIPA UNY (SEGARA)
+  </p>
+  
+  <div class="media-grid">
+    {mediaData.map((category) => (
+      <div class="media-card glass-card slide-up">
+        <h3>{category.category}</h3>
+        <div class="media-links">
+          {category.links.map((link) => (
+            <a href={link.url} target="_blank" rel="noopener noreferrer">
+              <i class={link.icon}></i> {link.title}
+            </a>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

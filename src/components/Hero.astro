@@ -1,0 +1,40 @@
+---
+// Hero.astro
+import { personalInfo, heroPhotos } from '../data/portfolioData';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
+---
+
+<section id="home" class="hero">
+  <div class="hero-top" style="position: relative; z-index: 1;">
+    <div class="hero-content fade-in">
+      <div class="role-badge">
+        <i class="fas fa-chart-line"></i> Data Analyst & <i class="fas fa-users"></i> Social Impact Enthusiast
+      </div>
+      <h1>Halo, Saya <span class="highlight">{personalInfo.nickname}</span></h1>
+      <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text-primary);">{personalInfo.name}</h2>
+      <h3 style="color: var(--text-secondary); font-weight: 400; font-size: 1.2rem; margin-bottom: 1.5rem;">{personalInfo.subtitle}</h3>
+      <p>
+        Menggabungkan keahlian <strong>Analisis Data</strong> dengan <strong>Pemberdayaan Komunitas</strong> untuk menciptakan dampak sosial yang nyata. Aktif memimpin program inovatif dan menggerakkan potensi lokal melalui data dan kolaborasi.
+      </p>
+      <div class="social-links">
+        <a href={personalInfo.social.email} class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href={personalInfo.social.linkedin} class="social-icon" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+        <a href={personalInfo.social.instagram} class="social-icon" title="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+        <a href={personalInfo.social.github} class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+      <a href="#about" class="btn primary-btn">Kenal Lebih Dekat</a>
+    </div>
+    <div class="hero-image fade-in">
+      <div class="profile-main">
+        <img src={`${base}${personalInfo.profileImage}`} alt={personalInfo.name} />
+      </div>
+    </div>
+  </div>
+
+  <div class="photo-gallery">
+    {heroPhotos.map((photo) => (
+      <img src={photo.src} alt={photo.alt} loading="lazy" />
+    ))}
+  </div>
+</section>

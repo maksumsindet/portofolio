@@ -1,0 +1,13 @@
+---
+// Footer.astro
+interface Props {
+  name?: string;
+}
+
+const { name = "Muhammad Dahron Mustofa Maksum" } = Astro.props;
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+  <p>&copy; {currentYear} {name}. All Rights Reserved.</p>
+</footer>

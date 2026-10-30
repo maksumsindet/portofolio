@@ -1,0 +1,28 @@
+---
+// Projects.astro
+import { personalInfo } from '../data/portfolioData';
+---
+
+<section id="projects" class="section">
+  <div class="section-title">
+    <h2>Proyek <span class="highlight">Saya</span></h2>
+  </div>
+  
+  <div class="glass-card slide-up" style="max-width: 100%; margin: 0 auto; text-align: center; padding: 3rem;">
+    <div style="font-size: 3rem; color: #34A853; margin-bottom: 1.5rem;">
+      <i class="fab fa-google-drive"></i>
+    </div>
+    <h3 style="margin-bottom: 1rem; font-size: 1.5rem; color: var(--text-primary);">Kumpulan Portofolio Proyek</h3>
+    <p style="color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.6;">
+      Anda dapat melihat berbagai detail proyek dan karya yang pernah saya kerjakan secara lengkap melalui folder Google Drive saya.
+    </p>
+    <a
+      href={personalInfo.projectDriveUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      style="display: inline-block; padding: 0.8rem 1.8rem; border-radius: 8px; background: var(--primary-color); color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+    >
+      Buka Google Drive
+    </a>
+  </div>
+</section>
