@@ -1,7 +1,6 @@
 ---
 // Layout.astro
 import '../styles/global.css';
-import StatsCanvas from '../components/StatsCanvas.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import { personalInfo } from '../data/portfolioData';
@@ -51,7 +50,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
     />
   </head>
   <body>
-    <StatsCanvas />
     <Navbar nickname={personalInfo.nickname} />
 
     <slot />

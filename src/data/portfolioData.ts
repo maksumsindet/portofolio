@@ -512,6 +512,14 @@ export const documentaryPhotos: DocumentaryPhoto[] = [
     source: "Humas Resmi UNY & Diskominfo"
   },
   {
+    src: "assets/images/portfolio/segara-banner-sidoagung.jpg",
+    alt: "Grand Opening & Dokumentasi Kolaboratif Program SEGARA Sidoagung",
+    caption: "Peresmian & Sinergi Program Sentra Gerak Agromina SEGARA bersama Rektorat UNY, Pamong, dan Petani Ikan",
+    category: "Pemberdayaan",
+    tag: "Dokumentasi Kolaboratif",
+    source: "Dokumentasi PPK Ormawa"
+  },
+  {
     src: "assets/images/portfolio/segara-event-1.jpg",
     alt: "Peresmian & Tumpengan Program SEGARA di Balai Kalurahan Sidoagung",
     caption: "Peresmian Program SEGARA Bersama Pamong Kalurahan & Kelompok Budidaya",
@@ -627,6 +635,10 @@ export const galleryEmbeds = [
 ];
 
 export const heroPhotos = [
+  { src: "assets/images/portfolio/segara-banner-sidoagung.jpg", alt: "Dokumentasi Kolaboratif SEGARA" },
+  { src: "assets/images/portfolio/man3-medali-matematika.jpg", alt: "Medali Matematika Nasional MAN 3 Bantul" },
+  { src: "assets/images/portfolio/segara-app-training.jpg", alt: "Pelatihan Digital SEGARA App" },
+  { src: "assets/images/portfolio/abdidaya-stage-uny.jpg", alt: "Panggung Juara 2 Abdidaya Ormawa" },
   { src: "assets/images/portfolio/segara-event-1.jpg", alt: "Peresmian Program SEGARA" },
   { src: "assets/images/portfolio/uny-dscf0754.jpg", alt: "Sosialisasi Tim SEGARA UNY" },
   { src: "assets/images/portfolio/uny-dscf0713.jpg", alt: "Pelatihan Budidaya CBIB" },
