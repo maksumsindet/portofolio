@@ -16,11 +16,15 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Documents / CV
+# Documents / Private files
 *.pdf
+*.docx
 *CV*
 documents/
 public/*.pdf
+anti-slop/
+hasil-data-mining-foto/
+scratch/
 
 # OS & Editor
 .DS_Store

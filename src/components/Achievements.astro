@@ -7,22 +7,22 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
 
 const coreHighlights = [
   {
-    icon: "fas fa-award",
+    icon: "bi bi-award",
     title: "Terbaik 2 Nasional",
     subtitle: "Abdidaya Ormawa Kemdiktisaintek 2026",
   },
   {
-    icon: "fas fa-graduation-cap",
+    icon: "bi bi-mortarboard",
     title: "IPK 3.84 / 4.00",
     subtitle: "S1 Statistika FMIPA UNY",
   },
   {
-    icon: "fas fa-sitemap",
+    icon: "bi bi-diagram-3",
     title: "Ketua Tim Pelaksana",
     subtitle: "PPK Ormawa SEGARA (224 Kolam)",
   },
   {
-    icon: "fas fa-gavel",
+    icon: "bi bi-hammer",
     title: "Presidium I Mukernas",
     subtitle: "Kajian Strategis IHMSI Indonesia",
   },
@@ -72,7 +72,7 @@ const coreHighlights = [
               {item.logo ? (
                 <img src={`${base}${item.logo}`} alt={item.issuer} loading="lazy" />
               ) : (
-                <i class={item.icon || "fas fa-trophy"} style={`color: ${item.iconColor || 'var(--color-gold)'};`}></i>
+                <i class={item.icon || "bi bi-trophy"} style={`color: ${item.iconColor || 'var(--color-gold)'};`}></i>
               )}
             </div>
             <div class="achieve-badges">

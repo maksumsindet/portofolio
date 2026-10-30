@@ -21,7 +21,7 @@ const professionalWork = experienceProgramAndWork;
     <!-- Section 1: Pengalaman Organisasi (8 Centered Credential Cards) -->
     <div class="exp-group-wrap slide-up">
       <div class="group-header">
-        <div class="group-icon-pill"><i class="fas fa-sitemap"></i></div>
+        <div class="group-icon-pill"><i class="bi bi-diagram-3"></i></div>
         <div>
           <h3 class="group-title">Pengalaman Organisasi</h3>
           <p class="group-subtitle">Perjalanan kepemimpinan dari inisiatif akar rumput dusun hingga panggung delegasi nasional.</p>
@@ -41,7 +41,7 @@ const professionalWork = experienceProgramAndWork;
                 />
               ) : (
                 <div class="org-icon-halo">
-                  <i class={item.icon || "fas fa-users"}></i>
+                  <i class={item.icon || "bi bi-people"}></i>
                 </div>
               )}
             </div>
@@ -74,7 +74,7 @@ const professionalWork = experienceProgramAndWork;
     {professionalWork.length > 0 && (
       <div class="exp-group-wrap slide-up" style="margin-top: 5.5rem;">
         <div class="group-header">
-          <div class="group-icon-pill"><i class="fas fa-briefcase"></i></div>
+          <div class="group-icon-pill"><i class="bi bi-briefcase"></i></div>
           <div>
             <h3 class="group-title">Pengalaman Profesional</h3>
             <p class="group-subtitle">Kepemimpinan eksekusi program nasional, dedikasi operasional lapangan, kepatuhan SOP tinggi, dan ketepatan waktu.</p>
@@ -89,7 +89,7 @@ const professionalWork = experienceProgramAndWork;
                   {item.logo ? (
                     <img src={`${base}${item.logo}`} alt={item.organization} loading="lazy" />
                   ) : (
-                    <i class={item.icon || "fas fa-briefcase"} style={`color: ${item.iconColor || 'var(--color-terracotta)'};`}></i>
+                    <i class={item.icon || "bi bi-briefcase"} style={`color: ${item.iconColor || 'var(--color-terracotta)'};`}></i>
                   )}
                 </div>
                 
@@ -97,7 +97,7 @@ const professionalWork = experienceProgramAndWork;
                   <div class="meta-main">
                     <h4 class="exp-role">{item.role}</h4>
                     <h5 class="exp-org">{item.organization}</h5>
-                    {item.location && <span class="exp-location"><i class="fas fa-map-marker-alt"></i> {item.location}</span>}
+                    {item.location && <span class="exp-location"><i class="bi bi-geo-alt"></i> {item.location}</span>}
                   </div>
                   
                   <div class="meta-badge-wrap">
@@ -114,7 +114,7 @@ const professionalWork = experienceProgramAndWork;
               <ul class="exp-bullets">
                 {item.responsibilities.map((res) => (
                   <li>
-                    <i class="fas fa-check-circle bullet-icon"></i>
+                    <i class="bi bi-check-circle-fill bullet-icon"></i>
                     <span>{res}</span>
                   </li>
                 ))}

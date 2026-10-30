@@ -16,7 +16,7 @@ import { mediaData } from '../data/portfolioData';
       {mediaData.map((category) => (
         <div class="media-cat-card card-cream">
           <div class="media-card-header">
-            <div class="cat-pill-icon"><i class="fas fa-newspaper"></i></div>
+            <div class="cat-pill-icon"><i class="bi bi-newspaper"></i></div>
             <h3 class="media-cat-title">{category.category}</h3>
           </div>
 
@@ -25,7 +25,7 @@ import { mediaData } from '../data/portfolioData';
               <a href={link.url} target="_blank" rel="noopener noreferrer" class="media-link-item">
                 <i class={link.icon}></i>
                 <span class="link-label">{link.title}</span>
-                <i class="fas fa-arrow-up-right-from-square external-icon"></i>
+                <i class="bi bi-box-arrow-up-right external-icon"></i>
               </a>
             ))}
           </div>

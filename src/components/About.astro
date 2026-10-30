@@ -45,11 +45,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
       <!-- Right Column: Fast Facts & Contact -->
       <div class="about-sidebar">
         <div class="facts-card card-cream">
-          <h4 class="sidebar-title"><i class="fas fa-id-card"></i> Informasi Kontak</h4>
+          <h4 class="sidebar-title"><i class="bi bi-person-badge"></i> Informasi Kontak</h4>
           
           <div class="contact-rows">
             <div class="contact-row">
-              <div class="contact-icon-box"><i class="fas fa-map-marker-alt"></i></div>
+              <div class="contact-icon-box"><i class="bi bi-geo-alt"></i></div>
               <div class="contact-details">
                 <span class="contact-label">Domisili</span>
                 <span class="contact-val">{personalInfo.address}</span>
@@ -57,7 +57,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
             </div>
 
             <div class="contact-row">
-              <div class="contact-icon-box"><i class="fas fa-envelope"></i></div>
+              <div class="contact-icon-box"><i class="bi bi-envelope"></i></div>
               <div class="contact-details">
                 <span class="contact-label">Email Resmi</span>
                 <a href={personalInfo.social.email} class="contact-val email-link">{personalInfo.email}</a>
@@ -65,7 +65,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
             </div>
 
             <div class="contact-row">
-              <div class="contact-icon-box"><i class="fas fa-phone"></i></div>
+              <div class="contact-icon-box"><i class="bi bi-telephone"></i></div>
               <div class="contact-details">
                 <span class="contact-label">Telepon / WhatsApp</span>
                 <span class="contact-val">{personalInfo.phone}</span>
@@ -73,7 +73,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
             </div>
 
             <div class="contact-row">
-              <div class="contact-icon-box"><i class="fas fa-university"></i></div>
+              <div class="contact-icon-box"><i class="bi bi-bank"></i></div>
               <div class="contact-details">
                 <span class="contact-label">Institusi</span>
                 <span class="contact-val">{personalInfo.university}</span>
@@ -83,22 +83,22 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
         </div>
 
         <div class="focus-card card-cream">
-          <h4 class="sidebar-title"><i class="fas fa-compass"></i> Fokus Kompetensi</h4>
+          <h4 class="sidebar-title"><i class="bi bi-compass"></i> Fokus Kompetensi</h4>
           <div class="focus-tags">
             <div class="focus-tag">
-              <i class="fas fa-chart-pie"></i>
+              <i class="bi bi-pie-chart"></i>
               <span>Statistika Terapan & Pemodelan Data</span>
             </div>
             <div class="focus-tag">
-              <i class="fas fa-brain"></i>
+              <i class="bi bi-cpu"></i>
               <span>Machine Learning & Komputasi Python/R</span>
             </div>
             <div class="focus-tag">
-              <i class="fas fa-users-cog"></i>
+              <i class="bi bi-people"></i>
               <span>Pemberdayaan Masyarakat & Transformasi Desa</span>
             </div>
             <div class="focus-tag">
-              <i class="fas fa-landmark"></i>
+              <i class="bi bi-bank"></i>
               <span>Kajian Strategis & Advokasi Kebijakan</span>
             </div>
           </div>

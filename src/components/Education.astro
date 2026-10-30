@@ -22,7 +22,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
               {edu.logo ? (
                 <img src={`${base}${edu.logo}`} alt={edu.school} loading="lazy" />
               ) : (
-                <i class={edu.icon || "fas fa-graduation-cap"}></i>
+                <i class={edu.icon || "bi bi-mortarboard"}></i>
               )}
             </div>
             <span class="edu-period-badge">{edu.period}</span>
@@ -32,12 +32,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
           <h4 class="edu-degree-title">{edu.degree}</h4>
           
           {edu.location && (
-            <span class="edu-loc-text"><i class="fas fa-map-marker-alt"></i> {edu.location}</span>
+            <span class="edu-loc-text"><i class="bi bi-geo-alt"></i> {edu.location}</span>
           )}
 
           {edu.score && (
             <div class="edu-score-pill">
-              <i class="fas fa-star"></i>
+              <i class="bi bi-star-fill"></i>
               <span>{edu.score}</span>
             </div>
           )}
