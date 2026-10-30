@@ -347,6 +347,7 @@ export const achievementsData: AchievementItem[] = [
     issuer: "Pusat Olimpiade Sains Indonesia (POSI) - National Young Science Innovation",
     year: "2022",
     category: "Prestasi Nasional",
+    description: "Meraih medali perunggu tingkat nasional dalam kompetisi National Young Science Innovation (NYSI 2022) bidang matematika sebagai siswa X MIPA 1 MAN 3 Bantul (tercatat resmi dalam warta prestasi madrasah).",
     logo: "assets/logos/posi.png"
   },
   {
@@ -487,12 +488,29 @@ export const mediaData: MediaCategory[] = [
       { title: "Harian Merapi: Inovasi SEGARA & Perikanan", url: "https://www.harianmerapi.com", icon: "fas fa-newspaper" },
       { title: "Tribun Jogja: Prestasi Siswa & Literasi", url: "https://jogja.tribunnews.com", icon: "fas fa-newspaper" },
       { title: "UMI Makassar: Prestasi Abdidaya Ormawa", url: "https://umi.ac.id", icon: "fas fa-award" },
-      { title: "MAN 3 Bantul: Medali Matematika & Wisuda", url: "https://man3bantul.sch.id", icon: "fas fa-graduation-cap" }
+      { title: "MAN 3 Bantul: Medali Kompetisi Matematika", url: "https://man3bantul.sch.id/berita/dahron-siswa-man-3-bantul-sabet-medali-kompetisi-matematika-nasional", icon: "fas fa-graduation-cap" },
+      { title: "DKA UNY: Peluncuran Resmi SEGARA Sidoagung", url: "https://dka.uny.ac.id/tags/ppko-tahun-2026", icon: "fas fa-university" }
     ]
   }
 ];
 
 export const documentaryPhotos: DocumentaryPhoto[] = [
+  {
+    src: "assets/images/portfolio/man3-medali-matematika.jpg",
+    alt: "Medali Perunggu Olimpiade Matematika Nasional di MAN 3 Bantul",
+    caption: "Penganugerahan Medali Perunggu National Young Science Innovation (POSI 2022) di MAN 3 Bantul",
+    category: "Prestasi & Riset",
+    tag: "Medali Matematika",
+    source: "Humas MAN 3 Bantul"
+  },
+  {
+    src: "assets/images/portfolio/segara-app-training.jpg",
+    alt: "Pelatihan & Sosialisasi SEGARA App di Kalurahan Sidoagung",
+    caption: "Pelatihan Transformasi Digital & Penggunaan SEGARA App Bersama Komunitas dan Pamong Sidoagung",
+    category: "Pemberdayaan",
+    tag: "Digitalisasi SEGARA App",
+    source: "Humas Resmi UNY & Diskominfo"
+  },
   {
     src: "assets/images/portfolio/segara-event-1.jpg",
     alt: "Peresmian & Tumpengan Program SEGARA di Balai Kalurahan Sidoagung",
