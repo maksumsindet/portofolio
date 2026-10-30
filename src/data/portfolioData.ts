@@ -611,6 +611,14 @@ export const mediaData: MediaCategory[] = [
 
 export const documentaryPhotos: DocumentaryPhoto[] = [
   {
+    src: "assets/images/portfolio/dahron-abdidaya-terbaik-2.jpg",
+    alt: "Muhammad Dahron memegang piagam Terbaik 2 Pemahaman Pemberdayaan Masyarakat dan maskot Abdidaya Ormawa 2026",
+    caption: "Penerimaan Piagam Juara Terbaik 2 Nasional Tim Pelaksana Abdidaya Ormawa 2026 di UMI Makassar",
+    category: "Prestasi & Riset",
+    tag: "Juara 2 Nasional",
+    source: "Dokumentasi Pribadi"
+  },
+  {
     src: "assets/images/portfolio/man3-medali-matematika.jpg",
     alt: "Penyerahan medali kompetisi matematika di MAN 3 Bantul",
     caption: "Dokumentasi penyerahan apresiasi kejuaraan matematika di kampus MAN 3 Bantul",
