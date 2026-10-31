@@ -244,10 +244,10 @@ h1, h2, h3, h4, .font-serif {
   z-index: 0;
 }
 
-/* Animations */
+/* Animations (Natural Exponential Deceleration) */
 .fade-in {
   opacity: 0;
-  transition: opacity 0.7s ease;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .fade-in.visible {
@@ -256,13 +256,28 @@ h1, h2, h3, h4, .font-serif {
 
 .slide-up {
   opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(18px);
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .slide-up.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Accessibility: Intentional Reduced Motion Alternative */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .fade-in, .slide-up {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 /* Responsive */
