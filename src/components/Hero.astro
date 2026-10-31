@@ -423,8 +423,8 @@ const partners = ((rawPortfolioContent as any)?.partners && (rawPortfolioContent
     vertical-align: bottom;
     border: none !important;
     border-radius: 0 !important;
-    
-    
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, rgba(0, 0, 0, 0.4) 93%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 80%, rgba(0, 0, 0, 0.4) 93%, transparent 100%);
     transition: transform 0.4s ease, filter 0.4s ease;
   }
 
@@ -475,11 +475,11 @@ const partners = ((rawPortfolioContent as any)?.partners && (rawPortfolioContent
   .partners-ribbon-wrapper {
     position: relative;
     z-index: 3;
-    background: rgba(8, 12, 20, 0.95);
-    /* space over rule */
-    /* space over rule */
+    background: rgba(8, 12, 20, 0.98);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
     padding: 1.25rem 0;
-    margin-top: 1rem;
+    margin-top: 0;
   }
 
   .partners-container {
