@@ -291,7 +291,7 @@
         },
         {
           "name": "Microsoft Word",
-          "icon": "bi bi-check2-circle",
+          "icon": "bi bi-file-word",
           "color": "#0B1931",
           "details": "Copywriting"
         }
