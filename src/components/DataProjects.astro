@@ -531,8 +531,13 @@ const projects = dataProjects?.projects || [];
     opacity: 0.75;
   }
 
-  /* Responsive Breakpoints */
-  @media (max-width: 900px) {
+  /* Touch Target & Fluid Action Layout */
+  .btn-evidence {
+    min-height: 44px;
+  }
+
+  /* Responsive Breakpoints & Fluid Spatial Rhythm */
+  @media (max-width: 860px) {
     .dossier-metrics-grid {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -540,18 +545,18 @@ const projects = dataProjects?.projects || [];
 
   @media (max-width: 640px) {
     .evidence-card {
-      padding: 1.5rem 1.25rem;
+      padding: 1.75rem 1.35rem;
     }
     .dossier-top-meta {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.5rem;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.55rem;
     }
     .period-text {
+      width: 100%;
       margin-left: 0;
-    }
-    .dossier-metrics-grid {
-      grid-template-columns: 1fr;
+      margin-top: 0.25rem;
     }
     .dossier-actions-row {
       flex-direction: column;
@@ -559,6 +564,12 @@ const projects = dataProjects?.projects || [];
     }
     .btn-evidence {
       justify-content: center;
+    }
+  }
+
+  @media (max-width: 440px) {
+    .dossier-metrics-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
