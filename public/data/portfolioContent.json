@@ -1195,52 +1195,85 @@
   ],
   "heroPhotos": [],
   "dataProjects": {
-    "sectionTitle": "Bukti Nyata Proyek Data & Analitik",
-    "sectionSubtitle": "Dokumentasi otentik, berkas serah terima resmi bertandatangan, uji kelayakan institusi, dan hasil implementasi sistem data di lapangan.",
+    "sectionTitle": "Bukti Nyata Proyek Data, Riset & Rekayasa AI",
+    "sectionSubtitle": "Bukan sekadar klaim teoritis. Di bawah ini adalah portofolio karya ilmiah kompetisi nasional, hibah riset kementerian, dan sistem analitik nyata yang terverifikasi melalui naskah esai, technical report, berita acara serah terima resmi, dan deployment langsung.",
     "projects": [
       {
-        "id": "segara-analytics",
-        "category": "Agri-Tech & Supply Chain DSS",
-        "badge": "Domain Resmi Pemkab Sleman",
-        "title": "SEGARA Digital Supply Chain & Geospatial Pond Analytics (SEGARA App)",
-        "subtitle": "Sistem Pendukung Keputusan Budidaya & Rantai Pasok Ikan Air Tawar Terpadu",
-        "partner": "Kolaborasi PPK Ormawa, Pemkab Sleman, Diskominfo & 6 Kelompok Tani",
-        "period": "2024 – 2026",
-        "summary": "Digitalisasi rantai pasok dan pemetaan geospasial 224 kolam budidaya air tawar guna mengeliminasi asimetri informasi stok dan disparitas harga jual pakan/panen.",
+        "id": "agrialert-satria-data",
+        "category": "Kompetisi Nasional & AI Edge Deployment",
+        "badge": "SATRIA DATA 2026 • SEC SD2026020000315",
+        "period": "2026",
+        "featured": true,
+        "title": "AgriAlert: Integrated Remote Sensing, Climate Teleconnection & Edge Computer Vision",
+        "subtitle": "Sistem Peringatan Dini Padi Nasional Terintegrasi (Karya Statistics Essay Competition SATRIA DATA 2026 - Universitas Diponegoro)",
+        "partner": "Pusat Prestasi Nasional (Puspresnas) Kemdiktisaintek RI & Universitas Diponegoro",
+        "summary": "Karya ilmiah esai komprehensif (24 halaman) menjawab ketimpangan akses teknologi perlindungan tanaman padi di 27,7 juta rumah tangga tani. Mengintegrasikan dinamika telekoneksi iklim ENSO Pasifik (NOAA ERSSTv5), pemantauan biomassa satelit ESA Copernicus (Sentinel-1 SAR backscatter & Sentinel-2 NDVI), serta inferensi on-device Computer Vision ONNX WebAssembly 224×224 yang berjalan 100% offline di peramban gawai petani tanpa kuota internet.",
         "evidencePoints": [
-          "Domain & Hosting Pemkab: Sistem resmi diadopsi Pemerintah Kabupaten Sleman dan live di https://segara.slemankab.go.id/.",
-          "Dokumen Resmi: Berita Acara Serah Terima Aplikasi SEGARA bertandatangan Dahron (No. BA-04/PPKO-SEGARA/XI/2026).",
-          "Uji Teknis & Keamanan: Lolos review kelayakan teknis bersama Tim Dinas Komunikasi dan Informatika (Diskominfo) Sleman.",
-          "Implementasi Lapangan: Pelatihan langsung aplikasi smartphone kepada puluhan warga dan pengurus Pokdakan Sidoagung.",
-          "Basis Data Terintegrasi: 224 kolam budidaya terdata geospasial dan terhubung ke 3 offtaker pasar regional."
+          "Naskah resmi esai ilmiah 24 halaman kode peserta SEC_(SD2026020000315) SATRIA DATA 2026.",
+          "Aplikasi web PWA fungsional dan live dengan arsitektur Astro, Tailwind CSS, dan ONNX Wasm Runtime.",
+          "Model inferensi neural network native 224×224 float32 untuk 6 kelas penyakit daun padi utama (Blas, HDB, Bercak Cokelat, dsb.).",
+          "Knowledge base agronomi terintegrasi TaniBot AI mengadopsi rekomendasi resmi BBPOPT Ditjen Tanaman Pangan Kementan RI."
         ],
-        "evidenceImages": [
+        "metrics": [
           {
-            "src": "assets/images/mined/04-Foto-Sublaporan-Akhir-KSI-Mist-Dahron/14_Berita_Acara_Serah_Terima_Aplikasi_SEGARA_Bertandatangan_Dahron.jpeg",
-            "alt": "Dokumen Berita Acara Serah Terima Aplikasi SEGARA Bertandatangan Dahron",
-            "caption": "Berita Acara Serah Terima Aplikasi SEGARA Bertandatangan Resmi Dahron",
-            "badge": "Dokumen Resmi"
+            "value": "24 Halaman",
+            "label": "Naskah Ilmiah Kompetisi SEC"
           },
           {
-            "src": "assets/images/curated/diskominfo-rakor-aplikasi.png",
-            "alt": "Rakor dan Uji Keamanan Sistem SEGARA App bersama Diskominfo Sleman",
-            "caption": "Rakor Uji Keamanan dan Validasi Sistem bersama Tim Teknis Diskominfo Sleman",
-            "badge": "Validasi Institusi"
+            "value": "6 Penyakit",
+            "label": "Klasifikasi Daun Padi On-Device"
           },
           {
-            "src": "assets/images/curated/pelatihan-segara-app-warga.jpg",
-            "alt": "Pelatihan langsung implementasi SEGARA App kepada warga pembudidaya",
-            "caption": "Dahron mendampingi warga pembudidaya mengoperasikan aplikasi di smartphone",
-            "badge": "Uji Pengguna Riil"
+            "value": "100% Offline",
+            "label": "PWA ONNX WebAssembly"
+          },
+          {
+            "value": "R² 94.3%",
+            "label": "Peramalan Anomali Iklim ONI"
           }
         ],
         "techStack": [
           "Python",
-          "R Shiny",
-          "PostgreSQL",
-          "Leaflet GIS",
-          "Pandas",
-          "REST API"
+          "ONNX Runtime Web",
+          "Astro",
+          "Tailwind CSS",
+          "ESA Copernicus Sentinel-1/2",
+          "NOAA ENSO Data",
+          "PWA Offline"
+        ],
+        "evidenceImages": [
+          {
+            "src": "assets/images/portfolio/agrialert-dashboard-screen.png",
+            "alt": "Dashboard Pemantauan Iklim ENSO dan Satelit Sentinel AgriAlert",
+            "caption": "Antarmuka dashboard analitik AgriAlert yang memadukan indeks anomali suhu laut NOAA ERSSTv5 zona Niño 3.4 dan radar hamburan balik Sentinel-1.",
+            "badge": "Analitik Iklim & Satelit"
+          },
+          {
+            "src": "assets/images/portfolio/agrialert-mobile-screen.jpg",
+            "alt": "Hasil Deteksi Penyakit Daun Padi On-Device AgriAlert di Smartphone",
+            "caption": "Bukti implementasi inferensi klasifikasi penyakit daun padi menggunakan model neural network native 224×224 langsung di peramban gawai petani.",
+            "badge": "Computer Vision On-Device"
+          }
+        ],
+        "liveUrl": "https://maksumsindet.github.io/agrialert/",
+        "docsUrl": "https://drive.google.com/drive/folders/1H6HgFSFGwxvSwdGxksj6OziAQxvSrjA0?usp=drive_link",
+        "githubUrl": "https://github.com/maksumsindet/agrialert"
+      },
+      {
+        "id": "segara-analytics",
+        "category": "Inovasi Sosial & Analitik Rantai Pasok",
+        "badge": "Juara 2 Nasional Abdidaya Ormawa Kemdiktisaintek",
+        "period": "2024 - 2026",
+        "featured": true,
+        "title": "SEGARA Digital Supply Chain & Geospatial Pond Analytics (SEGARA App)",
+        "subtitle": "Sistem Pendukung Keputusan Budidaya & Rantai Pasok Ikan Air Tawar Terpadu",
+        "partner": "PPK Ormawa Kemdiktisaintek RI, Pemkab Sleman, Diskominfo Sleman, Dinas Koperasi & UKM, 6 Pokdakan",
+        "summary": "Memimpin 14 mahasiswa tim pelaksana PPK Ormawa KSI Mist FMIPA UNY dalam merancang, memetakan, dan menyerahterimakan sistem analitik geospasial rantai pasok ikan air tawar di Kalurahan Sidoagung, Godean, Sleman. Menghubungkan 224 kolam budidaya dengan offtaker industri, disahkan melalui Berita Acara Serah Terima resmi bersama Pemkab Sleman dan dinobatkan sebagai Terbaik 2 Nasional Abdidaya Ormawa 2026.",
+        "evidencePoints": [
+          "Berita Acara Serah Terima resmi Aplikasi SEGARA bertandatangan Muhammad Dahron Mustofa Maksum dan Lurah Sidoagung.",
+          "Rakor validasi teknis dan integrasi arsitektur sistem bersama Diskominfo Kabupaten Sleman.",
+          "Pelatihan dan pendampingan adopsi teknologi secara langsung kepada 6 kelompok pembudidaya ikan (Pokdakan).",
+          "Penghargaan Terbaik 2 Nasional Kategori Pemahaman Pemberdayaan Masyarakat Abdidaya Ormawa Kemdiktisaintek RI di UMI Makassar."
         ],
         "metrics": [
           {
@@ -1260,128 +1293,156 @@
             "label": "Nasional Abdidaya Kemdiktisaintek"
           }
         ],
-        "githubUrl": "https://github.com/maksumsindet",
-        "docsUrl": "https://drive.google.com/drive/folders/1H6HgFSFGwxvSwdGxksj6OziAQxvSrjA0?usp=drive_link",
-        "demoUrl": "#programs",
-        "liveUrl": "https://segara.slemankab.go.id/"
-      },
-      {
-        "id": "multivariate-nlp",
-        "category": "Applied Machine Learning & NLP",
-        "badge": "Riset Terapan Departemen KPL",
-        "title": "Multivariate Text Analytics & Topic Modeling Evaluasi Riset",
-        "subtitle": "Pemodelan Topik Laten (LDA) dan Klasifikasi Sentimen Opini Penalaran Mahasiswa",
-        "partner": "Departemen KPL KSI Mist FMIPA Universitas Negeri Yogyakarta",
-        "period": "2024 – 2025",
-        "summary": "Analisis berbasis machine learning untuk mengekstrak pola hambatan riset dan mengelompokkan minat ilmiah mahasiswa FMIPA UNY dari data teks kualitatif.",
-        "evidencePoints": [
-          "Pemaparan Teknis: Presentasi visualisasi data evaluasi riset di hadapan dewan pengurus dan pembina ormawa.",
-          "Metrik Teruji: Mencapai akurasi klasifikasi 88.4% dan weighted F1-score 0.87 dengan 5-Fold Stratified Cross Validation.",
-          "Pipeline Model: Tokenisasi teks Indonesia, pembobotan TF-IDF, Topic Modeling LDA (5 klaster tematik), dan model Random Forest/SVM.",
-          "Adopsi Nyata: Digunakan sebagai kurikulum dasar pembinaan dan pendampingan proposal Program Kreativitas Mahasiswa (PKM)."
+        "techStack": [
+          "Python",
+          "PostgreSQL",
+          "Leaflet GIS",
+          "R Shiny",
+          "Pandas",
+          "Supply Chain Analytics"
         ],
         "evidenceImages": [
           {
-            "src": "assets/images/mined/04-Foto-Sublaporan-Akhir-KSI-Mist-Dahron/04_Presentasi_Tim_Pelaksana_Laptop_Dahron.png",
-            "alt": "Presentasi hasil analisis data dan sistem di hadapan tim pelaksana dan dosen pembimbing",
-            "caption": "Pemaparan analisis komputasi data riset dari laptop kerja Dahron di hadapan tim",
-            "badge": "Presentasi Teknis"
+            "src": "assets/images/mined/04-Foto-Sublaporan-Akhir-KSI-Mist-Dahron/14_Berita_Acara_Serah_Terima_Aplikasi_SEGARA_Bertandatangan_Dahron.jpeg",
+            "alt": "Berita Acara Serah Terima Aplikasi SEGARA Bertandatangan Dahron",
+            "caption": "Bukti fisik Berita Acara Serah Terima Aplikasi SEGARA nomor resmi bertandatangan Muhammad Dahron Mustofa Maksum (Ketua Tim) dan Pemerintah Kalurahan Sidoagung.",
+            "badge": "Dokumen Resmi Bertandatangan"
           },
           {
-            "src": "assets/images/mined/04-Foto-Sublaporan-Akhir-KSI-Mist-Dahron/06_Rakor_Diskominfo_Sleman_Pemaparan_Aplikasi_SEGARA.png",
-            "alt": "Sesi evaluasi dan review teknis arsitektur sistem informasi",
-            "caption": "Review teknis alur pengolahan data dan struktur sistem",
-            "badge": "Review Sistem"
+            "src": "assets/images/curated/diskominfo-rakor-aplikasi.png",
+            "alt": "Rakor Teknis Aplikasi SEGARA bersama Diskominfo Sleman",
+            "caption": "Sesi pemaparan arsitektur sistem dan uji kelayakan keamanan data aplikasi SEGARA bersama pejabat teknis Diskominfo Kabupaten Sleman.",
+            "badge": "Validasi Diskominfo Sleman"
+          },
+          {
+            "src": "assets/images/curated/pelatihan-segara-app-warga.jpg",
+            "alt": "Pelatihan Aplikasi SEGARA kepada Pokdakan",
+            "caption": "Pendampingan langsung kepada puluhan pembudidaya ikan air tawar di Sidoagung mengenai input data siklus tebar dan kalkulasi pakan.",
+            "badge": "Uji Pengguna Lapangan"
+          }
+        ],
+        "liveUrl": "#programs",
+        "docsUrl": "https://drive.google.com/drive/folders/1H6HgFSFGwxvSwdGxksj6OziAQxvSrjA0?usp=drive_link",
+        "githubUrl": "https://github.com/maksumsindet"
+      },
+      {
+        "id": "gemastik-lda-umkm",
+        "category": "Data Mining & Natural Language Processing",
+        "badge": "GEMASTIK XIX • Penambangan Data",
+        "period": "2026",
+        "featured": false,
+        "title": "Penerapan Topic Modeling LDA dan AI Recommendation untuk Keputusan UMKM Sleman",
+        "subtitle": "Technical Report Divisi Penambangan Data Pagelaran Mahasiswa Nasional Bidang TIK (GEMASTIK XIX)",
+        "partner": "Puspresnas Kemdiktisaintek RI, Balai Pengembangan Talenta Indonesia (BPTI), FMIPA UNY",
+        "summary": "Riset pemodelan topik laten ulasan konsumen UMKM di Kabupaten Sleman menggunakan algoritma Latent Dirichlet Allocation (LDA). Mengidentifikasi pain points operasional dari data teks ulasan tak terstruktur berdasarkan nilai Coherence Score tertinggi, kemudian diintegrasikan dengan Generative AI untuk menghasilkan rekomendasi strategi perbaikan bisnis yang konkret bagi pelaku usaha mikro berliterasi data terbatas.",
+        "evidencePoints": [
+          "Technical Report resmi Buletin Pagelaran Mahasiswa Nasional Bidang TIK (GEMASTIK XIX) Nomor Peserta 260010381919244.",
+          "Kolaborasi tim peneliti mahasiswa UNY: Fenti Auliasari, Muhammad Dahron M. M., Farrel Pandyatama I., Zaenal Mustofa.",
+          "Pipeline prapemrosesan teks Bahasa Indonesia (Tokenisasi, Stopwords, Lemmatization Sastrawi) dan pemodelan Gensim LDA.",
+          "Arsitektur prompting Generative AI untuk menerjemahkan matriks topik LDA menjadi actionable business recommendations."
+        ],
+        "metrics": [
+          {
+            "value": "Technical Report",
+            "label": "Naskah Ilmiah Resmi GEMASTIK XIX"
+          },
+          {
+            "value": "Coherence Score",
+            "label": "Optimasi Pemilihan Jumlah Topik K"
+          },
+          {
+            "value": "Topic Modeling",
+            "label": "Ekstraksi Pain Points Konsumen"
+          },
+          {
+            "value": "Generative AI",
+            "label": "Mesin Rekomendasi Bisnis UMKM"
           }
         ],
         "techStack": [
           "Python",
-          "Scikit-Learn",
-          "NLTK / Sastrawi",
           "Gensim LDA",
-          "R Caret",
-          "Seaborn"
+          "Scikit-Learn",
+          "Sastrawi NLP",
+          "Generative AI",
+          "Text Mining"
+        ],
+        "evidenceImages": [
+          {
+            "src": "assets/images/mined/04-Foto-Sublaporan-Akhir-KSI-Mist-Dahron/04_Presentasi_Tim_Pelaksana_Laptop_Dahron.png",
+            "alt": "Presentasi Pemodelan Data dan Algoritma LDA Tim Dahron",
+            "caption": "Sesi analisis dan pemodelan algoritma penambangan data teks untuk ekstraksi topik ulasan konsumen.",
+            "badge": "Analisis Algoritma"
+          },
+          {
+            "src": "assets/images/mined/04-Foto-Sublaporan-Akhir-KSI-Mist-Dahron/05_Sesi_Pemaparan_Laporan_Tim_PPKO_Dahron.png",
+            "alt": "Pemaparan Hasil Analitik Data Riset",
+            "caption": "Penyajian temuan ekstraksi topik ulasan dan integrasi rekomendasi berbasis kecerdasan buatan.",
+            "badge": "Pemaparan Riset"
+          }
+        ],
+        "liveUrl": "#achievements",
+        "docsUrl": "https://drive.google.com/drive/folders/1H6HgFSFGwxvSwdGxksj6OziAQxvSrjA0?usp=drive_link",
+        "githubUrl": "https://github.com/maksumsindet"
+      },
+      {
+        "id": "pkm-rsh-ai-literacy",
+        "category": "Riset Sosial Humaniora & Statistika Multivariat",
+        "badge": "Proposal Riset PKM-RSH Kemdiktisaintek",
+        "period": "2026",
+        "featured": false,
+        "title": "Dinamika Pengambilan Keputusan: Literasi Data & Intensitas AI Mahasiswa FMIPA",
+        "subtitle": "Pengaruh Kemampuan Literasi Data dan Intensitas Penggunaan Artificial Intelligence (AI) terhadap Kualitas Pengambilan Keputusan Akademik",
+        "partner": "Direktorat Pembelajaran & Kemahasiswaan (Belmawa) Kemdiktisaintek RI & Universitas Negeri Yogyakarta",
+        "summary": "Proposal riset ilmiah 29 halaman (Ketua Pengusul: Muhammad Dahron Mustofa Maksum) yang meneliti fenomena kritis adopsi teknologi AI generatif di kalangan mahasiswa sains. Menyelidiki secara empiris bagaimana interaksi simultan antara kemampuan literasi data statistik dan intensitas penggunaan AI memengaruhi akurasi serta kualitas penalaran pengambilan keputusan akademik mahasiswa FMIPA perguruan tinggi di D.I. Yogyakarta.",
+        "evidencePoints": [
+          "Proposal resmi Program Kreativitas Mahasiswa Riset Sosial Humaniora (PKM-RSH) 29 halaman.",
+          "Perancangan instrumen ukur psikometri skala Likert teruji validitas isi dan reliabilitas Cronbach's Alpha.",
+          "Desain analisis multivariat inferensial untuk menguji efek moderasi dan interaksi simultan antar variabel.",
+          "Rekomendasi kebijakan pedagogis bagi institusi pendidikan tinggi dalam menyusun kurikulum literasi AI berbasis data."
         ],
         "metrics": [
           {
-            "value": "88.4%",
-            "label": "Akurasi Klasifikasi Sentimen"
+            "value": "29 Halaman",
+            "label": "Naskah Proposal Riset PKM-RSH"
           },
           {
-            "value": "0.87",
-            "label": "Weighted F1-Score"
+            "value": "Ketua Tim",
+            "label": "Muhammad Dahron Mustofa Maksum"
           },
           {
-            "value": "5 Klaster",
-            "label": "Topik Laten Teridentifikasi"
+            "value": "Wilayah D.I.Y.",
+            "label": "Cakupan Mahasiswa FMIPA PTN/PTS"
           },
           {
-            "value": "100%",
-            "label": "Adopsi Kurikulum KSI Mist"
+            "value": "SEM / Multivariat",
+            "label": "Metodologi Inferensi Statistik"
           }
         ],
-        "githubUrl": "https://github.com/maksumsindet",
-        "docsUrl": "https://drive.google.com/drive/folders/1H6HgFSFGwxvSwdGxksj6OziAQxvSrjA0?usp=drive_link",
-        "demoUrl": "#experience"
-      },
-      {
-        "id": "ihmsi-policy-analytics",
-        "category": "Policy Analytics & Inferential Statistics",
-        "badge": "Naskah Resmi Mukernas XIX",
-        "title": "National Strategic Policy Benchmark & Inferential Analysis",
-        "subtitle": "Kajian Komparatif Disparitas Fasilitas Komputasi Sains Data Mahasiswa Statistika Nasional",
-        "partner": "Badan Pengurus Pusat IHMSI (Ikatan Himpunan Mahasiswa Statistika Indonesia)",
-        "period": "2024 – 2025",
-        "summary": "Analisis data inferensial empiris dari puluhan perguruan tinggi anggota se-Indonesia guna menyusun rekomendasi kebijakan advokasi pendidikan data sains.",
-        "evidencePoints": [
-          "Bukti Kepemimpinan & Legalitas: Dipimpin langsung oleh Dahron selaku Presidium I Musyawarah Kerja Nasional (Mukernas) XIX IHMSI.",
-          "Metodologi Inferensial: Stratified random sampling kampus, ANOVA multivariat, dan Chi-Square Test of Independence (p < 0.01).",
-          "Dokumen Output: Naskah Policy Brief Resmi Advokasi Kebijakan yang disahkan secara aklamasi pada Sidang Pleno Nasional IHMSI.",
-          "Dampak Kebijakan: Dijadikan rujukan advokasi pemerataan akses software berlisensi dan laboratorium komputasi statistika nasional."
+        "techStack": [
+          "R Statistics",
+          "Python",
+          "Structural Equation Modeling",
+          "Survey Methodology",
+          "Multivariate Regression"
         ],
         "evidenceImages": [
           {
             "src": "assets/images/mined/01-Foto-Profil-dan-Prestasi-Dahron/08_IHMSI_Mukernas_XIX_Delegasi_HIMATIKA_UNY_Foto_Bersama_1.png",
-            "alt": "Dahron memimpin Presidium I Mukernas XIX IHMSI bersama delegasi se-Indonesia",
-            "caption": "Dahron memimpin Presidium I Sidang Pleno Mukernas XIX IHMSI bersama delegasi nasional",
-            "badge": "Presidium I Sidang"
+            "alt": "Forum Akademik dan Riset Mahasiswa Statistika",
+            "caption": "Keterlibatan aktif dalam perumusan kajian analitis dan forum ilmiah sains data di tingkat universitas dan nasional.",
+            "badge": "Forum Akademik Sains"
           },
           {
             "src": "assets/images/mined/01-Foto-Profil-dan-Prestasi-Dahron/09_IHMSI_Mukernas_XIX_Delegasi_HIMATIKA_UNY_Foto_Bersama_2.jpg",
-            "alt": "Delegasi HIMATIKA UNY pada Mukernas XIX IHMSI",
-            "caption": "Delegasi HIMATIKA UNY membawa draft naskah advokasi data strategis nasional",
-            "badge": "Delegasi Nasional"
+            "alt": "Delegasi Riset Statistika FMIPA UNY",
+            "caption": "Kolaborasi ilmiah antar mahasiswa perguruan tinggi dalam kajian kebijakan akademik dan literasi sains data.",
+            "badge": "Delegasi Riset"
           }
         ],
-        "techStack": [
-          "R Tidyverse",
-          "ggplot2",
-          "Python Pandas",
-          "SQL / BigQuery",
-          "Looker Studio",
-          "Hypothesis Testing"
-        ],
-        "metrics": [
-          {
-            "value": "Puluhan PTN/PTS",
-            "label": "Cakupan Sampel Nasional"
-          },
-          {
-            "value": "p < 0.01",
-            "label": "Signifikansi Disparitas"
-          },
-          {
-            "value": "Naskah Resmi",
-            "label": "Policy Brief Mukernas XIX"
-          },
-          {
-            "value": "100%",
-            "label": "Disahkan di Sidang Pleno"
-          }
-        ],
-        "githubUrl": "https://github.com/maksumsindet",
+        "liveUrl": "#education",
         "docsUrl": "https://drive.google.com/drive/folders/1H6HgFSFGwxvSwdGxksj6OziAQxvSrjA0?usp=drive_link",
-        "demoUrl": "#experience"
+        "githubUrl": "https://github.com/maksumsindet"
       }
     ]
   }

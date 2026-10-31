@@ -180,14 +180,14 @@ const projects = (dataProjects?.projects || []).map((p) => ({
                   {proj.liveUrl && (
                     <a
                       href={proj.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      target={proj.liveUrl.startsWith('#') ? undefined : "_blank"}
+                      rel={proj.liveUrl.startsWith('#') ? undefined : "noopener noreferrer"}
                       class="btn-evidence btn-live"
-                      title="Kunjungi Aplikasi Web Resmi Pemkab Sleman"
+                      title={proj.id === 'agrialert-satria-data' ? "Buka Aplikasi Web AgriAlert (PWA Live Demo)" : "Kunjungi Aplikasi Proyek"}
                     >
-                      <i class="bi bi-globe2"></i>
-                      <span>Web Resmi (segara.slemankab.go.id)</span>
-                      <i class="bi bi-box-arrow-up-right external-icon"></i>
+                      <i class={proj.liveUrl.startsWith('#') ? "bi bi-arrow-right-circle" : "bi bi-globe2"}></i>
+                      <span>{proj.id === 'agrialert-satria-data' ? 'Buka Aplikasi AgriAlert (Live PWA)' : (proj.id === 'segara-analytics' ? 'Eksplorasi Program SEGARA' : 'Kunjungi Aplikasi Web')}</span>
+                      {!proj.liveUrl.startsWith('#') && <i class="bi bi-box-arrow-up-right external-icon"></i>}
                     </a>
                   )}
                   {proj.docsUrl && (
