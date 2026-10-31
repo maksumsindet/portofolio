@@ -1201,13 +1201,14 @@
       {
         "id": "segara-analytics",
         "category": "Agri-Tech & Supply Chain DSS",
-        "badge": "Sistem Terverifikasi Diskominfo",
+        "badge": "Domain Resmi Pemkab Sleman",
         "title": "SEGARA Digital Supply Chain & Geospatial Pond Analytics (SEGARA App)",
         "subtitle": "Sistem Pendukung Keputusan Budidaya & Rantai Pasok Ikan Air Tawar Terpadu",
         "partner": "Kolaborasi PPK Ormawa, Pemkab Sleman, Diskominfo & 6 Kelompok Tani",
         "period": "2024 – 2026",
         "summary": "Digitalisasi rantai pasok dan pemetaan geospasial 224 kolam budidaya air tawar guna mengeliminasi asimetri informasi stok dan disparitas harga jual pakan/panen.",
         "evidencePoints": [
+          "Domain & Hosting Pemkab: Sistem resmi diadopsi Pemerintah Kabupaten Sleman dan live di https://segara.slemankab.go.id/.",
           "Dokumen Resmi: Berita Acara Serah Terima Aplikasi SEGARA bertandatangan Dahron (No. BA-04/PPKO-SEGARA/XI/2026).",
           "Uji Teknis & Keamanan: Lolos review kelayakan teknis bersama Tim Dinas Komunikasi dan Informatika (Diskominfo) Sleman.",
           "Implementasi Lapangan: Pelatihan langsung aplikasi smartphone kepada puluhan warga dan pengurus Pokdakan Sidoagung.",
@@ -1261,7 +1262,8 @@
         ],
         "githubUrl": "https://github.com/maksumsindet",
         "docsUrl": "https://drive.google.com/drive/folders/1H6HgFSFGwxvSwdGxksj6OziAQxvSrjA0?usp=drive_link",
-        "demoUrl": "#programs"
+        "demoUrl": "#programs",
+        "liveUrl": "https://segara.slemankab.go.id/"
       },
       {
         "id": "multivariate-nlp",

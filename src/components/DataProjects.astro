@@ -177,6 +177,19 @@ const projects = (dataProjects?.projects || []).map((p) => ({
 
                 <!-- Action / Verification Links -->
                 <div class="dossier-actions-row">
+                  {proj.liveUrl && (
+                    <a
+                      href={proj.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="btn-evidence btn-live"
+                      title="Kunjungi Aplikasi Web Resmi Pemkab Sleman"
+                    >
+                      <i class="bi bi-globe2"></i>
+                      <span>Web Resmi (segara.slemankab.go.id)</span>
+                      <i class="bi bi-box-arrow-up-right external-icon"></i>
+                    </a>
+                  )}
                   {proj.docsUrl && (
                     <a
                       href={proj.docsUrl}
@@ -739,6 +752,25 @@ const projects = (dataProjects?.projects || []).map((p) => ({
     font-weight: 600;
     text-decoration: none;
     transition: all 0.25s ease;
+  }
+
+  .btn-live {
+    background: linear-gradient(135deg, rgba(200, 157, 86, 0.28), rgba(56, 189, 248, 0.24));
+    border: 1px solid var(--color-gold, #c89d56);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(200, 157, 86, 0.25);
+    font-weight: 700;
+  }
+  .btn-live:hover {
+    background: linear-gradient(135deg, rgba(200, 157, 86, 0.45), rgba(56, 189, 248, 0.45));
+    border-color: #38bdf8;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.35);
+  }
+  .btn-live .external-icon {
+    font-size: 0.75rem;
+    opacity: 0.8;
   }
 
   .btn-docs {
