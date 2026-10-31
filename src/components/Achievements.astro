@@ -34,11 +34,11 @@ const coreHighlights = [
     <div class="section-title fade-in">
       <div class="accent-lead-wrap" style="justify-content: center;">
         <span class="accent-rule"></span>
-        <span class="lead-phrase">Rekam Jejak Prestasi & Kejuaraan</span>
+        <span class="lead-phrase">Rekam Jejak Prestasi dan Kejuaraan</span>
         <span class="accent-rule"></span>
       </div>
       <h2>
-        <span class="headline-dark">PENGAKUAN &</span>
+        <span class="headline-dark">PENGAKUAN dan</span>
         <span class="headline-gold">Prestasi Nasional</span>
       </h2>
       <p>
@@ -46,7 +46,7 @@ const coreHighlights = [
       </p>
     </div>
 
-    <!-- 4-Column Highlights Ribbon (Executive Navy & Gold in Bernstein Style) -->
+    <!-- 4-Column Highlights Ribbon (Executive Navy dan Gold in Bernstein Style) -->
     <div class="achieve-highlights-wrap slide-up">
       <div class="achieve-highlights-card">
         {coreHighlights.map((item) => (
@@ -70,7 +70,7 @@ const coreHighlights = [
           <div class="achieve-top">
             <div class="achieve-icon-frame">
               {item.logo ? (
-                <img src={`${base}${item.logo}`} alt={item.issuer} loading="lazy" />
+                <img src={`${base}${item.logo}`} alt={item.issuer} width="48" height="48" loading="lazy" />
               ) : (
                 <i class={item.icon || "bi bi-trophy"} style={`color: ${item.iconColor || 'var(--color-gold)'};`}></i>
               )}
@@ -116,7 +116,7 @@ const coreHighlights = [
     font-weight: 400;
   }
 
-  /* Highlights Card Banner (Executive Midnight Navy & Champagne Gold) */
+  /* Highlights Card Banner (Executive Midnight Navy dan Champagne Gold) */
   .achieve-highlights-wrap {
     margin-bottom: 4rem;
   }

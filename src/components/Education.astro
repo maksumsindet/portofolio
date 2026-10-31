@@ -20,7 +20,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
           <div class="edu-top-row">
             <div class="edu-logo-frame">
               {edu.logo ? (
-                <img src={`${base}${edu.logo}`} alt={edu.school} loading="lazy" />
+                <img src={`${base}${edu.logo}`} alt={edu.school} width="48" height="48" loading="lazy" />
               ) : (
                 <i class={edu.icon || "bi bi-mortarboard"}></i>
               )}

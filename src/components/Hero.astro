@@ -24,9 +24,9 @@ const spotlightCards = [
     linkLabel: "Lihat Rekognisi"
   },
   {
-    tag: "ANALISIS DATA & SAINS",
-    title: "STATISTIKA & RISET",
-    desc: "Presidium I Mukernas XIX IHMSI & Kepala Departemen KPL KSI Mist FMIPA UNY dengan IPK 3.84 / 4.00.",
+    tag: "ANALISIS DATA dan SAINS",
+    title: "STATISTIKA dan RISET",
+    desc: "Presidium I Mukernas XIX IHMSI dan Kepala Departemen KPL KSI Mist FMIPA UNY dengan IPK 3.84 / 4.00.",
     image: `${base}assets/images/curated/spotlight-ihmsi.jpg`,
     link: "#experience",
     linkLabel: "Eksplorasi Jejak"
@@ -39,20 +39,20 @@ const spotlightCards = [
   <div class="ambient-glow" aria-hidden="true"></div>
 
   <div class="container hero-container">
-    <!-- Left Column: Content & Identity -->
+    <!-- Left Column: Content dan Identity -->
     <div class="hero-content fade-in">
       <div class="hero-identity">
-        <span class="hero-badge">Data Analyst & Social Impact Enthusiast</span>
+        <span class="hero-badge">Data Analyst dan Social Impact Enthusiast</span>
       </div>
 
       <h1 class="hero-title">
-        Statistisi, <span class="highlight-text">Analis Data</span> & Penggerak Inovasi Sosial
+        Statistisi, <span class="highlight-text">Analis Data</span> dan Penggerak Inovasi Sosial
       </h1>
 
       <div class="hero-accent-bar" aria-hidden="true"></div>
 
       <p class="hero-description">
-        Mahasiswa S1 Statistika UNY (IPK 3.84) &amp; <strong>Ketua Tim Pelaksana PPK Ormawa SEGARA</strong> yang mengombinasikan keahlian
+        Mahasiswa S1 Statistika UNY (IPK 3.84) dan <strong>Ketua Tim Pelaksana PPK Ormawa SEGARA</strong> yang mengombinasikan keahlian
         <strong>analisis data statistik</strong>, <strong>machine learning</strong>, serta kepemimpinan pemberdayaan
         masyarakat untuk menciptakan dampak nyata dan berkelanjutan.
       </p>
@@ -71,7 +71,7 @@ const spotlightCards = [
       <div class="hero-meta-row">
         <div class="meta-item">
           <i class="bi bi-geo-alt-fill"></i>
-          <span>Bantul &amp; Yogyakarta</span>
+          <span>Bantul dan Yogyakarta</span>
         </div>
         <div class="meta-item">
           <i class="bi bi-mortarboard-fill"></i>
@@ -88,10 +88,12 @@ const spotlightCards = [
           <source srcset={`${base}assets/images/profile-hero-transparent.webp`} type="image/webp" />
           <img
             src={`${base}assets/images/profile-hero-transparent.png`}
-            alt="Muhammad Dahron Mustofa Maksum - Statistisi & Analis Data"
+            alt="Muhammad Dahron Mustofa Maksum - Statistisi dan Analis Data"
             class="hero-image"
             id="heroImage"
-            loading="eager"
+            width="788"
+            height="1024"
+            fetchpriority="high"
           />
         </picture>
         <div class="floating-badge">
@@ -105,10 +107,10 @@ const spotlightCards = [
     </div>
   </div>
 
-  <!-- Credibility & Partners Ribbon (Seamless Reference Match) -->
+  <!-- Credibility dan Partners Ribbon (Seamless Reference Match) -->
   <div class="partners-ribbon-wrapper">
     <div class="container partners-container">
-      <span class="partners-title">DIPERCAYA &amp; BERKOLABORASI:</span>
+      <span class="partners-title">DIPERCAYA dan BERKOLABORASI:</span>
       <div class="partners-grid">
         <div class="partner-badge"><i class="bi bi-bank"></i> Universitas Negeri Yogyakarta</div>
         <div class="partner-badge"><i class="bi bi-award"></i> Kemdiktisaintek RI</div>
@@ -126,7 +128,7 @@ const spotlightCards = [
       {spotlightCards.map((card) => (
         <div class="spotlight-card">
           <div class="spotlight-img-wrap">
-            <img src={card.image} alt={card.title} loading="lazy" />
+            <img src={card.image} alt={card.title} width="600" height="400" loading="lazy" />
           </div>
           <div class="spotlight-card-body">
             <span class="spotlight-tag">{card.tag}</span>
@@ -134,7 +136,6 @@ const spotlightCards = [
             <p class="spotlight-desc">{card.desc}</p>
             <a href={card.link} class="spotlight-link">
               <span>{card.linkLabel}</span>
-              <i class="bi bi-arrow-right"></i>
             </a>
           </div>
         </div>
@@ -161,7 +162,7 @@ const spotlightCards = [
     width: 600px;
     height: 600px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(217, 119, 6, 0.12) 0%, rgba(14, 165, 233, 0.05) 50%, transparent 75%);
+    background: transparent;
     pointer-events: none;
     z-index: 1;
     filter: blur(50px);
@@ -209,7 +210,7 @@ const spotlightCards = [
     height: 7px;
     border-radius: 50%;
     background: #f59e0b;
-    box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
+    
   }
 
   /* Bold Typography */
@@ -268,7 +269,7 @@ const spotlightCards = [
     font-size: 0.98rem;
     font-weight: 600;
     text-decoration: none;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, color 0.25s ease;
     cursor: pointer;
   }
 
@@ -276,14 +277,14 @@ const spotlightCards = [
     background: #f59e0b;
     color: #05070c;
     border: 1px solid #f59e0b;
-    box-shadow: 0 4px 18px rgba(245, 158, 11, 0.28);
+    
   }
 
   .btn-primary:hover {
     background: #d97706;
     border-color: #d97706;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(245, 158, 11, 0.38);
+    
     color: #05070c;
   }
 
@@ -291,7 +292,7 @@ const spotlightCards = [
     background: rgba(15, 23, 42, 0.8);
     color: #f8fafc;
     border: 1px solid rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(8px);
+    background: #0E1521;
   }
 
   .btn-secondary:hover {
@@ -307,7 +308,7 @@ const spotlightCards = [
     flex-wrap: wrap;
     gap: 1.8rem;
     padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    /* space over rule */
   }
 
   .meta-item {
@@ -323,7 +324,7 @@ const spotlightCards = [
     font-size: 1.05rem;
   }
 
-  /* Right Column: Visual Wrapper & Portrait */
+  /* Right Column: Visual Wrapper dan Portrait */
   .hero-visual {
     position: relative;
     display: flex;
@@ -350,7 +351,7 @@ const spotlightCards = [
     width: 440px;
     height: 440px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(245, 158, 11, 0.22) 0%, rgba(14, 165, 233, 0.08) 50%, transparent 75%);
+    background: transparent;
     pointer-events: none;
     z-index: 1;
     filter: blur(40px);
@@ -373,14 +374,14 @@ const spotlightCards = [
     vertical-align: bottom;
     border: none !important;
     border-radius: 0 !important;
-    box-shadow: none !important;
-    filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.75));
+    
+    
     transition: transform 0.4s ease, filter 0.4s ease;
   }
 
   .hero-image:hover {
     transform: scale(1.02);
-    filter: drop-shadow(0 30px 55px rgba(0, 0, 0, 0.85));
+    
   }
 
   /* Floating Badge on Portrait */
@@ -393,12 +394,12 @@ const spotlightCards = [
     align-items: center;
     gap: 0.85rem;
     background: rgba(11, 16, 27, 0.9);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: #0B101B;
+    
     border: 1px solid rgba(245, 158, 11, 0.35);
     padding: 0.75rem 1.25rem;
     border-radius: 12px;
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55);
+    
     line-height: normal;
   }
 
@@ -421,13 +422,13 @@ const spotlightCards = [
     display: block;
   }
 
-  /* Credibility & Partners Ribbon */
+  /* Credibility dan Partners Ribbon */
   .partners-ribbon-wrapper {
     position: relative;
     z-index: 3;
     background: rgba(8, 12, 20, 0.95);
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    /* space over rule */
+    /* space over rule */
     padding: 1.25rem 0;
     margin-top: 1rem;
   }
@@ -511,7 +512,7 @@ const spotlightCards = [
   .spotlight-card:hover {
     transform: translateY(-6px);
     border-color: rgba(245, 158, 11, 0.4);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+    
   }
 
   .spotlight-img-wrap {

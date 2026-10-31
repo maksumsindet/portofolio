@@ -1,9 +1,11 @@
 ---
 // ProgramsShowcase.astro
 // Recreates Section 2 of "Bernstein": "Committed to Real Social Action", 2x2 Feature Grid, Overlapping Quote Box, and Executive Program Cards
+import rawPortfolioContent from '../data/portfolioContent.json';
+
 const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
 
-const programs = [
+const defaultPrograms = [
   {
     category: "Pemberdayaan Masyarakat",
     title: "PPK Ormawa SEGARA",
@@ -15,7 +17,7 @@ const programs = [
     tag: "Ketua Tim Pelaksana • Juara 2 Nasional"
   },
   {
-    category: "Prestasi & Rekognisi",
+    category: "Prestasi dan Rekognisi",
     title: "Anugerah Abdidaya Ormawa",
     subtitle: "Kemdiktisaintek RI 2026",
     role: "Terbaik 2 Pemahaman Pemberdayaan Masyarakat",
@@ -25,7 +27,7 @@ const programs = [
     tag: "Juara 2 Nasional"
   },
   {
-    category: "Advokasi & Kebijakan",
+    category: "Advokasi dan Kebijakan",
     title: "Kajian Strategis IHMSI",
     subtitle: "Kajian Nasional Berbasis Data",
     role: "Staf Bidang Kastrat | Presidium I Mukernas XIX",
@@ -35,9 +37,9 @@ const programs = [
     tag: "Nasional"
   },
   {
-    category: "Riset & Keilmiahan",
+    category: "Riset dan Keilmiahan",
     title: "KSI Mist FMIPA UNY",
-    subtitle: "Penalaran & Lomba Mahasiswa",
+    subtitle: "Penalaran dan Lomba Mahasiswa",
     role: "Kepala Departemen KPL",
     description: "Memimpin Departemen KPL dalam merancang program pengembangan potensi penalaran, monitoring evaluasi prestasi, dan pembinaan delegasi kompetisi nasional.",
     image: `${base}assets/images/portfolio/fmipa-ksi2.jpg`,
@@ -46,11 +48,19 @@ const programs = [
   }
 ];
 
+const programsList = ((rawPortfolioContent as any)?.programsShowcaseData?.programs || defaultPrograms);
+const programs = programsList.map((p: any) => ({
+  ...p,
+  image: p.image && (p.image.startsWith('http') || p.image.startsWith(base) || p.image.startsWith('data:'))
+    ? p.image
+    : base + String(p.image || '').replace(/^\/+/, '')
+}));
+
 const commitmentPillars = [
   {
     icon: "bi bi-graph-up-arrow",
     title: "Analisis Data Terukur",
-    desc: "Eksplorasi statistika, komputasi R & Python, serta pemodelan inferensial teruji."
+    desc: "Eksplorasi statistika, komputasi R dan Python, serta pemodelan inferensial teruji."
   },
   {
     icon: "bi bi-people",
@@ -72,7 +82,7 @@ const commitmentPillars = [
 const featurePills = [
   { icon: "bi bi-phone", label: "SEGARA App (Uji Diskominfo)" },
   { icon: "bi bi-people-fill", label: "Kemitraan B2B Pasar Ikan" },
-  { icon: "bi bi-shop", label: "Pasar Triwulan & Festival UMKM" },
+  { icon: "bi bi-shop", label: "Pasar Triwulan dan Festival UMKM" },
   { icon: "bi bi-trophy", label: "Abdidaya Ormawa 2026" },
 ];
 ---
@@ -81,11 +91,11 @@ const featurePills = [
   <div class="programs-container">
     <!-- Part 1: Bernstein Signature "Committed to Your Mission" Split Section -->
     <div class="commitment-split-wrap slide-up">
-      <!-- Left Column: Kicker, Heading, Description & 2x2 Grid -->
+      <!-- Left Column: Kicker, Heading, Description dan 2x2 Grid -->
       <div class="commitment-left">
         <div class="accent-lead-wrap">
           <span class="accent-rule"></span>
-          <span class="lead-phrase">Dedikasi Kepemimpinan & Integritas</span>
+          <span class="lead-phrase">Dedikasi Kepemimpinan dan Integritas</span>
         </div>
 
         <h2 class="commitment-heading">
@@ -119,6 +129,8 @@ const featurePills = [
             <img
               src={`${base}assets/images/portfolio/uny-dscf0754.jpg`}
               alt="Pemberdayaan Masyarakat di Kalurahan Sidoagung"
+              width="600"
+              height="400"
               loading="lazy"
             />
           </div>
@@ -151,7 +163,7 @@ const featurePills = [
       {programs.map((item) => (
         <div class="program-card slide-up">
           <div class="card-media-box">
-            <img src={item.image} alt={item.title} class="card-photo" loading="lazy" />
+            <img src={item.image} alt={item.title} class="card-photo" width="600" height="400" loading="lazy" />
             <span class="card-badge">{item.tag}</span>
           </div>
           
@@ -166,10 +178,6 @@ const featurePills = [
             <div class="card-footer">
               <a href={item.link} class="card-link">
                 <span>Eksplorasi Detail</span>
-                <i class="bi bi-arrow-right"></i>
-              </a>
-              <a href={item.link} class="btn-circle" aria-label={`Detail ${item.title}`}>
-                <i class="bi bi-arrow-right"></i>
               </a>
             </div>
           </div>
@@ -177,7 +185,7 @@ const featurePills = [
       ))}
     </div>
 
-    <!-- Part 3: Wide Showcase Card with Split Layout & Gold Metric Numbers -->
+    <!-- Part 3: Wide Showcase Card with Split Layout dan Gold Metric Numbers -->
     <div class="cinematic-showcase slide-up">
       <div class="cinematic-card-inner">
         <div class="cinematic-grid">
@@ -185,7 +193,7 @@ const featurePills = [
           <div class="cinematic-content">
             <div class="accent-lead-wrap">
               <span class="accent-rule"></span>
-              <span class="lead-phrase">Kepemimpinan Lapangan & Orkestrasi Dampak</span>
+              <span class="lead-phrase">Kepemimpinan Lapangan dan Orkestrasi Dampak</span>
             </div>
             <h3 class="cinematic-heading">
               Ketua Tim Pelaksana: <span class="headline-gold">PPK Ormawa SEGARA</span>
@@ -217,8 +225,8 @@ const featurePills = [
                 class="btn-gold"
               >
                 <i class="bi bi-folder2-open"></i>
-                <span>Buka Dokumentasi & Galeri Proyek</span>
-                <i class="bi bi-arrow-right"></i>
+                <span>Buka Dokumentasi dan Galeri Proyek</span>
+                <i class="bi bi-arrow-up-right"></i>
               </a>
             </div>
           </div>
@@ -230,6 +238,8 @@ const featurePills = [
                 src={`${base}assets/images/portfolio/segara-banner-sidoagung.jpg`}
                 alt="Dokumentasi Sinergi Multi-Pihak Program SEGARA di Balai Kalurahan Sidoagung"
                 class="cinematic-photo"
+                width="800"
+                height="450"
                 loading="lazy"
               />
               <div class="photo-badge">

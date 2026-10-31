@@ -277,3 +277,38 @@ h1, h2, h3, h4, .font-serif {
     padding: 4rem 5%;
   }
 }
+
+/* Browser Surface Craft & Theming (Craft-Floor Compliant) */
+::selection {
+  background-color: var(--color-gold);
+  color: #0B101B;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+input, textarea, select {
+  caret-color: var(--color-gold);
+}
+
+.stat-number, .stat-value, .score, .metric-number, .badge-number, .edu-score-pill, .exp-date, .edu-period-badge {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Themed Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0B101B;
+}
+::-webkit-scrollbar-thumb {
+  background: #23314B;
+  border-radius: 5px;
+  border: 2px solid #0B101B;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}

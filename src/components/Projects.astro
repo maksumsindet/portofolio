@@ -4,27 +4,32 @@ import { personalInfo } from '../data/portfolioData';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
 
-// Row 1 Photos (Scrolls Left)
+// Row 1 Photos (Scrolls Left) - 12 Completely Unique, Authentic Visuals
 const row1Photos = [
   {
-    src: `${base}assets/images/portfolio/dahron-abdidaya-terbaik-2.jpg`,
-    alt: "Penerimaan Piagam Terbaik 2 Nasional Abdidaya Ormawa 2026",
-    caption: "Juara 2 Nasional Abdidaya"
+    src: `${base}assets/images/curated/segara-ketua-sambutan-meja.jpg`,
+    alt: "Muhammad Dahron (Ketua Tim Pelaksana) memimpin sambutan resmi di hadapan pamong dan warga Sidoagung",
+    caption: "Ketua Tim Sambutan Resmi SEGARA"
   },
   {
-    src: `${base}assets/images/portfolio/segara-banner-sidoagung.jpg`,
-    alt: "Grand Opening Sinergi Program SEGARA di Balai Kalurahan Sidoagung",
-    caption: "Grand Opening Program SEGARA"
+    src: `${base}assets/images/curated/audiensi-bupati-sleman.jpg`,
+    alt: "Audiensi Tim PPKO SEGARA bersama Bupati Sleman di Ruang Tamu Bupati",
+    caption: "Audiensi Resmi Bupati Sleman"
   },
   {
-    src: `${base}assets/images/portfolio/uny-dscf0754.jpg`,
-    alt: "Sosialisasi Tim SEGARA UNY Bersama Warga Kalurahan Sidoagung",
-    caption: "Sosialisasi Warga Sidoagung"
+    src: `${base}assets/images/portfolio/man3-medali-matematika.jpg`,
+    alt: "Medali Perunggu Olimpiade Matematika Nasional di MAN 3 Bantul",
+    caption: "Medali Olimpiade Matematika"
   },
   {
-    src: `${base}assets/images/portfolio/segara-app-training.jpg`,
-    alt: "Pelatihan Digitalisasi Aplikasi SEGARA Bersama Pamong dan Warga",
-    caption: "Pelatihan SEGARA App"
+    src: `${base}assets/images/curated/segara-ketua-forum-lesehan.jpg`,
+    alt: "Diskusi Lesehan dan FGD Serap Aspirasi Warga Sidoagung bersama Dahron",
+    caption: "FGD Lesehan dan Dialog Warga"
+  },
+  {
+    src: `${base}assets/images/curated/pelatihan-segara-app-warga.jpg`,
+    alt: "Pelatihan Digitalisasi Aplikasi SEGARA Bersama Pamong dan Warga Sidoagung",
+    caption: "Pelatihan Digital SEGARA App"
   },
   {
     src: `${base}assets/images/portfolio/fmipa-ksi1.jpg`,
@@ -32,48 +37,98 @@ const row1Photos = [
     caption: "Tim Riset Ilmiah KSI Mist"
   },
   {
-    src: `${base}assets/images/portfolio/man3-medali-matematika.jpg`,
-    alt: "Medali Perunggu Olimpiade Matematika Nasional di MAN 3 Bantul",
-    caption: "Medali Olimpiade Matematika"
+    src: `${base}assets/images/portfolio/dahron-abdidaya-terbaik-2.jpg`,
+    alt: "Penerimaan Piagam Terbaik 2 Nasional Abdidaya Ormawa 2026",
+    caption: "Juara 2 Nasional Abdidaya"
+  },
+  {
+    src: `${base}assets/images/curated/diskominfo-rakor-aplikasi.png`,
+    alt: "Rakor Uji Keamanan dan Validasi Sistem Aplikasi SEGARA bersama Diskominfo Sleman",
+    caption: "Rakor Uji Keamanan Diskominfo"
+  },
+  {
+    src: `${base}assets/images/curated/segara-grand-opening-master.jpg`,
+    alt: "Grand Opening Sinergi Program SEGARA di Balai Kalurahan Sidoagung",
+    caption: "Grand Opening Program SEGARA"
+  },
+  {
+    src: `${base}assets/images/curated/mtsn6-juara2-komik.jpg`,
+    alt: "Juara 2 Komik Sejarah Perjuangan Sultan Agung MTsN 6 Bantul Tribun Jogja",
+    caption: "Juara 2 Komik Tribun Jogja"
+  },
+  {
+    src: `${base}assets/images/curated/segara-karya-1-olahan-ikan.jpg`,
+    alt: "Praktik Hilirisasi dan Pengolahan Produk Abon Lele Pilar SEGARA Karya",
+    caption: "Inovasi Olahan Abon Lele"
+  },
+  {
+    src: `${base}assets/images/curated/dahron-presidium-ihmsi.jpg`,
+    alt: "Presidium I Sidang Pleno Mukernas XIX IHMSI di Purwokerto",
+    caption: "Presidium Mukernas XIX IHMSI"
   }
 ];
 
-// Row 2 Photos (Scrolls Right)
+// Row 2 Photos (Scrolls Right) - 12 Completely Unique, Authentic Visuals
 const row2Photos = [
+  {
+    src: `${base}assets/images/curated/segara-ketua-sosialisasi-pangan.jpg`,
+    alt: "Dahron memfasilitasi sosialisasi Kebijakan Keamanan Pangan bersama Dinas Kesehatan",
+    caption: "Sosialisasi Pangan Dinkes Sleman"
+  },
+  {
+    src: `${base}assets/images/curated/segara-ketua-panggung-berdiri.jpg`,
+    alt: "Pengarahan Teknis dan Alur Program oleh Ketua Pelaksana Dahron",
+    caption: "Pengarahan Teknis Lapangan"
+  },
+  {
+    src: `${base}assets/images/curated/dinkop-ukm-sleman-kerjasama.png`,
+    alt: "Penyerahan Dokumen Kerjasama Hilirisasi UMKM bersama Dinas Koperasi dan UKM Sleman",
+    caption: "Kemitraan Dinkop UKM Sleman"
+  },
+  {
+    src: `${base}assets/images/curated/lintas-dinas-pemkab-sleman.jpg`,
+    alt: "Audiensi Lintas 20 Instansi Dinas Pemerintah Kabupaten Sleman",
+    caption: "Audiensi Lintas 20 Dinas"
+  },
+  {
+    src: `${base}assets/images/curated/sosialisasi-dinkes-sleman.jpg`,
+    alt: "Penyerahan Sertifikat Penghargaan Narasumber Sosialisasi oleh Dahron",
+    caption: "Penyerahan Piagam Narasumber"
+  },
+  {
+    src: `${base}assets/images/curated/gapokkan-segara-agung.jpg`,
+    alt: "Deklarasi dan Pembentukan Gabungan Kelompok Perikanan Gapokkan Segara Agung",
+    caption: "Pembentukan Gapokkan Perikanan"
+  },
+  {
+    src: `${base}assets/images/curated/dprd-sleman-sosialisasi.jpg`,
+    alt: "Sosialisasi Program dan Foto Bersama Wakil Ketua DPRD Kabupaten Sleman",
+    caption: "Sinergi DPRD Kabupaten Sleman"
+  },
   {
     src: `${base}assets/images/portfolio/podium-abdidaya-uny-terbaik-2.jpg`,
     alt: "Podium Juara Terbaik 2 Nasional Abdidaya Ormawa 2026 bersama Bendera UNY",
     caption: "Podium Juara Abdidaya UNY"
   },
   {
-    src: `${base}assets/images/portfolio/segara-event-1.jpg`,
-    alt: "Peresmian & Tumpengan Program SEGARA di Balai Kalurahan Sidoagung",
-    caption: "Peresmian & Tumpengan SEGARA"
+    src: `${base}assets/images/curated/segara-raya-rektor-bupati.jpg`,
+    alt: "Kunjungan Stand Festival SEGARA Raya oleh Rektor UNY dan Pejabat Pemkab Sleman",
+    caption: "Kunjungan Rektor dan Bupati"
   },
   {
-    src: `${base}assets/images/portfolio/uny-dscf0713.jpg`,
-    alt: "Pelatihan Teknis Pengolahan Pakan & Manajemen Kualitas Air Kolam",
-    caption: "Pelatihan Budidaya & Pakan"
+    src: `${base}assets/images/portfolio/uny-dscf0754.jpg`,
+    alt: "Sosialisasi Tim SEGARA UNY Bersama Warga Kalurahan Sidoagung",
+    caption: "Sosialisasi Warga Sidoagung"
   },
   {
-    src: `${base}assets/images/portfolio/uny-dscf0812.jpg`,
-    alt: "FGD Koordinasi Multi-pihak Pemkab Sleman dan Kalurahan Sidoagung",
-    caption: "Forum Koordinasi Multi-Pihak"
+    src: `${base}assets/images/curated/man3-apresiasi-tahfidz.jpg`,
+    alt: "Penerimaan Penghargaan Apresiasi Tahfidz Al-Qur'an di MAN 3 Bantul",
+    caption: "Apresiasi Tahfidz Al-Qur'an"
   },
   {
-    src: `${base}assets/images/portfolio/fmipa-ksi5.jpg`,
-    alt: "Monitoring Lapangan 224 Kolam Budidaya Ikan Sidoagung",
-    caption: "Monitoring 224 Kolam Ikan"
-  },
-  {
-    src: `${base}assets/images/portfolio/abdidaya-stage-uny.jpg`,
-    alt: "Penganugerahan Juara Terbaik 2 Nasional di Panggung Utama UMI Makassar",
-    caption: "Panggung Utama Abdidaya"
-  },
-  {
-    src: `${base}assets/images/portfolio/fmipa-ksi2.jpg`,
-    alt: "Penerimaan Penghargaan Delegasi Ilmiah Mahasiswa FMIPA UNY",
-    caption: "Prestasi Mahasiswa UNY"
+    src: `${base}assets/images/curated/hero-dahron-prau.jpg`,
+    alt: "Eksplorasi Alam dan Ekspedisi Pendakian Puncak Gunung Prau",
+    caption: "Ekspedisi Puncak Gn. Prau"
   }
 ];
 ---
@@ -81,7 +136,7 @@ const row2Photos = [
 <section id="projects" class="projects-section">
   <div class="projects-header-container">
     <div class="section-title fade-in">
-      <h2>Portofolio & Dokumentasi Lapangan</h2>
+      <h2>Portofolio dan Dokumentasi Lapangan</h2>
       <p>
         Rekaman visual aktivitas pemberdayaan masyarakat, riset statistika, kepemimpinan organisasi, dan inovasi pengabdian di lapangan.
       </p>
@@ -129,37 +184,12 @@ const row2Photos = [
     </div>
   </div>
 
-  <!-- Google Drive Repository Access Card -->
-  <div class="drive-access-wrapper slide-up">
-    <div class="project-drive-card card-cream">
-      <div class="drive-icon-halo">
-        <i class="bi bi-google"></i>
-      </div>
-      
-      <h3 class="drive-heading">Folder Google Drive Portofolio</h3>
-      
-      <p class="drive-desc">
-        Jelajahi seluruh dokumentasi teknis, proposal program PPK Ormawa SEGARA, materi kajian strategis kebijakan, infografis data, serta sertifikat pendukung melalui penyimpanan cloud terpusat.
-      </p>
-
-      <a
-        href={personalInfo.projectDriveUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn-terracotta"
-      >
-        <i class="bi bi-folder2-open"></i>
-        <span>Buka Folder Google Drive</span>
-        <i class="bi bi-arrow-right"></i>
-      </a>
-    </div>
-  </div>
 </section>
 
 <style>
   .projects-section {
     background-color: var(--color-cream);
-    padding: 6.5rem 0 7rem;
+    padding: 6.5rem 0 5.5rem;
     position: relative;
     overflow: hidden;
   }
@@ -176,7 +206,7 @@ const row2Photos = [
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    margin: 2.5rem 0 5rem;
+    margin: 2.5rem 0 0;
     position: relative;
   }
 
@@ -281,60 +311,4 @@ const row2Photos = [
     }
   }
 
-  /* Drive Access Wrapper */
-  .drive-access-wrapper {
-    max-width: 950px;
-    margin: 0 auto;
-    padding: 0 6%;
-  }
-
-  .project-drive-card {
-    text-align: center;
-    padding: 3.8rem 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .drive-icon-halo {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: rgba(52, 168, 83, 0.12);
-    color: #34A853;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .drive-heading {
-    font-family: var(--font-serif);
-    font-size: 1.85rem;
-    color: var(--color-text-dark);
-    margin-bottom: 0.85rem;
-    font-weight: 400;
-  }
-
-  .drive-desc {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: var(--color-text-secondary);
-    max-width: 650px;
-    margin: 0 auto 2.2rem;
-  }
-
-  @media (max-width: 768px) {
-    .marquee-item {
-      width: 270px;
-      height: 180px;
-    }
-    .project-drive-card {
-      padding: 2.5rem 1.8rem;
-    }
-    .drive-heading {
-      font-size: 1.5rem;
-    }
-  }
 </style>

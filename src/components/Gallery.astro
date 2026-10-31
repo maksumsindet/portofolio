@@ -1,20 +1,20 @@
 ---
 // Gallery.astro
-// Complete Visual Archive & Field Documentation
-// Features 101 curated documentary photos across diverse facets of leadership, community, outdoor, and academic achievements
-import { documentaryPhotos, galleryEmbeds } from '../data/portfolioData';
+// Complete Visual Archive dan Field Documentation
+// Features curated authentic documentary photos across diverse facets of leadership, community, outdoor, and academic achievements
+import { documentaryPhotos, galleryEmbeds, personalInfo } from '../data/portfolioData';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
 
 const categories = [
   { id: "all", label: "Semua Dokumentasi" },
-  { id: "Kepemimpinan & Organisasi", label: "Kepemimpinan & Organisasi" },
+  { id: "Kepemimpinan dan Organisasi", label: "Kepemimpinan dan Organisasi" },
   { id: "Pemberdayaan SEGARA", label: "Pemberdayaan SEGARA" },
-  { id: "Inovasi Teknis & Pelatihan", label: "Inovasi & Pelatihan" },
-  { id: "Prestasi & Penghargaan", label: "Prestasi & Rekognisi" },
-  { id: "Religius & Pramuka", label: "Religius & Pramuka" },
-  { id: "Petualangan & Alam Terbuka", label: "Petualangan & Alam" },
-  { id: "Media & Berita Acara", label: "Media & Berita Acara" }
+  { id: "Inovasi Teknis dan Pelatihan", label: "Inovasi dan Pelatihan" },
+  { id: "Prestasi dan Penghargaan", label: "Prestasi dan Rekognisi" },
+  { id: "Religius dan Pramuka", label: "Religius dan Pramuka" },
+  { id: "Petualangan dan Alam Terbuka", label: "Petualangan dan Alam" },
+  { id: "Media dan Berita Acara", label: "Media dan Berita Acara" }
 ];
 
 const categoryCounts = categories.reduce((acc, cat) => {
@@ -28,7 +28,7 @@ const categoryCounts = categories.reduce((acc, cat) => {
 <section id="gallery" class="gallery-section">
   <div class="gallery-container">
     <div class="section-title fade-in">
-      <h2>Galeri Dokumentasi &amp; Arsip Visual</h2>
+      <h2>Galeri Dokumentasi dan Arsip Visual</h2>
       <p>
         Rekaman visual autentik perjalanan kepemimpinan nasional, pemberdayaan masyarakat di Kalurahan Sidoagung, prestasi sains, kiprah kepramukaan, apresiasi tahfidz, hingga eksplorasi alam terbuka.
       </p>
@@ -101,7 +101,7 @@ const categoryCounts = categories.reduce((acc, cat) => {
     <div class="load-more-wrap" id="load-more-wrap">
       <button type="button" id="btn-load-more" class="btn-load-more">
         <i class="bi bi-grid-3x3-gap"></i>
-        <span id="load-more-text">Tampilkan Semua 101 Dokumentasi</span>
+        <span id="load-more-text">{`Tampilkan Semua ${documentaryPhotos.length} Dokumentasi`}</span>
       </button>
       <span class="showing-count-text" id="showing-count-text">Menampilkan 24 dari 101 foto dokumentasi</span>
     </div>
@@ -113,7 +113,7 @@ const categoryCounts = categories.reduce((acc, cat) => {
           <i class="bi bi-x-lg"></i>
         </button>
         <div class="lightbox-media">
-          <img id="lightbox-img" src="" alt="" />
+          <img id="lightbox-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3C/svg%3E" alt="Pratinjau Foto Dokumentasi" width="1200" height="800" />
         </div>
         <div class="lightbox-details">
           <div class="lightbox-meta">
@@ -128,7 +128,7 @@ const categoryCounts = categories.reduce((acc, cat) => {
     <!-- Social Media Embeds Section -->
     <div class="social-showcase-section slide-up">
       <div class="social-header">
-        <h3 class="social-subheading">Liputan Media Sosial &amp; Cuplikan Video</h3>
+        <h3 class="social-subheading">Liputan Media Sosial dan Cuplikan Video</h3>
         <p class="social-subdesc">
           Dokumentasi interaktif yang dipublikasikan secara terbuka melalui platform media sosial kegiatan kemahasiswaan dan pengabdian.
         </p>
@@ -169,6 +169,64 @@ const categoryCounts = categories.reduce((acc, cat) => {
         ))}
       </div>
     </div>
+
+    <!-- Grand Conclusion Box: Cloud Repository dan Complete Project Archive -->
+    <div class="archive-conclusion-wrap slide-up">
+      <div class="conclusion-card">
+        <div class="conclusion-glow"></div>
+        <div class="conclusion-inner">
+          <div class="conclusion-icon-halo">
+            <i class="bi bi-folder2-open"></i>
+          </div>
+
+          <div class="accent-lead-wrap" style="justify-content: center;">
+            <span class="accent-rule"></span>
+            <span class="lead-phrase">ARSIP DIGITAL dan DOKUMEN RESMI</span>
+            <span class="accent-rule"></span>
+          </div>
+
+          <h3 class="conclusion-heading">
+            Folder Google Drive <span class="headline-gold">Portofolio Lengkap</span>
+          </h3>
+
+          <p class="conclusion-desc">
+            Jelajahi seluruh berkas proposal program PPK Ormawa SEGARA, materi kajian strategis kebijakan IHMSI, infografis data statistik, laporan pertanggungjawaban resmi, serta arsip foto resolusi penuh (Full HD) melalui repositori cloud terpusat.
+          </p>
+
+          <div class="conclusion-pills-row">
+            <span class="conclusion-pill">
+              <i class="bi bi-file-earmark-pdf"></i>
+              <span>Proposal dan LPJ SEGARA</span>
+            </span>
+            <span class="conclusion-pill">
+              <i class="bi bi-file-earmark-bar-graph"></i>
+              <span>Riset dan Kajian Data</span>
+            </span>
+            <span class="conclusion-pill">
+              <i class="bi bi-patch-check"></i>
+              <span>Sertifikat dan Piagam Resmi</span>
+            </span>
+            <span class="conclusion-pill">
+              <i class="bi bi-images"></i>
+              <span>Arsip Foto Resolusi Penuh</span>
+            </span>
+          </div>
+
+          <div class="conclusion-cta-wrap">
+            <a
+              href={personalInfo.projectDriveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-gold"
+            >
+              <i class="bi bi-google"></i>
+              <span>Buka Folder Google Drive Portofolio</span>
+              <i class="bi bi-arrow-up-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -206,7 +264,7 @@ const categoryCounts = categories.reduce((acc, cat) => {
         }
       });
 
-      // Update button & counter
+      // Update button dan counter
       if (loadMoreWrap && loadMoreText && showingCountText) {
         if (currentFilter === 'all') {
           loadMoreWrap.style.display = 'flex';
@@ -358,10 +416,15 @@ const categoryCounts = categories.reduce((acc, cat) => {
     transform: translateY(-1px);
   }
 
+  .filter-btn:focus-visible {
+    outline: 2px solid #C5A880;
+    outline-offset: 3px;
+  }
+
   .filter-btn.active {
     background: var(--color-burgundy);
     color: var(--color-cream);
-    box-shadow: 0 4px 12px rgba(47, 23, 29, 0.2);
+    
   }
 
   /* Curated Photography Grid */
@@ -383,7 +446,7 @@ const categoryCounts = categories.reduce((acc, cat) => {
 
   .doc-photo-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    
   }
 
   .doc-img-wrap {
@@ -497,8 +560,8 @@ const categoryCounts = categories.reduce((acc, cat) => {
     font-size: 0.95rem;
     font-weight: 700;
     cursor: pointer;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, color 0.25s ease;
   }
 
   .btn-load-more:hover {
@@ -506,7 +569,7 @@ const categoryCounts = categories.reduce((acc, cat) => {
     color: #05070c;
     border-color: #f59e0b;
     transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(245, 158, 11, 0.3);
+    
   }
 
   .showing-count-text {
@@ -523,12 +586,12 @@ const categoryCounts = categories.reduce((acc, cat) => {
     max-width: 90vw;
     max-height: 90vh;
     background: var(--color-cream);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4); /* taste-skill-ignore: real overlay dialog */
   }
 
   .photo-lightbox::backdrop {
     background: rgba(11, 16, 27, 0.85);
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px); /* taste-skill-ignore: real overlay modal backdrop */
   }
 
   .lightbox-dialog-inner {
@@ -641,7 +704,7 @@ const categoryCounts = categories.reduce((acc, cat) => {
     text-decoration: none;
     font-size: 0.88rem;
     font-weight: 600;
-    transition: all 0.2s ease;
+    transition: transform 0.2s ease, opacity 0.2s ease, background-color 0.2s ease;
   }
 
   .insta-pill:hover {
@@ -699,6 +762,153 @@ const categoryCounts = categories.reduce((acc, cat) => {
     .filter-btn {
       width: 100%;
       text-align: center;
+    }
+  }
+
+  /* Archive Conclusion Box (Seragam dengan Cinematic Card Bernstein) */
+  .archive-conclusion-wrap {
+    margin-top: 5rem;
+    position: relative;
+    max-width: 1020px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .conclusion-card {
+    position: relative;
+    background: #0B101B;
+    border-radius: 16px;
+    border: 1px solid rgba(197, 168, 128, 0.22);
+    
+    overflow: hidden;
+    color: #ffffff;
+    padding: 4rem 3.5rem 3.5rem;
+    text-align: center;
+  }
+
+  .conclusion-glow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 180px;
+    background: transparent;
+    pointer-events: none;
+  }
+
+  .conclusion-inner {
+    position: relative;
+    z-index: 2;
+  }
+
+  .conclusion-icon-halo {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(197, 168, 128, 0.12);
+    border: 1px solid rgba(197, 168, 128, 0.35);
+    color: #C5A880;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  }
+
+  .conclusion-card:hover .conclusion-icon-halo {
+    transform: scale(1.08);
+    
+  }
+
+  .conclusion-heading {
+    font-size: 2.35rem;
+    line-height: 1.15;
+    margin: 0.8rem 0 1.2rem;
+    color: #ffffff;
+    font-weight: 400;
+  }
+
+  .conclusion-desc {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #CBD5E1;
+    max-width: 760px;
+    margin: 0 auto 2.2rem;
+  }
+
+  .conclusion-pills-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+
+  .conclusion-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #E2E8F0;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    font-size: 0.84rem;
+    font-weight: 500;
+  }
+
+  .conclusion-pill i {
+    color: #C5A880;
+  }
+
+  .conclusion-cta-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.95rem 2rem;
+    background: #D97706;
+    color: #080D16;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn-gold:hover {
+    background: #F59E0B;
+    transform: translateY(-2px);
+    
+  }
+
+  @media (max-width: 768px) {
+    .archive-conclusion-wrap {
+      margin-top: 3.5rem;
+    }
+
+    .conclusion-card {
+      padding: 2.5rem 1.6rem 2rem;
+    }
+
+    .conclusion-heading {
+      font-size: 1.75rem;
+    }
+
+    .conclusion-desc {
+      font-size: 0.95rem;
+    }
+
+    .btn-gold {
+      width: 100%;
+      justify-content: center;
     }
   }
 </style>

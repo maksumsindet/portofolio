@@ -1,18 +1,18 @@
 ---
 // Experience.astro
-// Recreates "Pengalaman & Kepemimpinan" with centered credential cards matching portfolio specifications
+// Recreates "Pengalaman dan Kepemimpinan" with centered credential cards matching portfolio specifications
 import { experienceProgramAndWork, experienceOrganization } from '../data/portfolioData';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
 
-// Use all program and work experiences (including PPK Ormawa SEGARA & ShopeeFood)
+// Use all program and work experiences (including PPK Ormawa SEGARA dan ShopeeFood)
 const professionalWork = experienceProgramAndWork;
 ---
 
 <section id="experience" class="experience-section">
   <div class="experience-container">
     <div class="section-title fade-in">
-      <h2>Pengalaman & Kepemimpinan</h2>
+      <h2>Pengalaman dan Kepemimpinan</h2>
       <p>
         Rekam jejak dedikasi dalam memimpin tim lintas disiplin, mengelola riset dan kajian strategis, serta mengorkestrasi program kemasyarakatan dari tingkat komunitas hingga nasional.
       </p>
@@ -37,6 +37,8 @@ const professionalWork = experienceProgramAndWork;
                   src={`${base}${item.logo}`}
                   alt={item.organization}
                   class="org-logo-img"
+                  width="48"
+                  height="48"
                   loading="lazy"
                 />
               ) : (
@@ -70,7 +72,7 @@ const professionalWork = experienceProgramAndWork;
       </div>
     </div>
 
-    <!-- Section 2: Pengalaman Kerja & Operasional Profesional -->
+    <!-- Section 2: Pengalaman Kerja dan Operasional Profesional -->
     {professionalWork.length > 0 && (
       <div class="exp-group-wrap slide-up" style="margin-top: 5.5rem;">
         <div class="group-header">
@@ -87,7 +89,7 @@ const professionalWork = experienceProgramAndWork;
               <div class="featured-top">
                 <div class="logo-box">
                   {item.logo ? (
-                    <img src={`${base}${item.logo}`} alt={item.organization} loading="lazy" />
+                    <img src={`${base}${item.logo}`} alt={item.organization} width="48" height="48" loading="lazy" />
                   ) : (
                     <i class={item.icon || "bi bi-briefcase"} style={`color: ${item.iconColor || 'var(--color-terracotta)'};`}></i>
                   )}
