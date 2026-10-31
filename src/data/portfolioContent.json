@@ -1199,6 +1199,49 @@
     "sectionSubtitle": "Seluruh proyek di bawah ini terverifikasi secara autentik dan didukung langsung oleh naskah dokumen resmi, technical report, dan repositori yang tersimpan di Google Drive.",
     "projects": [
       {
+        "id": "ppk-ormawa-segara",
+        "category": "Program Peningkatan Kapasitas Ormawa (PPK Ormawa)",
+        "badge": "Juara 2 Nasional Abdidaya Ormawa Kemdiktisaintek",
+        "period": "2026",
+        "title": "SEGARA (Sentra Gerak Agromina): Pemberdayaan Masyarakat Kalurahan Sidoagung Berbasis Inovasi Olahan Ikan Nusantara dan Digitalisasi Pemasaran untuk Peningkatan Kemandirian Ekonomi",
+        "subtitle": "",
+        "partner": "PPK Ormawa Kemdiktisaintek RI, Ormawa KSI Mist FMIPA UNY, Pemkab Sleman, Kalurahan Sidoagung",
+        "summary": "Kepemimpinan sebagai Ketua Tim Pelaksana PPK Ormawa KSI Mist FMIPA UNY yang mengoordinasikan 14 mahasiswa lintas disiplin dalam inisiatif Sentra Gerak Agromina (SEGARA) di Sidoagung, Sleman. Memetakan 224 kolam budidaya perikanan air tawar secara geospasial, mengonsolidasikan 6 Pokdakan dalam satu basis data terpadu, menjalin kemitraan rantai pasok bersama 3 offtaker pasar, dan mengantarkan kontingen UNY meraih predikat Terbaik 2 Nasional Abdidaya Ormawa 2026 di UMI Makassar.",
+        "evidencePoints": [
+          "Dokumen resmi Subproposal dan Sublaporan Akhir PPK Ormawa KSI Mist FMIPA UNY.",
+          "Berita Acara Serah Terima resmi bertandatangan Muhammad Dahron Mustofa Maksum dan Pemerintah Kalurahan Sidoagung.",
+          "Rakor verifikasi kelayakan teknis dan integrasi arsitektur sistem bersama Diskominfo Kabupaten Sleman.",
+          "Penghargaan Terbaik 2 Nasional Pemahaman Pemberdayaan Masyarakat Abdidaya Ormawa Kemdiktisaintek RI di Makassar."
+        ],
+        "metrics": [
+          {
+            "value": "224 Kolam",
+            "label": "Terpetakan Geospasial"
+          },
+          {
+            "value": "6 Pokdakan",
+            "label": "Terkonsolidasi 1 Basis Data"
+          },
+          {
+            "value": "3 Offtaker",
+            "label": "Kemitraan Rantai Pasok B2B"
+          },
+          {
+            "value": "Juara 2",
+            "label": "Nasional Abdidaya Kemdiktisaintek"
+          }
+        ],
+        "techStack": [
+          "Python",
+          "PostgreSQL",
+          "Leaflet GIS",
+          "R Shiny",
+          "Pandas",
+          "Supply Chain Optimization"
+        ],
+        "docsUrl": "https://drive.google.com/file/d/1MKi7LwgqbEB2oOfAeLZujOcynasTJN1j/view?usp=sharing"
+      },
+      {
         "id": "agrialert-satria-data",
         "category": "Kompetisi Nasional SATRIA DATA 2026",
         "badge": "Berkas Resmi: SEC_(SD2026020000315).pdf",
@@ -1328,49 +1371,6 @@
           "Multivariate Regression"
         ],
         "docsUrl": "https://drive.google.com/file/d/1o4P5jdLsoDuOWwGVp4_lBNhE6ltIWogt/view?usp=sharing"
-      },
-      {
-        "id": "ppk-ormawa-segara",
-        "category": "Program Peningkatan Kapasitas Ormawa (PPK Ormawa)",
-        "badge": "Juara 2 Nasional Abdidaya Ormawa Kemdiktisaintek",
-        "period": "2026",
-        "title": "SEGARA (Sentra Gerak Agromina): Pemberdayaan Masyarakat Kalurahan Sidoagung Berbasis Inovasi Olahan Ikan Nusantara dan Digitalisasi Pemasaran untuk Peningkatan Kemandirian Ekonomi",
-        "subtitle": "",
-        "partner": "PPK Ormawa Kemdiktisaintek RI, Ormawa KSI Mist FMIPA UNY, Pemkab Sleman, Kalurahan Sidoagung",
-        "summary": "Kepemimpinan sebagai Ketua Tim Pelaksana PPK Ormawa KSI Mist FMIPA UNY yang mengoordinasikan 14 mahasiswa lintas disiplin dalam inisiatif Sentra Gerak Agromina (SEGARA) di Sidoagung, Sleman. Memetakan 224 kolam budidaya perikanan air tawar secara geospasial, mengonsolidasikan 6 Pokdakan dalam satu basis data terpadu, menjalin kemitraan rantai pasok bersama 3 offtaker pasar, dan mengantarkan kontingen UNY meraih predikat Terbaik 2 Nasional Abdidaya Ormawa 2026 di UMI Makassar.",
-        "evidencePoints": [
-          "Dokumen resmi Subproposal dan Sublaporan Akhir PPK Ormawa KSI Mist FMIPA UNY.",
-          "Berita Acara Serah Terima resmi bertandatangan Muhammad Dahron Mustofa Maksum dan Pemerintah Kalurahan Sidoagung.",
-          "Rakor verifikasi kelayakan teknis dan integrasi arsitektur sistem bersama Diskominfo Kabupaten Sleman.",
-          "Penghargaan Terbaik 2 Nasional Pemahaman Pemberdayaan Masyarakat Abdidaya Ormawa Kemdiktisaintek RI di Makassar."
-        ],
-        "metrics": [
-          {
-            "value": "224 Kolam",
-            "label": "Terpetakan Geospasial"
-          },
-          {
-            "value": "6 Pokdakan",
-            "label": "Terkonsolidasi 1 Basis Data"
-          },
-          {
-            "value": "3 Offtaker",
-            "label": "Kemitraan Rantai Pasok B2B"
-          },
-          {
-            "value": "Juara 2",
-            "label": "Nasional Abdidaya Kemdiktisaintek"
-          }
-        ],
-        "techStack": [
-          "Python",
-          "PostgreSQL",
-          "Leaflet GIS",
-          "R Shiny",
-          "Pandas",
-          "Supply Chain Optimization"
-        ],
-        "docsUrl": "https://drive.google.com/file/d/1MKi7LwgqbEB2oOfAeLZujOcynasTJN1j/view?usp=sharing"
       }
     ]
   },
