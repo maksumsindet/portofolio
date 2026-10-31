@@ -4,29 +4,6 @@
 import { achievementsData } from '../data/portfolioData';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
-
-const coreHighlights = [
-  {
-    icon: "bi bi-award",
-    title: "Terbaik 2 Nasional",
-    subtitle: "Terbaik 2 Pemahaman Pemberdayaan Masyarakat",
-  },
-  {
-    icon: "bi bi-mortarboard",
-    title: "IPK 3.84 / 4.00",
-    subtitle: "S1 Statistika FMIPA UNY",
-  },
-  {
-    icon: "bi bi-diagram-3",
-    title: "Ketua Tim Pelaksana",
-    subtitle: "PPK Ormawa SEGARA (224 Kolam)",
-  },
-  {
-    icon: "bi bi-hammer",
-    title: "Presidium I Mukernas",
-    subtitle: "Kajian Strategis IHMSI Indonesia",
-  },
-];
 ---
 
 <section id="achievements" class="achievements-section">
@@ -44,23 +21,6 @@ const coreHighlights = [
       <p>
         Pengakuan tingkat nasional dan kompetensi teruji dalam inovasi pemberdayaan masyarakat, olimpiade matematika, komputasi data, dan kepemimpinan.
       </p>
-    </div>
-
-    <!-- 4-Column Highlights Ribbon (Executive Navy dan Gold in Bernstein Style) -->
-    <div class="achieve-highlights-wrap slide-up">
-      <div class="achieve-highlights-card">
-        {coreHighlights.map((item) => (
-          <div class="highlight-col">
-            <div class="highlight-icon-wrap">
-              <i class={item.icon}></i>
-            </div>
-            <div class="highlight-info">
-              <h3 class="highlight-title">{item.title}</h3>
-              <p class="highlight-sub">{item.subtitle}</p>
-            </div>
-          </div>
-        ))}
-      </div>
     </div>
 
     <!-- Achievement Cards Grid -->
@@ -114,63 +74,6 @@ const coreHighlights = [
     color: var(--color-gold);
     font-style: italic;
     font-weight: 400;
-  }
-
-  /* Highlights Card Banner (Executive Midnight Navy dan Champagne Gold) */
-  .achieve-highlights-wrap {
-    margin-bottom: 4rem;
-  }
-
-  .achieve-highlights-card {
-    background-color: var(--color-midnight-deep);
-    border: none;
-    border-radius: 8px;
-    padding: 2.2rem 2.8rem;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-  }
-
-  .highlight-col {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-  }
-
-  .highlight-icon-wrap {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: #141C2B;
-    border: none;
-    color: var(--color-gold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.35rem;
-    flex-shrink: 0;
-    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, color 0.2s ease;
-  }
-
-  .highlight-col:hover .highlight-icon-wrap {
-    background: var(--color-gold);
-    color: #0B101B;
-    transform: scale(1.08);
-  }
-
-  .highlight-title {
-    font-family: var(--font-serif);
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #ffffff;
-    margin-bottom: 0.25rem;
-    line-height: 1.15;
-  }
-
-  .highlight-sub {
-    font-size: 0.85rem;
-    color: var(--color-text-muted-light);
-    line-height: 1.45;
   }
 
   .achieve-grid {
@@ -275,20 +178,12 @@ const coreHighlights = [
   }
 
   @media (max-width: 1100px) {
-    .achieve-highlights-card {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2.2rem;
-      padding: 2.2rem 2rem;
-    }
     .achieve-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
   @media (max-width: 768px) {
-    .achieve-highlights-card {
-      grid-template-columns: 1fr;
-    }
     .achieve-grid {
       grid-template-columns: 1fr;
     }
