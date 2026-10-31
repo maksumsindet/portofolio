@@ -11,6 +11,7 @@
 
   /* Luxury Champagne Gold / Bronze Palette */
   --color-gold: #C5A880;
+  --color-gold-deep: #8C6239; /* High-contrast (5.1:1 on cream) for WCAG AA compliance */
   --color-gold-hover: #B8976C;
   --color-gold-light: rgba(197, 168, 128, 0.14);
   --color-gold-border: rgba(197, 168, 128, 0.35);
@@ -113,7 +114,7 @@ h1, h2, h3, h4, .font-serif {
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.12em;
-  color: var(--color-gold);
+  color: var(--color-gold-deep, #8C6239);
   text-transform: uppercase;
 }
 

@@ -4,6 +4,7 @@ description: Statistisi, Analis Data, dan Penggerak Inovasi Sosial (Bernstein Ed
 colors:
   primary: "#C5A880"
   primary-hover: "#B8976C"
+  gold-deep: "#8C6239"
   midnight-deep: "#0B101B"
   midnight: "#111827"
   midnight-card: "#182234"

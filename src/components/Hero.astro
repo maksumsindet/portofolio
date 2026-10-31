@@ -150,7 +150,7 @@ const spotlightCards = [
           </div>
           <div class="spotlight-card-body">
             <span class="spotlight-tag">{card.tag}</span>
-            <h3 class="spotlight-title">{card.title}</h3>
+            <h2 class="spotlight-title">{card.title}</h2>
             <p class="spotlight-desc">{card.desc}</p>
             <a href={card.link} class="spotlight-link">
               <span>{card.linkLabel}</span>
@@ -165,7 +165,7 @@ const spotlightCards = [
 <style>
   .hero-section {
     position: relative;
-    background: #05070c;
+    background: var(--color-midnight-deep, #0B101B);
     color: #ffffff;
     padding-top: 130px;
     padding-bottom: 5rem;
@@ -244,7 +244,7 @@ const spotlightCards = [
   }
 
   .highlight-text {
-    color: #f59e0b;
+    color: var(--color-gold);
     position: relative;
     font-style: normal;
   }
@@ -253,14 +253,14 @@ const spotlightCards = [
   .hero-accent-bar {
     width: 54px;
     height: 3px;
-    background: #f59e0b;
+    background: var(--color-gold);
     margin: 1.25rem 0 1.75rem;
-    border-radius: 2px;
+    border-radius: 4px;
   }
 
   .hero-description {
     font-size: 1.1rem;
-    color: #94a3b8;
+    color: var(--color-text-muted-light, #CBD5E1);
     line-height: 1.75;
     margin-bottom: 2.25rem;
     max-width: 600px;
@@ -294,18 +294,18 @@ const spotlightCards = [
   }
 
   .btn-primary {
-    background: #f59e0b;
-    color: #05070c;
-    border: 1px solid #f59e0b;
+    background: var(--color-gold);
+    color: var(--color-midnight-deep, #0B101B);
+    border: 1px solid var(--color-gold);
     
   }
 
   .btn-primary:hover {
-    background: #d97706;
-    border-color: #d97706;
+    background: var(--color-gold-hover);
+    border-color: var(--color-gold-hover);
     transform: translateY(-2px);
     
-    color: #05070c;
+    color: var(--color-midnight-deep, #0B101B);
   }
 
   .btn-secondary {
@@ -335,12 +335,12 @@ const spotlightCards = [
     display: flex;
     align-items: center;
     gap: 0.55rem;
-    color: #94a3b8;
+    color: var(--color-text-muted-light, #CBD5E1);
     font-size: 0.92rem;
   }
 
   .meta-item i {
-    color: #f59e0b;
+    color: var(--color-gold);
     font-size: 1.05rem;
   }
 
@@ -416,7 +416,7 @@ const spotlightCards = [
     background: rgba(11, 16, 27, 0.9);
     background: #0B101B;
     
-    border: 1px solid rgba(245, 158, 11, 0.35);
+    border: 1px solid var(--color-gold-border);
     padding: 0.75rem 1.25rem;
     border-radius: 12px;
     
@@ -425,7 +425,7 @@ const spotlightCards = [
 
   .floating-badge i {
     font-size: 1.55rem;
-    color: #f59e0b;
+    color: var(--color-gold);
   }
 
   .floating-badge strong {
@@ -467,7 +467,7 @@ const spotlightCards = [
     font-size: 0.78rem;
     font-weight: 800;
     letter-spacing: 0.12em;
-    color: #94a3b8;
+    color: var(--color-text-muted-light, #CBD5E1);
     text-transform: uppercase;
     white-space: nowrap;
   }
@@ -495,13 +495,13 @@ const spotlightCards = [
   }
 
   .partner-badge:hover {
-    background: rgba(245, 158, 11, 0.1);
-    border-color: rgba(245, 158, 11, 0.3);
-    color: #f59e0b;
+    background: var(--color-gold-light);
+    border-color: var(--color-gold-border);
+    color: var(--color-gold);
   }
 
   .partner-badge i {
-    color: #f59e0b;
+    color: var(--color-gold);
   }
 
   /* Spotlight Cards Section */
@@ -531,7 +531,7 @@ const spotlightCards = [
 
   .spotlight-card:hover {
     transform: translateY(-6px);
-    border-color: rgba(245, 158, 11, 0.4);
+    border-color: var(--color-gold-border);
     
   }
 
@@ -565,7 +565,7 @@ const spotlightCards = [
   .spotlight-tag {
     font-size: 0.72rem;
     font-weight: 700;
-    color: #f59e0b;
+    color: var(--color-gold);
     letter-spacing: 0.08em;
     text-transform: uppercase;
     display: block;
@@ -583,7 +583,7 @@ const spotlightCards = [
   .spotlight-desc {
     font-size: 0.88rem;
     line-height: 1.6;
-    color: #94a3b8;
+    color: var(--color-text-muted-light, #CBD5E1);
     margin-bottom: 1.4rem;
     flex-grow: 1;
     text-align: justify;
@@ -591,7 +591,7 @@ const spotlightCards = [
   }
 
   .spotlight-link {
-    color: #f59e0b;
+    color: var(--color-gold);
     font-size: 0.85rem;
     font-weight: 700;
     text-decoration: none;
@@ -603,7 +603,7 @@ const spotlightCards = [
   }
 
   .spotlight-link:hover {
-    color: #fbbf24;
+    color: var(--color-gold-hover);
     gap: 0.65rem;
   }
 

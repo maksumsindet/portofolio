@@ -176,7 +176,7 @@ const featurePills = [
             <p class="card-desc">{item.description}</p>
             
             <div class="card-footer">
-              <a href={item.link} class="card-link">
+              <a href={item.link} class="card-link" aria-label={`Eksplorasi detail ${item.title}`}>
                 <span>Eksplorasi Detail</span>
               </a>
             </div>
@@ -305,7 +305,7 @@ const featurePills = [
   }
 
   .heading-gold {
-    color: var(--color-gold);
+    color: var(--color-gold-deep, #8C6239);
     font-style: italic;
     font-weight: 400;
   }
