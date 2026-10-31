@@ -328,3 +328,14 @@ input, textarea, select {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-gold);
 }
+
+/* Section Scroll Margin for Left Sidebar / Mobile Header */
+section[id] {
+  scroll-margin-top: 2rem;
+}
+
+@media (max-width: 1024px) {
+  section[id] {
+    scroll-margin-top: 72px;
+  }
+}

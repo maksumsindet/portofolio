@@ -1,266 +1,537 @@
 ---
 // Navbar.astro
+// Executive Bernstein Sidebar Navigation System (Left Sidebar Desktop / Drawer Mobile)
 interface Props {
   nickname?: string;
 }
 
-const { nickname = "MAKSUM" } = Astro.props;
+const { nickname = "DASHBOARD" } = Astro.props;
 
 const navItems = [
-  { href: "#data-projects", label: "Proyek Data" },
-  { href: "#skills", label: "Keahlian" },
-  { href: "#programs", label: "Program" },
-  { href: "#projects", label: "Portofolio" },
-  { href: "#about", label: "Tentang" },
-  { href: "#experience", label: "Pengalaman" },
-  { href: "#education", label: "Pendidikan" },
-  { href: "#achievements", label: "Prestasi" },
-  { href: "#media", label: "Liputan Media" },
-  { href: "#gallery", label: "Galeri" },
+  { href: "#data-projects", label: "Proyek Data", icon: "bi bi-database-check" },
+  { href: "#skills", label: "Keahlian", icon: "bi bi-cpu" },
+  { href: "#programs", label: "Program", icon: "bi bi-award" },
+  { href: "#projects", label: "Portofolio", icon: "bi bi-collection" },
+  { href: "#about", label: "Tentang", icon: "bi bi-person-lines-fill" },
+  { href: "#experience", label: "Pengalaman", icon: "bi bi-briefcase" },
+  { href: "#education", label: "Pendidikan", icon: "bi bi-mortarboard" },
+  { href: "#achievements", label: "Prestasi", icon: "bi bi-trophy" },
+  { href: "#media", label: "Liputan Media", icon: "bi bi-newspaper" },
+  { href: "#gallery", label: "Galeri", icon: "bi bi-images" },
 ];
 ---
 
-<header class="site-header">
-  <div class="nav-container">
-    <a href="#home" class="brand-logo" aria-label="Beranda Muhammad Dahron">
-      <span class="monogram-box">M.</span>
-      <span class="brand-wordmark">{nickname}</span>
+<!-- Mobile Top Bar (Screen <= 1024px) -->
+<header class="mobile-top-header" aria-label="Navigasi Mobile">
+  <a href="#home" class="mobile-brand" aria-label="Dashboard Beranda">
+    <span class="brand-monogram">M.</span>
+    <span class="brand-wordmark">DASHBOARD</span>
+  </a>
+  <div class="mobile-actions">
+    <a href="#contact" class="mobile-cta-btn" aria-label="Hubungi Saya" title="Hubungi Saya">
+      <i class="bi bi-calendar-check" aria-hidden="true"></i>
     </a>
+    <button type="button" class="mobile-nav-toggle" aria-label="Buka Menu Navigasi" aria-expanded="false" aria-controls="sidebar-drawer">
+      <i class="bi bi-list" aria-hidden="true"></i>
+    </button>
+  </div>
+</header>
 
-    <nav class="nav-menu">
-      <ul class="nav-links">
+<!-- Backdrop Overlay for Mobile Drawer -->
+<div class="sidebar-backdrop" id="sidebar-backdrop" aria-hidden="true"></div>
+
+<!-- Left Vertical Sidebar (Permanent on Desktop, Slide-over on Mobile) -->
+<aside class="sidebar-drawer" id="sidebar-drawer" aria-label="Navigasi Samping">
+  <div class="sidebar-inner">
+    <!-- Brand Header -->
+    <div class="sidebar-brand-wrapper">
+      <a href="#home" class="sidebar-brand" aria-label="Dashboard Beranda">
+        <span class="brand-monogram">M.</span>
+        <div class="brand-text-col">
+          <span class="brand-wordmark">DASHBOARD</span>
+          <span class="brand-sub">Sovereign Data Ledger</span>
+        </div>
+      </a>
+      <button type="button" class="drawer-close-btn" aria-label="Tutup Menu">
+        <i class="bi bi-x-lg" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <!-- Navigation List -->
+    <nav class="sidebar-nav" aria-label="Menu Halaman">
+      <div class="nav-group-label">NAVIGASI UTAMA</div>
+      <ul class="nav-list">
         {navItems.map((item) => (
-          <li><a href={item.href}>{item.label}</a></li>
+          <li class="nav-item">
+            <a href={item.href} class="nav-link">
+              <i class={item.icon} aria-hidden="true"></i>
+              <span class="nav-text">{item.label}</span>
+            </a>
+          </li>
         ))}
       </ul>
     </nav>
 
-    <div class="header-action">
-      <a href="#contact" class="btn-gold header-cta">
-        <i class="bi bi-calendar-check"></i>
+    <!-- Bottom Footer Action -->
+    <div class="sidebar-footer">
+      <a href="#contact" class="sidebar-cta-btn btn-gold">
+        <i class="bi bi-calendar-check" aria-hidden="true"></i>
         <span>Hubungi Saya</span>
       </a>
-      <button class="hamburger" aria-label="Toggle Navigation">
-        <i class="bi bi-list"></i>
-      </button>
+      <div class="sidebar-meta">
+        <span class="sidebar-meta-role">S1 Statistika FMIPA UNY</span>
+        <span class="sidebar-meta-year">&copy; 2026 M. Dahron</span>
+      </div>
     </div>
   </div>
-</header>
+</aside>
 
 <style>
-  .site-header {
+  /* -------------------------------------------------------------
+     Mobile Top Header (< 1025px)
+     ------------------------------------------------------------- */
+  .mobile-top-header {
+    display: none;
+  }
+
+  @media (max-width: 1024px) {
+    .mobile-top-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      padding: 0 1.25rem;
+      background-color: var(--color-midnight-deep, #0B101B);
+      border-bottom: 1px solid var(--color-midnight-border, #23314B);
+      z-index: 990;
+      box-shadow: 0 4px 20px rgba(11, 16, 27, 0.4);
+    }
+
+    .mobile-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+    }
+
+    .mobile-brand .brand-wordmark {
+      font-size: 1.2rem;
+    }
+
+    .mobile-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .mobile-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 4px;
+      background-color: var(--color-gold, #C5A880);
+      color: #0B101B;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .mobile-cta-btn:hover {
+      background-color: var(--color-gold-hover, #B8976C);
+    }
+
+    .mobile-nav-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      background: transparent;
+      border: 1px solid var(--color-midnight-border, #23314B);
+      border-radius: 4px;
+      color: var(--color-text-light, #F8FAFC);
+      font-size: 1.35rem;
+      cursor: pointer;
+      padding: 0;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .mobile-nav-toggle:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-color: var(--color-gold, #C5A880);
+    }
+  }
+
+  /* -------------------------------------------------------------
+     Sidebar Backdrop (Mobile Drawer Overlay)
+     ------------------------------------------------------------- */
+  .sidebar-backdrop {
+    display: none;
+  }
+
+  @media (max-width: 1024px) {
+    .sidebar-backdrop {
+      display: block;
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 16, 27, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .sidebar-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  /* -------------------------------------------------------------
+     Sidebar Drawer (Core Navigation)
+     ------------------------------------------------------------- */
+  .sidebar-drawer {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: var(--color-midnight-deep);
-    transition: padding 0.25s ease, background-color 0.25s ease;
-    padding: 1.15rem 6%;
+    bottom: 0;
+    width: 270px;
+    height: 100vh;
+    height: 100svh;
+    background-color: var(--color-midnight-deep, #0B101B);
+    border-right: 1px solid var(--color-midnight-border, #23314B);
+    z-index: 1010;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
   }
 
-  .site-header.scrolled {
-    padding: 0.85rem 6%;
-    background-color: #080D16;
+  .sidebar-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1.5rem 1.15rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(197, 168, 128, 0.25) transparent;
   }
 
-  .nav-container {
-    max-width: 1320px;
-    margin: 0 auto;
+  .sidebar-inner::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .sidebar-inner::-webkit-scrollbar-thumb {
+    background-color: rgba(197, 168, 128, 0.25);
+    border-radius: 4px;
+  }
+
+  /* -------------------------------------------------------------
+     Brand Area
+     ------------------------------------------------------------- */
+  .sidebar-brand-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1.5rem;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid var(--color-midnight-border, #23314B);
   }
 
-  /* Monogram Brand in Bernstein Style */
-  .brand-logo {
-    text-decoration: none;
+  .sidebar-brand {
     display: inline-flex;
     align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
   }
 
-  .monogram-box {
+  .brand-monogram {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 36px;
     height: 36px;
-    background-color: var(--color-gold);
+    background-color: var(--color-gold, #C5A880);
     color: #0B101B;
-    font-family: var(--font-serif);
+    font-family: var(--font-serif, 'Gambarino', Georgia, serif);
     font-weight: 700;
     font-size: 1.15rem;
     border-radius: 4px;
-    margin-right: 0.75rem;
     line-height: 1;
     flex-shrink: 0;
   }
 
+  .brand-text-col {
+    display: flex;
+    flex-direction: column;
+  }
+
   .brand-wordmark {
-    font-family: var(--font-serif);
-    font-size: 1.45rem;
+    font-family: var(--font-serif, 'Gambarino', Georgia, serif);
+    font-size: 1.3rem;
     font-weight: 400;
-    letter-spacing: 0.12em;
-    color: var(--color-text-light);
+    letter-spacing: 0.1em;
+    color: var(--color-text-light, #F8FAFC);
     text-transform: uppercase;
+    line-height: 1.1;
   }
 
-  .nav-menu {
-    display: flex;
-    align-items: center;
-  }
-
-  .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 1.65rem;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-  }
-
-  .nav-links a {
-    color: var(--color-text-muted-light);
-    text-decoration: none;
-    font-size: 0.86rem;
+  .brand-sub {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: var(--color-gold, #C5A880);
+    text-transform: uppercase;
     font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    transition: color 0.2s ease;
-    position: relative;
-    padding: 0.35rem 0;
+    margin-top: 0.2rem;
   }
 
-  .nav-links a:hover,
-  .nav-links a.active {
+  .drawer-close-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--color-text-muted-light, #CBD5E1);
+    font-size: 1.15rem;
+    cursor: pointer;
+    padding: 0.35rem;
+    border-radius: 4px;
+    line-height: 1;
+    transition: color 0.2s ease;
+  }
+
+  .drawer-close-btn:hover {
     color: #ffffff;
   }
 
-  .nav-links a.active::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--color-gold);
-    border-radius: 2px;
+  /* -------------------------------------------------------------
+     Nav List
+     ------------------------------------------------------------- */
+  .sidebar-nav {
+    flex: 1;
+    margin-bottom: 1.5rem;
   }
 
-  .header-action {
+  .nav-group-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--color-text-secondary, #526071);
+    text-transform: uppercase;
+    padding: 0 0.75rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .nav-link {
     display: flex;
     align-items: center;
-    gap: 1rem;
-  }
-
-  .header-cta {
-    padding: 0.7rem 1.4rem;
+    gap: 0.8rem;
+    padding: 0.6rem 0.85rem;
+    min-height: 44px; /* Impeccable touch target floor */
+    border-radius: 6px;
+    color: var(--color-text-muted-light, #CBD5E1);
+    text-decoration: none;
     font-size: 0.86rem;
-    border-radius: 4px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    box-sizing: border-box;
   }
 
-  .hamburger {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--color-text-light);
-    font-size: 1.4rem;
-    cursor: pointer;
-    padding: 0.5rem;
+  .nav-link i {
+    font-size: 1rem;
+    color: var(--color-text-muted-light, #CBD5E1);
+    transition: color 0.2s ease, transform 0.2s ease;
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
   }
 
-  @media (max-width: 1080px) {
-    .nav-links {
-      gap: 1.1rem;
+  .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+  }
+
+  .nav-link:hover i {
+    color: var(--color-gold, #C5A880);
+    transform: translateX(1px);
+  }
+
+  .nav-link.active {
+    background-color: rgba(197, 168, 128, 0.16);
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  .nav-link.active i {
+    color: var(--color-gold, #C5A880);
+  }
+
+  .nav-link:focus-visible,
+  .mobile-cta-btn:focus-visible,
+  .mobile-nav-toggle:focus-visible,
+  .sidebar-cta-btn:focus-visible {
+    outline: 2px solid var(--color-gold, #C5A880);
+    outline-offset: 2px;
+  }
+
+  /* -------------------------------------------------------------
+     Sidebar Footer (CTA & Meta)
+     ------------------------------------------------------------- */
+  .sidebar-footer {
+    padding-top: 1.15rem;
+    border-top: 1px solid var(--color-midnight-border, #23314B);
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .sidebar-cta-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .sidebar-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.15rem;
+  }
+
+  .sidebar-meta-role {
+    font-size: 0.72rem;
+    color: var(--color-text-secondary, #526071);
+    font-weight: 500;
+  }
+
+  .sidebar-meta-year {
+    font-size: 0.68rem;
+    color: var(--color-text-secondary, #526071);
+  }
+
+  /* -------------------------------------------------------------
+     Mobile / Tablet Responsive Rules (<= 1024px)
+     ------------------------------------------------------------- */
+  @media (max-width: 1024px) {
+    .sidebar-drawer {
+      width: 280px;
+      max-width: 82vw;
+      transform: translateX(-100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: none;
     }
-    .nav-links a {
-      font-size: 0.8rem;
+
+    .sidebar-drawer.active {
+      transform: translateX(0);
+      box-shadow: 10px 0 30px rgba(11, 16, 27, 0.7);
+    }
+
+    .drawer-close-btn {
+      display: inline-flex;
     }
   }
 
-  @media (max-width: 960px) {
-    .nav-menu {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 78%;
-      max-width: 320px;
-      height: 100svh;
-      background-color: var(--color-midnight-card);
-      flex-direction: column;
-      justify-content: center;
-      padding: 3rem 2rem;
-      transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      z-index: 1001;
-    }
-
-    .nav-menu.active {
-      right: 0;
-    }
-
-    .nav-links {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1.6rem;
-      width: 100%;
-    }
-
-    .nav-links a {
-      font-size: 1.05rem;
-    }
-
-    .hamburger {
-      display: block;
-      z-index: 1002;
+  /* -------------------------------------------------------------
+     Reduced Motion Preference
+     ------------------------------------------------------------- */
+  @media (prefers-reduced-motion: reduce) {
+    .sidebar-drawer,
+    .sidebar-backdrop,
+    .nav-link,
+    .nav-link i,
+    .mobile-nav-toggle,
+    .mobile-cta-btn {
+      transition: none !important;
     }
   }
 </style>
 
 <script>
-  function setupNavbar() {
-    const header = document.querySelector('.site-header');
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-links a');
+  function setupSidebar() {
+    const toggleBtn = document.querySelector('.mobile-nav-toggle');
+    const closeBtn = document.querySelector('.drawer-close-btn');
+    const backdrop = document.getElementById('sidebar-backdrop');
+    const drawer = document.getElementById('sidebar-drawer');
+    const navLinks = document.querySelectorAll('.nav-link');
 
-    // Scroll effect
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 40) {
-        header?.classList.add('scrolled');
+    function openSidebar() {
+      drawer?.classList.add('active');
+      backdrop?.classList.add('active');
+      toggleBtn?.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSidebar() {
+      drawer?.classList.remove('active');
+      backdrop?.classList.remove('active');
+      toggleBtn?.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    toggleBtn?.addEventListener('click', () => {
+      if (drawer?.classList.contains('active')) {
+        closeSidebar();
       } else {
-        header?.classList.remove('scrolled');
+        openSidebar();
       }
     });
 
-    // Mobile menu toggle
-    hamburger?.addEventListener('click', () => {
-      navMenu?.classList.toggle('active');
-      const icon = hamburger.querySelector('i');
-      if (navMenu?.classList.contains('active')) {
-        icon?.classList.replace('fa-bars', 'fa-times');
-      } else {
-        icon?.classList.replace('fa-times', 'fa-bars');
-      }
-    });
+    closeBtn?.addEventListener('click', closeSidebar);
+    backdrop?.addEventListener('click', closeSidebar);
 
-    // Close mobile menu on link click
+    // Close on link click
     navLinks.forEach((link) => {
       link.addEventListener('click', () => {
-        navMenu?.classList.remove('active');
-        hamburger?.querySelector('i')?.classList.replace('fa-times', 'fa-bars');
+        if (window.innerWidth <= 1024) {
+          closeSidebar();
+        }
       });
+    });
+
+    // Close on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer?.classList.contains('active')) {
+        closeSidebar();
+      }
     });
 
     // Active state highlighting on scroll
     const sections = document.querySelectorAll('section[id]');
-    window.addEventListener('scroll', () => {
+    function updateActiveNav() {
       const scrollY = window.pageYOffset;
+      const offsetMargin = window.innerWidth <= 1024 ? 90 : 140;
+
       sections.forEach((current) => {
         const sectionHeight = (current as HTMLElement).offsetHeight;
-        const sectionTop = (current as HTMLElement).offsetTop - 120;
+        const sectionTop = (current as HTMLElement).offsetTop - offsetMargin;
         const sectionId = current.getAttribute('id');
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
           navLinks.forEach((link) => {
             link.classList.remove('active');
             if (link.getAttribute('href') === `#${sectionId}`) {
@@ -269,9 +540,12 @@ const navItems = [
           });
         }
       });
-    });
+    }
+
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+    updateActiveNav();
   }
 
-  setupNavbar();
-  document.addEventListener('astro:page-load', setupNavbar);
+  setupSidebar();
+  document.addEventListener('astro:page-load', setupSidebar);
 </script>
