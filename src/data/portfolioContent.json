@@ -288,6 +288,12 @@
           "icon": "bi bi-globe",
           "color": "var(--accent-color)",
           "details": "Tingkat Dasar (Elementary)"
+        },
+        {
+          "name": "Microsoft Word",
+          "icon": "bi bi-check2-circle",
+          "color": "#0B1931",
+          "details": "Copywriting"
         }
       ]
     }
