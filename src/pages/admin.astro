@@ -227,6 +227,11 @@ const initialDataJson = JSON.stringify(rawPortfolioContent);
             </span>
             <span id="saved-timestamp" class="status-timestamp">Siap diedit</span>
 
+            <button type="button" id="reset-default-btn" class="btn-danger-plain" title="Kembalikan semua konten ke data default bawaan">
+              <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i>
+              <span>Reset Konten Default</span>
+            </button>
+
             <a href={base} target="_blank" rel="noopener noreferrer" class="btn-secondary-plain">
               <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
               <span>Lihat Web Utama</span>
@@ -1049,6 +1054,7 @@ const initialDataJson = JSON.stringify(rawPortfolioContent);
       const savedTimestamp = document.getElementById('saved-timestamp') as HTMLElement;
       const globalToast = document.getElementById('global-toast') as HTMLElement;
       const saveAllBtn = document.getElementById('save-all-btn') as HTMLButtonElement;
+      const resetDefaultBtn = document.getElementById('reset-default-btn') as HTMLButtonElement;
       const logoutBtn = document.getElementById('logout-btn') as HTMLButtonElement;
       const envBadge = document.getElementById('env-Connection-badge') as HTMLElement;
       const hiddenJsonInput = document.getElementById('hidden-json-import') as HTMLInputElement;
@@ -1196,7 +1202,7 @@ const initialDataJson = JSON.stringify(rawPortfolioContent);
         e.preventDefault();
         loginAlert.hidden = true;
 
-        const rateRaw = sessionStorage.getItem(STORAGE_RATE_KEY);
+        const rateRaw = localStorage.getItem(STORAGE_RATE_KEY);
         const rate = rateRaw ? JSON.parse(rateRaw) : { count: 0, lockUntil: 0 };
         if (rate.lockUntil > Date.now()) {
           const waitSec = Math.ceil((rate.lockUntil - Date.now()) / 1000);
@@ -1218,7 +1224,7 @@ const initialDataJson = JSON.stringify(rawPortfolioContent);
         const inputHash = await sha256Hex(`${username}:${password}`);
 
         if (username === creds.username && inputHash === creds.passwordHash) {
-          sessionStorage.removeItem(STORAGE_RATE_KEY);
+          localStorage.removeItem(STORAGE_RATE_KEY);
           setSessionAuthenticated(username);
           loginPasswordInput.value = '';
           switchViewAfterAuth();
@@ -1228,7 +1234,7 @@ const initialDataJson = JSON.stringify(rawPortfolioContent);
             rate.lockUntil = Date.now() + 30000;
             rate.count = 0;
           }
-          sessionStorage.setItem(STORAGE_RATE_KEY, JSON.stringify(rate));
+          localStorage.setItem(STORAGE_RATE_KEY, JSON.stringify(rate));
           loginAlert.textContent = 'Username atau password tidak sesuai. Periksa kembali kredensial Anda.';
           loginAlert.hidden = false;
         }
@@ -1333,6 +1339,39 @@ const initialDataJson = JSON.stringify(rawPortfolioContent);
       }
 
       saveAllBtn?.addEventListener('click', saveAllChanges);
+
+      async function resetToDefaultContent() {
+        const confirmed = confirm(
+          'Apakah Anda yakin ingin mengembalikan seluruh konten ke data default bawaan (pabrik)?\n\n' +
+          '• Semua editan yang belum disimpan atau tersimpan di browser akan dikembalikan ke awal.\n' +
+          '• File data di server lokal juga akan diselaraskan kembali ke konten default.\n\n' +
+          'Klik OK untuk melanjutkan reset.'
+        );
+        if (!confirmed) return;
+
+        localStorage.removeItem(STORAGE_DATA_KEY);
+        cmsData = JSON.parse(JSON.stringify(defaultServerContent));
+
+        if (isLocalDevServer) {
+          try {
+            await fetch('/__admin_api/save', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'X-CMS-Request': 'maksum-admin-v1'
+              },
+              body: JSON.stringify(defaultServerContent)
+            });
+          } catch {}
+        }
+
+        updateSidebarCounts();
+        markClean('Konten dikembalikan ke default');
+        renderActiveSection();
+        showToast('Seluruh konten berhasil di-reset dan dikembalikan ke kondisi default awal.', 'success');
+      }
+
+      resetDefaultBtn?.addEventListener('click', resetToDefaultContent);
 
       function triggerImageUpload(onSuccess: (path: string) => void) {
         pendingImageCallback = onSuccess;
@@ -1640,8 +1679,13 @@ const initialDataJson = JSON.stringify(rawPortfolioContent);
               <h2 class="panel-title">Daftar Modul Konten Halaman Utama</h2>
               <p class="panel-desc">Pilih modul di bawah ini untuk mulai mengubah isi teks, foto, atau daftar item.</p>
             </div>
+            <button type="button" class="btn-danger-plain btn-overview-reset" title="Kembalikan seluruh konten ke data awal">
+              <i class="bi bi-arrow-counterclockwise"></i> <span>Reset Konten Default</span>
+            </button>
           </div>
         `;
+        const overviewResetBtn = panel.querySelector('.btn-overview-reset');
+        overviewResetBtn?.addEventListener('click', resetToDefaultContent);
 
         const table = document.createElement('table');
         table.className = 'data-table';
@@ -2844,17 +2888,8 @@ const initialDataJson = JSON.stringify(rawPortfolioContent);
         const resetBtn = document.createElement('button');
         resetBtn.type = 'button';
         resetBtn.className = 'btn-danger-plain';
-        resetBtn.innerHTML = '<i class="bi bi-arrow-repeat"></i> <span>Sinkronkan Ulang dengan Landing Page</span>';
-        resetBtn.addEventListener('click', () => {
-          if (confirm('Hapus seluruh cache lokal usang dan selaraskan 100% dengan landing page terbaru?')) {
-            localStorage.removeItem(STORAGE_DATA_KEY);
-            cmsData = JSON.parse(JSON.stringify(defaultServerContent));
-            updateSidebarCounts();
-            markClean('Direset ke bawaan');
-            renderSettingsSection();
-            showToast('Data berhasil dikembalikan ke kondisi awal.', 'success');
-          }
-        });
+        resetBtn.innerHTML = '<i class="bi bi-arrow-counterclockwise"></i> <span>Reset ke Konten Default (Pabrik)</span>';
+        resetBtn.addEventListener('click', resetToDefaultContent);
 
         btnRow.append(exportBtn, importBtn, resetBtn);
         panelBackup.appendChild(btnRow);
@@ -2864,6 +2899,14 @@ const initialDataJson = JSON.stringify(rawPortfolioContent);
 hiddenJsonInput?.addEventListener('change', () => {
         const file = hiddenJsonInput.files?.[0];
         if (!file) return;
+        if (!file.name.toLowerCase().endsWith('.json')) {
+          showToast('Tipe berkas ditolak: hanya menerima berkas .json', 'error');
+          return;
+        }
+        if (file.size > 2 * 1024 * 1024) {
+          showToast('Ukuran berkas JSON terlalu besar (maksimal 2 MB).', 'error');
+          return;
+        }
         const reader = new FileReader();
         reader.onload = () => {
           try {

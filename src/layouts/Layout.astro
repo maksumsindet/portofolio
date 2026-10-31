@@ -26,6 +26,10 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.instagram.com; style-src 'self' 'unsafe-inline' https://api.fontshare.com https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://cdn.fontshare.com https://fonts.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com data:; img-src 'self' data: https: blob:; frame-src 'self' https://www.instagram.com; connect-src 'self' https:; object-src 'none'; base-uri 'self';"
+    />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="icon" type="image/jpeg" href={`${base}assets/images/profile.jpeg`} />
