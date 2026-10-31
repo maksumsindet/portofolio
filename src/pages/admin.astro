@@ -869,6 +869,24 @@ const initialDataJson = JSON.stringify(rawPortfolioContent);
         gap: 16px;
       }
 
+      .skill-item-row {
+        display: grid;
+        grid-template-columns: minmax(180px, 1.2fr) minmax(180px, 1.2fr) minmax(190px, 1fr) auto;
+        gap: 12px;
+        align-items: flex-end;
+        padding: 12px 14px;
+        background-color: #FFFFFF;
+        border: 1px solid var(--cms-border);
+        border-radius: 6px;
+      }
+
+      @media (max-width: 960px) {
+        .skill-item-row {
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+      }
+
       .repeater-card {
         border: 1px solid var(--cms-border);
         border-radius: 8px;
@@ -1507,6 +1525,57 @@ const initialDataJson = JSON.stringify(rawPortfolioContent);
           hint.textContent = options.hint;
           wrap.appendChild(hint);
         }
+        return wrap;
+      }
+
+      function createIconInputField(
+        label: string,
+        value: string,
+        onChange: (val: string) => void,
+        placeholder = 'mis. bi bi-check2-circle'
+      ): HTMLElement {
+        const wrap = document.createElement('div');
+        wrap.className = 'field-group';
+        const lbl = document.createElement('label');
+        lbl.className = 'field-label';
+        lbl.textContent = label;
+
+        const row = document.createElement('div');
+        row.style.display = 'flex';
+        row.style.alignItems = 'center';
+        row.style.gap = '8px';
+
+        const previewBox = document.createElement('div');
+        previewBox.style.width = '36px';
+        previewBox.style.height = '36px';
+        previewBox.style.borderRadius = '6px';
+        previewBox.style.backgroundColor = 'var(--cms-subtle)';
+        previewBox.style.border = '1px solid var(--cms-border)';
+        previewBox.style.display = 'flex';
+        previewBox.style.alignItems = 'center';
+        previewBox.style.justifyContent = 'center';
+        previewBox.style.fontSize = '16px';
+        previewBox.style.flexShrink = '0';
+        previewBox.style.color = 'var(--cms-ink)';
+
+        const iconEl = document.createElement('i');
+        iconEl.className = value || 'bi bi-check2-circle';
+        previewBox.appendChild(iconEl);
+
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.className = 'field-input';
+        input.value = value || '';
+        input.placeholder = placeholder;
+        input.style.flex = '1';
+        input.addEventListener('input', () => {
+          onChange(input.value);
+          iconEl.className = input.value.trim() || 'bi bi-check2-circle';
+          markDirty();
+        });
+
+        row.append(previewBox, input);
+        wrap.append(lbl, row);
         return wrap;
       }
 
@@ -2270,24 +2339,21 @@ const initialDataJson = JSON.stringify(rawPortfolioContent);
           catGrid.className = 'form-grid-2';
           catGrid.append(
             createInputField('Nama Kategori', cat.category, (v) => (cat.category = v)),
-            createInputField('Kelas Ikon (Bootstrap Icons)', cat.icon, (v) => (cat.icon = v))
+            createIconInputField('Kelas Ikon Kategori', cat.icon, (v) => (cat.icon = v), 'mis. bi bi-palette')
           );
 
           const skillsTable = document.createElement('div');
           skillsTable.className = 'item-list-stack';
           (cat.skills || []).forEach((sk: any, sIdx: number) => {
             const skRow = document.createElement('div');
-            skRow.className = 'form-grid-3';
-            skRow.style.padding = '10px 12px';
-            skRow.style.background = '#FFFFFF';
-            skRow.style.border = '1px solid var(--cms-border)';
-            skRow.style.borderRadius = '6px';
+            skRow.className = 'skill-item-row';
 
             const delSkill = document.createElement('button');
             delSkill.type = 'button';
             delSkill.className = 'btn-danger-plain';
             delSkill.innerHTML = '<i class="bi bi-trash3"></i> <span>Hapus Skill</span>';
-            delSkill.style.marginTop = '22px';
+            delSkill.style.height = '38px';
+            delSkill.style.whiteSpace = 'nowrap';
             delSkill.addEventListener('click', () => {
               if (!confirm(`Hapus skill "${sk.name}"?`)) return;
               cat.skills.splice(sIdx, 1);
@@ -2299,6 +2365,7 @@ const initialDataJson = JSON.stringify(rawPortfolioContent);
             skRow.append(
               createInputField('Nama Skill', sk.name, (v) => (sk.name = v)),
               createInputField('Detail / Tools', sk.details || '', (v) => (sk.details = v)),
+              createIconInputField('Ikon Bootstrap', sk.icon || 'bi bi-check2-circle', (v) => (sk.icon = v), 'mis. bi bi-palette'),
               delSkill
             );
             skillsTable.appendChild(skRow);
