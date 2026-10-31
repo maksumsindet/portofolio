@@ -10,7 +10,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
 
 const heroBgSrc =
   (rawPortfolioContent as any)?.personalInfo?.heroBackgroundImage ||
-  `${base}assets/images/portfolio/segara-banner-sidoagung.jpg`;
+  'assets/images/portfolio/segara-banner-sidoagung.jpg';
 const heroBgImage = heroBgSrc.startsWith('http') || heroBgSrc.startsWith(base) || heroBgSrc.startsWith('data:')
   ? heroBgSrc
   : `${base}${heroBgSrc.replace(/^\/+/, '')}`;
@@ -44,9 +44,15 @@ const spotlightCards = [
 ---
 
 <section id="home" class="hero-section">
-  <!-- Blurred Atmospheric Background Image Layer -->
+  <!-- Blurred Atmospheric Activity Background Layer -->
   <div class="hero-bg-backdrop" aria-hidden="true">
-    <div class="hero-bg-image" style={`background-image: url('${heroBgImage}');`}></div>
+    <img 
+      src={heroBgImage} 
+      alt="Dokumentasi Kegiatan" 
+      class="hero-bg-img"
+      loading="eager"
+      decoding="async"
+    />
     <div class="hero-bg-overlay"></div>
   </div>
 
@@ -166,7 +172,7 @@ const spotlightCards = [
     overflow: hidden;
   }
 
-  /* Blurred Atmospheric Background Layer */
+  /* Blurred Atmospheric Activity Background Layer */
   .hero-bg-backdrop {
     position: absolute;
     inset: 0;
@@ -175,22 +181,25 @@ const spotlightCards = [
     pointer-events: none;
   }
 
-  .hero-bg-image {
+  .hero-bg-img {
     position: absolute;
-    inset: -35px;
-    background-size: cover;
-    background-position: center 30%;
-    background-repeat: no-repeat;
-    filter: blur(22px) brightness(0.28) saturate(1.2);
+    top: -30px;
+    left: -30px;
+    width: calc(100% + 60px);
+    height: calc(100% + 60px);
+    object-fit: cover;
+    object-position: center 25%;
+    filter: blur(12px) brightness(0.42) saturate(1.25);
     transform: scale(1.06);
+    user-select: none;
   }
 
   .hero-bg-overlay {
     position: absolute;
     inset: 0;
     background: 
-      radial-gradient(circle at 75% 35%, rgba(5, 7, 12, 0.35) 0%, rgba(5, 7, 12, 0.85) 60%, #05070c 95%),
-      linear-gradient(180deg, rgba(5, 7, 12, 0.75) 0%, rgba(5, 7, 12, 0.45) 45%, rgba(5, 7, 12, 0.95) 85%, #05070c 100%);
+      linear-gradient(90deg, rgba(5, 7, 12, 0.88) 0%, rgba(5, 7, 12, 0.65) 42%, rgba(5, 7, 12, 0.35) 75%, rgba(5, 7, 12, 0.7) 100%),
+      linear-gradient(180deg, rgba(5, 7, 12, 0.4) 0%, rgba(5, 7, 12, 0.15) 35%, rgba(5, 7, 12, 0.8) 85%, #05070c 100%);
   }
 
   /* Ambient Glow Background */
