@@ -72,7 +72,7 @@ export const personalInfo = {
   nickname: "Maksum",
   roleBadge: "Data Analyst & Social Impact Enthusiast",
   subtitle: "Mahasiswa S1 Statistika Universitas Negeri Yogyakarta | IPK 3.84",
-  description: "Mahasiswa aktif S1 Statistika UNY dengan minat yang kuat dan keahlian teruji di bidang analisis data statistik, machine learning, kajian strategis kebijakan, serta pemberdayaan masyarakat berbasis data.",
+  description: "Mahasiswa S1 Statistika UNY (IPK 3.84) dan Ketua Tim Pelaksana PPK Ormawa SEGARA dengan keahlian teruji di bidang analisis data statistik, machine learning, kepemimpinan program sosial, serta pemberdayaan masyarakat berbasis data.",
   gpa: "3.84 / 4.00",
   email: "muhammaddahron.2024@student.uny.ac.id",
   phone: "+62 858 7604 9490",
@@ -84,7 +84,7 @@ export const personalInfo = {
     instagram: "https://www.instagram.com/mksmetrics/",
     github: "https://github.com/maksumsindet"
   },
-  profileImage: "assets/images/curated/hero-dahron-prau.jpg",
+  profileImage: "assets/images/profile-hero-transparent.png",
   projectDriveUrl: "https://drive.google.com/drive/folders/1H6HgFSFGwxvSwdGxksj6OziAQxvSrjA0?usp=drive_link"
 };
 
@@ -93,7 +93,7 @@ export const heroData = {
   headlineLine1: "Wawasan Data",
   headlineLine2: "Untuk Dampak",
   headlineGold: "Masa Depan.",
-  description: "Mahasiswa aktif S1 Statistika UNY dengan minat yang kuat dan keahlian teruji di bidang analisis data statistik, machine learning, kajian strategis kebijakan, serta pemberdayaan masyarakat berbasis data.",
+  description: "Mahasiswa S1 Statistika UNY (IPK 3.84) dan Ketua Tim Pelaksana PPK Ormawa SEGARA dengan keahlian teruji di bidang analisis data statistik, machine learning, kepemimpinan program sosial, serta pemberdayaan masyarakat berbasis data.",
   primaryCtaLabel: "Eksplorasi Program",
   secondaryCtaLabel: "Lihat Galeri Dokumentasi",
   featureRibbon: [
@@ -121,7 +121,7 @@ export const aboutData = {
   signatureName: "Muhammad Dahron Mustofa Maksum",
   paragraphs: [
     "Saya adalah Muhammad Dahron Mustofa Maksum, mahasiswa aktif Program Studi S1 Statistika di Universitas Negeri Yogyakarta dengan Indeks Prestasi Kumulatif (IPK) 3,84. Memiliki minat yang kuat dan keahlian teruji di bidang analisis data statistik, machine learning, kajian strategis kebijakan, serta pemberdayaan masyarakat berbasis data.",
-    "Selama perjalanan akademik, saya aktif memimpin program penguatan kapasitas organisasi kemahasiswaan berskala nasional (PPK Ormawa SEGARA) hingga meraih Terbaik 2 Nasional Abdidaya Ormawa 2026, berperan sebagai pengurus pusat bidang Kajian Strategis di Ikatan Himpunan Mahasiswa Statistika Indonesia (IHMSI), Kepala Departemen Kajian, Penalaran, dan Lomba di KSI Mist UNY, serta menjalankan peran operasional profesional sebagai mitra pengemudi ShopeeFood dengan integritas kerja, kepatuhan SOP, dan ketepatan waktu tinggi."
+    "Selama perjalanan akademik, saya dipercaya sebagai Ketua Tim Pelaksana PPK Ormawa SEGARA (Sentra Gerak Agromina), memimpin 14 mahasiswa lintas disiplin FMIPA UNY dalam memberdayakan 224 kolam budidaya dan menggandeng 20 dinas Pemkab Sleman hingga sukses mengantarkan tim meraih predikat bergengsi Terbaik 2 Nasional Abdidaya Ormawa 2026 Kemdiktisaintek RI di UMI Makassar, berperan sebagai pengurus pusat bidang Kajian Strategis di Ikatan Himpunan Mahasiswa Statistika Indonesia (IHMSI), Kepala Departemen Kajian, Penalaran, dan Lomba di KSI Mist UNY, serta menjalankan peran operasional profesional sebagai mitra pengemudi ShopeeFood dengan integritas kerja, kepatuhan SOP, dan ketepatan waktu tinggi."
   ],
   focusTags: [
     {
