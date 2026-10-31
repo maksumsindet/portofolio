@@ -1,20 +1,10 @@
 ---
 // DataProjects.astro
-// Technical Evidence Showcase: Tangible Proof, Official Signed Handover Documents,
-// Government Institutional Reviews, and Quantified Empirical Metrics.
+// Showcase Berkas Proyek Data & Riset Akademik Resmi (Sesuai Arsip Google Drive)
+// Format: Single Dossier Card Bersih Tanpa Foto, Fokus pada Naskah Resmi, Metrik Nyata, dan Tautan Berkas Drive
 import { dataProjects } from '../data/portfolioData';
 
-const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
-
-const projects = (dataProjects?.projects || []).map((p) => ({
-  ...p,
-  evidenceImages: (p.evidenceImages || []).map((img) => ({
-    ...img,
-    src: img.src.startsWith('http') || img.src.startsWith(base) || img.src.startsWith('data:')
-      ? img.src
-      : base + img.src.replace(/^\/+/, '')
-  }))
-}));
+const projects = dataProjects?.projects || [];
 ---
 
 <section id="data-projects" class="data-projects-section">
@@ -25,223 +15,149 @@ const projects = (dataProjects?.projects || []).map((p) => ({
     <!-- Section Header -->
     <div class="section-header fade-in">
       <div class="section-kicker">
-        <i class="bi bi-patch-check-fill"></i>
-        <span>BUKTI OTENTIK & ARTEFAK NYATA</span>
+        <i class="bi bi-folder-check"></i>
+        <span>ARSIP & DOKUMENTASI PROYEK DATA RESMI</span>
       </div>
       <h2 class="section-title">
-        Bukti Nyata & <span class="highlight-text">Studi Kasus Proyek Data</span>
+        Bukti Nyata & <span class="highlight-text">Portofolio Riset Data</span>
       </h2>
       <div class="title-accent-bar" aria-hidden="true"></div>
       <p class="section-subtitle">
-        Bukan sekadar narasi di atas kertas. Berikut arsip fisik berita acara serah terima resmi bertandatangan, uji kelayakan arsitektur sistem bersama dinas pemerintah, dan hasil implementasi sistem data teruji di lapangan.
+        Seluruh proyek di bawah ini didasarkan pada naskah ilmiah kompetisi nasional, proposal hibah riset kementerian, dan dokumen resmi yang tersimpan di Google Drive.
       </p>
     </div>
 
-    <!-- Evidence Case Studies Cards -->
+    <!-- Evidence Case Studies Cards (Clean Text & Dossier Layout, No Photos) -->
     <div class="evidence-cards-list">
-      {projects.map((proj, pIdx) => {
-        const featuredImg = proj.evidenceImages && proj.evidenceImages.length > 0 ? proj.evidenceImages[0] : null;
-        return (
-          <article class="evidence-card slide-up" id={proj.id} data-project-idx={pIdx}>
-            <div class="card-inner-grid">
-              
-              <!-- LEFT COLUMN: Visual Evidence & Artifact Showcase -->
-              <div class="evidence-visual-col">
-                <div class="evidence-badge-tag">
-                  <i class="bi bi-file-earmark-check-fill"></i>
-                  <span>ARTEFAK BUKTI TERVERIFIKASI</span>
-                </div>
+      {projects.map((proj, pIdx) => (
+        <article class="evidence-card slide-up" id={proj.id} data-project-idx={pIdx}>
+          <div class="dossier-wrapper">
+            
+            <!-- Meta Pill Bar -->
+            <div class="dossier-top-meta">
+              <span class="category-tag">
+                <i class="bi bi-bookmark-star-fill"></i>
+                {proj.category}
+              </span>
+              <span class="status-verified-badge">
+                <i class="bi bi-file-earmark-pdf-fill"></i>
+                {proj.badge}
+              </span>
+              <span class="period-text">
+                <i class="bi bi-calendar3"></i>
+                {proj.period}
+              </span>
+            </div>
 
-                <!-- Main Featured Evidence Photo -->
-                {featuredImg && (
-                  <div class="main-evidence-frame" data-full-src={featuredImg.src} data-caption={featuredImg.caption}>
-                    <img
-                      src={featuredImg.src}
-                      alt={featuredImg.alt}
-                      class="evidence-main-img"
-                      id={`main-img-${proj.id}`}
-                      loading="lazy"
-                    />
-                    <div class="evidence-img-overlay">
-                      <span class="evidence-zoom-hint">
-                        <i class="bi bi-zoom-in"></i> Klik untuk Perbesar Bukti
-                      </span>
-                    </div>
-                    {featuredImg.badge && (
-                      <span class="evidence-ribbon" id={`main-badge-${proj.id}`}>
-                        <i class="bi bi-shield-check"></i> {featuredImg.badge}
-                      </span>
-                    )}
-                  </div>
-                )}
+            <!-- Title, Subtitle & Partner -->
+            <h3 class="dossier-title">{proj.title}</h3>
+            <p class="dossier-subtitle">{proj.subtitle}</p>
+            
+            <div class="dossier-partner-row">
+              <i class="bi bi-building"></i>
+              <span><strong>Mitra & Penyelenggara:</strong> {proj.partner}</span>
+            </div>
 
-                <p class="evidence-caption-text" id={`caption-${proj.id}`}>
-                  {featuredImg?.caption || "Dokumentasi autentik implementasi proyek."}
-                </p>
-
-                <!-- Thumbnails Strip (if multiple evidence photos exist) -->
-                {proj.evidenceImages && proj.evidenceImages.length > 1 && (
-                  <div class="evidence-thumbnails-row">
-                    {proj.evidenceImages.map((tImg, tIdx) => (
-                      <button
-                        type="button"
-                        class={`thumb-btn ${tIdx === 0 ? 'active' : ''}`}
-                        data-target-id={proj.id}
-                        data-src={tImg.src}
-                        data-alt={tImg.alt}
-                        data-caption={tImg.caption}
-                        data-badge={tImg.badge || ''}
-                        aria-label={`Lihat bukti ${tIdx + 1}: ${tImg.caption}`}
-                      >
-                        <img src={tImg.src} alt={tImg.alt} loading="lazy" />
-                        <span class="thumb-lbl">{tImg.badge || `Bukti #${tIdx + 1}`}</span>
-                      </button>
-                    ))}
-                  </div>
-                )}
+            <!-- Executive Summary -->
+            {proj.summary && (
+              <div class="dossier-summary-box">
+                <i class="bi bi-info-circle-fill"></i>
+                <p>{proj.summary}</p>
               </div>
+            )}
 
-              <!-- RIGHT COLUMN: Concrete Fact Sheet & Verification Dossier -->
-              <div class="evidence-dossier-col">
-                <!-- Meta Pill Bar -->
-                <div class="dossier-top-meta">
-                  <span class="category-tag">
-                    <i class="bi bi-folder-check"></i>
-                    {proj.category}
-                  </span>
-                  <span class="status-verified-badge">
-                    <i class="bi bi-shield-fill-check"></i>
-                    {proj.badge}
-                  </span>
-                  <span class="period-text">
-                    <i class="bi bi-calendar-event"></i>
-                    {proj.period}
-                  </span>
-                </div>
+            <!-- Authentic Evidence Checklist (Points of Proof) -->
+            {proj.evidencePoints && proj.evidencePoints.length > 0 && (
+              <div class="evidence-checklist-block">
+                <h4 class="checklist-heading">
+                  <i class="bi bi-card-checklist"></i> POIN BUKTI & LEGALITAS OPERASIONAL
+                </h4>
+                <ul class="checklist-items">
+                  {proj.evidencePoints.map((point) => (
+                    <li class="checklist-item">
+                      <i class="bi bi-check-circle-fill check-icon"></i>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
-                <!-- Title & Partner -->
-                <h3 class="dossier-title">{proj.title}</h3>
-                <p class="dossier-subtitle">{proj.subtitle}</p>
-                <div class="dossier-partner-row">
-                  <i class="bi bi-building"></i>
-                  <span><strong>Mitra & Entitas:</strong> {proj.partner}</span>
-                </div>
-
-                <!-- Brief Problem & Scope -->
-                {proj.summary && (
-                  <div class="dossier-summary-box">
-                    <i class="bi bi-info-circle-fill"></i>
-                    <p>{proj.summary}</p>
+            <!-- Impact Metrics Grid -->
+            {proj.metrics && proj.metrics.length > 0 && (
+              <div class="dossier-metrics-grid">
+                {proj.metrics.map((m) => (
+                  <div class="metric-card">
+                    <span class="metric-number">{m.value}</span>
+                    <span class="metric-desc">{m.label}</span>
                   </div>
-                )}
+                ))}
+              </div>
+            )}
 
-                <!-- Authentic Evidence Checklist (Points of Proof) -->
-                {proj.evidencePoints && proj.evidencePoints.length > 0 && (
-                  <div class="evidence-checklist-block">
-                    <h4 class="checklist-heading">
-                      <i class="bi bi-card-checklist"></i> POIN BUKTI & LEGALITAS OPERASIONAL
-                    </h4>
-                    <ul class="checklist-items">
-                      {proj.evidencePoints.map((point) => (
-                        <li class="checklist-item">
-                          <i class="bi bi-check-circle-fill check-icon"></i>
-                          <span>{point}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                <!-- Impact Metrics Grid -->
-                <div class="dossier-metrics-grid">
-                  {proj.metrics.map((m) => (
-                    <div class="metric-card">
-                      <span class="metric-number">{m.value}</span>
-                      <span class="metric-desc">{m.label}</span>
-                    </div>
+            <!-- Tech Stack Chips -->
+            {proj.techStack && proj.techStack.length > 0 && (
+              <div class="dossier-tech-row">
+                <span class="tech-row-lbl">Alat & Teknologi:</span>
+                <div class="tech-tags-list">
+                  {proj.techStack.map((tech) => (
+                    <span class="tech-badge">
+                      <i class="bi bi-code-slash"></i>
+                      {tech}
+                    </span>
                   ))}
                 </div>
-
-                <!-- Tech Stack Chips -->
-                <div class="dossier-tech-row">
-                  <span class="tech-row-lbl">Alat & Teknologi:</span>
-                  <div class="tech-tags-list">
-                    {proj.techStack.map((tech) => (
-                      <span class="tech-badge">
-                        <i class="bi bi-code-slash"></i>
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <!-- Action / Verification Links -->
-                <div class="dossier-actions-row">
-                  {proj.liveUrl && (
-                    <a
-                      href={proj.liveUrl}
-                      target={proj.liveUrl.startsWith('#') ? undefined : "_blank"}
-                      rel={proj.liveUrl.startsWith('#') ? undefined : "noopener noreferrer"}
-                      class="btn-evidence btn-live"
-                      title={proj.id === 'agrialert-satria-data' ? "Buka Aplikasi Web AgriAlert (PWA Live Demo)" : "Kunjungi Aplikasi Proyek"}
-                    >
-                      <i class={proj.liveUrl.startsWith('#') ? "bi bi-arrow-right-circle" : "bi bi-globe2"}></i>
-                      <span>{proj.id === 'agrialert-satria-data' ? 'Buka Aplikasi AgriAlert (Live PWA)' : (proj.id === 'segara-analytics' ? 'Eksplorasi Program SEGARA' : 'Kunjungi Aplikasi Web')}</span>
-                      {!proj.liveUrl.startsWith('#') && <i class="bi bi-box-arrow-up-right external-icon"></i>}
-                    </a>
-                  )}
-                  {proj.docsUrl && (
-                    <a
-                      href={proj.docsUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="btn-evidence btn-docs"
-                    >
-                      <i class="bi bi-folder2-open"></i>
-                      <span>Berkas Bukti Riset (Drive)</span>
-                    </a>
-                  )}
-                  {proj.githubUrl && (
-                    <a
-                      href={proj.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="btn-evidence btn-github"
-                    >
-                      <i class="bi bi-github"></i>
-                      <span>Repositori GitHub</span>
-                    </a>
-                  )}
-                  {proj.demoUrl && (
-                    <a href={proj.demoUrl} class="btn-evidence btn-internal">
-                      <i class="bi bi-arrow-up-right-circle"></i>
-                      <span>Konteks Program</span>
-                    </a>
-                  )}
-                </div>
-
               </div>
-            </div>
-          </article>
-        );
-      })}
-    </div>
-  </div>
+            )}
 
-  <!-- Evidence Lightbox Modal (For Inspecting Signatures, Stamps, & Slides) -->
-  <div id="evidence-lightbox" class="evidence-modal" aria-hidden="true" role="dialog">
-    <div class="modal-backdrop"></div>
-    <div class="modal-dialog">
-      <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Tutup Pratinjau">
-        <i class="bi bi-x-lg"></i>
-      </button>
-      <div class="modal-content-wrap">
-        <img id="modalImg" src="" alt="Pratinjau Bukti Full Resolution" />
-        <div class="modal-caption-bar">
-          <i class="bi bi-shield-check"></i>
-          <span id="modalCaption">Pratinjau Bukti Otentik</span>
-        </div>
-      </div>
+            <!-- Action & Verification Links -->
+            <div class="dossier-actions-row">
+              {proj.docsUrl && (
+                <a
+                  href={proj.docsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-evidence btn-docs"
+                  title="Buka Berkas Bukti Resmi di Google Drive"
+                >
+                  <i class="bi bi-google"></i>
+                  <span>Buka Berkas Bukti (Google Drive)</span>
+                  <i class="bi bi-box-arrow-up-right external-icon"></i>
+                </a>
+              )}
+
+              {proj.liveUrl && (
+                <a
+                  href={proj.liveUrl}
+                  target={proj.liveUrl.startsWith('http') ? "_blank" : undefined}
+                  rel={proj.liveUrl.startsWith('http') ? "noopener noreferrer" : undefined}
+                  class="btn-evidence btn-live"
+                  title="Kunjungi Aplikasi Web Live"
+                >
+                  <i class="bi bi-globe2"></i>
+                  <span>{proj.id === 'agrialert-satria-data' ? 'Buka Aplikasi AgriAlert (Live PWA)' : 'Kunjungi Aplikasi Web'}</span>
+                  {proj.liveUrl.startsWith('http') && <i class="bi bi-box-arrow-up-right external-icon"></i>}
+                </a>
+              )}
+
+              {proj.githubUrl && (
+                <a
+                  href={proj.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-evidence btn-github"
+                  title="Lihat Repositori Kode Sumber di GitHub"
+                >
+                  <i class="bi bi-github"></i>
+                  <span>Repositori GitHub</span>
+                  <i class="bi bi-box-arrow-up-right external-icon"></i>
+                </a>
+              )}
+            </div>
+
+          </div>
+        </article>
+      ))}
     </div>
   </div>
 </section>
@@ -270,7 +186,7 @@ const projects = (dataProjects?.projects || []).map((p) => ({
   }
 
   .section-container {
-    max-width: 1280px;
+    max-width: 1140px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
@@ -280,7 +196,7 @@ const projects = (dataProjects?.projects || []).map((p) => ({
   .section-header {
     text-align: center;
     max-width: 860px;
-    margin: 0 auto 4rem;
+    margin: 0 auto 3.5rem;
   }
 
   .section-kicker {
@@ -331,18 +247,18 @@ const projects = (dataProjects?.projects || []).map((p) => ({
   .evidence-cards-list {
     display: flex;
     flex-direction: column;
-    gap: 3.5rem;
+    gap: 2.75rem;
   }
 
   .evidence-card {
-    background: rgba(26, 26, 30, 0.92);
+    background: rgba(26, 26, 30, 0.94);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
-    padding: 2.5rem;
+    padding: 2.5rem 2.75rem;
     box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4);
     position: relative;
     overflow: hidden;
-    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   }
 
   .evidence-card::before {
@@ -358,279 +274,134 @@ const projects = (dataProjects?.projects || []).map((p) => ({
   .evidence-card:hover {
     border-color: rgba(200, 157, 86, 0.45);
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+    transform: translateY(-2px);
   }
 
-  /* 2-Column Card Grid */
-  .card-inner-grid {
-    display: grid;
-    grid-template-columns: 420px 1fr;
-    gap: 2.75rem;
-    align-items: flex-start;
-  }
-
-  /* LEFT COLUMN: Visual Evidence */
-  .evidence-visual-col {
+  .dossier-wrapper {
     display: flex;
     flex-direction: column;
   }
 
-  .evidence-badge-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    font-size: 0.74rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--color-gold, #c89d56);
-    margin-bottom: 0.85rem;
-  }
-
-  .main-evidence-frame {
-    position: relative;
-    width: 100%;
-    height: 270px;
-    border-radius: 12px;
-    overflow: hidden;
-    background: #0d0e10;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    cursor: pointer;
-  }
-
-  .evidence-main-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    transition: transform 0.4s ease, filter 0.3s ease;
-  }
-
-  .main-evidence-frame:hover .evidence-main-img {
-    transform: scale(1.04);
-  }
-
-  .evidence-img-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-    opacity: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.3s ease;
-  }
-
-  .main-evidence-frame:hover .evidence-img-overlay {
-    opacity: 1;
-  }
-
-  .evidence-zoom-hint {
-    background: rgba(20, 20, 22, 0.9);
-    border: 1px solid var(--color-gold, #c89d56);
-    color: #ffffff;
-    font-size: 0.82rem;
-    font-weight: 600;
-    padding: 0.45rem 0.9rem;
-    border-radius: 6px;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-  }
-
-  .evidence-ribbon {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background: rgba(18, 19, 22, 0.88);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(200, 157, 86, 0.4);
-    color: var(--color-gold, #c89d56);
-    font-size: 0.74rem;
-    font-weight: 700;
-    padding: 0.3rem 0.65rem;
-    border-radius: 5px;
-    letter-spacing: 0.04em;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-  }
-
-  .evidence-caption-text {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.72);
-    line-height: 1.5;
-    margin-top: 0.85rem;
-    margin-bottom: 1rem;
-    font-style: italic;
-    padding-left: 0.75rem;
-    border-left: 2px solid var(--color-gold, #c89d56);
-  }
-
-  /* Thumbnails */
-  .evidence-thumbnails-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-    gap: 0.6rem;
-  }
-
-  .thumb-btn {
-    background: rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 8px;
-    padding: 4px;
-    cursor: pointer;
-    overflow: hidden;
-    position: relative;
-    text-align: left;
-    transition: border-color 0.25s ease, transform 0.2s ease;
-  }
-
-  .thumb-btn img {
-    width: 100%;
-    height: 52px;
-    object-fit: cover;
-    border-radius: 4px;
-    display: block;
-  }
-
-  .thumb-lbl {
-    display: block;
-    font-size: 0.66rem;
-    color: rgba(255, 255, 255, 0.7);
-    margin-top: 3px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-align: center;
-  }
-
-  .thumb-btn:hover,
-  .thumb-btn.active {
-    border-color: var(--color-gold, #c89d56);
-    background: rgba(200, 157, 86, 0.15);
-  }
-
-  /* RIGHT COLUMN: Fact Sheet / Dossier */
-  .evidence-dossier-col {
-    display: flex;
-    flex-direction: column;
-  }
-
+  /* Meta Bar */
   .dossier-top-meta {
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
+    align-items: center;
     gap: 0.75rem;
-    margin-bottom: 1rem;
-  }
-
-  .category-tag {
-    background: rgba(200, 157, 86, 0.15);
-    border: 1px solid rgba(200, 157, 86, 0.35);
-    color: var(--color-gold, #c89d56);
-    font-size: 0.78rem;
-    font-weight: 700;
-    padding: 0.3rem 0.75rem;
-    border-radius: 6px;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
-
-  .status-verified-badge {
-    background: rgba(56, 189, 248, 0.12);
-    border: 1px solid rgba(56, 189, 248, 0.3);
-    color: #38bdf8;
-    font-size: 0.78rem;
-    font-weight: 600;
-    padding: 0.3rem 0.75rem;
-    border-radius: 6px;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
-
-  .period-text {
-    font-size: 0.82rem;
-    color: rgba(255, 255, 255, 0.55);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    margin-left: auto;
-  }
-
-  .dossier-title {
-    font-family: var(--font-serif, "Playfair Display", Georgia, serif);
-    font-size: clamp(1.4rem, 2.2vw, 1.85rem);
-    font-weight: 700;
-    line-height: 1.3;
-    color: #ffffff;
-    margin-bottom: 0.35rem;
-  }
-
-  .dossier-subtitle {
-    font-size: 1rem;
-    color: rgba(200, 157, 86, 0.95);
-    font-weight: 500;
-    margin-bottom: 0.65rem;
-  }
-
-  .dossier-partner-row {
-    font-size: 0.88rem;
-    color: rgba(255, 255, 255, 0.65);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
     margin-bottom: 1.25rem;
   }
 
-  .dossier-partner-row i {
-    color: var(--color-gold, #c89d56);
+  .category-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    color: #38bdf8;
+    padding: 0.32rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
 
-  .dossier-summary-box {
-    background: rgba(0, 0, 0, 0.25);
-    border-left: 3px solid #38bdf8;
-    padding: 0.85rem 1.15rem;
-    border-radius: 0 8px 8px 0;
-    margin-bottom: 1.5rem;
+  .status-verified-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: rgba(200, 157, 86, 0.14);
+    border: 1px solid rgba(200, 157, 86, 0.45);
+    color: var(--color-gold, #c89d56);
+    padding: 0.32rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  .period-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.82rem;
+    margin-left: auto;
+  }
+
+  /* Titles */
+  .dossier-title {
+    font-family: var(--font-serif, "Playfair Display", Georgia, serif);
+    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+    font-weight: 700;
+    line-height: 1.3;
+    color: #ffffff;
+    margin-bottom: 0.45rem;
+  }
+
+  .dossier-subtitle {
+    font-size: 0.98rem;
+    color: var(--color-gold, #c89d56);
+    font-weight: 600;
+    margin-bottom: 0.85rem;
+  }
+
+  .dossier-partner-row {
     display: flex;
-    gap: 0.75rem;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.78);
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.15rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .dossier-partner-row strong {
+    color: #ffffff;
+  }
+
+  /* Summary Box */
+  .dossier-summary-box {
+    display: flex;
     align-items: flex-start;
+    gap: 0.85rem;
+    background: rgba(18, 19, 22, 0.65);
+    border-left: 3px solid var(--color-gold, #c89d56);
+    padding: 1rem 1.25rem;
+    border-radius: 0 10px 10px 0;
+    margin-bottom: 1.5rem;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.88);
   }
 
   .dossier-summary-box i {
-    color: #38bdf8;
-    font-size: 1.05rem;
-    margin-top: 2px;
-  }
-
-  .dossier-summary-box p {
-    font-size: 0.92rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.85);
-    margin: 0;
+    color: var(--color-gold, #c89d56);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
   }
 
   /* Checklist Block */
   .evidence-checklist-block {
-    background: rgba(18, 19, 22, 0.75);
+    background: rgba(18, 19, 22, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
-    padding: 1.25rem 1.5rem;
+    padding: 1.25rem 1.4rem;
     margin-bottom: 1.5rem;
   }
 
   .checklist-heading {
-    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--color-gold, #c89d56);
-    margin-bottom: 0.85rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    margin-bottom: 0.9rem;
   }
 
   .checklist-items {
@@ -648,29 +419,29 @@ const projects = (dataProjects?.projects || []).map((p) => ({
     gap: 0.65rem;
     font-size: 0.88rem;
     line-height: 1.55;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.84);
   }
 
   .check-icon {
-    color: #4ade80;
+    color: #10b981;
     font-size: 1rem;
     flex-shrink: 0;
-    margin-top: 2px;
+    margin-top: 0.15rem;
   }
 
   /* Metrics Grid */
   .dossier-metrics-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0.75rem;
+    gap: 1rem;
     margin-bottom: 1.5rem;
   }
 
   .metric-card {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(18, 19, 22, 0.7);
     border: 1px solid rgba(200, 157, 86, 0.25);
-    border-radius: 8px;
-    padding: 0.85rem 0.6rem;
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -679,36 +450,34 @@ const projects = (dataProjects?.projects || []).map((p) => ({
 
   .metric-number {
     font-family: var(--font-serif, "Playfair Display", Georgia, serif);
-    font-size: 1.22rem;
+    font-size: 1.35rem;
     font-weight: 700;
     color: var(--color-gold, #c89d56);
-    line-height: 1.2;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.25rem;
   }
 
   .metric-desc {
-    font-size: 0.72rem;
+    font-size: 0.76rem;
     color: rgba(255, 255, 255, 0.7);
     line-height: 1.3;
   }
 
-  /* Tech Row */
+  /* Tech Stack */
   .dossier-tech-row {
     display: flex;
-    align-items: center;
-    gap: 0.75rem;
     flex-wrap: wrap;
-    margin-bottom: 1.5rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 1.75rem;
+    padding-top: 0.5rem;
   }
 
   .tech-row-lbl {
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     font-weight: 700;
-    color: rgba(255, 255, 255, 0.5);
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.6);
   }
 
   .tech-tags-list {
@@ -718,35 +487,37 @@ const projects = (dataProjects?.projects || []).map((p) => ({
   }
 
   .tech-badge {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    color: rgba(255, 255, 255, 0.85);
-    padding: 0.25rem 0.6rem;
-    border-radius: 5px;
-    font-size: 0.76rem;
-    font-family: "Courier New", monospace, sans-serif;
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #e2e8f0;
+    font-size: 0.76rem;
+    font-weight: 600;
+    padding: 0.28rem 0.65rem;
+    border-radius: 6px;
   }
 
   .tech-badge i {
     color: var(--color-gold, #c89d56);
   }
 
-  /* Actions Row */
+  /* Action Buttons Row */
   .dossier-actions-row {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 0.85rem;
-    flex-wrap: wrap;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .btn-evidence {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.6rem 1.15rem;
+    gap: 0.55rem;
+    padding: 0.65rem 1.25rem;
     border-radius: 8px;
     font-size: 0.85rem;
     font-weight: 600;
@@ -754,267 +525,71 @@ const projects = (dataProjects?.projects || []).map((p) => ({
     transition: all 0.25s ease;
   }
 
-  .btn-live {
-    background: linear-gradient(135deg, rgba(200, 157, 86, 0.28), rgba(56, 189, 248, 0.24));
-    border: 1px solid var(--color-gold, #c89d56);
-    color: #ffffff;
-    box-shadow: 0 4px 14px rgba(200, 157, 86, 0.25);
-    font-weight: 700;
-  }
-  .btn-live:hover {
-    background: linear-gradient(135deg, rgba(200, 157, 86, 0.45), rgba(56, 189, 248, 0.45));
-    border-color: #38bdf8;
-    color: #ffffff;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.35);
-  }
-  .btn-live .external-icon {
-    font-size: 0.75rem;
-    opacity: 0.8;
-  }
-
   .btn-docs {
-    background: rgba(200, 157, 86, 0.15);
-    border: 1px solid rgba(200, 157, 86, 0.45);
+    background: rgba(200, 157, 86, 0.16);
+    border: 1px solid rgba(200, 157, 86, 0.5);
     color: var(--color-gold, #c89d56);
   }
+
   .btn-docs:hover {
-    background: rgba(200, 157, 86, 0.3);
-    color: #ffffff;
-    border-color: var(--color-gold, #c89d56);
+    background: var(--color-gold, #c89d56);
+    color: #0d0e10;
+  }
+
+  .btn-live {
+    background: rgba(16, 185, 129, 0.16);
+    border: 1px solid rgba(16, 185, 129, 0.5);
+    color: #34d399;
+  }
+
+  .btn-live:hover {
+    background: #10b981;
+    color: #0d0e10;
   }
 
   .btn-github {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     color: #ffffff;
   }
+
   .btn-github:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.16);
   }
 
-  .btn-internal {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: rgba(255, 255, 255, 0.75);
-  }
-  .btn-internal:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
+  .external-icon {
+    font-size: 0.74rem;
+    opacity: 0.75;
   }
 
-  /* LIGHTBOX MODAL */
-  .evidence-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-  }
-
-  .evidence-modal.is-open {
-    display: flex;
-  }
-
-  .modal-backdrop {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.88);
-    backdrop-filter: blur(10px);
-  }
-
-  .modal-dialog {
-    position: relative;
-    max-width: 900px;
-    width: 100%;
-    max-height: 90vh;
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .modal-close-btn {
-    position: absolute;
-    top: -42px;
-    right: 0;
-    background: transparent;
-    border: none;
-    color: #ffffff;
-    font-size: 1.8rem;
-    cursor: pointer;
-    line-height: 1;
-    transition: transform 0.2s ease, color 0.2s ease;
-  }
-
-  .modal-close-btn:hover {
-    color: var(--color-gold, #c89d56);
-    transform: scale(1.1);
-  }
-
-  .modal-content-wrap {
-    background: #141416;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8);
-    display: flex;
-    flex-direction: column;
-    max-height: 85vh;
-  }
-
-  .modal-content-wrap img {
-    max-width: 100%;
-    max-height: calc(85vh - 60px);
-    object-fit: contain;
-    display: block;
-    background: #000000;
-  }
-
-  .modal-caption-bar {
-    padding: 0.9rem 1.25rem;
-    background: #1a1a1e;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    font-size: 0.88rem;
-    color: rgba(255, 255, 255, 0.9);
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
-
-  .modal-caption-bar i {
-    color: var(--color-gold, #c89d56);
-  }
-
-  /* Responsive Rules */
-  @media (max-width: 1024px) {
-    .card-inner-grid {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    .main-evidence-frame {
-      height: 320px;
-    }
-
+  /* Responsive Breakpoints */
+  @media (max-width: 900px) {
     .dossier-metrics-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
-  @media (max-width: 768px) {
-    .data-projects-section {
-      padding: 4.5rem 5%;
-    }
-
+  @media (max-width: 640px) {
     .evidence-card {
-      padding: 1.6rem;
+      padding: 1.5rem 1.25rem;
     }
-
-    .main-evidence-frame {
-      height: 240px;
+    .dossier-top-meta {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
     }
-
+    .period-text {
+      margin-left: 0;
+    }
+    .dossier-metrics-grid {
+      grid-template-columns: 1fr;
+    }
     .dossier-actions-row {
       flex-direction: column;
-      width: 100%;
+      align-items: stretch;
     }
-
     .btn-evidence {
-      width: 100%;
       justify-content: center;
     }
   }
 </style>
-
-<script>
-  // Interactive Evidence Switcher & Modal Lightbox
-  document.addEventListener('DOMContentLoaded', () => {
-    // Thumbnail Click: Switch Main Image and Caption
-    const thumbBtns = document.querySelectorAll<HTMLButtonElement>('.thumb-btn');
-    thumbBtns.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const targetId = btn.getAttribute('data-target-id');
-        const newSrc = btn.getAttribute('data-src');
-        const newAlt = btn.getAttribute('data-alt');
-        const newCaption = btn.getAttribute('data-caption');
-        const newBadge = btn.getAttribute('data-badge');
-
-        if (!targetId || !newSrc) return;
-
-        // Update active class on siblings
-        const parent = btn.closest('.evidence-visual-col');
-        if (parent) {
-          parent.querySelectorAll('.thumb-btn').forEach((b) => b.classList.remove('active'));
-          btn.classList.add('active');
-
-          const mainImg = parent.querySelector<HTMLImageElement>(`#main-img-${targetId}`);
-          if (mainImg) {
-            mainImg.src = newSrc;
-            mainImg.alt = newAlt || '';
-          }
-
-          const captionEl = parent.querySelector<HTMLElement>(`#caption-${targetId}`);
-          if (captionEl && newCaption) {
-            captionEl.textContent = newCaption;
-          }
-
-          const badgeEl = parent.querySelector<HTMLElement>(`#main-badge-${targetId}`);
-          if (badgeEl && newBadge) {
-            badgeEl.innerHTML = `<i class="bi bi-shield-check"></i> ${newBadge}`;
-          }
-
-          const frame = parent.querySelector<HTMLElement>('.main-evidence-frame');
-          if (frame) {
-            frame.setAttribute('data-full-src', newSrc);
-            frame.setAttribute('data-caption', newCaption || '');
-          }
-        }
-      });
-    });
-
-    // Lightbox Modal
-    const modal = document.getElementById('evidence-lightbox');
-    const modalImg = document.getElementById('modalImg') as HTMLImageElement | null;
-    const modalCaption = document.getElementById('modalCaption');
-    const modalCloseBtn = document.getElementById('modalCloseBtn');
-    const modalBackdrop = modal?.querySelector('.modal-backdrop');
-
-    const openModal = (src: string, caption: string) => {
-      if (!modal || !modalImg) return;
-      modalImg.src = src;
-      if (modalCaption) modalCaption.textContent = caption;
-      modal.classList.add('is-open');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    };
-
-    const closeModal = () => {
-      if (!modal) return;
-      modal.classList.remove('is-open');
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    };
-
-    // Click on Main Image Frame to Open Modal
-    document.querySelectorAll<HTMLElement>('.main-evidence-frame').forEach((frame) => {
-      frame.addEventListener('click', () => {
-        const src = frame.getAttribute('data-full-src');
-        const caption = frame.getAttribute('data-caption') || 'Pratinjau Bukti Otentik';
-        if (src) openModal(src, caption);
-      });
-    });
-
-    modalCloseBtn?.addEventListener('click', closeModal);
-    modalBackdrop?.addEventListener('click', closeModal);
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal?.classList.contains('is-open')) {
-        closeModal();
-      }
-    });
-  });
-</script>
