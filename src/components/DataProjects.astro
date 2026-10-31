@@ -5,6 +5,33 @@
 import { dataProjects } from '../data/portfolioData';
 
 const projects = dataProjects?.projects || [];
+
+const categoryThemes: Record<string, { text: string; bg: string; border: string; icon: string }> = {
+  'agrialert-satria-data': {
+    text: '#38bdf8',
+    bg: 'rgba(56, 189, 248, 0.12)',
+    border: 'rgba(56, 189, 248, 0.3)',
+    icon: 'bi-broadcast-pin'
+  },
+  'gemastik-lda-umkm': {
+    text: '#a78bfa',
+    bg: 'rgba(167, 139, 250, 0.12)',
+    border: 'rgba(167, 139, 250, 0.3)',
+    icon: 'bi-diagram-3-fill'
+  },
+  'pkm-rsh-ai-literacy': {
+    text: '#fb923c',
+    bg: 'rgba(251, 146, 60, 0.12)',
+    border: 'rgba(251, 146, 60, 0.3)',
+    icon: 'bi-mortarboard-fill'
+  },
+  'ppk-ormawa-segara': {
+    text: '#34d399',
+    bg: 'rgba(52, 211, 153, 0.12)',
+    border: 'rgba(52, 211, 153, 0.3)',
+    icon: 'bi-award-fill'
+  }
+};
 ---
 
 <section id="data-projects" class="data-projects-section">
@@ -24,14 +51,21 @@ const projects = dataProjects?.projects || [];
 
     <!-- Evidence Case Studies Cards (Clean Text & Dossier Layout, No Photos) -->
     <div class="evidence-cards-list">
-      {projects.map((proj, pIdx) => (
+      {projects.map((proj, pIdx) => {
+        const theme = categoryThemes[proj.id] || {
+          text: '#38bdf8',
+          bg: 'rgba(56, 189, 248, 0.12)',
+          border: 'rgba(56, 189, 248, 0.3)',
+          icon: 'bi-bookmark-star-fill'
+        };
+        return (
         <article class="evidence-card slide-up" id={proj.id} data-project-idx={pIdx}>
           <div class="dossier-wrapper">
             
             <!-- Meta Pill Bar -->
             <div class="dossier-top-meta">
-              <span class="category-tag">
-                <i class="bi bi-bookmark-star-fill"></i>
+              <span class="category-tag" style={`color: ${theme.text}; background: ${theme.bg}; border-color: ${theme.border};`}>
+                <i class={`bi ${theme.icon}`}></i>
                 {proj.category}
               </span>
               <span class="status-verified-badge">
@@ -152,7 +186,8 @@ const projects = dataProjects?.projects || [];
 
           </div>
         </article>
-      ))}
+      );
+      })}
     </div>
   </div>
 </section>
@@ -215,7 +250,7 @@ const projects = dataProjects?.projects || [];
   .section-subtitle {
     font-size: 1.05rem;
     line-height: 1.7;
-    color: rgba(255, 255, 255, 0.75);
+    color: #cbd5e1;
   }
 
   /* Evidence Cards List */
@@ -402,7 +437,7 @@ const projects = dataProjects?.projects || [];
   }
 
   .metric-card {
-    background: rgba(18, 19, 22, 0.7);
+    background: rgba(18, 19, 22, 0.75);
     border: 1px solid rgba(200, 157, 86, 0.25);
     border-radius: 10px;
     padding: 0.9rem 1rem;
@@ -410,6 +445,13 @@ const projects = dataProjects?.projects || [];
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .metric-card:hover {
+    border-color: rgba(200, 157, 86, 0.5);
+    background: rgba(24, 26, 32, 0.9);
+    transform: translateY(-1px);
   }
 
   .metric-number {
@@ -461,6 +503,13 @@ const projects = dataProjects?.projects || [];
     font-weight: 600;
     padding: 0.28rem 0.65rem;
     border-radius: 6px;
+    transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .tech-badge:hover {
+    background: rgba(197, 168, 128, 0.1);
+    border-color: rgba(197, 168, 128, 0.35);
+    color: #ffffff;
   }
 
   .tech-badge i {

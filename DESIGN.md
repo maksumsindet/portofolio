@@ -16,6 +16,13 @@ colors:
   text-secondary: "#526071"
   text-light: "#F8FAFC"
   text-muted-light: "#CBD5E1"
+  domain-sky: "#38bdf8"
+  domain-violet: "#a78bfa"
+  domain-amber: "#fb923c"
+  domain-emerald: "#34d399"
+  accent-green: "#10b981"
+  gold-alt: "#c89d56"
+  charcoal-bg: "#141416"
 typography:
   display:
     fontFamily: "Gambarino, Georgia, serif"
