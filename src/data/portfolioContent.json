@@ -18,7 +18,8 @@
       "github": "https://github.com/maksumsindet"
     },
     "profileImage": "assets/images/profile-hero-transparent.png",
-    "projectDriveUrl": "https://drive.google.com/drive/folders/1H6HgFSFGwxvSwdGxksj6OziAQxvSrjA0?usp=drive_link"
+    "projectDriveUrl": "https://drive.google.com/drive/folders/1H6HgFSFGwxvSwdGxksj6OziAQxvSrjA0?usp=drive_link",
+    "heroBackgroundImage": "assets/images/portfolio/segara-banner-sidoagung.jpg"
   },
   "heroData": {
     "kicker": "ANALISIS DATA dan PEMBERDAYAAN MASYARAKAT",
@@ -1192,5 +1193,134 @@
     "https://www.instagram.com/p/CiZ_fbFPs_4/embed",
     "https://www.instagram.com/p/Czgde8Fvgtu/embed"
   ],
-  "heroPhotos": []
+  "heroPhotos": [],
+  "dataProjects": {
+    "sectionTitle": "Studi Kasus Proyek Data & Analitik",
+    "sectionSubtitle": "Bukti empiris penerapan statistika terapan, machine learning, dan arsitektur sistem informasi dalam memecahkan masalah nyata dari tingkat desa hingga advokasi nasional.",
+    "projects": [
+      {
+        "id": "segara-analytics",
+        "category": "Agri-Tech & Supply Chain DSS",
+        "badge": "Decision Support System",
+        "title": "SEGARA Digital Supply Chain & Geospatial Pond Analytics",
+        "subtitle": "Arsitektur Sistem Pendukung Keputusan Budidaya & Rantai Pasok Berkelanjutan",
+        "partner": "Kolaborasi PPK Ormawa, Pemkab Sleman, Diskominfo & 6 Pokdakan",
+        "period": "2024 – 2026",
+        "featured": true,
+        "problem": "Fragmentasi data pencatatan pakan dan stok panen pada 224 kolam budidaya air tawar yang dikelola 6 kelompok tani terpisah di Sidoagung, menyebabkan fluktuasi pasokan, inefisiensi rasio pakan (FCR), dan ketergantungan harga pada perantara.",
+        "methodology": "Pengembangan web GIS terintegrasi (SEGARA App) untuk pemetaan geospasial kolam, pemodelan estimasi biomassa dan FCR harian, perancangan basis data relasional terpusat, serta standardisasi validasi data operasional bersama Diskominfo Sleman.",
+        "techStack": [
+          "Python",
+          "R Shiny",
+          "PostgreSQL",
+          "Leaflet GIS",
+          "Pandas",
+          "REST API"
+        ],
+        "metrics": [
+          {
+            "value": "224 Kolam",
+            "label": "Terpetakan Geospasial Real-time"
+          },
+          {
+            "value": "6 Pokdakan",
+            "label": "Terkonsolidasi Satu Basis Data"
+          },
+          {
+            "value": "3 Offtaker",
+            "label": "Kemitraan Rantai Pasok B2B"
+          },
+          {
+            "value": "Juara 2",
+            "label": "Nasional Abdidaya Kemdiktisaintek"
+          }
+        ],
+        "githubUrl": "https://github.com/maksumsindet",
+        "docsUrl": "https://drive.google.com/drive/folders/1H6HgFSFGwxvSwdGxksj6OziAQxvSrjA0?usp=drive_link",
+        "demoUrl": "#programs"
+      },
+      {
+        "id": "multivariate-nlp",
+        "category": "Applied Machine Learning & NLP",
+        "badge": "Machine Learning & Riset",
+        "title": "Multivariate Text Analytics & Topic Modeling Evaluasi Riset",
+        "subtitle": "Pemodelan Topik Laten (LDA) dan Klasifikasi Sentimen Persepsi Penalaran Mahasiswa",
+        "partner": "Departemen KPL KSI Mist FMIPA Universitas Negeri Yogyakarta",
+        "period": "2024 – 2025",
+        "featured": true,
+        "problem": "Tingginya volume data teks kualitatif evaluasi penelitian mahasiswa yang belum terstruktur, menghambat identifikasi hambatan riset, pemetaan minat klaster sains, dan formulasi kurikulum pembinaan kompetisi ilmiah secara presisi.",
+        "methodology": "Pipeline Natural Language Processing (NLP) bahasa Indonesia lengkap (cleaning, tokenization, stopword removal, lemmatization), ekstraksi fitur TF-IDF & Word2Vec, Topic Modeling berbasis Latent Dirichlet Allocation (LDA), serta evaluasi model klasifikasi multivariat (Random Forest & SVM) dengan 5-Fold Stratified Cross Validation.",
+        "techStack": [
+          "Python",
+          "Scikit-Learn",
+          "NLTK / Sastrawi",
+          "Gensim LDA",
+          "R Caret",
+          "Seaborn"
+        ],
+        "metrics": [
+          {
+            "value": "88.4%",
+            "label": "Akurasi Klasifikasi Sentimen"
+          },
+          {
+            "value": "0.87",
+            "label": "Weighted F1-Score"
+          },
+          {
+            "value": "5 Klaster",
+            "label": "Topik Tematik Laten Teridentifikasi"
+          },
+          {
+            "value": "100%",
+            "label": "Adopsi Pembinaan KSI Mist"
+          }
+        ],
+        "githubUrl": "https://github.com/maksumsindet",
+        "docsUrl": "https://drive.google.com/drive/folders/1H6HgFSFGwxvSwdGxksj6OziAQxvSrjA0?usp=drive_link",
+        "demoUrl": "#experience"
+      },
+      {
+        "id": "ihmsi-policy-analytics",
+        "category": "Policy Analytics & Inferential Statistics",
+        "badge": "Data-Driven Advocacy",
+        "title": "National Strategic Policy Benchmark & Inferential Analysis",
+        "subtitle": "Kajian Komparatif Disparitas Kapasitas Komputasi Sains Data Mahasiswa Statistika Nasional",
+        "partner": "Badan Pengurus Pusat IHMSI (Ikatan Himpunan Mahasiswa Statistika Indonesia)",
+        "period": "2024 – 2025",
+        "featured": true,
+        "problem": "Penyusunan rekomendasi arah kebijakan pendidikan data sains nasional di lingkungan IKAHIMATIKA/IHMSI sebelumnya minim bukti empiris kuantitatif terkait disparitas fasilitas komputasi dan kesiapan kurikulum AI lintas kampus di Indonesia.",
+        "methodology": "Desain survei terstruktur dengan Stratified Random Sampling lintas wilayah Indonesia, pembersihan dan eksplorasi data mendalam (EDA), pengujian hipotesis inferensial (Uji Asosiasi Chi-Square & ANOVA Multivariat), serta visualisasi interaktif dashboard pelaporan data.",
+        "techStack": [
+          "R Tidyverse",
+          "ggplot2",
+          "Python Pandas",
+          "SQL / BigQuery",
+          "Looker Studio",
+          "Hypothesis Testing"
+        ],
+        "metrics": [
+          {
+            "value": "Puluhan PTN/PTS",
+            "label": "Cakupan Sampel Seluruh Indonesia"
+          },
+          {
+            "value": "p < 0.01",
+            "label": "Signifikansi Disparitas Komputasi"
+          },
+          {
+            "value": "Naskah Resmi",
+            "label": "Policy Brief Mukernas XIX IHMSI"
+          },
+          {
+            "value": "100%",
+            "label": "Disahkan di Sidang Pleno Nasional"
+          }
+        ],
+        "githubUrl": "https://github.com/maksumsindet",
+        "docsUrl": "https://drive.google.com/drive/folders/1H6HgFSFGwxvSwdGxksj6OziAQxvSrjA0?usp=drive_link",
+        "demoUrl": "#experience"
+      }
+    ]
+  }
 }

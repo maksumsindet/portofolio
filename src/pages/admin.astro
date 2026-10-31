@@ -1849,7 +1849,20 @@ const initialDataJson = JSON.stringify(rawPortfolioContent);
             renderProfileSection();
           });
         });
-        photoRow.append(imgPreview, uploadBtn);
+        const uploadBgBtn = document.createElement('button');
+        uploadBgBtn.type = 'button';
+        uploadBgBtn.className = 'btn-secondary-plain';
+        uploadBgBtn.innerHTML = '<i class="bi bi-image"></i> <span>Ganti Foto Background Hero (Blur)</span>';
+        uploadBgBtn.addEventListener('click', () => {
+          triggerImageUpload((newPath) => {
+            p.heroBackgroundImage = newPath;
+            markDirty();
+            showToast('Foto background hero baru berhasil diunggah.', 'success');
+            renderProfileSection();
+          });
+        });
+
+        photoRow.append(imgPreview, uploadBtn, uploadBgBtn);
         panel.appendChild(photoRow);
 
         const grid = document.createElement('div');
@@ -1866,6 +1879,7 @@ const initialDataJson = JSON.stringify(rawPortfolioContent);
             imgPreview.src = resolveImgSrc(v);
           }),
           createInputField('URL Google Drive Portofolio Proyek', p.projectDriveUrl, (v) => (p.projectDriveUrl = v)),
+          createInputField('Path / URL Foto Background Hero (Blur)', p.heroBackgroundImage || 'assets/images/portfolio/segara-banner-sidoagung.jpg', (v) => (p.heroBackgroundImage = v)),
           createTextareaField('Deskripsi Ringkas Hero', p.description, (v) => (p.description = v), { rows: 3 })
         );
         panel.appendChild(grid);

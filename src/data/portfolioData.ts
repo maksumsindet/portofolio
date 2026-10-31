@@ -71,9 +71,39 @@ export interface DocumentaryPhoto {
   source?: string;
 }
 
+export interface DataProjectMetric {
+  value: string;
+  label: string;
+}
+
+export interface DataProjectItem {
+  id: string;
+  category: string;
+  badge: string;
+  title: string;
+  subtitle: string;
+  partner: string;
+  period: string;
+  featured?: boolean;
+  problem: string;
+  methodology: string;
+  techStack: string[];
+  metrics: DataProjectMetric[];
+  githubUrl?: string;
+  docsUrl?: string;
+  demoUrl?: string;
+}
+
+export interface DataProjectsData {
+  sectionTitle: string;
+  sectionSubtitle: string;
+  projects: DataProjectItem[];
+}
+
 export const personalInfo = content.personalInfo;
 export const heroData = content.heroData;
 export const aboutData = content.aboutData;
+export const dataProjects: DataProjectsData = (content as any).dataProjects as DataProjectsData;
 export const programsShowcaseData = content.programsShowcaseData;
 export const skillsCategories: SkillCategoryGroup[] = content.skillsCategories as SkillCategoryGroup[];
 export const experienceProgramAndWork: ExperienceItem[] = content.experienceProgramAndWork as ExperienceItem[];

@@ -4,7 +4,16 @@
 // Seamless transparent cutout portrait, amber gold accents, pill badge, credibility ribbon, and floating spotlight cards
 import { personalInfo } from '../data/portfolioData';
 
+import rawPortfolioContent from '../data/portfolioContent.json';
+
 const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
+
+const heroBgSrc =
+  (rawPortfolioContent as any)?.personalInfo?.heroBackgroundImage ||
+  `${base}assets/images/portfolio/segara-banner-sidoagung.jpg`;
+const heroBgImage = heroBgSrc.startsWith('http') || heroBgSrc.startsWith(base) || heroBgSrc.startsWith('data:')
+  ? heroBgSrc
+  : `${base}${heroBgSrc.replace(/^\/+/, '')}`;
 
 const spotlightCards = [
   {
@@ -35,15 +44,18 @@ const spotlightCards = [
 ---
 
 <section id="home" class="hero-section">
+  <!-- Blurred Atmospheric Background Image Layer -->
+  <div class="hero-bg-backdrop" aria-hidden="true">
+    <div class="hero-bg-image" style={`background-image: url('${heroBgImage}');`}></div>
+    <div class="hero-bg-overlay"></div>
+  </div>
+
   <!-- Subtle Ambient Glow -->
   <div class="ambient-glow" aria-hidden="true"></div>
 
   <div class="container hero-container">
     <!-- Left Column: Content dan Identity -->
     <div class="hero-content fade-in">
-      <div class="hero-identity">
-        <span class="hero-badge">Data Analyst dan Social Impact Enthusiast</span>
-      </div>
 
       <h1 class="hero-title">
         Statistisi, <span class="highlight-text">Analis Data</span> dan Penggerak Inovasi Sosial
@@ -58,13 +70,13 @@ const spotlightCards = [
       </p>
 
       <div class="hero-cta-group">
-        <a href="#contact" class="btn btn-primary btn-lg">
+        <a href="#data-projects" class="btn btn-primary btn-lg">
+          <i class="bi bi-cpu-fill"></i>
+          <span>Eksplorasi Proyek Data</span>
+        </a>
+        <a href="#contact" class="btn btn-secondary btn-lg">
           <i class="bi bi-calendar2-check"></i>
           <span>Undang Maksum</span>
-        </a>
-        <a href="#gallery" class="btn btn-secondary btn-lg">
-          <i class="bi bi-images"></i>
-          <span>Lihat Galeri Acara</span>
         </a>
       </div>
 
@@ -154,6 +166,33 @@ const spotlightCards = [
     overflow: hidden;
   }
 
+  /* Blurred Atmospheric Background Layer */
+  .hero-bg-backdrop {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .hero-bg-image {
+    position: absolute;
+    inset: -35px;
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+    filter: blur(22px) brightness(0.28) saturate(1.2);
+    transform: scale(1.06);
+  }
+
+  .hero-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(circle at 75% 35%, rgba(5, 7, 12, 0.35) 0%, rgba(5, 7, 12, 0.85) 60%, #05070c 95%),
+      linear-gradient(180deg, rgba(5, 7, 12, 0.75) 0%, rgba(5, 7, 12, 0.45) 45%, rgba(5, 7, 12, 0.95) 85%, #05070c 100%);
+  }
+
   /* Ambient Glow Background */
   .ambient-glow {
     position: absolute;
@@ -184,35 +223,7 @@ const spotlightCards = [
     padding-bottom: 3.5rem;
   }
 
-  /* Pill Tag with Golden Indicator Dot */
-  .hero-identity {
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.55rem;
-    background: rgba(245, 158, 11, 0.12);
-    color: #f59e0b;
-    border: 1px solid rgba(245, 158, 11, 0.32);
-    padding: 0.45rem 1.15rem;
-    border-radius: 9999px;
-    font-size: 0.88rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-  }
-
-  .hero-badge::before {
-    content: '';
-    display: inline-block;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #f59e0b;
-    
-  }
-
+  
   /* Bold Typography */
   .hero-title {
     font-size: clamp(2.3rem, 4.4vw, 3.6rem);
