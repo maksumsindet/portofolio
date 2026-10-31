@@ -52,9 +52,11 @@ const professionalWork = experienceProgramAndWork;
               <span class="org-role-title">{item.role}</span>
               <h4 class="org-name-title">{item.organization}</h4>
               <span class="org-period-text">{item.period}</span>
-              {item.badge && (
-                <span class="org-badge-pill">{item.badge}</span>
-              )}
+              <div class="org-badge-slot">
+                {item.badge && (
+                  <span class="org-badge-pill">{item.badge}</span>
+                )}
+              </div>
             </div>
 
             <div class="org-card-divider"></div>
@@ -191,6 +193,7 @@ const professionalWork = experienceProgramAndWork;
     background: #ffffff;
     border-radius: 18px;
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    justify-content: flex-start;
   }
 
   .exp-card-org:hover {
@@ -227,23 +230,25 @@ const professionalWork = experienceProgramAndWork;
     font-size: 1.6rem;
   }
 
-  /* Centered Meta */
+  /* Centered Meta (Unified Height for Crisp Top-Alignment) */
   .org-header-meta {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     width: 100%;
+    min-height: 190px;
+    justify-content: flex-start;
   }
 
   .org-role-title {
-    font-size: 1.05rem;
+    font-size: 0.98rem;
     font-weight: 700;
     color: var(--color-terracotta);
     text-align: center;
     margin-bottom: 0.35rem;
     line-height: 1.3;
-    min-height: 2.6rem;
+    min-height: 3.9rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -251,12 +256,12 @@ const professionalWork = experienceProgramAndWork;
 
   .org-name-title {
     font-family: var(--font-serif);
-    font-size: 1.12rem;
+    font-size: 1.05rem;
     color: var(--color-burgundy);
     font-weight: 500;
     line-height: 1.3;
     margin-bottom: 0.4rem;
-    min-height: 2.8rem;
+    min-height: 3.8rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -267,8 +272,16 @@ const professionalWork = experienceProgramAndWork;
     font-size: 0.82rem;
     font-weight: 600;
     color: #7a6e65;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.35rem;
     display: block;
+  }
+
+  .org-badge-slot {
+    min-height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.2rem;
   }
 
   .org-badge-pill {
@@ -279,17 +292,16 @@ const professionalWork = experienceProgramAndWork;
     font-weight: 700;
     background: rgba(200, 109, 86, 0.12);
     color: var(--color-terracotta);
-    margin-bottom: 0.4rem;
   }
 
   .org-card-divider {
     width: 36px;
     height: 2px;
     background-color: rgba(200, 109, 86, 0.25);
-    margin: 0.6rem auto 1.2rem;
+    margin: 0.8rem auto 1.2rem;
   }
 
-  /* Responsibilities List */
+  /* Responsibilities List (Rata Atas) */
   .org-bullets-list {
     list-style: none;
     display: flex;
@@ -298,7 +310,8 @@ const professionalWork = experienceProgramAndWork;
     padding-left: 0;
     margin: 0;
     width: 100%;
-    margin-top: auto;
+    margin-top: 0;
+    flex-grow: 1;
   }
 
   .org-bullets-list li {
