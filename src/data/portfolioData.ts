@@ -611,157 +611,813 @@ export const mediaData: MediaCategory[] = [
 
 export const documentaryPhotos: DocumentaryPhoto[] = [
   {
-    src: "assets/images/curated/abdidaya-kontingen-uny-4k.jpg",
-    alt: "Kontingen Universitas Negeri Yogyakarta dan Tim PPK Ormawa KSI Mist pada Malam Puncak Abdidaya 2026",
-    caption: "Momen bersejarah kontingen UNY dan Tim PPK Ormawa KSI Mist SEGARA merayakan raihan Terbaik 2 Nasional Abdidaya Ormawa 2026 di UMI Makassar",
-    category: "Prestasi & Riset",
-    tag: "Terbaik 2 Nasional",
-    source: "Humas Resmi UNY (Dokumentasi 4K)"
+    src: "assets/images/mined/01-Foto-Profil-dan-Prestasi-Dahron/01_Profil_Formal_Jas_Muhammad_Dahron_Mustofa_Maksum.jpeg",
+    alt: "Publikasi profil kepemimpinan dan lembar rilis resmi program Sentra Gerak Agromina",
+    caption: "Publikasi profil kepemimpinan dan lembar rilis resmi program Sentra Gerak Agromina",
+    category: "Media & Berita Acara",
+    tag: "Profil & Publikasi",
+    source: "Dokumentasi Tim SEGARA"
   },
   {
-    src: "assets/images/curated/dahron-abdidaya-terbaik-2.jpg",
-    alt: "Muhammad Dahron Mustofa Maksum memegang piagam penghargaan Terbaik 2 Abdidaya Ormawa 2026",
-    caption: "Muhammad Dahron Mustofa Maksum dengan piagam Terbaik 2 Kategori Tim Pelaksana Terbaik Pemahaman Pemberdayaan Abdidaya Ormawa 2026",
-    category: "Prestasi & Riset",
-    tag: "Penganugerahan Nasional",
-    source: "Dokumentasi Pribadi & Belmawa"
+    src: "assets/images/mined/01-Foto-Profil-dan-Prestasi-Dahron/02_Abdidaya_Ormawa_2026_Terbaik_2_Solo_1.jpg",
+    alt: "Muhammad Dahron Mustofa Maksum memegang piagam penghargaan Terbaik 2 Nasional Abdidaya Ormawa 2026",
+    caption: "Muhammad Dahron Mustofa Maksum memegang piagam penghargaan Terbaik 2 Nasional Abdidaya Ormawa 2026",
+    category: "Prestasi & Penghargaan",
+    tag: "Juara 2 Nasional",
+    source: "Dokumentasi Belmawa & Pribadi"
   },
   {
-    src: "assets/images/curated/dahron-presidium-ihmsi.jpg",
-    alt: "Muhammad Dahron Mustofa Maksum memimpin sidang sebagai Presidium 1 Mukernas XIX IHMSI",
-    caption: "Memimpin jalannya persidangan Musyawarah Kerja Nasional (Mukernas) XIX IHMSI sebagai Presidium 1 di Yogyakarta",
-    category: "Prestasi & Riset",
-    tag: "Presidium I Mukernas",
-    source: "Dokumentasi Instagram @mksmetrics"
+    src: "assets/images/mined/01-Foto-Profil-dan-Prestasi-Dahron/03_Abdidaya_Ormawa_2026_Terbaik_2_Solo_Full.jpg",
+    alt: "Muhammad Dahron Mustofa Maksum memegang piagam penghargaan Terbaik 2 Nasional Abdidaya Ormawa 2026",
+    caption: "Muhammad Dahron Mustofa Maksum memegang piagam penghargaan Terbaik 2 Nasional Abdidaya Ormawa 2026",
+    category: "Prestasi & Penghargaan",
+    tag: "Juara 2 Nasional",
+    source: "Dokumentasi Belmawa & Pribadi"
   },
   {
-    src: "assets/images/curated/segara-grand-opening-master.jpg",
-    alt: "Foto bersama seluruh peserta dan pejabat pada Grand Opening Program SEGARA di Sidoagung",
-    caption: "Grand Opening Program SEGARA: Foto bersama tim pelaksana, jajaran birokrasi kampus UNY, Pamong Kalurahan Sidoagung, dan pembudidaya ikan",
-    category: "Pemberdayaan",
-    tag: "Grand Opening SEGARA",
-    source: "Dokumentasi Master Sublaporan Akhir"
+    src: "assets/images/mined/01-Foto-Profil-dan-Prestasi-Dahron/04_Abdidaya_Ormawa_2026_Panggung_Penerimaan_Penghargaan_UNY.jpg",
+    alt: "Penyerahan anugerah penghargaan nasional pada Malam Puncak Abdidaya Ormawa 2026",
+    caption: "Penyerahan anugerah penghargaan nasional pada Malam Puncak Abdidaya Ormawa 2026",
+    category: "Prestasi & Penghargaan",
+    tag: "Penganugerahan",
+    source: "Belmawa Kemdiktisaintek RI"
   },
   {
-    src: "assets/images/curated/tim-pelaksana-ksi-mist-4k.jpg",
-    alt: "Tim Pelaksana PPK Ormawa KSI Mist FMIPA UNY Program SEGARA",
-    caption: "Soliditas 15 mahasiswa tim pelaksana PPK Ormawa KSI Mist FMIPA UNY yang mengabdi di Kalurahan Sidoagung",
-    category: "Pemberdayaan",
-    tag: "Tim Pelaksana PPKO",
-    source: "Dokumentasi Sublaporan Akhir (Ultra-HD 4K)"
+    src: "assets/images/mined/01-Foto-Profil-dan-Prestasi-Dahron/05_Pasfoto_Kemeja_Putih_Dasi_Dahron.jpg",
+    alt: "Publikasi profil kepemimpinan dan lembar rilis resmi program Sentra Gerak Agromina",
+    caption: "Publikasi profil kepemimpinan dan lembar rilis resmi program Sentra Gerak Agromina",
+    category: "Media & Berita Acara",
+    tag: "Profil & Publikasi",
+    source: "Dokumentasi Tim SEGARA"
   },
   {
-    src: "assets/images/curated/gapokkan-segara-agung.jpg",
-    alt: "Pembentukan Gabungan Kelompok Pembudidaya Ikan (GAPOKKAN) Segara Agung",
-    caption: "Inisiasi dan peresmian Gapokkan Segara Agung menyatukan 6 kelompok perikanan dan 224 kolam budidaya di Sidoagung",
-    category: "Pemberdayaan",
-    tag: "Gapokkan Segara Agung",
-    source: "Humas Resmi UNY & Media Center Sleman"
-  },
-  {
-    src: "assets/images/curated/diskominfo-rakor-aplikasi.png",
-    alt: "Rapat koordinasi dan pemaparan aplikasi SEGARA bersama Diskominfo Kabupaten Sleman",
-    caption: "Pemaparan arsitektur sistem dan uji keamanan SEGARA App bersama Kepala Bidang & Tim IT Dinas Kominfo Sleman",
-    category: "Lapangan & Teknis",
-    tag: "Uji Keamanan Diskominfo",
-    source: "Diskominfo Sleman & DKA UNY"
-  },
-  {
-    src: "assets/images/curated/audiensi-bupati-sleman.jpg",
-    alt: "Audiensi Tim PPK Ormawa KSI Mist bersama Bupati Sleman",
-    caption: "Audiensi dan pemaparan capaian program SEGARA di ruang kerja Bupati Sleman, mendapatkan apresiasi dan dukungan penuh Pemkab Sleman",
-    category: "Pemberdayaan",
-    tag: "Audiensi Bupati Sleman",
-    source: "Dokumentasi Pemkab Sleman & KSI Mist"
-  },
-  {
-    src: "assets/images/curated/dprd-sleman-sosialisasi.jpg",
-    alt: "Sosialisasi dan audiensi program bersama Pimpinan DPRD Kabupaten Sleman",
-    caption: "Sinergi legislatif bersama Pimpinan Komisi C DPRD Sleman dalam penguatan kelembagaan UMKM dan perikanan Sidoagung",
-    category: "Pemberdayaan",
-    tag: "Sinergi DPRD Sleman",
-    source: "Sekretariat DPRD Sleman & DKA UNY"
-  },
-  {
-    src: "assets/images/curated/lintas-dinas-pemkab-sleman.jpg",
-    alt: "Forum koordinasi lintas 20 dinas dan instansi Pemkab Sleman untuk keberlanjutan SEGARA",
-    caption: "Forum koordinasi terpadu melibatkan 20 dinas/instansi Pemerintah Kabupaten Sleman guna menjamin keberlanjutan program paska-PPKO",
-    category: "Pemberdayaan",
-    tag: "Sinergi Lintas 20 Dinas",
-    source: "Bappeda Sleman & DKA UNY"
-  },
-  {
-    src: "assets/images/curated/pelatihan-segara-app-warga.jpg",
-    alt: "Pelatihan digitalisasi dan penggunaan aplikasi SEGARA bagi warga Kalurahan Sidoagung",
-    caption: "Pelatihan langsung tata cara operasional platform digital SEGARA bagi para ketua kelompok perikanan dan pamong kalurahan",
-    category: "Lapangan & Teknis",
-    tag: "Literasi Digital",
-    source: "Dokumentasi Pemkal Sidoagung & UNY"
-  },
-  {
-    src: "assets/images/curated/segara-karya-1-olahan-ikan.jpg",
-    alt: "Pelatihan hilirisasi dan diversifikasi olahan produk ikan budidaya",
-    caption: "Pendampingan praktik produksi olahan ikan air tawar bernilai tambah (nugget, kerupuk tulang ikan, abon bawal) bersama ibu-ibu KWT dan PKK",
-    category: "Lapangan & Teknis",
-    tag: "Inkubasi Produk Ikan",
-    source: "Dokumentasi Tim & FMIPA UNY"
-  },
-  {
-    src: "assets/images/curated/sosialisasi-dinkes-sleman.jpg",
-    alt: "Sosialisasi higienitas pangan dan perizinan P-IRT bersama Dinas Kesehatan Sleman",
-    caption: "Dahron menyerahkan sertifikat penghargaan kepada narasumber Dinas Kesehatan Sleman pada sesi sertifikasi kelayakan hygiene pangan olahan",
-    category: "Pemberdayaan",
-    tag: "Standarisasi Dinkes",
-    source: "Humas FMIPA UNY"
-  },
-  {
-    src: "assets/images/curated/dinkop-ukm-sleman-kerjasama.png",
-    alt: "Penyerahan dokumen legalitas dan fasilitasi izin usaha bersama Dinas Koperasi dan UKM Sleman",
-    caption: "Muhammad Dahron Mustofa Maksum memfasilitasi legalitas Nomor Induk Berusaha (NIB) dan sertifikasi halal kelompok usaha bersama Dinkop UKM",
-    category: "Pemberdayaan",
-    tag: "Legalitas Usaha",
-    source: "Dinas Koperasi & UKM Sleman"
-  },
-  {
-    src: "assets/images/curated/segara-raya-rektor-bupati.jpg",
-    alt: "Festival Segara Raya dan Pasar Triwulan dihadiri Rektor UNY dan Bupati Sleman",
-    caption: "Rektor UNY dan Bupati Sleman meninjau langsung stand pameran produk inovasi olahan ikan karya warga dampingan SEGARA",
-    category: "Pemberdayaan",
-    tag: "Festival Segara Raya",
-    source: "Humas DKA UNY & Media Center"
-  },
-  {
-    src: "assets/images/curated/man3-medali-matematika.jpg",
-    alt: "Muhammad Dahron Mustofa Maksum meraih medali Kompetisi Matematika Nasional POSI di MAN 3 Bantul",
-    caption: "Penganugerahan medali perunggu Kompetisi Matematika Sains Tingkat Nasional POSI jenjang Madrasah Aliyah di MAN 3 Bantul",
-    category: "Prestasi & Riset",
+    src: "assets/images/mined/01-Foto-Profil-dan-Prestasi-Dahron/06_MAN3Bantul_Medali_Kompetisi_Matematika_Nasional_POSI.jpg",
+    alt: "Perolehan Medali Perunggu Kompetisi Sains Matematika Nasional POSI jenjang Madrasah Aliyah di MAN 3 Bantul",
+    caption: "Perolehan Medali Perunggu Kompetisi Sains Matematika Nasional POSI jenjang Madrasah Aliyah di MAN 3 Bantul",
+    category: "Prestasi & Penghargaan",
     tag: "Medali Matematika",
     source: "Humas MAN 3 Bantul"
   },
   {
-    src: "assets/images/curated/man3-apresiasi-tahfidz.jpg",
-    alt: "Apresiasi Tahfidz Al-Qur'an 7 Juz di MAN 3 Bantul",
-    caption: "Wisuda dan apresiasi Tahfidz Al-Qur'an 7 Juz dengan selempang kehormatan di perpustakaan MAN 3 Bantul",
-    category: "Prestasi & Riset",
-    tag: "Tahfidz Al-Qur'an",
-    source: "Dokumentasi Instagram @mksmetrics"
-  },
-  {
-    src: "assets/images/curated/mtsn6-juara2-komik.jpg",
-    alt: "Juara 2 Lomba Komik Sejarah Tokoh Sultan Agung Tingkat DIY",
-    caption: "Prestasi Juara II Lomba Cipta Komik Sejarah Sultan Agung tingkat regional DIY bersama karya komik edukasi sejarah",
-    category: "Prestasi & Riset",
+    src: "assets/images/mined/01-Foto-Profil-dan-Prestasi-Dahron/07_MTsN6Bantul_Juara2_Komik_Sejarah_Sultan_Agung_TribunJogja.jpg",
+    alt: "Penganugerahan Juara 2 Lomba Komik Sejarah Tokoh Sultan Agung Tingkat DIY diliput media cetak Tribun Jogja",
+    caption: "Penganugerahan Juara 2 Lomba Komik Sejarah Tokoh Sultan Agung Tingkat DIY diliput media cetak Tribun Jogja",
+    category: "Prestasi & Penghargaan",
     tag: "Juara Komik Sejarah",
     source: "Tribun Jogja & Dinas Kebudayaan"
   },
   {
-    src: "assets/images/curated/berita-acara-aplikasi-dahron.jpg",
-    alt: "Berita Acara Serah Terima Resmi Luaran Program SEGARA",
-    caption: "Berita Acara Serah Terima Resmi aplikasi digital SEGARA dan buku panduan yang ditandatangani oleh Muhammad Dahron Mustofa Maksum",
-    category: "Lapangan & Teknis",
+    src: "assets/images/mined/01-Foto-Profil-dan-Prestasi-Dahron/08_IHMSI_Mukernas_XIX_Delegasi_HIMATIKA_UNY_Foto_Bersama_1.png",
+    alt: "Delegasi HIMATIKA FMIPA UNY pada Musyawarah Kerja Nasional XIX IHMSI di Yogyakarta",
+    caption: "Delegasi HIMATIKA FMIPA UNY pada Musyawarah Kerja Nasional XIX IHMSI di Yogyakarta",
+    category: "Kepemimpinan & Organisasi",
+    tag: "Delegasi HIMATIKA",
+    source: "HIMATIKA FMIPA UNY"
+  },
+  {
+    src: "assets/images/mined/01-Foto-Profil-dan-Prestasi-Dahron/09_IHMSI_Mukernas_XIX_Delegasi_HIMATIKA_UNY_Foto_Bersama_2.jpg",
+    alt: "Delegasi HIMATIKA FMIPA UNY pada Musyawarah Kerja Nasional XIX IHMSI di Yogyakarta",
+    caption: "Delegasi HIMATIKA FMIPA UNY pada Musyawarah Kerja Nasional XIX IHMSI di Yogyakarta",
+    category: "Kepemimpinan & Organisasi",
+    tag: "Delegasi HIMATIKA",
+    source: "HIMATIKA FMIPA UNY"
+  },
+  {
+    src: "assets/images/mined/01-Foto-Profil-dan-Prestasi-Dahron/10_Abdidaya_Ormawa_2026_Kontingen_UNY_dan_KSI_Mist_4K.jpg",
+    alt: "Kontingen Universitas Negeri Yogyakarta merayakan raihan Terbaik 2 Nasional Abdidaya Ormawa 2026 di UMI Makassar",
+    caption: "Kontingen Universitas Negeri Yogyakarta merayakan raihan Terbaik 2 Nasional Abdidaya Ormawa 2026 di UMI Makassar",
+    category: "Prestasi & Penghargaan",
+    tag: "Terbaik 2 Nasional",
+    source: "Humas Resmi UNY & Belmawa"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/01_IG_Ketua_Pelaksana_PPKO_SEGARA_Portrait_Maksum.jpg",
+    alt: "Dokumentasi kegiatan dan koordinasi lapangan tim pelaksana di Kalurahan Sidoagung",
+    caption: "Dokumentasi kegiatan dan koordinasi lapangan tim pelaksana di Kalurahan Sidoagung",
+    category: "Pemberdayaan SEGARA",
+    tag: "Aksi Lapangan",
+    source: "Dokumentasi Tim SEGARA"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/02_IG_Ketua_Pelaksana_PPKO_SEGARA_Biodata_Maksum.jpg",
+    alt: "Publikasi profil kepemimpinan dan lembar rilis resmi program Sentra Gerak Agromina",
+    caption: "Publikasi profil kepemimpinan dan lembar rilis resmi program Sentra Gerak Agromina",
+    category: "Media & Berita Acara",
+    tag: "Profil & Publikasi",
+    source: "Dokumentasi Tim SEGARA"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/03_IG_Mahasiswa_Berprestasi_UNY_2026_DX1PO_jk4R9.jpg",
+    alt: "Rekognisi Pemilihan Mahasiswa Berprestasi (Pilmapres) Fakultas MIPA Universitas Negeri Yogyakarta 2026",
+    caption: "Rekognisi Pemilihan Mahasiswa Berprestasi (Pilmapres) Fakultas MIPA Universitas Negeri Yogyakarta 2026",
+    category: "Prestasi & Penghargaan",
+    tag: "Mawapres UNY",
+    source: "Dokumentasi Instagram @mksmetrics"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/04_IG_Presidium1_Mukernas_XIX_IHMSI_Slide1.jpg",
+    alt: "Memimpin persidangan Musyawarah Kerja Nasional (Mukernas) XIX IHMSI sebagai Presidium 1 (Dokumentasi Slide 1)",
+    caption: "Memimpin persidangan Musyawarah Kerja Nasional (Mukernas) XIX IHMSI sebagai Presidium 1 (Dokumentasi Slide 1)",
+    category: "Kepemimpinan & Organisasi",
+    tag: "Presidium I Mukernas",
+    source: "Dokumentasi Instagram @mksmetrics"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/05_IG_Presidium1_Mukernas_XIX_IHMSI_Slide2.jpg",
+    alt: "Memimpin persidangan Musyawarah Kerja Nasional (Mukernas) XIX IHMSI sebagai Presidium 1 (Dokumentasi Slide 2)",
+    caption: "Memimpin persidangan Musyawarah Kerja Nasional (Mukernas) XIX IHMSI sebagai Presidium 1 (Dokumentasi Slide 2)",
+    category: "Kepemimpinan & Organisasi",
+    tag: "Presidium I Mukernas",
+    source: "Dokumentasi Instagram @mksmetrics"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/06_IG_Presidium1_Mukernas_XIX_IHMSI_Slide3.jpg",
+    alt: "Memimpin persidangan Musyawarah Kerja Nasional (Mukernas) XIX IHMSI sebagai Presidium 1 (Dokumentasi Slide 3)",
+    caption: "Memimpin persidangan Musyawarah Kerja Nasional (Mukernas) XIX IHMSI sebagai Presidium 1 (Dokumentasi Slide 3)",
+    category: "Kepemimpinan & Organisasi",
+    tag: "Presidium I Mukernas",
+    source: "Dokumentasi Instagram @mksmetrics"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/07_IG_Presidium1_Mukernas_XIX_IHMSI_Slide4.jpg",
+    alt: "Memimpin persidangan Musyawarah Kerja Nasional (Mukernas) XIX IHMSI sebagai Presidium 1 (Dokumentasi Slide 4)",
+    caption: "Memimpin persidangan Musyawarah Kerja Nasional (Mukernas) XIX IHMSI sebagai Presidium 1 (Dokumentasi Slide 4)",
+    category: "Kepemimpinan & Organisasi",
+    tag: "Presidium I Mukernas",
+    source: "Dokumentasi Instagram @mksmetrics"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/08_IG_Presidium1_Mukernas_XIX_IHMSI_Slide5.jpg",
+    alt: "Memimpin persidangan Musyawarah Kerja Nasional (Mukernas) XIX IHMSI sebagai Presidium 1 (Dokumentasi Slide 5)",
+    caption: "Memimpin persidangan Musyawarah Kerja Nasional (Mukernas) XIX IHMSI sebagai Presidium 1 (Dokumentasi Slide 5)",
+    category: "Kepemimpinan & Organisasi",
+    tag: "Presidium I Mukernas",
+    source: "Dokumentasi Instagram @mksmetrics"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/09_IG_Presidium1_Mukernas_XIX_IHMSI_Slide6.jpg",
+    alt: "Memimpin persidangan Musyawarah Kerja Nasional (Mukernas) XIX IHMSI sebagai Presidium 1 (Dokumentasi Slide 6)",
+    caption: "Memimpin persidangan Musyawarah Kerja Nasional (Mukernas) XIX IHMSI sebagai Presidium 1 (Dokumentasi Slide 6)",
+    category: "Kepemimpinan & Organisasi",
+    tag: "Presidium I Mukernas",
+    source: "Dokumentasi Instagram @mksmetrics"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/10_IG_Presidium1_Mukernas_XIX_IHMSI_Slide7.jpg",
+    alt: "Memimpin persidangan Musyawarah Kerja Nasional (Mukernas) XIX IHMSI sebagai Presidium 1 (Dokumentasi Slide 7)",
+    caption: "Memimpin persidangan Musyawarah Kerja Nasional (Mukernas) XIX IHMSI sebagai Presidium 1 (Dokumentasi Slide 7)",
+    category: "Kepemimpinan & Organisasi",
+    tag: "Presidium I Mukernas",
+    source: "Dokumentasi Instagram @mksmetrics"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/11_IG_Presidium1_Mukernas_XIX_IHMSI_Slide9.jpg",
+    alt: "Memimpin persidangan Musyawarah Kerja Nasional (Mukernas) XIX IHMSI sebagai Presidium 1 (Dokumentasi Slide 9)",
+    caption: "Memimpin persidangan Musyawarah Kerja Nasional (Mukernas) XIX IHMSI sebagai Presidium 1 (Dokumentasi Slide 9)",
+    category: "Kepemimpinan & Organisasi",
+    tag: "Presidium I Mukernas",
+    source: "Dokumentasi Instagram @mksmetrics"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/12_IG_MAN3Bantul_Apresiasi_Tahfidz_Slide1.jpg",
+    alt: "Apresiasi Wisuda Tahfidz Al-Qur'an 7 Juz di MAN 3 Bantul (Dokumentasi Slide 1)",
+    caption: "Apresiasi Wisuda Tahfidz Al-Qur'an 7 Juz di MAN 3 Bantul (Dokumentasi Slide 1)",
+    category: "Religius & Pramuka",
+    tag: "Tahfidz Al-Qur'an",
+    source: "Dokumentasi Instagram @mksmetrics"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/13_IG_MAN3Bantul_Apresiasi_Tahfidz_Slide2.jpg",
+    alt: "Apresiasi Wisuda Tahfidz Al-Qur'an 7 Juz di MAN 3 Bantul (Dokumentasi Slide 2)",
+    caption: "Apresiasi Wisuda Tahfidz Al-Qur'an 7 Juz di MAN 3 Bantul (Dokumentasi Slide 2)",
+    category: "Religius & Pramuka",
+    tag: "Tahfidz Al-Qur'an",
+    source: "Dokumentasi Instagram @mksmetrics"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/14_IG_MAN3Bantul_Apresiasi_Tahfidz_Slide3.jpg",
+    alt: "Apresiasi Wisuda Tahfidz Al-Qur'an 7 Juz di MAN 3 Bantul (Dokumentasi Slide 3)",
+    caption: "Apresiasi Wisuda Tahfidz Al-Qur'an 7 Juz di MAN 3 Bantul (Dokumentasi Slide 3)",
+    category: "Religius & Pramuka",
+    tag: "Tahfidz Al-Qur'an",
+    source: "Dokumentasi Instagram @mksmetrics"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/15_IG_MAN3Bantul_Apresiasi_Tahfidz_Slide4.jpg",
+    alt: "Apresiasi Wisuda Tahfidz Al-Qur'an 7 Juz di MAN 3 Bantul (Dokumentasi Slide 4)",
+    caption: "Apresiasi Wisuda Tahfidz Al-Qur'an 7 Juz di MAN 3 Bantul (Dokumentasi Slide 4)",
+    category: "Religius & Pramuka",
+    tag: "Tahfidz Al-Qur'an",
+    source: "Dokumentasi Instagram @mksmetrics"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/16_IG_MAN3Bantul_Apresiasi_Tahfidz_Slide5.jpg",
+    alt: "Apresiasi Wisuda Tahfidz Al-Qur'an 7 Juz di MAN 3 Bantul (Dokumentasi Slide 5)",
+    caption: "Apresiasi Wisuda Tahfidz Al-Qur'an 7 Juz di MAN 3 Bantul (Dokumentasi Slide 5)",
+    category: "Religius & Pramuka",
+    tag: "Tahfidz Al-Qur'an",
+    source: "Dokumentasi Instagram @mksmetrics"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/17_IG_MAN3Bantul_Apresiasi_Tahfidz_Slide6.jpg",
+    alt: "Apresiasi Wisuda Tahfidz Al-Qur'an 7 Juz di MAN 3 Bantul (Dokumentasi Slide 6)",
+    caption: "Apresiasi Wisuda Tahfidz Al-Qur'an 7 Juz di MAN 3 Bantul (Dokumentasi Slide 6)",
+    category: "Religius & Pramuka",
+    tag: "Tahfidz Al-Qur'an",
+    source: "Dokumentasi Instagram @mksmetrics"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/18_IG_Pramuka_Mencium_Bendera_Merah_Putih.jpg",
+    alt: "Momen khidmat mencium Sang Saka Merah Putih pada prosesi pelantikan Pramuka Penegak MAN 3 Bantul",
+    caption: "Momen khidmat mencium Sang Saka Merah Putih pada prosesi pelantikan Pramuka Penegak MAN 3 Bantul",
+    category: "Religius & Pramuka",
+    tag: "Pramuka Penegak",
+    source: "Dokumentasi Instagram @mksmetrics"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/19_IG_Pramuka_Memimpin_Amanat_Upacara_Slide1.jpg",
+    alt: "Memimpin dan menyampaikan amanat upacara apel kepramukaan di hadapan barisan siswa MAN 3 Bantul",
+    caption: "Memimpin dan menyampaikan amanat upacara apel kepramukaan di hadapan barisan siswa MAN 3 Bantul",
+    category: "Religius & Pramuka",
+    tag: "Pembina Upacara",
+    source: "Dokumentasi Instagram @mksmetrics"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/20_IG_Pramuka_Swafoto_Bersama_Rekan_Slide2.jpg",
+    alt: "Kebersamaan dan jiwa korsa bersama rekan-rekan Dewan Ambalan Pramuka MAN 3 Bantul",
+    caption: "Kebersamaan dan jiwa korsa bersama rekan-rekan Dewan Ambalan Pramuka MAN 3 Bantul",
+    category: "Religius & Pramuka",
+    tag: "Pramuka MAN 3",
+    source: "Dokumentasi Instagram @mksmetrics"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/21_IG_Dieng_Plateau_Gunung_Prau_Slide2.jpg",
+    alt: "Eksplorasi keindahan alam dan ruang terbuka di kawasan dataran tinggi Dieng",
+    caption: "Eksplorasi keindahan alam dan ruang terbuka di kawasan dataran tinggi Dieng",
+    category: "Petualangan & Alam Terbuka",
+    tag: "Eksplorasi Alam",
+    source: "Dokumentasi Pendakian Pribadi"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/22_IG_Basecamp_Gunung_Prau_Via_Dieng_Slide3.jpg",
+    alt: "Perjalanan melintasi jalur pendakian Gunung Prau via Dieng melewati Pos Semendung",
+    caption: "Perjalanan melintasi jalur pendakian Gunung Prau via Dieng melewati Pos Semendung",
+    category: "Petualangan & Alam Terbuka",
+    tag: "Jalur Pendakian",
+    source: "Dokumentasi Pendakian Pribadi"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/23_IG_Pos1_Gunung_Prau_Slide4.jpg",
+    alt: "Perjalanan melintasi jalur pendakian Gunung Prau via Dieng melewati Pos Semendung",
+    caption: "Perjalanan melintasi jalur pendakian Gunung Prau via Dieng melewati Pos Semendung",
+    category: "Petualangan & Alam Terbuka",
+    tag: "Jalur Pendakian",
+    source: "Dokumentasi Pendakian Pribadi"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/24_IG_Pos2_Semendung_Gunung_Prau_Slide5.jpg",
+    alt: "Perjalanan melintasi jalur pendakian Gunung Prau via Dieng melewati Pos Semendung",
+    caption: "Perjalanan melintasi jalur pendakian Gunung Prau via Dieng melewati Pos Semendung",
+    category: "Petualangan & Alam Terbuka",
+    tag: "Jalur Pendakian",
+    source: "Dokumentasi Pendakian Pribadi"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/25_IG_Puncak_Gunung_Prau_Sunrise_Slide6.jpg",
+    alt: "Pemandangan cakrawala sunrise keemasan di Puncak Gunung Prau (2.590 MDPL), Dieng Plateau",
+    caption: "Pemandangan cakrawala sunrise keemasan di Puncak Gunung Prau (2.590 MDPL), Dieng Plateau",
+    category: "Petualangan & Alam Terbuka",
+    tag: "Puncak Gn. Prau",
+    source: "Dokumentasi Pendakian Pribadi"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/26_IG_Puncak_Gunung_Prau_Sunrise_Slide7.jpg",
+    alt: "Pemandangan cakrawala sunrise keemasan di Puncak Gunung Prau (2.590 MDPL), Dieng Plateau",
+    caption: "Pemandangan cakrawala sunrise keemasan di Puncak Gunung Prau (2.590 MDPL), Dieng Plateau",
+    category: "Petualangan & Alam Terbuka",
+    tag: "Puncak Gn. Prau",
+    source: "Dokumentasi Pendakian Pribadi"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/27_IG_Puncak_Gunung_Prau_Sunrise_Slide8.jpg",
+    alt: "Pemandangan cakrawala sunrise keemasan di Puncak Gunung Prau (2.590 MDPL), Dieng Plateau",
+    caption: "Pemandangan cakrawala sunrise keemasan di Puncak Gunung Prau (2.590 MDPL), Dieng Plateau",
+    category: "Petualangan & Alam Terbuka",
+    tag: "Puncak Gn. Prau",
+    source: "Dokumentasi Pendakian Pribadi"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/28_IG_Plakat_Mt_Prau_2590_MDPL_Slide9.jpg",
+    alt: "Mendokumentasikan pencapaian di tugu plakat puncak Gunung Prau 2.590 MDPL",
+    caption: "Mendokumentasikan pencapaian di tugu plakat puncak Gunung Prau 2.590 MDPL",
+    category: "Petualangan & Alam Terbuka",
+    tag: "2.590 MDPL",
+    source: "Dokumentasi Pendakian Pribadi"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/29_IG_Personal_Jaket_Navy_Pegunungan_1.jpg",
+    alt: "Eksplorasi keindahan alam dan ruang terbuka di kawasan dataran tinggi Dieng",
+    caption: "Eksplorasi keindahan alam dan ruang terbuka di kawasan dataran tinggi Dieng",
+    category: "Petualangan & Alam Terbuka",
+    tag: "Eksplorasi Alam",
+    source: "Dokumentasi Pendakian Pribadi"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/30_IG_Personal_Jaket_Navy_Pegunungan_2.jpg",
+    alt: "Eksplorasi keindahan alam dan ruang terbuka di kawasan dataran tinggi Dieng",
+    caption: "Eksplorasi keindahan alam dan ruang terbuka di kawasan dataran tinggi Dieng",
+    category: "Petualangan & Alam Terbuka",
+    tag: "Eksplorasi Alam",
+    source: "Dokumentasi Pendakian Pribadi"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/31_IG_Personal_Jaket_Navy_Kafe_Pegunungan_3.jpg",
+    alt: "Eksplorasi keindahan alam dan ruang terbuka di kawasan dataran tinggi Dieng",
+    caption: "Eksplorasi keindahan alam dan ruang terbuka di kawasan dataran tinggi Dieng",
+    category: "Petualangan & Alam Terbuka",
+    tag: "Eksplorasi Alam",
+    source: "Dokumentasi Pendakian Pribadi"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/32_IG_Personal_Bersama_Teman_Pegunungan_4.jpg",
+    alt: "Eksplorasi keindahan alam dan ruang terbuka di kawasan dataran tinggi Dieng",
+    caption: "Eksplorasi keindahan alam dan ruang terbuka di kawasan dataran tinggi Dieng",
+    category: "Petualangan & Alam Terbuka",
+    tag: "Eksplorasi Alam",
+    source: "Dokumentasi Pendakian Pribadi"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/33_IG_Personal_Bersama_Teman_Mobil_5.jpg",
+    alt: "Eksplorasi keindahan alam dan ruang terbuka di kawasan dataran tinggi Dieng",
+    caption: "Eksplorasi keindahan alam dan ruang terbuka di kawasan dataran tinggi Dieng",
+    category: "Petualangan & Alam Terbuka",
+    tag: "Eksplorasi Alam",
+    source: "Dokumentasi Pendakian Pribadi"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/34_IG_Personal_Bersama_Teman_Outdoor_6.jpg",
+    alt: "Eksplorasi keindahan alam dan ruang terbuka di kawasan dataran tinggi Dieng",
+    caption: "Eksplorasi keindahan alam dan ruang terbuka di kawasan dataran tinggi Dieng",
+    category: "Petualangan & Alam Terbuka",
+    tag: "Eksplorasi Alam",
+    source: "Dokumentasi Pendakian Pribadi"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/35_IG_SEGARA_Press_Release_Workshop_DPRD_Slide1.jpg",
+    alt: "Publikasi profil kepemimpinan dan lembar rilis resmi program Sentra Gerak Agromina",
+    caption: "Publikasi profil kepemimpinan dan lembar rilis resmi program Sentra Gerak Agromina",
+    category: "Media & Berita Acara",
+    tag: "Profil & Publikasi",
+    source: "Dokumentasi Tim SEGARA"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/36_IG_SEGARA_Press_Release_Workshop_DPRD_Slide3.jpg",
+    alt: "Publikasi profil kepemimpinan dan lembar rilis resmi program Sentra Gerak Agromina",
+    caption: "Publikasi profil kepemimpinan dan lembar rilis resmi program Sentra Gerak Agromina",
+    category: "Media & Berita Acara",
+    tag: "Profil & Publikasi",
+    source: "Dokumentasi Tim SEGARA"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/37_IG_SEGARA_Press_Release_Paguyuban_Gapokkan_Slide1.jpg",
+    alt: "Publikasi profil kepemimpinan dan lembar rilis resmi program Sentra Gerak Agromina",
+    caption: "Publikasi profil kepemimpinan dan lembar rilis resmi program Sentra Gerak Agromina",
+    category: "Media & Berita Acara",
+    tag: "Profil & Publikasi",
+    source: "Dokumentasi Tim SEGARA"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/38_IG_SEGARA_Press_Release_Paguyuban_Gapokkan_Slide2.jpg",
+    alt: "Publikasi profil kepemimpinan dan lembar rilis resmi program Sentra Gerak Agromina",
+    caption: "Publikasi profil kepemimpinan dan lembar rilis resmi program Sentra Gerak Agromina",
+    category: "Media & Berita Acara",
+    tag: "Profil & Publikasi",
+    source: "Dokumentasi Tim SEGARA"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/39_IG_SEGARA_Kliping_Koran_Harian_Merapi_1.jpg",
+    alt: "Publikasi dan liputan program pemberdayaan SEGARA pada Harian Merapi surat kabar cetak Yogyakarta",
+    caption: "Publikasi dan liputan program pemberdayaan SEGARA pada Harian Merapi surat kabar cetak Yogyakarta",
+    category: "Media & Berita Acara",
+    tag: "Kliping Media",
+    source: "Koran Harian Merapi"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/40_IG_SEGARA_Kliping_Koran_Harian_Merapi_2.jpg",
+    alt: "Publikasi dan liputan program pemberdayaan SEGARA pada Harian Merapi surat kabar cetak Yogyakarta",
+    caption: "Publikasi dan liputan program pemberdayaan SEGARA pada Harian Merapi surat kabar cetak Yogyakarta",
+    category: "Media & Berita Acara",
+    tag: "Kliping Media",
+    source: "Koran Harian Merapi"
+  },
+  {
+    src: "assets/images/mined/02-Foto-Instagram-Dahron/41_IG_SEGARA_Kliping_Koran_Harian_Merapi_3.jpg",
+    alt: "Publikasi dan liputan program pemberdayaan SEGARA pada Harian Merapi surat kabar cetak Yogyakarta",
+    caption: "Publikasi dan liputan program pemberdayaan SEGARA pada Harian Merapi surat kabar cetak Yogyakarta",
+    category: "Media & Berita Acara",
+    tag: "Kliping Media",
+    source: "Koran Harian Merapi"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/01_Grand_Opening_SEGARA_Pemotongan_Tumpeng_Dahron_Kanan.jpg",
+    alt: "Peluncuran resmi program Sentra Gerak Agromina di Balai Kalurahan Sidoagung dihadiri pimpinan kampus dan pamong",
+    caption: "Peluncuran resmi program Sentra Gerak Agromina di Balai Kalurahan Sidoagung dihadiri pimpinan kampus dan pamong",
+    category: "Pemberdayaan SEGARA",
+    tag: "Grand Opening",
+    source: "Dokumentasi Resmi UNY"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/02_Grand_Opening_SEGARA_Sambutan_Ketua_Tim_Dahron_Podium.jpg",
+    alt: "Peluncuran resmi program Sentra Gerak Agromina di Balai Kalurahan Sidoagung dihadiri pimpinan kampus dan pamong",
+    caption: "Peluncuran resmi program Sentra Gerak Agromina di Balai Kalurahan Sidoagung dihadiri pimpinan kampus dan pamong",
+    category: "Pemberdayaan SEGARA",
+    tag: "Grand Opening",
+    source: "Dokumentasi Resmi UNY"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/03_Grand_Opening_SEGARA_Foto_Bersama_Lengkap_DSCF0812.jpg",
+    alt: "Peluncuran resmi program Sentra Gerak Agromina di Balai Kalurahan Sidoagung dihadiri pimpinan kampus dan pamong",
+    caption: "Peluncuran resmi program Sentra Gerak Agromina di Balai Kalurahan Sidoagung dihadiri pimpinan kampus dan pamong",
+    category: "Pemberdayaan SEGARA",
+    tag: "Grand Opening",
+    source: "Dokumentasi Resmi UNY"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/04_Grand_Opening_SEGARA_Foto_Bersama_Pejabat_dan_Peserta.jpg",
+    alt: "Peluncuran resmi program Sentra Gerak Agromina di Balai Kalurahan Sidoagung dihadiri pimpinan kampus dan pamong",
+    caption: "Peluncuran resmi program Sentra Gerak Agromina di Balai Kalurahan Sidoagung dihadiri pimpinan kampus dan pamong",
+    category: "Pemberdayaan SEGARA",
+    tag: "Grand Opening",
+    source: "Dokumentasi Resmi UNY"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/05_Gapokkan_Segara_Agung_Foto_Bersama_Pembentukan.jpg",
+    alt: "Inisiasi dan pembentukan Gabungan Kelompok Pembudidaya Ikan (Gapokkan) Segara Agung 224 kolam",
+    caption: "Inisiasi dan pembentukan Gabungan Kelompok Pembudidaya Ikan (Gapokkan) Segara Agung 224 kolam",
+    category: "Pemberdayaan SEGARA",
+    tag: "Gapokkan Segara",
+    source: "Pemerintah Kalurahan Sidoagung"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/06_Gapokkan_Segara_Agung_Diskusi_FGD_Meja_Narasumber.jpg",
+    alt: "Inisiasi dan pembentukan Gabungan Kelompok Pembudidaya Ikan (Gapokkan) Segara Agung 224 kolam",
+    caption: "Inisiasi dan pembentukan Gabungan Kelompok Pembudidaya Ikan (Gapokkan) Segara Agung 224 kolam",
+    category: "Pemberdayaan SEGARA",
+    tag: "Gapokkan Segara",
+    source: "Pemerintah Kalurahan Sidoagung"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/07_Gapokkan_Segara_Agung_Pimpinan_Sidang_FGD.jpg",
+    alt: "Inisiasi dan pembentukan Gabungan Kelompok Pembudidaya Ikan (Gapokkan) Segara Agung 224 kolam",
+    caption: "Inisiasi dan pembentukan Gabungan Kelompok Pembudidaya Ikan (Gapokkan) Segara Agung 224 kolam",
+    category: "Pemberdayaan SEGARA",
+    tag: "Gapokkan Segara",
+    source: "Pemerintah Kalurahan Sidoagung"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/08_Gapokkan_Segara_Agung_Penandatanganan_Berita_Acara.jpg",
+    alt: "Dokumen Berita Acara Serah Terima Luaran Program SEGARA yang ditandatangani resmi oleh Muhammad Dahron",
+    caption: "Dokumen Berita Acara Serah Terima Luaran Program SEGARA yang ditandatangani resmi oleh Muhammad Dahron",
+    category: "Media & Berita Acara",
     tag: "Legalitas Luaran",
     source: "Sublaporan Akhir PPK Ormawa"
-  }
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/09_Segara_Karya_1_Pendampingan_Praktik_Olahan_Ikan.jpg",
+    alt: "Praktik hilirisasi dan diversifikasi produk olahan ikan air tawar bersama kelompok wanita tani (KWT) Sidoagung",
+    caption: "Praktik hilirisasi dan diversifikasi produk olahan ikan air tawar bersama kelompok wanita tani (KWT) Sidoagung",
+    category: "Inovasi Teknis & Pelatihan",
+    tag: "Diversifikasi Produk",
+    source: "Dokumentasi PPKO SEGARA"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/10_Segara_Karya_1_Foto_Bersama_Pendopo.jpg",
+    alt: "Praktik hilirisasi dan diversifikasi produk olahan ikan air tawar bersama kelompok wanita tani (KWT) Sidoagung",
+    caption: "Praktik hilirisasi dan diversifikasi produk olahan ikan air tawar bersama kelompok wanita tani (KWT) Sidoagung",
+    category: "Inovasi Teknis & Pelatihan",
+    tag: "Diversifikasi Produk",
+    source: "Dokumentasi PPKO SEGARA"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/11_Segara_Karya_1_Penyerahan_Plakat_Bersama_Perangkat_Desa.jpg",
+    alt: "Praktik hilirisasi dan diversifikasi produk olahan ikan air tawar bersama kelompok wanita tani (KWT) Sidoagung",
+    caption: "Praktik hilirisasi dan diversifikasi produk olahan ikan air tawar bersama kelompok wanita tani (KWT) Sidoagung",
+    category: "Inovasi Teknis & Pelatihan",
+    tag: "Diversifikasi Produk",
+    source: "Dokumentasi PPKO SEGARA"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/12_Diskominfo_Sleman_Rakor_Uji_Keamanan_SEGARA_App_1.jpg",
+    alt: "Rapat koordinasi teknis dan pengujian keamanan platform digital SEGARA App bersama Diskominfo Sleman",
+    caption: "Rapat koordinasi teknis dan pengujian keamanan platform digital SEGARA App bersama Diskominfo Sleman",
+    category: "Inovasi Teknis & Pelatihan",
+    tag: "SEGARA App",
+    source: "Diskominfo Sleman & Tim IT"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/13_Diskominfo_Sleman_Rakor_Uji_Keamanan_SEGARA_App_2.jpg",
+    alt: "Rapat koordinasi teknis dan pengujian keamanan platform digital SEGARA App bersama Diskominfo Sleman",
+    caption: "Rapat koordinasi teknis dan pengujian keamanan platform digital SEGARA App bersama Diskominfo Sleman",
+    category: "Inovasi Teknis & Pelatihan",
+    tag: "SEGARA App",
+    source: "Diskominfo Sleman & Tim IT"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/14_Diskominfo_Sleman_Rakor_Uji_Keamanan_SEGARA_App_3.jpg",
+    alt: "Rapat koordinasi teknis dan pengujian keamanan platform digital SEGARA App bersama Diskominfo Sleman",
+    caption: "Rapat koordinasi teknis dan pengujian keamanan platform digital SEGARA App bersama Diskominfo Sleman",
+    category: "Inovasi Teknis & Pelatihan",
+    tag: "SEGARA App",
+    source: "Diskominfo Sleman & Tim IT"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/15_Pelatihan_SEGARA_App_Foto_Bersama_Warga_Sidoagung.jpg",
+    alt: "Dokumentasi kegiatan dan koordinasi lapangan tim pelaksana di Kalurahan Sidoagung",
+    caption: "Dokumentasi kegiatan dan koordinasi lapangan tim pelaksana di Kalurahan Sidoagung",
+    category: "Pemberdayaan SEGARA",
+    tag: "Aksi Lapangan",
+    source: "Dokumentasi Tim SEGARA"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/16_Sosialisasi_Dinkes_Sleman_Dahron_Menyerahkan_Sertifikat.jpg",
+    alt: "Sosialisasi sertifikasi kelayakan higienitas pangan dan P-IRT bersama narasumber Dinas Kesehatan Sleman",
+    caption: "Sosialisasi sertifikasi kelayakan higienitas pangan dan P-IRT bersama narasumber Dinas Kesehatan Sleman",
+    category: "Inovasi Teknis & Pelatihan",
+    tag: "Standarisasi Dinkes",
+    source: "Dinas Kesehatan Sleman"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/17_Sosialisasi_Dinkes_Sleman_Foto_Bersama_Peserta.jpg",
+    alt: "Sosialisasi sertifikasi kelayakan higienitas pangan dan P-IRT bersama narasumber Dinas Kesehatan Sleman",
+    caption: "Sosialisasi sertifikasi kelayakan higienitas pangan dan P-IRT bersama narasumber Dinas Kesehatan Sleman",
+    category: "Inovasi Teknis & Pelatihan",
+    tag: "Standarisasi Dinkes",
+    source: "Dinas Kesehatan Sleman"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/18_Sosialisasi_BLK_Pemasaran_Digital_Foto_Bersama.jpg",
+    alt: "Pelatihan pemasaran digital dan pendampingan izin usaha NIB bersama Dinas Koperasi & UKM Sleman",
+    caption: "Pelatihan pemasaran digital dan pendampingan izin usaha NIB bersama Dinas Koperasi & UKM Sleman",
+    category: "Inovasi Teknis & Pelatihan",
+    tag: "Legalitas & Pasar",
+    source: "Dinas Koperasi & UKM Sleman"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/19_Sosialisasi_Dinkop_UKM_Sleman_Foto_Bersama.jpg",
+    alt: "Pelatihan pemasaran digital dan pendampingan izin usaha NIB bersama Dinas Koperasi & UKM Sleman",
+    caption: "Pelatihan pemasaran digital dan pendampingan izin usaha NIB bersama Dinas Koperasi & UKM Sleman",
+    category: "Inovasi Teknis & Pelatihan",
+    tag: "Legalitas & Pasar",
+    source: "Dinas Koperasi & UKM Sleman"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/20_Segara_Karya_2_Diskusi_Lesehan_Dahron_Kanan.jpg",
+    alt: "Praktik hilirisasi dan diversifikasi produk olahan ikan air tawar bersama kelompok wanita tani (KWT) Sidoagung",
+    caption: "Praktik hilirisasi dan diversifikasi produk olahan ikan air tawar bersama kelompok wanita tani (KWT) Sidoagung",
+    category: "Inovasi Teknis & Pelatihan",
+    tag: "Diversifikasi Produk",
+    source: "Dokumentasi PPKO SEGARA"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/21_Segara_Karya_2_Pemaparan_Materi_Lesehan.jpg",
+    alt: "Praktik hilirisasi dan diversifikasi produk olahan ikan air tawar bersama kelompok wanita tani (KWT) Sidoagung",
+    caption: "Praktik hilirisasi dan diversifikasi produk olahan ikan air tawar bersama kelompok wanita tani (KWT) Sidoagung",
+    category: "Inovasi Teknis & Pelatihan",
+    tag: "Diversifikasi Produk",
+    source: "Dokumentasi PPKO SEGARA"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/22_Segara_Karya_2_Monitoring_Praktik_Memasak.jpg",
+    alt: "Praktik hilirisasi dan diversifikasi produk olahan ikan air tawar bersama kelompok wanita tani (KWT) Sidoagung",
+    caption: "Praktik hilirisasi dan diversifikasi produk olahan ikan air tawar bersama kelompok wanita tani (KWT) Sidoagung",
+    category: "Inovasi Teknis & Pelatihan",
+    tag: "Diversifikasi Produk",
+    source: "Dokumentasi PPKO SEGARA"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/23_Audiensi_Bupati_Sleman_Ruang_Tamu_Bupati.jpg",
+    alt: "Audiensi dan pemaparan capaian program SEGARA di ruang kerja Bupati Sleman",
+    caption: "Audiensi dan pemaparan capaian program SEGARA di ruang kerja Bupati Sleman",
+    category: "Pemberdayaan SEGARA",
+    tag: "Audiensi Bupati",
+    source: "Dokumentasi Pemkab Sleman"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/24_Audiensi_Bupati_Sleman_Foto_Bersama_Harda_Kiswaya.jpg",
+    alt: "Audiensi dan pemaparan capaian program SEGARA di ruang kerja Bupati Sleman",
+    caption: "Audiensi dan pemaparan capaian program SEGARA di ruang kerja Bupati Sleman",
+    category: "Pemberdayaan SEGARA",
+    tag: "Audiensi Bupati",
+    source: "Dokumentasi Pemkab Sleman"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/25_Sosialisasi_DPRD_Sleman_Foto_Bersama_Wakil_Ketua_DPRD_1.jpg",
+    alt: "Sosialisasi dan penguatan sinergi kebijakan perikanan bersama Pimpinan DPRD Kabupaten Sleman",
+    caption: "Sosialisasi dan penguatan sinergi kebijakan perikanan bersama Pimpinan DPRD Kabupaten Sleman",
+    category: "Pemberdayaan SEGARA",
+    tag: "Sinergi DPRD",
+    source: "Sekretariat DPRD Sleman"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/26_Sosialisasi_DPRD_Sleman_Foto_Bersama_Peserta_Lengkap.jpg",
+    alt: "Sosialisasi dan penguatan sinergi kebijakan perikanan bersama Pimpinan DPRD Kabupaten Sleman",
+    caption: "Sosialisasi dan penguatan sinergi kebijakan perikanan bersama Pimpinan DPRD Kabupaten Sleman",
+    category: "Pemberdayaan SEGARA",
+    tag: "Sinergi DPRD",
+    source: "Sekretariat DPRD Sleman"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/27_Sosialisasi_DPRD_Sleman_Foto_Khusus_Bersama_HR_Sukaptana.jpeg",
+    alt: "Sosialisasi dan penguatan sinergi kebijakan perikanan bersama Pimpinan DPRD Kabupaten Sleman",
+    caption: "Sosialisasi dan penguatan sinergi kebijakan perikanan bersama Pimpinan DPRD Kabupaten Sleman",
+    category: "Pemberdayaan SEGARA",
+    tag: "Sinergi DPRD",
+    source: "Sekretariat DPRD Sleman"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/28_Audiensi_Lintas_Dinas_20_Instansi_Pemkab_Sleman_Foto_Bersama.jpg",
+    alt: "Rakor terpadu lintas 20 dinas/instansi Pemerintah Kabupaten Sleman menjamin keberlanjutan pasca-program",
+    caption: "Rakor terpadu lintas 20 dinas/instansi Pemerintah Kabupaten Sleman menjamin keberlanjutan pasca-program",
+    category: "Pemberdayaan SEGARA",
+    tag: "20 Dinas Sleman",
+    source: "Bappeda Sleman & Tim SEGARA"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/29_Audiensi_Lintas_Dinas_20_Instansi_Pemkab_Sleman_Rapat_1.jpg",
+    alt: "Rakor terpadu lintas 20 dinas/instansi Pemerintah Kabupaten Sleman menjamin keberlanjutan pasca-program",
+    caption: "Rakor terpadu lintas 20 dinas/instansi Pemerintah Kabupaten Sleman menjamin keberlanjutan pasca-program",
+    category: "Pemberdayaan SEGARA",
+    tag: "20 Dinas Sleman",
+    source: "Bappeda Sleman & Tim SEGARA"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/30_Audiensi_Lintas_Dinas_20_Instansi_Pemkab_Sleman_Rapat_2.jpg",
+    alt: "Rakor terpadu lintas 20 dinas/instansi Pemerintah Kabupaten Sleman menjamin keberlanjutan pasca-program",
+    caption: "Rakor terpadu lintas 20 dinas/instansi Pemerintah Kabupaten Sleman menjamin keberlanjutan pasca-program",
+    category: "Pemberdayaan SEGARA",
+    tag: "20 Dinas Sleman",
+    source: "Bappeda Sleman & Tim SEGARA"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/31_Festival_Segara_Raya_Kunjungan_Stand_Rektor_UNY_dan_Bupati_1.jpg",
+    alt: "Audiensi dan pemaparan capaian program SEGARA di ruang kerja Bupati Sleman",
+    caption: "Audiensi dan pemaparan capaian program SEGARA di ruang kerja Bupati Sleman",
+    category: "Pemberdayaan SEGARA",
+    tag: "Audiensi Bupati",
+    source: "Dokumentasi Pemkab Sleman"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/32_Festival_Segara_Raya_Kunjungan_Stand_Rektor_UNY_dan_Bupati_2.jpg",
+    alt: "Audiensi dan pemaparan capaian program SEGARA di ruang kerja Bupati Sleman",
+    caption: "Audiensi dan pemaparan capaian program SEGARA di ruang kerja Bupati Sleman",
+    category: "Pemberdayaan SEGARA",
+    tag: "Audiensi Bupati",
+    source: "Dokumentasi Pemkab Sleman"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/33_Kelulusan_Inkubasi_Segara_Foto_Bersama_Kelompok_Warga.jpeg",
+    alt: "Puncak penyerahan 15 luaran dan wisuda kelulusan inkubasi wirausaha perikanan warga Sidoagung",
+    caption: "Puncak penyerahan 15 luaran dan wisuda kelulusan inkubasi wirausaha perikanan warga Sidoagung",
+    category: "Pemberdayaan SEGARA",
+    tag: "Grand Closing",
+    source: "Dokumentasi Tim Pelaksana"
+  },
+  {
+    src: "assets/images/mined/03-Foto-Kegiatan-PPKO-SEGARA-Ada-Dahron/34_Grand_Closing_SEGARA_15_Luaran_Foto_Bersama.jpg",
+    alt: "Puncak penyerahan 15 luaran dan wisuda kelulusan inkubasi wirausaha perikanan warga Sidoagung",
+    caption: "Puncak penyerahan 15 luaran dan wisuda kelulusan inkubasi wirausaha perikanan warga Sidoagung",
+    category: "Pemberdayaan SEGARA",
+    tag: "Grand Closing",
+    source: "Dokumentasi Tim Pelaksana"
+  },
+  {
+    src: "assets/images/mined/04-Foto-Sublaporan-Akhir-KSI-Mist-Dahron/01_Grand_Opening_SEGARA_Foto_Bersama_Master_4032x2268.jpg",
+    alt: "Peluncuran resmi program Sentra Gerak Agromina di Balai Kalurahan Sidoagung dihadiri pimpinan kampus dan pamong",
+    caption: "Peluncuran resmi program Sentra Gerak Agromina di Balai Kalurahan Sidoagung dihadiri pimpinan kampus dan pamong",
+    category: "Pemberdayaan SEGARA",
+    tag: "Grand Opening",
+    source: "Dokumentasi Resmi UNY"
+  },
+  {
+    src: "assets/images/mined/04-Foto-Sublaporan-Akhir-KSI-Mist-Dahron/02_Grand_Opening_SEGARA_Suasana_Audience_Master_4032x2268.jpg",
+    alt: "Peluncuran resmi program Sentra Gerak Agromina di Balai Kalurahan Sidoagung dihadiri pimpinan kampus dan pamong",
+    caption: "Peluncuran resmi program Sentra Gerak Agromina di Balai Kalurahan Sidoagung dihadiri pimpinan kampus dan pamong",
+    category: "Pemberdayaan SEGARA",
+    tag: "Grand Opening",
+    source: "Dokumentasi Resmi UNY"
+  },
+  {
+    src: "assets/images/mined/04-Foto-Sublaporan-Akhir-KSI-Mist-Dahron/03_Grand_Opening_SEGARA_Tim_Pelaksana_KSI_Mist_4096x3072.jpg",
+    alt: "Peluncuran resmi program Sentra Gerak Agromina di Balai Kalurahan Sidoagung dihadiri pimpinan kampus dan pamong",
+    caption: "Peluncuran resmi program Sentra Gerak Agromina di Balai Kalurahan Sidoagung dihadiri pimpinan kampus dan pamong",
+    category: "Pemberdayaan SEGARA",
+    tag: "Grand Opening",
+    source: "Dokumentasi Resmi UNY"
+  },
+  {
+    src: "assets/images/mined/04-Foto-Sublaporan-Akhir-KSI-Mist-Dahron/04_Presentasi_Tim_Pelaksana_Laptop_Dahron.png",
+    alt: "Dokumentasi kegiatan dan koordinasi lapangan tim pelaksana di Kalurahan Sidoagung",
+    caption: "Dokumentasi kegiatan dan koordinasi lapangan tim pelaksana di Kalurahan Sidoagung",
+    category: "Pemberdayaan SEGARA",
+    tag: "Aksi Lapangan",
+    source: "Dokumentasi Tim SEGARA"
+  },
+  {
+    src: "assets/images/mined/04-Foto-Sublaporan-Akhir-KSI-Mist-Dahron/05_Sesi_Pemaparan_Laporan_Tim_PPKO_Dahron.png",
+    alt: "Dokumentasi kegiatan dan koordinasi lapangan tim pelaksana di Kalurahan Sidoagung",
+    caption: "Dokumentasi kegiatan dan koordinasi lapangan tim pelaksana di Kalurahan Sidoagung",
+    category: "Pemberdayaan SEGARA",
+    tag: "Aksi Lapangan",
+    source: "Dokumentasi Tim SEGARA"
+  },
+  {
+    src: "assets/images/mined/04-Foto-Sublaporan-Akhir-KSI-Mist-Dahron/06_Rakor_Diskominfo_Sleman_Pemaparan_Aplikasi_SEGARA.png",
+    alt: "Rapat koordinasi teknis dan pengujian keamanan platform digital SEGARA App bersama Diskominfo Sleman",
+    caption: "Rapat koordinasi teknis dan pengujian keamanan platform digital SEGARA App bersama Diskominfo Sleman",
+    category: "Inovasi Teknis & Pelatihan",
+    tag: "SEGARA App",
+    source: "Diskominfo Sleman & Tim IT"
+  },
+  {
+    src: "assets/images/mined/04-Foto-Sublaporan-Akhir-KSI-Mist-Dahron/07_Diskominfo_Sleman_Foto_Bersama_Tim_Teknis.png",
+    alt: "Rapat koordinasi teknis dan pengujian keamanan platform digital SEGARA App bersama Diskominfo Sleman",
+    caption: "Rapat koordinasi teknis dan pengujian keamanan platform digital SEGARA App bersama Diskominfo Sleman",
+    category: "Inovasi Teknis & Pelatihan",
+    tag: "SEGARA App",
+    source: "Diskominfo Sleman & Tim IT"
+  },
+  {
+    src: "assets/images/mined/04-Foto-Sublaporan-Akhir-KSI-Mist-Dahron/08_Diskominfo_Sleman_Foto_Bersama_Di_Depan_Lobi.png",
+    alt: "Rapat koordinasi teknis dan pengujian keamanan platform digital SEGARA App bersama Diskominfo Sleman",
+    caption: "Rapat koordinasi teknis dan pengujian keamanan platform digital SEGARA App bersama Diskominfo Sleman",
+    category: "Inovasi Teknis & Pelatihan",
+    tag: "SEGARA App",
+    source: "Diskominfo Sleman & Tim IT"
+  },
+  {
+    src: "assets/images/mined/04-Foto-Sublaporan-Akhir-KSI-Mist-Dahron/09_Dinas_Koperasi_UKM_Sleman_Penyerahan_Dokumen_Kerjasama.png",
+    alt: "Publikasi profil kepemimpinan dan lembar rilis resmi program Sentra Gerak Agromina",
+    caption: "Publikasi profil kepemimpinan dan lembar rilis resmi program Sentra Gerak Agromina",
+    category: "Media & Berita Acara",
+    tag: "Profil & Publikasi",
+    source: "Dokumentasi Tim SEGARA"
+  },
+  {
+    src: "assets/images/mined/04-Foto-Sublaporan-Akhir-KSI-Mist-Dahron/10_Kunjungan_Inkubasi_Olahan_Ikan_Ridho_Fresh.png",
+    alt: "Praktik hilirisasi dan diversifikasi produk olahan ikan air tawar bersama kelompok wanita tani (KWT) Sidoagung",
+    caption: "Praktik hilirisasi dan diversifikasi produk olahan ikan air tawar bersama kelompok wanita tani (KWT) Sidoagung",
+    category: "Inovasi Teknis & Pelatihan",
+    tag: "Diversifikasi Produk",
+    source: "Dokumentasi PPKO SEGARA"
+  },
+  {
+    src: "assets/images/mined/04-Foto-Sublaporan-Akhir-KSI-Mist-Dahron/11_Kunjungan_Koordinasi_Tim_SEGARA_Sidoagung.png",
+    alt: "Dokumentasi kegiatan dan koordinasi lapangan tim pelaksana di Kalurahan Sidoagung",
+    caption: "Dokumentasi kegiatan dan koordinasi lapangan tim pelaksana di Kalurahan Sidoagung",
+    category: "Pemberdayaan SEGARA",
+    tag: "Aksi Lapangan",
+    source: "Dokumentasi Tim SEGARA"
+  },
+  {
+    src: "assets/images/mined/04-Foto-Sublaporan-Akhir-KSI-Mist-Dahron/12_Edukasi_Anak_dan_Generasi_Muda_Sidoagung.png",
+    alt: "Sosialisasi gemar makan ikan dan edukasi gizi bagi anak-anak serta generasi muda Kalurahan Sidoagung",
+    caption: "Sosialisasi gemar makan ikan dan edukasi gizi bagi anak-anak serta generasi muda Kalurahan Sidoagung",
+    category: "Pemberdayaan SEGARA",
+    tag: "Edukasi Generasi Muda",
+    source: "Dokumentasi Edukasi Warga"
+  },
+  {
+    src: "assets/images/mined/04-Foto-Sublaporan-Akhir-KSI-Mist-Dahron/13_Foto_Bersama_Anak_Anak_Peserta_Edukasi.png",
+    alt: "Sosialisasi gemar makan ikan dan edukasi gizi bagi anak-anak serta generasi muda Kalurahan Sidoagung",
+    caption: "Sosialisasi gemar makan ikan dan edukasi gizi bagi anak-anak serta generasi muda Kalurahan Sidoagung",
+    category: "Pemberdayaan SEGARA",
+    tag: "Edukasi Generasi Muda",
+    source: "Dokumentasi Edukasi Warga"
+  },
+  {
+    src: "assets/images/mined/04-Foto-Sublaporan-Akhir-KSI-Mist-Dahron/14_Berita_Acara_Serah_Terima_Aplikasi_SEGARA_Bertandatangan_Dahron.jpeg",
+    alt: "Dokumen Berita Acara Serah Terima Luaran Program SEGARA yang ditandatangani resmi oleh Muhammad Dahron",
+    caption: "Dokumen Berita Acara Serah Terima Luaran Program SEGARA yang ditandatangani resmi oleh Muhammad Dahron",
+    category: "Media & Berita Acara",
+    tag: "Legalitas Luaran",
+    source: "Sublaporan Akhir PPK Ormawa"
+  },
+  {
+    src: "assets/images/mined/04-Foto-Sublaporan-Akhir-KSI-Mist-Dahron/15_Berita_Acara_Serah_Terima_Buku_Panduan_Organisasi_Bertandatangan_Dahron.jpeg",
+    alt: "Dokumen Berita Acara Serah Terima Luaran Program SEGARA yang ditandatangani resmi oleh Muhammad Dahron",
+    caption: "Dokumen Berita Acara Serah Terima Luaran Program SEGARA yang ditandatangani resmi oleh Muhammad Dahron",
+    category: "Media & Berita Acara",
+    tag: "Legalitas Luaran",
+    source: "Sublaporan Akhir PPK Ormawa"
+  },
+  {
+    src: "assets/images/mined/04-Foto-Sublaporan-Akhir-KSI-Mist-Dahron/16_Berita_Acara_Serah_Terima_Barang_dan_Buku_Olahan_Ikan_Bertandatangan_Dahron.jpeg",
+    alt: "Dokumen Berita Acara Serah Terima Luaran Program SEGARA yang ditandatangani resmi oleh Muhammad Dahron",
+    caption: "Dokumen Berita Acara Serah Terima Luaran Program SEGARA yang ditandatangani resmi oleh Muhammad Dahron",
+    category: "Media & Berita Acara",
+    tag: "Legalitas Luaran",
+    source: "Sublaporan Akhir PPK Ormawa"
+  },
 ];
 
 export const galleryEmbeds: string[] = [
