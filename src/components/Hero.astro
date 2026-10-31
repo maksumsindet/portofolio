@@ -41,7 +41,7 @@ const spotlightCards = [
     linkLabel: "Eksplorasi Jejak"
   }
 ];
-const partners = [
+const defaultPartners = [
   { name: "Universitas Negeri Yogyakarta", icon: "bi bi-mortarboard-fill" },
   { name: "Kemdiktisaintek RI", icon: "bi bi-award-fill" },
   { name: "Puspresnas Kemdiktisaintek", icon: "bi bi-trophy-fill" },
@@ -59,6 +59,10 @@ const partners = [
   { name: "IHMSI Indonesia", icon: "bi bi-graph-up-arrow" },
   { name: "KSI Mist FMIPA UNY", icon: "bi bi-lightbulb-fill" },
 ];
+
+const partners = ((rawPortfolioContent as any)?.partners && (rawPortfolioContent as any)?.partners.length > 0)
+  ? (rawPortfolioContent as any).partners
+  : defaultPartners;
 
 ---
 

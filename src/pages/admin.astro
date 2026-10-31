@@ -146,6 +146,16 @@ const initialDataJson = JSON.stringify(rawPortfolioContent);
             <i class="bi bi-person-vcard" aria-hidden="true"></i>
             <span>Profil dan Hero Utama</span>
           </button>
+          <button type="button" class="nav-item" data-section="dataProjects">
+            <i class="bi bi-database-check" aria-hidden="true"></i>
+            <span>Proyek Data Riset</span>
+            <span class="nav-count" id="count-data-projects">4</span>
+          </button>
+          <button type="button" class="nav-item" data-section="partners">
+            <i class="bi bi-people-fill" aria-hidden="true"></i>
+            <span>Mitra dan Kolaborasi</span>
+            <span class="nav-count" id="count-partners">16</span>
+          </button>
           <button type="button" class="nav-item" data-section="about">
             <i class="bi bi-file-earmark-person" aria-hidden="true"></i>
             <span>Tentang Saya</span>
@@ -238,6 +248,17 @@ const initialDataJson = JSON.stringify(rawPortfolioContent);
               <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
               <span>Lihat Web Utama</span>
             </a>
+
+            <button type="button" id="export-json-btn" class="btn-secondary-plain" title="Download file backup JSON portfolioContent saat ini">
+              <i class="bi bi-download" aria-hidden="true"></i>
+              <span>Export JSON</span>
+            </button>
+
+            <label for="import-json-input" class="btn-secondary-plain" style="cursor: pointer; margin: 0;" title="Pulihkan data dari file JSON">
+              <i class="bi bi-upload" aria-hidden="true"></i>
+              <span>Import JSON</span>
+              <input type="file" id="import-json-input" accept=".json,application/json" style="display: none;" />
+            </label>
 
             <button type="button" id="save-all-btn" class="btn-primary-ink">
               <i class="bi bi-check2-circle" aria-hidden="true"></i>
@@ -1120,6 +1141,8 @@ const initialDataJson = JSON.stringify(rawPortfolioContent);
           'count-experience',
           (cmsData.experienceProgramAndWork || []).length + (cmsData.experienceOrganization || []).length
         );
+        setCount('count-data-projects', (cmsData.dataProjects?.projects || []).length);
+        setCount('count-partners', (cmsData.partners || []).length);
         setCount('count-skills', (cmsData.skillsCategories || []).length);
         setCount('count-education', (cmsData.educationData || []).length);
         setCount('count-achievements', (cmsData.achievementsData || []).length);
@@ -1247,7 +1270,64 @@ const initialDataJson = JSON.stringify(rawPortfolioContent);
           localStorage.removeItem(STORAGE_RATE_KEY);
           setSessionAuthenticated(username);
           loginPasswordInput.value = '';
-          switchViewAfterAuth();
+          
+      // =========================================================================
+      // BACKUP & RESTORE: EXPORT & IMPORT JSON
+      // =========================================================================
+      function exportJsonBackup() {
+        try {
+          const jsonStr = JSON.stringify(cmsData, null, 2);
+          const blob = new Blob([jsonStr], { type: 'application/json' });
+          const url = URL.createObjectURL(blob);
+          const dateStr = new Date().toISOString().split('T')[0];
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `portfolioContent_backup_${dateStr}.json`;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+          showToast('File backup JSON berhasil diunduh ke komputer Anda.', 'success');
+        } catch (err: any) {
+          showToast(`Gagal mengekspor JSON: ${err?.message || err}`, 'error');
+        }
+      }
+
+      function setupJsonImport() {
+        const importInput = document.getElementById('import-json-input') as HTMLInputElement;
+        importInput?.addEventListener('change', async () => {
+          const file = importInput.files?.[0];
+          if (!file) return;
+
+          try {
+            const fileText = await file.text();
+            const importedData = JSON.parse(fileText);
+
+            if (!importedData.personalInfo && !importedData.heroData) {
+              throw new Error('Format JSON tidak valid atau bukan file portfolioContent yang sesuai.');
+            }
+
+            if (confirm(`Apakah Anda yakin ingin memuat data dari file "${file.name}"? Data yang sedang aktif di panel akan diperbarui.`)) {
+              Object.assign(cmsData, importedData);
+              markDirty();
+              updateSidebarCounts();
+              renderActiveSection();
+              await saveAllChanges();
+              showToast(`Data berhasil diimpor dari "${file.name}" dan tersimpan!`, 'success');
+            }
+          } catch (err: any) {
+            showToast(`Gagal mengimpor file JSON: ${err?.message || err}`, 'error');
+          } finally {
+            importInput.value = '';
+          }
+        });
+
+        const exportBtn = document.getElementById('export-json-btn');
+        exportBtn?.addEventListener('click', exportJsonBackup);
+      }
+
+      setupJsonImport();
+      switchViewAfterAuth();
         } else {
           rate.count = (rate.count || 0) + 1;
           if (rate.count >= 5) {
@@ -1621,6 +1701,14 @@ const initialDataJson = JSON.stringify(rawPortfolioContent);
           title: 'Profil dan Hero Utama',
           subtitle: 'Edit nama lengkap, foto profil utama, bio singkat, kontak, dan tautan sosial.'
         },
+        dataProjects: {
+          title: 'Proyek Data dan Riset Akademik',
+          subtitle: 'Kelola judul resmi, metrik numerik, naskah narasi, poin bukti legalitas, dan tautan repositori Google Drive.'
+        },
+        partners: {
+          title: 'Mitra dan Instansi Kolaborasi',
+          subtitle: 'Kelola daftar kementerian, pemkab Sleman, dan ormawa mitra pada pita kolaborasi halaman depan.'
+        },
         about: {
           title: 'Tentang Saya',
           subtitle: 'Kelola narasi latar belakang akademik, kepemimpinan, dan dedikasi sosial.'
@@ -1671,6 +1759,12 @@ const initialDataJson = JSON.stringify(rawPortfolioContent);
             break;
           case 'profile':
             renderProfileSection();
+            break;
+          case 'dataProjects':
+            renderDataProjectsSection();
+            break;
+          case 'partners':
+            renderPartnersSection();
             break;
           case 'about':
             renderAboutSection();
@@ -1772,8 +1866,13 @@ const initialDataJson = JSON.stringify(rawPortfolioContent);
           <tbody></tbody>
         `;
         const tbody = table.querySelector('tbody')!;
+        const totalDataProjs = (cmsData.dataProjects?.projects || []).length;
+        const totalPartners = (cmsData.partners || []).length;
+
         const rows = [
           { sec: 'profile', name: 'Profil dan Hero Utama', desc: 'Nama, IPK, bio utama, foto profil, kontak dan sosial media', count: '1 Profil' },
+          { sec: 'dataProjects', name: 'Proyek Data dan Riset', desc: 'Naskah ilmiah SATRIA DATA, GEMASTIK, PKM-RSH, dan SEGARA', count: `${totalDataProjs} Proyek` },
+          { sec: 'partners', name: 'Mitra dan Kolaborasi', desc: 'Pita kemitraan kementerian, pemkab Sleman, dan ormawa', count: `${totalPartners} Mitra` },
           { sec: 'about', name: 'Tentang Saya', desc: 'Paragraf narasi perkenalan diri', count: `${(cmsData.aboutData?.paragraphs || []).length} Paragraf` },
           { sec: 'programs', name: 'Program dan Sorotan', desc: 'Program utama dan pilar gerakan PPK Ormawa', count: `${totalProgs} Item` },
           { sec: 'experience', name: 'Pengalaman dan Organisasi', desc: 'Riwayat kerja profesional dan kepemimpinan organisasi', count: `${totalExp} Entri` },
@@ -1810,6 +1909,381 @@ const initialDataJson = JSON.stringify(rawPortfolioContent);
         });
 
         panel.appendChild(table);
+        workspaceCanvas.appendChild(panel);
+      }
+
+      
+      // =========================================================================
+      // 1B. PROYEK DATA DAN RISET AKADEMIK (dataProjects)
+      // =========================================================================
+      function renderDataProjectsSection() {
+        workspaceCanvas.innerHTML = '';
+        if (!cmsData.dataProjects) {
+          cmsData.dataProjects = { sectionTitle: 'Bukti Nyata & Portofolio Riset Data', sectionSubtitle: '', projects: [] };
+        }
+        const dp = cmsData.dataProjects;
+        const projs: any[] = dp.projects || (dp.projects = []);
+
+        // Panel 1: Pengaturan Judul Seksi
+        const headerPanel = document.createElement('section');
+        headerPanel.className = 'cms-panel';
+        headerPanel.innerHTML = `
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Header Bagian Proyek Data Riset</h2>
+              <p class="panel-desc">Judul dan pengantar seksi pembuktian berkas resmi di halaman utama.</p>
+            </div>
+          </div>
+        `;
+        const headerGrid = document.createElement('div');
+        headerGrid.className = 'form-grid-2';
+        headerGrid.append(
+          createInputField('Judul Seksi', dp.sectionTitle || '', (v) => (dp.sectionTitle = v)),
+          createInputField('Subjudul Seksi', dp.sectionSubtitle || '', (v) => (dp.sectionSubtitle = v))
+        );
+        headerPanel.appendChild(headerGrid);
+        workspaceCanvas.appendChild(headerPanel);
+
+        // Panel 2: Daftar Berkas Proyek Data
+        const listPanel = document.createElement('section');
+        listPanel.className = 'cms-panel';
+        const listHeader = document.createElement('div');
+        listHeader.className = 'panel-header';
+        listHeader.innerHTML = `
+          <div>
+            <h2 class="panel-title">Daftar Berkas Proyek Data & Riset (${projs.length})</h2>
+            <p class="panel-desc">Kelola rincian naskah ilmiah resmi, nomor registrasi, metrik numerik, checklist pembuktian, dan tautan repositori.</p>
+          </div>
+        `;
+
+        const addBtn = document.createElement('button');
+        addBtn.type = 'button';
+        addBtn.className = 'btn-primary-ink';
+        addBtn.innerHTML = '<i class="bi bi-plus-lg"></i> <span>Tambah Proyek Data Baru</span>';
+        addBtn.addEventListener('click', () => {
+          projs.push({
+            id: `project-${Date.now()}`,
+            category: 'Kompetisi Sains Data Nasional',
+            badge: 'Berkas Resmi: SEC_(DOKUMEN).pdf',
+            period: '2026',
+            title: 'Judul Proyek Data Baru',
+            partner: 'Penyelenggara / Kementerian / Universitas',
+            summary: 'Ringkasan narasi ilmiah dan implementasi teknis...',
+            evidencePoints: [
+              'Poin bukti resmi 1...',
+              'Poin bukti resmi 2...'
+            ],
+            metrics: [
+              { label: 'Metrik 1', value: '100%' },
+              { label: 'Metrik 2', value: '24' }
+            ],
+            techStack: ['Python', 'SQL', 'Streamlit'],
+            docsUrl: 'https://drive.google.com/...',
+            liveUrl: '',
+            githubUrl: ''
+          });
+          markDirty();
+          updateSidebarCounts();
+          showToast('Proyek data baru berhasil ditambahkan.', 'success');
+          renderDataProjectsSection();
+        });
+        listHeader.appendChild(addBtn);
+        listPanel.appendChild(listHeader);
+
+        const stack = document.createElement('div');
+        stack.className = 'item-list-stack';
+
+        projs.forEach((item, idx) => {
+          const card = document.createElement('div');
+          card.className = 'repeater-card';
+
+          const top = document.createElement('div');
+          top.className = 'repeater-top';
+          const title = document.createElement('span');
+          title.className = 'repeater-title';
+          title.textContent = `${idx + 1}. ${item.title || item.id || 'Proyek Data'}`;
+
+          const delBtn = document.createElement('button');
+          delBtn.type = 'button';
+          delBtn.className = 'btn-danger-soft';
+          delBtn.innerHTML = '<i class="bi bi-trash3"></i> <span>Hapus</span>';
+          delBtn.addEventListener('click', () => {
+            if (confirm(`Hapus proyek "${item.title || item.id}"?`)) {
+              projs.splice(idx, 1);
+              markDirty();
+              updateSidebarCounts();
+              showToast('Proyek data berhasil dihapus.', 'info');
+              renderDataProjectsSection();
+            }
+          });
+
+          top.appendChild(title);
+          top.appendChild(delBtn);
+          card.appendChild(top);
+
+          // Grid 1: Basic Identifiers
+          const grid1 = document.createElement('div');
+          grid1.className = 'form-grid-3';
+          grid1.append(
+            createInputField('ID Unik (slug)', item.id || '', (v) => (item.id = v)),
+            createInputField('Kategori Kompetisi / Riset', item.category || '', (v) => (item.category = v)),
+            createInputField('Periode / Tahun', item.period || '', (v) => (item.period = v))
+          );
+          card.appendChild(grid1);
+
+          // Grid 2: Badge & Partner
+          const grid2 = document.createElement('div');
+          grid2.className = 'form-grid-2';
+          grid2.append(
+            createInputField('Badge Status / Kode Registrasi Dokumen', item.badge || '', (v) => (item.badge = v)),
+            createInputField('Mitra & Penyelenggara Resmi', item.partner || '', (v) => (item.partner = v))
+          );
+          card.appendChild(grid2);
+
+          // Full Title & Summary
+          card.appendChild(createInputField('Judul Resmi Dokumen (Full)', item.title || '', (v) => (item.title = v), { fullWidth: true }));
+          card.appendChild(createTextareaField('Ringkasan Eksekutif (Editorial Lead)', item.summary || '', (v) => (item.summary = v), { rows: 3 }));
+
+          // URLs
+          const gridUrls = document.createElement('div');
+          gridUrls.className = 'form-grid-3';
+          gridUrls.append(
+            createInputField('Tautan Berkas Google Drive (docsUrl)', item.docsUrl || '', (v) => (item.docsUrl = v)),
+            createInputField('Tautan Aplikasi Web Live (liveUrl, opsional)', item.liveUrl || '', (v) => (item.liveUrl = v)),
+            createInputField('Tautan Repositori GitHub (githubUrl, opsional)', item.githubUrl || '', (v) => (item.githubUrl = v))
+          );
+          card.appendChild(gridUrls);
+
+          // Sub-block: Evidence Points (Array of strings)
+          const pointsBox = document.createElement('div');
+          pointsBox.style.margin = '1rem 0';
+          pointsBox.style.padding = '1rem';
+          pointsBox.style.background = 'var(--cms-subtle)';
+          pointsBox.style.borderRadius = '8px';
+          pointsBox.style.border = '1px solid var(--cms-border)';
+          
+          const pointsHdr = document.createElement('div');
+          pointsHdr.style.display = 'flex';
+          pointsHdr.style.justifyContent = 'space-between';
+          pointsHdr.style.alignItems = 'center';
+          pointsHdr.style.marginBottom = '0.5rem';
+          pointsHdr.innerHTML = `<strong>Poin Bukti & Legalitas Operasional (${(item.evidencePoints || []).length})</strong>`;
+          
+          const addPtBtn = document.createElement('button');
+          addPtBtn.type = 'button';
+          addPtBtn.className = 'btn-secondary-plain';
+          addPtBtn.style.fontSize = '12px';
+          addPtBtn.style.padding = '0.25rem 0.6rem';
+          addPtBtn.innerHTML = '<i class="bi bi-plus-lg"></i> Tambah Poin';
+          addPtBtn.addEventListener('click', () => {
+            if (!item.evidencePoints) item.evidencePoints = [];
+            item.evidencePoints.push('Poin bukti baru...');
+            markDirty();
+            renderDataProjectsSection();
+          });
+          pointsHdr.appendChild(addPtBtn);
+          pointsBox.appendChild(pointsHdr);
+
+          (item.evidencePoints || []).forEach((pt: string, ptIdx: number) => {
+            const ptRow = document.createElement('div');
+            ptRow.style.display = 'flex';
+            ptRow.style.gap = '0.5rem';
+            ptRow.style.marginBottom = '0.4rem';
+            const ptInp = document.createElement('input');
+            ptInp.type = 'text';
+            ptInp.className = 'field-input';
+            ptInp.value = pt;
+            ptInp.addEventListener('input', () => {
+              item.evidencePoints[ptIdx] = ptInp.value;
+              markDirty();
+            });
+            const ptDel = document.createElement('button');
+            ptDel.type = 'button';
+            ptDel.className = 'btn-danger-soft';
+            ptDel.style.padding = '0.2rem 0.5rem';
+            ptDel.innerHTML = '<i class="bi bi-x-lg"></i>';
+            ptDel.addEventListener('click', () => {
+              item.evidencePoints.splice(ptIdx, 1);
+              markDirty();
+              renderDataProjectsSection();
+            });
+            ptRow.appendChild(ptInp);
+            ptRow.appendChild(ptDel);
+            pointsBox.appendChild(ptRow);
+          });
+          card.appendChild(pointsBox);
+
+          // Sub-block: Metrics (Array of { label, value })
+          const metBox = document.createElement('div');
+          metBox.style.margin = '1rem 0';
+          metBox.style.padding = '1rem';
+          metBox.style.background = 'var(--cms-subtle)';
+          metBox.style.borderRadius = '8px';
+          metBox.style.border = '1px solid var(--cms-border)';
+          
+          const metHdr = document.createElement('div');
+          metHdr.style.display = 'flex';
+          metHdr.style.justifyContent = 'space-between';
+          metHdr.style.alignItems = 'center';
+          metHdr.style.marginBottom = '0.5rem';
+          metHdr.innerHTML = `<strong>Metrik Dampak / Statistik (${(item.metrics || []).length})</strong>`;
+          
+          const addMetBtn = document.createElement('button');
+          addMetBtn.type = 'button';
+          addMetBtn.className = 'btn-secondary-plain';
+          addMetBtn.style.fontSize = '12px';
+          addMetBtn.style.padding = '0.25rem 0.6rem';
+          addMetBtn.innerHTML = '<i class="bi bi-plus-lg"></i> Tambah Metrik';
+          addMetBtn.addEventListener('click', () => {
+            if (!item.metrics) item.metrics = [];
+            item.metrics.push({ label: 'Deskripsi Metrik', value: '100%' });
+            markDirty();
+            renderDataProjectsSection();
+          });
+          metHdr.appendChild(addMetBtn);
+          metBox.appendChild(metHdr);
+
+          (item.metrics || []).forEach((m: any, mIdx: number) => {
+            const mRow = document.createElement('div');
+            mRow.style.display = 'flex';
+            mRow.style.gap = '0.5rem';
+            mRow.style.marginBottom = '0.4rem';
+            const valInp = document.createElement('input');
+            valInp.type = 'text';
+            valInp.className = 'field-input';
+            valInp.style.maxWidth = '140px';
+            valInp.placeholder = 'Nilai (mis. 224)';
+            valInp.value = m.value || '';
+            valInp.addEventListener('input', () => {
+              m.value = valInp.value;
+              markDirty();
+            });
+
+            const lblInp = document.createElement('input');
+            lblInp.type = 'text';
+            lblInp.className = 'field-input';
+            lblInp.placeholder = 'Label (mis. Kolam Ikan Binaan)';
+            lblInp.value = m.label || '';
+            lblInp.addEventListener('input', () => {
+              m.label = lblInp.value;
+              markDirty();
+            });
+
+            const mDel = document.createElement('button');
+            mDel.type = 'button';
+            mDel.className = 'btn-danger-soft';
+            mDel.style.padding = '0.2rem 0.5rem';
+            mDel.innerHTML = '<i class="bi bi-x-lg"></i>';
+            mDel.addEventListener('click', () => {
+              item.metrics.splice(mIdx, 1);
+              markDirty();
+              renderDataProjectsSection();
+            });
+
+            mRow.appendChild(valInp);
+            mRow.appendChild(lblInp);
+            mRow.appendChild(mDel);
+            metBox.appendChild(mRow);
+          });
+          card.appendChild(metBox);
+
+          // Tech Stack (Comma separated)
+          const techVal = (item.techStack || []).join(', ');
+          card.appendChild(createInputField('Alat & Teknologi (pisahkan dengan koma)', techVal, (v) => {
+            item.techStack = v.split(',').map((s: string) => s.trim()).filter(Boolean);
+          }, { fullWidth: true }));
+
+          stack.appendChild(card);
+        });
+
+        listPanel.appendChild(stack);
+        workspaceCanvas.appendChild(listPanel);
+      }
+
+      // =========================================================================
+      // 1C. MITRA DAN INSTANSI KOLABORASI (partners)
+      // =========================================================================
+      function renderPartnersSection() {
+        workspaceCanvas.innerHTML = '';
+        if (!cmsData.partners) {
+          cmsData.partners = [];
+        }
+        const partners: any[] = cmsData.partners;
+
+        const panel = document.createElement('section');
+        panel.className = 'cms-panel';
+        const header = document.createElement('div');
+        header.className = 'panel-header';
+        header.innerHTML = `
+          <div>
+            <h2 class="panel-title">Daftar Mitra & Instansi Kolaborasi (${partners.length})</h2>
+            <p class="panel-desc">Badge institusi yang tampil pada pita "DIPERCAYA DAN BERKOLABORASI" di halaman depan (Hero section).</p>
+          </div>
+        `;
+
+        const addBtn = document.createElement('button');
+        addBtn.type = 'button';
+        addBtn.className = 'btn-primary-ink';
+        addBtn.innerHTML = '<i class="bi bi-plus-lg"></i> <span>Tambah Mitra Baru</span>';
+        addBtn.addEventListener('click', () => {
+          partners.push({
+            name: 'Nama Mitra / Dinas Baru',
+            icon: 'bi bi-building'
+          });
+          markDirty();
+          updateSidebarCounts();
+          showToast('Mitra baru berhasil ditambahkan.', 'success');
+          renderPartnersSection();
+        });
+        header.appendChild(addBtn);
+        panel.appendChild(header);
+
+        const grid = document.createElement('div');
+        grid.className = 'form-grid-2';
+
+        partners.forEach((p, idx) => {
+          const card = document.createElement('div');
+          card.className = 'repeater-card';
+          card.style.padding = '1.25rem';
+
+          const top = document.createElement('div');
+          top.className = 'repeater-top';
+          const num = document.createElement('span');
+          num.className = 'repeater-title';
+          num.innerHTML = `<i class="${p.icon || 'bi bi-building'}" style="color: var(--cms-accent); margin-right: 0.5rem;"></i> ${idx + 1}. ${p.name || 'Mitra'}`;
+
+          const delBtn = document.createElement('button');
+          delBtn.type = 'button';
+          delBtn.className = 'btn-danger-soft';
+          delBtn.style.padding = '0.2rem 0.5rem';
+          delBtn.innerHTML = '<i class="bi bi-trash3"></i>';
+          delBtn.addEventListener('click', () => {
+            partners.splice(idx, 1);
+            markDirty();
+            updateSidebarCounts();
+            showToast('Mitra berhasil dihapus.', 'info');
+            renderPartnersSection();
+          });
+
+          top.appendChild(num);
+          top.appendChild(delBtn);
+          card.appendChild(top);
+
+          card.append(
+            createInputField('Nama Instansi / Mitra', p.name || '', (v) => {
+              p.name = v;
+              num.innerHTML = `<i class="${p.icon || 'bi bi-building'}" style="color: var(--cms-accent); margin-right: 0.5rem;"></i> ${idx + 1}. ${p.name || 'Mitra'}`;
+            }),
+            createIconInputField('Kelas Ikon Bootstrap', p.icon || 'bi bi-building', (v) => {
+              p.icon = v;
+              num.innerHTML = `<i class="${p.icon || 'bi bi-building'}" style="color: var(--cms-accent); margin-right: 0.5rem;"></i> ${idx + 1}. ${p.name || 'Mitra'}`;
+            })
+          );
+
+          grid.appendChild(card);
+        });
+
+        panel.appendChild(grid);
         workspaceCanvas.appendChild(panel);
       }
 
