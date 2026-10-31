@@ -84,7 +84,7 @@ export const personalInfo = {
     instagram: "https://www.instagram.com/mksmetrics/",
     github: "https://github.com/maksumsindet"
   },
-  profileImage: "assets/images/profile-abdidaya.jpg",
+  profileImage: "assets/images/curated/hero-dahron-prau.jpg",
   projectDriveUrl: "https://drive.google.com/drive/folders/1H6HgFSFGwxvSwdGxksj6OziAQxvSrjA0?usp=drive_link"
 };
 
@@ -611,108 +611,156 @@ export const mediaData: MediaCategory[] = [
 
 export const documentaryPhotos: DocumentaryPhoto[] = [
   {
-    src: "assets/images/portfolio/podium-abdidaya-uny-terbaik-2.jpg",
-    alt: "Muhammad Dahron di podium utama Abdidaya Ormawa 2026 membentangkan bendera Universitas Negeri Yogyakarta sebagai peraih Terbaik 2 Nasional",
-    caption: "Podium Kejuaraan Nasional Abdidaya Ormawa 2026: Muhammad Dahron Membentangkan Bendera UNY di Panggung Utama UMI Makassar",
+    src: "assets/images/curated/abdidaya-kontingen-uny-4k.jpg",
+    alt: "Kontingen Universitas Negeri Yogyakarta dan Tim PPK Ormawa KSI Mist pada Malam Puncak Abdidaya 2026",
+    caption: "Momen bersejarah kontingen UNY dan Tim PPK Ormawa KSI Mist SEGARA merayakan raihan Terbaik 2 Nasional Abdidaya Ormawa 2026 di UMI Makassar",
     category: "Prestasi & Riset",
-    tag: "Podium Nasional",
-    source: "Dokumentasi Resmi Abdidaya Kemdiktisaintek"
+    tag: "Terbaik 2 Nasional",
+    source: "Humas Resmi UNY (Dokumentasi 4K)"
   },
   {
-    src: "assets/images/portfolio/dahron-abdidaya-terbaik-2.jpg",
-    alt: "Muhammad Dahron memegang piagam Terbaik 2 Pemahaman Pemberdayaan Masyarakat dan maskot Abdidaya Ormawa 2026",
-    caption: "Penerimaan Piagam Juara Terbaik 2 Nasional Tim Pelaksana Abdidaya Ormawa 2026 di UMI Makassar",
+    src: "assets/images/curated/dahron-abdidaya-terbaik-2.jpg",
+    alt: "Muhammad Dahron Mustofa Maksum memegang piagam penghargaan Terbaik 2 Abdidaya Ormawa 2026",
+    caption: "Muhammad Dahron Mustofa Maksum dengan piagam Terbaik 2 Kategori Tim Pelaksana Terbaik Pemahaman Pemberdayaan Abdidaya Ormawa 2026",
     category: "Prestasi & Riset",
-    tag: "Juara 2 Nasional",
-    source: "Dokumentasi Pribadi"
+    tag: "Penganugerahan Nasional",
+    source: "Dokumentasi Pribadi & Belmawa"
   },
   {
-    src: "assets/images/portfolio/man3-medali-matematika.jpg",
-    alt: "Penyerahan medali kompetisi matematika di MAN 3 Bantul",
-    caption: "Dokumentasi penyerahan apresiasi kejuaraan matematika di kampus MAN 3 Bantul",
+    src: "assets/images/curated/dahron-presidium-ihmsi.jpg",
+    alt: "Muhammad Dahron Mustofa Maksum memimpin sidang sebagai Presidium 1 Mukernas XIX IHMSI",
+    caption: "Memimpin jalannya persidangan Musyawarah Kerja Nasional (Mukernas) XIX IHMSI sebagai Presidium 1 di Yogyakarta",
     category: "Prestasi & Riset",
-    tag: "Kompetisi Sains",
+    tag: "Presidium I Mukernas",
+    source: "Dokumentasi Instagram @mksmetrics"
+  },
+  {
+    src: "assets/images/curated/segara-grand-opening-master.jpg",
+    alt: "Foto bersama seluruh peserta dan pejabat pada Grand Opening Program SEGARA di Sidoagung",
+    caption: "Grand Opening Program SEGARA: Foto bersama tim pelaksana, jajaran birokrasi kampus UNY, Pamong Kalurahan Sidoagung, dan pembudidaya ikan",
+    category: "Pemberdayaan",
+    tag: "Grand Opening SEGARA",
+    source: "Dokumentasi Master Sublaporan Akhir"
+  },
+  {
+    src: "assets/images/curated/tim-pelaksana-ksi-mist-4k.jpg",
+    alt: "Tim Pelaksana PPK Ormawa KSI Mist FMIPA UNY Program SEGARA",
+    caption: "Soliditas 15 mahasiswa tim pelaksana PPK Ormawa KSI Mist FMIPA UNY yang mengabdi di Kalurahan Sidoagung",
+    category: "Pemberdayaan",
+    tag: "Tim Pelaksana PPKO",
+    source: "Dokumentasi Sublaporan Akhir (Ultra-HD 4K)"
+  },
+  {
+    src: "assets/images/curated/gapokkan-segara-agung.jpg",
+    alt: "Pembentukan Gabungan Kelompok Pembudidaya Ikan (GAPOKKAN) Segara Agung",
+    caption: "Inisiasi dan peresmian Gapokkan Segara Agung menyatukan 6 kelompok perikanan dan 224 kolam budidaya di Sidoagung",
+    category: "Pemberdayaan",
+    tag: "Gapokkan Segara Agung",
+    source: "Humas Resmi UNY & Media Center Sleman"
+  },
+  {
+    src: "assets/images/curated/diskominfo-rakor-aplikasi.png",
+    alt: "Rapat koordinasi dan pemaparan aplikasi SEGARA bersama Diskominfo Kabupaten Sleman",
+    caption: "Pemaparan arsitektur sistem dan uji keamanan SEGARA App bersama Kepala Bidang & Tim IT Dinas Kominfo Sleman",
+    category: "Lapangan & Teknis",
+    tag: "Uji Keamanan Diskominfo",
+    source: "Diskominfo Sleman & DKA UNY"
+  },
+  {
+    src: "assets/images/curated/audiensi-bupati-sleman.jpg",
+    alt: "Audiensi Tim PPK Ormawa KSI Mist bersama Bupati Sleman",
+    caption: "Audiensi dan pemaparan capaian program SEGARA di ruang kerja Bupati Sleman, mendapatkan apresiasi dan dukungan penuh Pemkab Sleman",
+    category: "Pemberdayaan",
+    tag: "Audiensi Bupati Sleman",
+    source: "Dokumentasi Pemkab Sleman & KSI Mist"
+  },
+  {
+    src: "assets/images/curated/dprd-sleman-sosialisasi.jpg",
+    alt: "Sosialisasi dan audiensi program bersama Pimpinan DPRD Kabupaten Sleman",
+    caption: "Sinergi legislatif bersama Pimpinan Komisi C DPRD Sleman dalam penguatan kelembagaan UMKM dan perikanan Sidoagung",
+    category: "Pemberdayaan",
+    tag: "Sinergi DPRD Sleman",
+    source: "Sekretariat DPRD Sleman & DKA UNY"
+  },
+  {
+    src: "assets/images/curated/lintas-dinas-pemkab-sleman.jpg",
+    alt: "Forum koordinasi lintas 20 dinas dan instansi Pemkab Sleman untuk keberlanjutan SEGARA",
+    caption: "Forum koordinasi terpadu melibatkan 20 dinas/instansi Pemerintah Kabupaten Sleman guna menjamin keberlanjutan program paska-PPKO",
+    category: "Pemberdayaan",
+    tag: "Sinergi Lintas 20 Dinas",
+    source: "Bappeda Sleman & DKA UNY"
+  },
+  {
+    src: "assets/images/curated/pelatihan-segara-app-warga.jpg",
+    alt: "Pelatihan digitalisasi dan penggunaan aplikasi SEGARA bagi warga Kalurahan Sidoagung",
+    caption: "Pelatihan langsung tata cara operasional platform digital SEGARA bagi para ketua kelompok perikanan dan pamong kalurahan",
+    category: "Lapangan & Teknis",
+    tag: "Literasi Digital",
+    source: "Dokumentasi Pemkal Sidoagung & UNY"
+  },
+  {
+    src: "assets/images/curated/segara-karya-1-olahan-ikan.jpg",
+    alt: "Pelatihan hilirisasi dan diversifikasi olahan produk ikan budidaya",
+    caption: "Pendampingan praktik produksi olahan ikan air tawar bernilai tambah (nugget, kerupuk tulang ikan, abon bawal) bersama ibu-ibu KWT dan PKK",
+    category: "Lapangan & Teknis",
+    tag: "Inkubasi Produk Ikan",
+    source: "Dokumentasi Tim & FMIPA UNY"
+  },
+  {
+    src: "assets/images/curated/sosialisasi-dinkes-sleman.jpg",
+    alt: "Sosialisasi higienitas pangan dan perizinan P-IRT bersama Dinas Kesehatan Sleman",
+    caption: "Dahron menyerahkan sertifikat penghargaan kepada narasumber Dinas Kesehatan Sleman pada sesi sertifikasi kelayakan hygiene pangan olahan",
+    category: "Pemberdayaan",
+    tag: "Standarisasi Dinkes",
+    source: "Humas FMIPA UNY"
+  },
+  {
+    src: "assets/images/curated/dinkop-ukm-sleman-kerjasama.png",
+    alt: "Penyerahan dokumen legalitas dan fasilitasi izin usaha bersama Dinas Koperasi dan UKM Sleman",
+    caption: "Muhammad Dahron Mustofa Maksum memfasilitasi legalitas Nomor Induk Berusaha (NIB) dan sertifikasi halal kelompok usaha bersama Dinkop UKM",
+    category: "Pemberdayaan",
+    tag: "Legalitas Usaha",
+    source: "Dinas Koperasi & UKM Sleman"
+  },
+  {
+    src: "assets/images/curated/segara-raya-rektor-bupati.jpg",
+    alt: "Festival Segara Raya dan Pasar Triwulan dihadiri Rektor UNY dan Bupati Sleman",
+    caption: "Rektor UNY dan Bupati Sleman meninjau langsung stand pameran produk inovasi olahan ikan karya warga dampingan SEGARA",
+    category: "Pemberdayaan",
+    tag: "Festival Segara Raya",
+    source: "Humas DKA UNY & Media Center"
+  },
+  {
+    src: "assets/images/curated/man3-medali-matematika.jpg",
+    alt: "Muhammad Dahron Mustofa Maksum meraih medali Kompetisi Matematika Nasional POSI di MAN 3 Bantul",
+    caption: "Penganugerahan medali perunggu Kompetisi Matematika Sains Tingkat Nasional POSI jenjang Madrasah Aliyah di MAN 3 Bantul",
+    category: "Prestasi & Riset",
+    tag: "Medali Matematika",
     source: "Humas MAN 3 Bantul"
   },
   {
-    src: "assets/images/portfolio/segara-app-training.jpg",
-    alt: "Pendampingan warga menggunakan aplikasi perikanan di Sidoagung",
-    caption: "Sesi praktik langsung penggunaan aplikasi digital bersama perwakilan kelompok perikanan dan pamong",
-    category: "Pemberdayaan",
-    tag: "Literasi Digital",
-    source: "Humas UNY dan Diskominfo"
+    src: "assets/images/curated/man3-apresiasi-tahfidz.jpg",
+    alt: "Apresiasi Tahfidz Al-Qur'an 7 Juz di MAN 3 Bantul",
+    caption: "Wisuda dan apresiasi Tahfidz Al-Qur'an 7 Juz dengan selempang kehormatan di perpustakaan MAN 3 Bantul",
+    category: "Prestasi & Riset",
+    tag: "Tahfidz Al-Qur'an",
+    source: "Dokumentasi Instagram @mksmetrics"
   },
   {
-    src: "assets/images/portfolio/segara-banner-sidoagung.jpg",
-    alt: "Foto bersama peserta dan pemangku kepentingan di Balai Kalurahan Sidoagung",
-    caption: "Dokumentasi kolaboratif bersama jajaran birokrasi kampus, perangkat desa, dan pembudidaya ikan",
-    category: "Pemberdayaan",
-    tag: "Sinergi Lintas Sektor",
-    source: "Dokumentasi Tim"
+    src: "assets/images/curated/mtsn6-juara2-komik.jpg",
+    alt: "Juara 2 Lomba Komik Sejarah Tokoh Sultan Agung Tingkat DIY",
+    caption: "Prestasi Juara II Lomba Cipta Komik Sejarah Sultan Agung tingkat regional DIY bersama karya komik edukasi sejarah",
+    category: "Prestasi & Riset",
+    tag: "Juara Komik Sejarah",
+    source: "Tribun Jogja & Dinas Kebudayaan"
   },
   {
-    src: "assets/images/portfolio/segara-event-1.jpg",
-    alt: "Prosesi simbolis pembukaan kegiatan pengabdian di Balai Kalurahan",
-    caption: "Seremoni pembukaan program pemberdayaan masyarakat di Balai Kalurahan Sidoagung",
-    category: "Pemberdayaan",
-    tag: "Seremoni Pembukaan",
-    source: "Dokumentasi Pemkal Sidoagung"
-  },
-  {
-    src: "assets/images/portfolio/uny-dscf0754.jpg",
-    alt: "Pemaparan rencana kegiatan kepada warga Kalurahan Sidoagung",
-    caption: "Sosialisasi tahapan kegiatan pemberdayaan kepada masyarakat dan tokoh warga setempat",
-    category: "Pemberdayaan",
-    tag: "Sosialisasi Warga",
-    source: "Humas Resmi UNY"
-  },
-  {
-    src: "assets/images/portfolio/uny-dscf0713.jpg",
-    alt: "Praktik lapangan manajemen kualitas air kolam dan pakan",
-    caption: "Pendampingan teknis pengelolaan kualitas air kolam dan efisiensi pakan budidaya",
+    src: "assets/images/curated/berita-acara-aplikasi-dahron.jpg",
+    alt: "Berita Acara Serah Terima Resmi Luaran Program SEGARA",
+    caption: "Berita Acara Serah Terima Resmi aplikasi digital SEGARA dan buku panduan yang ditandatangani oleh Muhammad Dahron Mustofa Maksum",
     category: "Lapangan & Teknis",
-    tag: "Pendampingan Teknis",
-    source: "Humas Resmi UNY"
-  },
-  {
-    src: "assets/images/portfolio/uny-dscf0812.jpg",
-    alt: "Diskusi kelompok terpumpun bersama perwakilan dinas terkait",
-    caption: "Forum diskusi terpumpun (FGD) penyelarasan program bersama perwakilan instansi daerah",
-    category: "Pemberdayaan",
-    tag: "Forum Koordinasi",
-    source: "Humas Resmi UNY"
-  },
-  {
-    src: "assets/images/portfolio/fmipa-ksi1.jpg",
-    alt: "Kegiatan pembinaan anggota riset mahasiswa di FMIPA UNY",
-    caption: "Sesi diskusi dan pembinaan kelompok riset mahasiswa di lingkungan Fakultas MIPA",
-    category: "Prestasi & Riset",
-    tag: "Forum Ilmiah",
-    source: "FMIPA UNY"
-  },
-  {
-    src: "assets/images/portfolio/fmipa-ksi2.jpg",
-    alt: "Dokumentasi penerima apresiasi mahasiswa berprestasi di tingkat fakultas",
-    caption: "Apresiasi capaian kompetisi ilmiah mahasiswa di lingkungan Fakultas MIPA UNY",
-    category: "Prestasi & Riset",
-    tag: "Apresiasi Fakultas",
-    source: "FMIPA UNY"
-  },
-  {
-    src: "assets/images/portfolio/fmipa-ksi5.jpg",
-    alt: "Peninjauan langsung kondisi kolam perikanan warga di lapangan",
-    caption: "Observasi dan pemetaan kondisi fisik kolam perikanan rakyat di lokasi pendampingan",
-    category: "Lapangan & Teknis",
-    tag: "Observasi Lapangan",
-    source: "FMIPA UNY"
-  },
-  {
-    src: "assets/images/portfolio/abdidaya-stage-uny.jpg",
-    alt: "Penerimaan penghargaan di panggung malam puncak Abdidaya",
-    caption: "Momen penerimaan penghargaan nasional di panggung utama malam puncak penganugerahan",
-    category: "Prestasi & Riset",
-    tag: "Malam Penganugerahan",
-    source: "Dokumentasi Abdidaya"
+    tag: "Legalitas Luaran",
+    source: "Sublaporan Akhir PPK Ormawa"
   }
 ];
 
