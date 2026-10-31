@@ -41,6 +41,21 @@ const spotlightCards = [
     linkLabel: "Eksplorasi Jejak"
   }
 ];
+const partners = [
+  { name: "Universitas Negeri Yogyakarta", icon: "bi bi-mortarboard-fill" },
+  { name: "Kemdiktisaintek RI", icon: "bi bi-award-fill" },
+  { name: "Puspresnas Kemdiktisaintek", icon: "bi bi-trophy-fill" },
+  { name: "BPTI Kemdiktisaintek", icon: "bi bi-stars" },
+  { name: "Direktorat Belmawa", icon: "bi bi-compass-fill" },
+  { name: "PPK Ormawa Nasional", icon: "bi bi-shield-check" },
+  { name: "Pemkab Sleman", icon: "bi bi-geo-alt-fill" },
+  { name: "Kalurahan Sidoagung", icon: "bi bi-building" },
+  { name: "Gapokkan Segara Agung", icon: "bi bi-droplet-fill" },
+  { name: "IHMSI Indonesia", icon: "bi bi-graph-up-arrow" },
+  { name: "KSI Mist FMIPA UNY", icon: "bi bi-lightbulb-fill" },
+  { name: "Dinas Kebudayaan DIY", icon: "bi bi-palette-fill" },
+];
+
 ---
 
 <section id="home" class="hero-section">
@@ -125,17 +140,17 @@ const spotlightCards = [
     </div>
   </div>
 
-  <!-- Credibility dan Partners Ribbon (Seamless Reference Match) -->
+  <!-- Credibility dan Partners Ribbon -->
   <div class="partners-ribbon-wrapper">
     <div class="container partners-container">
       <span class="partners-title">DIPERCAYA dan BERKOLABORASI:</span>
       <div class="partners-grid">
-        <div class="partner-badge"><i class="bi bi-bank"></i> Universitas Negeri Yogyakarta</div>
-        <div class="partner-badge"><i class="bi bi-award"></i> Kemdiktisaintek RI</div>
-        <div class="partner-badge"><i class="bi bi-shield-check"></i> PPK Ormawa Nasional</div>
-        <div class="partner-badge"><i class="bi bi-building"></i> Kalurahan Sidoagung</div>
-        <div class="partner-badge"><i class="bi bi-droplet"></i> Gapokkan Segara Agung</div>
-        <div class="partner-badge"><i class="bi bi-graph-up"></i> IHMSI Indonesia</div>
+        {partners.map((partner) => (
+          <div class="partner-badge">
+            <i class={partner.icon}></i>
+            <span>{partner.name}</span>
+          </div>
+        ))}
       </div>
     </div>
   </div>
