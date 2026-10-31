@@ -64,7 +64,7 @@ const professionalWork = experienceProgramAndWork;
             <ul class="org-bullets-list">
               {item.responsibilities.map((res) => (
                 <li>
-                  <span class="bullet-dot"></span>
+                  <i class="bi bi-check2 org-check-icon"></i>
                   <span>{res}</span>
                 </li>
               ))}
@@ -329,12 +329,10 @@ const professionalWork = experienceProgramAndWork;
     text-justify: inter-word;
   }
 
-  .bullet-dot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background-color: var(--color-terracotta);
-    margin-top: 7px;
+  .org-check-icon {
+    font-size: 0.95rem;
+    color: var(--color-gold, #C5A880);
+    margin-top: 2px;
     flex-shrink: 0;
   }
 

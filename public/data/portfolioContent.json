@@ -79,7 +79,7 @@
       {
         "filter": "Kelembagaan",
         "icon": "bi bi-people-fill",
-        "kicker": "Pilar 1 • Segara Madya",
+        "kicker": "Pilar 1: Segara Madya",
         "title": "Gapokkan Segara Agung",
         "desc": "Mendirikan Gabungan Kelompok Ikan (Gapokkan) Segara Agung beranggotakan 25 orang guna menaungi 6 kelompok pembudidaya pengelola 224 kolam ikan.",
         "meta": "Kelembagaan Hulu"
@@ -87,7 +87,7 @@
       {
         "filter": "Hilirisasi",
         "icon": "bi bi-building-gear",
-        "kicker": "Pilar 2 • Segara Karya",
+        "kicker": "Pilar 2: Segara Karya",
         "title": "Inkubasi KUB Ikanura",
         "desc": "Membentuk Kelompok Usaha Bersama (KUB) Ikanura beranggotakan 16 perwakilan KWT dari 8 padukuhan yang dibina melalui inkubasi pelatihan diversifikasi produk olahan ikan bernilai tambah.",
         "meta": "Hilirisasi Produk"
@@ -95,7 +95,7 @@
       {
         "filter": "Digitalisasi",
         "icon": "bi bi-phone",
-        "kicker": "Pilar 3 • Segara Daya",
+        "kicker": "Pilar 3: Segara Daya",
         "title": "Platform SEGARA App",
         "desc": "Merancang platform SEGARA App yang berhasil diuji keamanan sistemnya bersama Diskominfo Kabupaten Sleman untuk integrasi rantai pasok digital.",
         "meta": "Transformasi Digital"
@@ -103,7 +103,7 @@
       {
         "filter": "Komersialisasi",
         "icon": "bi bi-shop",
-        "kicker": "Pilar 4 • Segara Raya",
+        "kicker": "Pilar 4: Segara Raya",
         "title": "Pasar Triwulan dan Kemitraan B2B",
         "desc": "Menginisiasi kesepakatan bisnis B2B resmi dengan Warung Makan Kembang Ndhesso serta menggelar pasar triwulan dan festival UMKM yang dihadiri Bupati Sleman.",
         "meta": "Akses Pasar"
@@ -111,7 +111,7 @@
       {
         "filter": "Ekologi",
         "icon": "bi bi-droplet",
-        "kicker": "Pilar 5 • Segara Lestari",
+        "kicker": "Pilar 5: Segara Lestari",
         "title": "Standarisasi CBIB dan Mutu Air",
         "desc": "Pendampingan Cara Budidaya Ikan yang Baik (CBIB), advokasi bantuan 84 kg bibit unggul dan 30 sak pakan, serta pemantauan kualitas air kolam secara berkelanjutan.",
         "meta": "Keberlanjutan Budidaya"

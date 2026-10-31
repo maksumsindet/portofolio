@@ -1363,8 +1363,8 @@ const initialDataJson = JSON.stringify(rawPortfolioContent);
       async function resetToDefaultContent() {
         const confirmed = confirm(
           'Apakah Anda yakin ingin mengembalikan seluruh konten ke data default bawaan (pabrik)?\n\n' +
-          '• Semua editan yang belum disimpan atau tersimpan di browser akan dikembalikan ke awal.\n' +
-          '• File data di server lokal juga akan diselaraskan kembali ke konten default.\n\n' +
+          '- Semua editan yang belum disimpan atau tersimpan di browser akan dikembalikan ke awal.\n' +
+          '- File data di server lokal juga akan diselaraskan kembali ke konten default.\n\n' +
           'Klik OK untuk melanjutkan reset.'
         );
         if (!confirmed) return;
