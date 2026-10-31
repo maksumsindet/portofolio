@@ -15,12 +15,12 @@ const heroBgImage = heroBgSrc.startsWith('http') || heroBgSrc.startsWith(base) |
   ? heroBgSrc
   : `${base}${heroBgSrc.replace(/^\/+/, '')}`;
 
-const spotlightCards = [
+const defaultSpotlightCards = [
   {
     tag: "KETUA TIM PELAKSANA | 224 KOLAM",
     title: "PPK ORMAWA SEGARA",
     desc: "Memimpin 14 mahasiswa lintas disiplin FMIPA UNY dalam koordinasi 5 pilar Sentra Gerak Agromina di Sidoagung, menaungi 224 kolam hingga meraih Juara 2 Nasional Abdidaya Ormawa.",
-    image: `${base}assets/images/curated/spotlight-segara.jpg`,
+    image: "assets/images/curated/spotlight-segara.jpg",
     link: "#programs",
     linkLabel: "Jelajahi Kepemimpinan"
   },
@@ -28,7 +28,7 @@ const spotlightCards = [
     tag: "PRESTASI TERTINGGI KEMDIKTISAINTEK",
     title: "TERBAIK 2 NASIONAL",
     desc: "Penerima Penghargaan Terbaik 2 Pemahaman Pemberdayaan Masyarakat Abdidaya Ormawa 2026 Kemdiktisaintek RI di UMI Makassar.",
-    image: `${base}assets/images/curated/spotlight-abdidaya.jpg`,
+    image: "assets/images/curated/spotlight-abdidaya.jpg",
     link: "#achievements",
     linkLabel: "Lihat Rekognisi"
   },
@@ -36,11 +36,22 @@ const spotlightCards = [
     tag: "ANALISIS DATA dan SAINS",
     title: "STATISTIKA dan RISET",
     desc: "Presidium I Mukernas XIX IHMSI dan Kepala Departemen KPL KSI Mist FMIPA UNY dengan IPK 3.84 / 4.00.",
-    image: `${base}assets/images/curated/spotlight-ihmsi.jpg`,
+    image: "assets/images/curated/spotlight-ihmsi.jpg",
     link: "#experience",
     linkLabel: "Eksplorasi Jejak"
   }
 ];
+
+const rawSpotlightList = ((rawPortfolioContent as any)?.spotlightCards && (rawPortfolioContent as any)?.spotlightCards.length > 0)
+  ? (rawPortfolioContent as any).spotlightCards
+  : defaultSpotlightCards;
+
+const spotlightCards = rawSpotlightList.map((c: any) => ({
+  ...c,
+  image: c.image && (c.image.startsWith('http') || c.image.startsWith(base) || c.image.startsWith('data:'))
+    ? c.image
+    : `${base}${String(c.image || '').replace(/^\/+/, '')}`
+}));
 const defaultPartners = [
   { name: "Universitas Negeri Yogyakarta", icon: "bi bi-mortarboard-fill" },
   { name: "Kemdiktisaintek RI", icon: "bi bi-award-fill" },

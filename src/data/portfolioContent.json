@@ -145,7 +145,49 @@
       "authorName": "Muhammad Dahron Mustofa Maksum",
       "authorRole": "Ketua Tim Pelaksana PPK Ormawa SEGARA"
     },
-    "trustBadges": []
+    "trustBadges": [],
+    "programs": [
+      {
+        "category": "Pemberdayaan Masyarakat",
+        "title": "PPK Ormawa SEGARA",
+        "subtitle": "Sentra Gerak Agromina Sidoagung",
+        "role": "Ketua Tim Pelaksana (Team Leader)",
+        "description": "Dipercaya sebagai Ketua Tim Pelaksana memimpin 14 mahasiswa lintas disiplin FMIPA UNY, berkolaborasi dengan Pemkab Sleman dan 20 Dinas dalam mengoordinasikan lima pilar terintegrasi (Madya, Karya, Daya, Raya, Lestari) guna memberdayakan 6 kelompok pembudidaya pengelola 224 kolam budidaya.",
+        "image": "assets/images/portfolio/uny-dscf0754.jpg",
+        "link": "#media",
+        "tag": "Ketua Tim Pelaksana | Juara 2 Nasional"
+      },
+      {
+        "category": "Prestasi dan Rekognisi",
+        "title": "Anugerah Abdidaya Ormawa",
+        "subtitle": "Kemdiktisaintek RI 2026",
+        "role": "Terbaik 2 Pemahaman Pemberdayaan Masyarakat",
+        "description": "Penerima Penghargaan Terbaik 2 Pemahaman Pemberdayaan Masyarakat Abdidaya Ormawa 2026 Kemdiktisaintek RI di Universitas Muslim Indonesia (UMI) Makassar.",
+        "image": "assets/images/portfolio/podium-abdidaya-uny-terbaik-2.jpg",
+        "link": "#achievements",
+        "tag": "Juara 2 Nasional"
+      },
+      {
+        "category": "Advokasi dan Kebijakan",
+        "title": "Kajian Strategis IHMSI",
+        "subtitle": "Kajian Nasional Berbasis Data",
+        "role": "Staf Bidang Kastrat | Presidium I Mukernas XIX",
+        "description": "Mengkaji dan menganalisis isu-isu strategis nasional berbasis bukti data serta memimpin jalannya Musyawarah Kerja Nasional XIX (Mukernas XIX IHMSI) 2025.",
+        "image": "assets/images/portfolio/fmipa-ksi1.jpg",
+        "link": "#experience",
+        "tag": "Nasional"
+      },
+      {
+        "category": "Riset dan Keilmiahan",
+        "title": "KSI Mist FMIPA UNY",
+        "subtitle": "Penalaran dan Lomba Mahasiswa",
+        "role": "Kepala Departemen KPL",
+        "description": "Memimpin Departemen KPL dalam merancang program pengembangan potensi penalaran, monitoring evaluasi prestasi, dan pembinaan delegasi kompetisi nasional.",
+        "image": "assets/images/portfolio/fmipa-ksi2.jpg",
+        "link": "#experience",
+        "tag": "Departemen KPL"
+      }
+    ]
   },
   "skillsCategories": [
     {
@@ -1438,6 +1480,32 @@
     {
       "name": "KSI Mist FMIPA UNY",
       "icon": "bi bi-lightbulb-fill"
+    }
+  ],
+  "spotlightCards": [
+    {
+      "tag": "KETUA TIM PELAKSANA | 224 KOLAM",
+      "title": "PPK ORMAWA SEGARA",
+      "desc": "Memimpin 14 mahasiswa lintas disiplin FMIPA UNY dalam koordinasi 5 pilar Sentra Gerak Agromina di Sidoagung, menaungi 224 kolam hingga meraih Juara 2 Nasional Abdidaya Ormawa.",
+      "image": "assets/images/curated/spotlight-segara.jpg",
+      "link": "#programs",
+      "linkLabel": "Jelajahi Kepemimpinan"
+    },
+    {
+      "tag": "PRESTASI TERTINGGI KEMDIKTISAINTEK",
+      "title": "TERBAIK 2 NASIONAL",
+      "desc": "Penerima Penghargaan Terbaik 2 Pemahaman Pemberdayaan Masyarakat Abdidaya Ormawa 2026 Kemdiktisaintek RI di UMI Makassar.",
+      "image": "assets/images/curated/spotlight-abdidaya.jpg",
+      "link": "#achievements",
+      "linkLabel": "Lihat Rekognisi"
+    },
+    {
+      "tag": "ANALISIS DATA dan SAINS",
+      "title": "STATISTIKA dan RISET",
+      "desc": "Presidium I Mukernas XIX IHMSI dan Kepala Departemen KPL KSI Mist FMIPA UNY dengan IPK 3.84 / 4.00.",
+      "image": "assets/images/curated/spotlight-ihmsi.jpg",
+      "link": "#experience",
+      "linkLabel": "Eksplorasi Jejak"
     }
   ]
 }

@@ -85,6 +85,95 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
       }
     </style>
 
+
+    <script define:vars={{ base }}>
+      // ==========================================
+      // LIVE CMS SYNC BRIDGE (Landing Page <-> Admin CMS)
+      // ==========================================
+      (function syncLandingPageWithAdmin() {
+        const STORAGE_DATA_KEY = 'maksum_portfolio_cms_data';
+        try {
+          const raw = localStorage.getItem(STORAGE_DATA_KEY);
+          if (!raw) return;
+          const data = JSON.parse(raw);
+          if (!data || typeof data !== 'object') return;
+
+          // 1. Sync Personal Info & Hero Meta
+          if (data.personalInfo) {
+            const p = data.personalInfo;
+            if (p.name) {
+              document.querySelectorAll('.sig-text').forEach(el => el.textContent = p.name);
+            }
+            if (p.gpa) {
+              document.querySelectorAll('.meta-item span').forEach(el => {
+                if (el.textContent && el.textContent.includes('Universitas Negeri Yogyakarta')) {
+                  el.textContent = `Universitas Negeri Yogyakarta (IPK ${p.gpa})`;
+                }
+              });
+              document.querySelectorAll('.sig-title').forEach(el => {
+                el.textContent = `Mahasiswa S1 Statistika UNY | IPK ${p.gpa}`;
+              });
+            }
+            if (p.address) {
+              const domEl = document.querySelector('.contact-row:has(.bi-geo-alt) .contact-val');
+              if (domEl) domEl.textContent = p.address;
+            }
+            if (p.email) {
+              const emailEl = document.querySelector('.email-link');
+              if (emailEl) {
+                emailEl.textContent = p.email;
+                emailEl.setAttribute('href', `mailto:${p.email}`);
+              }
+            }
+            if (p.phone) {
+              const phoneEl = document.querySelector('.contact-row:has(.bi-telephone) .contact-val');
+              if (phoneEl) phoneEl.textContent = p.phone;
+            }
+            if (p.university) {
+              const univEl = document.querySelector('.contact-row:has(.bi-bank) .contact-val');
+              if (univEl) univEl.textContent = p.university;
+            }
+            if (p.description) {
+              const heroDesc = document.querySelector('.hero-description');
+              if (heroDesc) {
+                heroDesc.textContent = p.description;
+              }
+            }
+          }
+
+          // 2. Sync About Paragraphs
+          if (data.aboutData?.paragraphs && Array.isArray(data.aboutData.paragraphs)) {
+            const bioWrap = document.querySelector('.bio-paragraphs');
+            if (bioWrap && data.aboutData.paragraphs.length > 0) {
+              bioWrap.innerHTML = data.aboutData.paragraphs.map(p => `<p>${p}</p>`).join('');
+            }
+          }
+
+          // 3. Show Active CMS Sync Pill
+          const pill = document.createElement('div');
+          pill.id = 'cms-sync-indicator';
+          pill.setAttribute('role', 'status');
+          pill.setAttribute('aria-label', 'Status Sinkronisasi CMS');
+          pill.style.cssText = 'position:fixed;bottom:18px;right:18px;z-index:9999;background:rgba(11,16,27,0.95);border:1px solid #C5A880;color:#F8FAFC;padding:7px 14px;border-radius:24px;font-size:0.75rem;font-weight:600;display:inline-flex;align-items:center;gap:8px;backdrop-filter:blur(8px);box-shadow:0 4px 18px rgba(0,0,0,0.5);font-family:var(--font-sans, sans-serif);';
+          pill.innerHTML = `
+            <span style="width:7px;height:7px;border-radius:50%;background:#10B981;display:inline-block;flex-shrink:0;"></span>
+            <span style="color:#CBD5E1;">Sinkronisasi CMS Aktif</span>
+            <a href="${base}admin/" style="color:#C5A880;text-decoration:underline;margin-left:2px;font-weight:700;">Admin</a>
+            <button type="button" id="btn-clear-cms-sync" style="background:none;border:none;color:#94A3B8;cursor:pointer;font-size:1.1rem;line-height:1;padding:0 2px;margin-left:4px;" title="Hapus override dan gunakan data server asli">&times;</button>
+          `;
+          document.body.appendChild(pill);
+
+          document.getElementById('btn-clear-cms-sync')?.addEventListener('click', () => {
+            if (confirm('Kembalikan tampilan ke data server bawaan dan bersihkan cache lokal browser?')) {
+              localStorage.removeItem(STORAGE_DATA_KEY);
+              location.reload();
+            }
+          });
+        } catch (e) {
+          console.warn('CMS Sync warning:', e);
+        }
+      })();
+    </script>
     <script>
       function setupScrollAnimations() {
         const observerOptions = {
