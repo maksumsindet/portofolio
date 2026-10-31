@@ -1203,8 +1203,8 @@
         "category": "Kompetisi Nasional SATRIA DATA 2026",
         "badge": "Berkas Resmi: SEC_(SD2026020000315).pdf",
         "period": "2026",
-        "title": "AgriAlert: Integrated Remote Sensing, Climate Teleconnection & Edge Computer Vision",
-        "subtitle": "Sistem Peringatan Dini Padi Nasional Terintegrasi (Karya Statistics Essay Competition SATRIA DATA 2026 - Universitas Diponegoro)",
+        "title": "AgriAlert: Sistem Peringatan Dini Terintegrasi Berbasis Remote Sensing, Telekoneksi ENSO, dan Computer Vision untuk Perlindungan Tanaman Padi di Indonesia",
+        "subtitle": "",
         "partner": "Pusat Prestasi Nasional (Puspresnas) Kemdiktisaintek RI & Universitas Diponegoro",
         "summary": "Karya ilmiah esai 24 halaman kode peserta SEC_(SD2026020000315) bertema 'Ketahanan Pangan Berbasis Data'. Menjawab kendala ketimpangan akses teknologi di 27,7 juta rumah tangga tani melalui integrasi dinamika telekoneksi iklim ENSO Pasifik (NOAA ERSSTv5), pemantauan biomassa optik/radar ESA Copernicus (Sentinel-1 SAR & Sentinel-2 NDVI), serta inferensi Computer Vision neural network on-device ONNX WebAssembly 224×224 yang berjalan 100% offline langsung di peramban gawai petani.",
         "evidencePoints": [
@@ -1249,8 +1249,8 @@
         "category": "Kompetisi Nasional GEMASTIK XIX",
         "badge": "Technical Report: Tim Rezeki GEMASTIK",
         "period": "2026",
-        "title": "Penerapan Topic Modeling LDA dan AI Recommendation untuk Keputusan UMKM Sleman",
-        "subtitle": "Technical Report Divisi Penambangan Data Pagelaran Mahasiswa Nasional Bidang TIK (GEMASTIK XIX)",
+        "title": "Penerapan Topic Modeling LDA dan AI Recommendation untuk Optimalisasi Keputusan UMKM Sleman",
+        "subtitle": "",
         "partner": "Puspresnas Kemdiktisaintek RI, Balai Pengembangan Talenta Indonesia (BPTI), FMIPA UNY",
         "summary": "Karya ilmiah penambangan data resmi GEMASTIK XIX oleh Tim Rezeki GEMASTIK (Fenti Auliasari, Muhammad Dahron M. M., Farrel Pandyatama I., Zaenal Mustofa). Menganalisis ulasan konsumen UMKM Kabupaten Sleman menggunakan Latent Dirichlet Allocation (LDA) untuk mengidentifikasi topik laten dan pain points operasional berdasarkan nilai Coherence Score tertinggi, dilanjutkan integrasi Generative AI guna memformulasikan rekomendasi keputusan bisnis konkret bagi pelaku UMKM berliterasi data terbatas.",
         "evidencePoints": [
@@ -1292,8 +1292,8 @@
         "category": "Program Kreativitas Mahasiswa (PKM-RSH)",
         "badge": "Proposal Riset: Ketua Tim Dahron Maksum",
         "period": "2026",
-        "title": "Dinamika Pengambilan Keputusan: Literasi Data & Intensitas AI Mahasiswa FMIPA",
-        "subtitle": "Pengaruh Kemampuan Literasi Data dan Intensitas Penggunaan Artificial Intelligence (AI) terhadap Kualitas Pengambilan Keputusan Akademik",
+        "title": "Pengaruh Kemampuan Literasi Data dan Intensitas Penggunaan Artificial Intelligence (AI) terhadap Kualitas Pengambilan Keputusan Akademik Mahasiswa FMIPA UNY",
+        "subtitle": "",
         "partner": "Direktorat Pembelajaran & Kemahasiswaan (Belmawa) Kemdiktisaintek RI & Universitas Negeri Yogyakarta",
         "summary": "Proposal riset ilmiah 29 halaman yang diketuai oleh Muhammad Dahron Mustofa Maksum (NIM Statistika FMIPA UNY). Mengkaji fenomena akselerasi adopsi alat Generative AI di kalangan mahasiswa sains. Menyelidiki secara empiris sejauh mana interaksi simultan antara kemampuan literasi data statistik dan intensitas pemanfaatan AI memengaruhi kualitas serta rasionalitas pengambilan keputusan akademik mahasiswa FMIPA perguruan tinggi di D.I. Yogyakarta.",
         "evidencePoints": [
@@ -1334,8 +1334,8 @@
         "category": "Program Peningkatan Kapasitas Ormawa (PPK Ormawa)",
         "badge": "Juara 2 Nasional Abdidaya Ormawa Kemdiktisaintek",
         "period": "2026",
-        "title": "Sistem Rantai Pasok Digital dan Analitik Geospasial SEGARA (KSI Mist FMIPA UNY)",
-        "subtitle": "Sentra Gerak Agromina Kalurahan Sidoagung: Konsolidasi 224 Kolam dan Kemitraan Pasar B2B",
+        "title": "SEGARA (Sentra Gerak Agromina): Pemberdayaan Masyarakat Kalurahan Sidoagung Berbasis Inovasi Olahan Ikan Nusantara dan Digitalisasi Pemasaran untuk Peningkatan Kemandirian Ekonomi",
+        "subtitle": "",
         "partner": "PPK Ormawa Kemdiktisaintek RI, Ormawa KSI Mist FMIPA UNY, Pemkab Sleman, Kalurahan Sidoagung",
         "summary": "Kepemimpinan sebagai Ketua Tim Pelaksana PPK Ormawa KSI Mist FMIPA UNY yang mengoordinasikan 14 mahasiswa lintas disiplin dalam inisiatif Sentra Gerak Agromina (SEGARA) di Sidoagung, Sleman. Memetakan 224 kolam budidaya perikanan air tawar secara geospasial, mengonsolidasikan 6 Pokdakan dalam satu basis data terpadu, menjalin kemitraan rantai pasok bersama 3 offtaker pasar, dan mengantarkan kontingen UNY meraih predikat Terbaik 2 Nasional Abdidaya Ormawa 2026 di UMI Makassar.",
         "evidencePoints": [

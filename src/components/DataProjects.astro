@@ -80,7 +80,7 @@ const categoryThemes: Record<string, { text: string; bg: string; border: string;
 
             <!-- Title, Subtitle & Partner -->
             <h3 class="dossier-title">{proj.title}</h3>
-            <p class="dossier-subtitle">{proj.subtitle}</p>
+            {proj.subtitle && <p class="dossier-subtitle">{proj.subtitle}</p>}
             
             <div class="dossier-partner-row">
               <i class="bi bi-building"></i>
@@ -330,12 +330,13 @@ const categoryThemes: Record<string, { text: string; bg: string; border: string;
 
   /* Titles */
   .dossier-title {
-    font-family: var(--font-serif, var(--font-serif, "Gambarino", Georgia, serif));
-    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+    font-family: var(--font-serif, "Gambarino", Georgia, serif);
+    font-size: clamp(1.35rem, 2.2vw, 1.75rem);
     font-weight: 700;
-    line-height: 1.3;
+    line-height: 1.35;
     color: #ffffff;
-    margin-bottom: 0.45rem;
+    margin-bottom: 0.95rem;
+    text-wrap: balance;
   }
 
   .dossier-subtitle {
