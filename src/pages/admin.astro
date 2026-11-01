@@ -1055,7 +1055,7 @@ const initialDataJson = JSON.stringify(rawPortfolioContent);
           .join('');
       }
 
-      const base = document.body.getAttribute('data-base-url') || '/portofolio/';
+      const base = document.body.getAttribute('data-base-url') || (window.location.pathname.startsWith('/portofolio') ? '/portofolio/' : '/');
       const payloadEl = document.getElementById('initial-cms-payload');
       const defaultServerContent = payloadEl ? JSON.parse(payloadEl.textContent || '{}') : {};
 
