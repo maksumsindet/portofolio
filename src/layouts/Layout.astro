@@ -150,26 +150,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
             }
           }
 
-          // 3. Show Active CMS Sync Pill
-          const pill = document.createElement('div');
-          pill.id = 'cms-sync-indicator';
-          pill.setAttribute('role', 'status');
-          pill.setAttribute('aria-label', 'Status Sinkronisasi CMS');
-          pill.style.cssText = 'position:fixed;bottom:18px;right:18px;z-index:9999;background:rgba(11,16,27,0.95);border:1px solid #C5A880;color:#F8FAFC;padding:7px 14px;border-radius:24px;font-size:0.75rem;font-weight:600;display:inline-flex;align-items:center;gap:8px;backdrop-filter:blur(8px);box-shadow:0 4px 18px rgba(0,0,0,0.5);font-family:var(--font-sans, sans-serif);';
-          pill.innerHTML = `
-            <span style="width:7px;height:7px;border-radius:50%;background:#10B981;display:inline-block;flex-shrink:0;"></span>
-            <span style="color:#CBD5E1;">Sinkronisasi CMS Aktif</span>
-            <a href="${base}admin/" style="color:#C5A880;text-decoration:underline;margin-left:2px;font-weight:700;">Admin</a>
-            <button type="button" id="btn-clear-cms-sync" style="background:none;border:none;color:#94A3B8;cursor:pointer;font-size:1.1rem;line-height:1;padding:0 2px;margin-left:4px;" title="Hapus override dan gunakan data server asli">&times;</button>
-          `;
-          document.body.appendChild(pill);
-
-          document.getElementById('btn-clear-cms-sync')?.addEventListener('click', () => {
-            if (confirm('Kembalikan tampilan ke data server bawaan dan bersihkan cache lokal browser?')) {
-              localStorage.removeItem(STORAGE_DATA_KEY);
-              location.reload();
-            }
-          });
+// CMS Sync operates silently in the background
         } catch (e) {
           console.warn('CMS Sync warning:', e);
         }
