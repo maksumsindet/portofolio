@@ -362,3 +362,109 @@ section[id] {
     scroll-margin-top: 72px;
   }
 }
+
+
+/* 1. Mobile Screen Adaptation (<= 480px Small Phones / Android 360px) */
+@media (max-width: 480px) {
+  .section {
+    padding: 3rem 1.15rem;
+  }
+
+  /* Touch-friendly interactive targets (WCAG SC 2.5.5) */
+  button, a.btn-gold, a.btn-navy-outline, .filter-btn, .insta-pill {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .section-title h2 {
+    font-size: clamp(1.85rem, 1.4rem + 2.5vw, 2.35rem);
+  }
+}
+
+/* 2. System High Contrast Adaptation (WCAG SC 1.4.1 / Forced Colors Mode) */
+@media (forced-colors: active) {
+  :focus-visible {
+    outline: 3px solid Highlight !important;
+  }
+
+  .card-cream, .evidence-card, .org-card, .doc-photo-card {
+    border: 2px solid ButtonBorder !important;
+  }
+
+  .btn-gold, .btn-primary-action {
+    background-color: Highlight !important;
+    color: HighlightText !important;
+    border: 1px solid ButtonBorder !important;
+  }
+}
+
+/* 3. Print / PDF Export Adaptation (Screen -> Academic Dossier Ledger) */
+@media print {
+  /* Hide screen-only interactive UI */
+  .sidebar-drawer,
+  .sidebar-backdrop,
+  .mobile-top-header,
+  .pixel-character-widget,
+  .skip-link,
+  #photo-lightbox,
+  .btn-load-more,
+  .gallery-filters-wrap,
+  .load-more-wrap {
+    display: none !important;
+  }
+
+  /* Reset layout margins for paper print */
+  body.dashboard-shell {
+    display: block !important;
+    background: #FFFFFF !important;
+    color: #111827 !important;
+  }
+
+  .site-main-viewport {
+    margin-left: 0 !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .section {
+    padding: 2rem 0 !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* High contrast ink readability */
+  h1, h2, h3, h4, p, span, li {
+    color: #000000 !important;
+    text-shadow: none !important;
+  }
+
+  /* Prevent card splitting across printed pages */
+  .evidence-card,
+  .org-card,
+  .doc-photo-card,
+  .award-podium-card,
+  .edu-card {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border: 1px solid #CCCCCC !important;
+    box-shadow: none !important;
+    background: #FFFFFF !important;
+  }
+
+  /* Show hyperlinks for printed reference */
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.75rem;
+    color: #555555;
+    word-break: break-all;
+  }
+  
+  /* Suppress link expansion on decorative buttons */
+  .btn-gold:after,
+  .nav-link:after,
+  .filter-btn:after {
+    content: "" !important;
+  }
+}
