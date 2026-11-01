@@ -78,23 +78,22 @@ const partners = ((rawPortfolioContent as any)?.partners && (rawPortfolioContent
 ---
 
 <section id="home" class="hero-section">
-  <!-- Blurred Atmospheric Activity Background Layer -->
   <div class="hero-bg-backdrop" aria-hidden="true">
     <img 
       src={heroBgImage} 
-      alt="Dokumentasi Kegiatan" 
+      alt="" 
       class="hero-bg-img"
       loading="eager"
+      fetchpriority="high"
       decoding="async"
+      width="1920"
+      height="1080"
     />
     <div class="hero-bg-overlay"></div>
   </div>
-
-  <!-- Subtle Ambient Glow -->
   <div class="ambient-glow" aria-hidden="true"></div>
 
   <div class="container hero-container">
-    <!-- Left Column: Content dan Identity -->
     <div class="hero-content fade-in">
 
       <h1 class="hero-title">
@@ -131,8 +130,6 @@ const partners = ((rawPortfolioContent as any)?.partners && (rawPortfolioContent
         </div>
       </div>
     </div>
-
-    <!-- Right Column: Seamless Cutout Portrait -->
     <div class="hero-visual fade-in">
       <div class="visual-wrapper">
         <div class="glow-backdrop" aria-hidden="true"></div>
@@ -159,7 +156,6 @@ const partners = ((rawPortfolioContent as any)?.partners && (rawPortfolioContent
     </div>
   </div>
 
-  <!-- Credibility dan Partners Ribbon -->
   <div class="partners-ribbon-wrapper">
     <div class="container partners-container">
       <span class="partners-title">DIPERCAYA dan BERKOLABORASI:</span>
@@ -174,7 +170,6 @@ const partners = ((rawPortfolioContent as any)?.partners && (rawPortfolioContent
     </div>
   </div>
 
-  <!-- 3 Floating Spotlight Cards (Signature Depth) -->
   <div class="container spotlight-container">
     <div class="floating-cards-row slide-up">
       {spotlightCards.map((card) => (
@@ -229,8 +224,10 @@ const partners = ((rawPortfolioContent as any)?.partners && (rawPortfolioContent
     height: calc(100% + 40px);
     object-fit: cover;
     object-position: center 30%;
-    filter: blur(7px) brightness(0.68) saturate(1.15);
-    transform: scale(1.04);
+    filter: blur(8px) brightness(0.68) saturate(1.15);
+    transform: translate3d(0, 0, 0) scale(1.04);
+    will-change: transform;
+    pointer-events: none;
     user-select: none;
   }
 
@@ -238,8 +235,8 @@ const partners = ((rawPortfolioContent as any)?.partners && (rawPortfolioContent
     position: absolute;
     inset: 0;
     background: 
-      linear-gradient(90deg, rgba(5, 7, 12, 0.80) 0%, rgba(5, 7, 12, 0.52) 45%, rgba(5, 7, 12, 0.18) 75%, rgba(5, 7, 12, 0.50) 100%),
-      linear-gradient(180deg, rgba(5, 7, 12, 0.30) 0%, rgba(5, 7, 12, 0.05) 35%, rgba(5, 7, 12, 0.65) 85%, #05070c 100%);
+      linear-gradient(90deg, rgba(11, 16, 27, 0.82) 0%, rgba(11, 16, 27, 0.55) 45%, rgba(11, 16, 27, 0.20) 75%, rgba(11, 16, 27, 0.55) 100%),
+      linear-gradient(180deg, rgba(11, 16, 27, 0.35) 0%, rgba(11, 16, 27, 0.10) 35%, rgba(11, 16, 27, 0.70) 80%, var(--color-midnight-deep, #0B101B) 100%);
   }
 
   /* Ambient Glow Background */

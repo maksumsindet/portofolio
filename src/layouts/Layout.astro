@@ -51,12 +51,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body class="dashboard-shell">
+    <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
     <Navbar nickname="DASHBOARD" />
 
-    <div class="site-main-viewport">
+    <main id="main-content" class="site-main-viewport" role="main" aria-label="Konten Utama Portofolio" tabindex="-1">
       <slot />
       <Footer name={personalInfo.name} />
-    </div>
+    </main>
 
     <style is:global>
       @media (min-width: 1025px) {
@@ -87,9 +88,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
 
 
     <script define:vars={{ base }}>
-      // ==========================================
-      // LIVE CMS SYNC BRIDGE (Landing Page <-> Admin CMS)
-      // ==========================================
+      // Live sync bridge with local CMS admin
       (function syncLandingPageWithAdmin() {
         const STORAGE_DATA_KEY = 'maksum_portfolio_cms_data';
         try {
@@ -98,7 +97,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
           const data = JSON.parse(raw);
           if (!data || typeof data !== 'object') return;
 
-          // 1. Sync Personal Info & Hero Meta
+          // Sync personal info
           if (data.personalInfo) {
             const p = data.personalInfo;
             if (p.name) {
@@ -142,7 +141,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
             }
           }
 
-          // 2. Sync About Paragraphs
+          // Sync about paragraphs
           if (data.aboutData?.paragraphs && Array.isArray(data.aboutData.paragraphs)) {
             const bioWrap = document.querySelector('.bio-paragraphs');
             if (bioWrap && data.aboutData.paragraphs.length > 0) {

@@ -14,8 +14,6 @@ const professionalWork = experienceProgramAndWork;
     <div class="section-title fade-in">
       <h2>Pengalaman dan Kepemimpinan</h2>
     </div>
-
-    <!-- Section 1: Pengalaman Organisasi (8 Centered Credential Cards) -->
     <div class="exp-group-wrap slide-up">
       <div class="group-header">
         <div class="group-icon-pill"><i class="bi bi-diagram-3"></i></div>
@@ -70,8 +68,6 @@ const professionalWork = experienceProgramAndWork;
         ))}
       </div>
     </div>
-
-    <!-- Section 2: Pengalaman Kerja dan Operasional Profesional -->
     {professionalWork.length > 0 && (
       <div class="exp-group-wrap slide-up" style="margin-top: 5.5rem;">
         <div class="group-header">
@@ -179,7 +175,6 @@ const professionalWork = experienceProgramAndWork;
     line-height: 1.4;
   }
 
-  /* Centered Organization Cards Grid */
   .org-cards-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -192,7 +187,7 @@ const professionalWork = experienceProgramAndWork;
     flex-direction: column;
     align-items: center;
     background: #ffffff;
-    border-radius: 18px;
+    border-radius: 16px;
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     justify-content: flex-start;
   }
@@ -201,7 +196,6 @@ const professionalWork = experienceProgramAndWork;
     transform: translateY(-5px);
   }
 
-  /* Centered Logo Container */
   .org-logo-container {
     height: 80px;
     width: 100%;
@@ -223,15 +217,14 @@ const professionalWork = experienceProgramAndWork;
     width: 64px;
     height: 64px;
     border-radius: 50%;
-    background: rgba(200, 109, 86, 0.12);
-    color: var(--color-terracotta);
+    background: var(--color-gold-light, rgba(197, 168, 128, 0.14));
+    color: var(--color-gold-deep, #8C6239);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.6rem;
   }
 
-  /* Centered Meta (Unified Height for Crisp Top-Alignment) */
   .org-header-meta {
     display: flex;
     flex-direction: column;
@@ -272,7 +265,7 @@ const professionalWork = experienceProgramAndWork;
   .org-period-text {
     font-size: 0.82rem;
     font-weight: 600;
-    color: #7a6e65;
+    color: var(--color-text-secondary);
     margin-bottom: 0.35rem;
     display: block;
   }
@@ -288,17 +281,17 @@ const professionalWork = experienceProgramAndWork;
   .org-badge-pill {
     display: inline-block;
     padding: 0.2rem 0.65rem;
-    border-radius: 20px;
+    border-radius: 6px;
     font-size: 0.72rem;
     font-weight: 700;
-    background: rgba(200, 109, 86, 0.12);
-    color: var(--color-terracotta);
+    background: var(--color-gold-light, rgba(197, 168, 128, 0.14));
+    color: var(--color-gold-deep, #8C6239);
   }
 
   .org-card-divider {
     width: 36px;
     height: 2px;
-    background-color: rgba(200, 109, 86, 0.25);
+    background-color: rgba(197, 168, 128, 0.35);
     margin: 0.8rem auto 1.2rem;
   }
 
@@ -321,7 +314,7 @@ const professionalWork = experienceProgramAndWork;
     gap: 0.6rem;
     font-size: 0.88rem;
     line-height: 1.55;
-    color: #4a3e38;
+    color: var(--color-text-secondary);
   }
 
   .org-bullets-list li span:last-child {
@@ -347,7 +340,7 @@ const professionalWork = experienceProgramAndWork;
   .exp-card-featured {
     padding: 2.6rem;
     background: #ffffff;
-    border-radius: 18px;
+    border-radius: 16px;
   }
 
   .featured-top {
@@ -360,7 +353,7 @@ const professionalWork = experienceProgramAndWork;
   .logo-box {
     width: 76px;
     height: 76px;
-    border-radius: 14px;
+    border-radius: 12px;
     background: var(--color-cream);
     display: flex;
     align-items: center;
@@ -423,10 +416,10 @@ const professionalWork = experienceProgramAndWork;
 
   .pill-badge-terracotta {
     display: inline-block;
-    background: rgba(200, 109, 86, 0.12);
-    color: var(--color-terracotta);
+    background: var(--color-gold-light, rgba(197, 168, 128, 0.14));
+    color: var(--color-gold-deep, #8C6239);
     padding: 0.35rem 0.85rem;
-    border-radius: 50px;
+    border-radius: 6px;
     font-size: 0.8rem;
     font-weight: 700;
     margin-top: 0.4rem;

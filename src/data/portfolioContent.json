@@ -915,7 +915,7 @@
   "documentaryPhotos": [
     {
       "src": "assets/images/curated/segara-ketua-sambutan-meja.jpg",
-      "alt": "Muhammad Dahron (Ketua Tim Pelaksana) memimpin sambutan resmi di hadapan pamong dan warga Sidoagung di Balai Kalurahan",
+      "alt": "Muhammad Dahron Mustofa Maksum (Ketua Tim Pelaksana) memimpin sambutan resmi di hadapan pamong dan warga Sidoagung di Balai Kalurahan",
       "caption": "Sambutan Resmi Ketua Tim Pelaksana PPK Ormawa SEGARA di Balai Kalurahan Sidoagung",
       "category": "Pemberdayaan SEGARA",
       "tag": "Ketua Tim Pelaksana",
@@ -923,7 +923,7 @@
     },
     {
       "src": "assets/images/curated/segara-ketua-sosialisasi-pangan.jpg",
-      "alt": "Muhammad Dahron memfasilitasi sosialisasi Kebijakan Keamanan Pangan Olahan bersama Dinas Kesehatan Sleman",
+      "alt": "Muhammad Dahron Mustofa Maksum memfasilitasi sosialisasi Kebijakan Keamanan Pangan Olahan bersama Dinas Kesehatan Sleman",
       "caption": "Fasilitasi Sosialisasi Kebijakan Keamanan Pangan Olahan bersama Dinas Kesehatan Sleman",
       "category": "Inovasi Teknis dan Pelatihan",
       "tag": "Sosialisasi Dinkes",
@@ -931,7 +931,7 @@
     },
     {
       "src": "assets/images/curated/segara-ketua-forum-lesehan.jpg",
-      "alt": "Ketua Tim Pelaksana Muhammad Dahron memimpin diskusi santai dan FGD serap aspirasi warga pembudidaya kolam",
+      "alt": "Ketua Tim Pelaksana Muhammad Dahron Mustofa Maksum memimpin diskusi santai dan FGD serap aspirasi warga pembudidaya kolam",
       "caption": "FGD dan Dialog Serap Aspirasi Pembudidaya dan Kelompok Wanita Tani (KWT) Sidoagung",
       "category": "Pemberdayaan SEGARA",
       "tag": "FGD Komunitas",
@@ -939,7 +939,7 @@
     },
     {
       "src": "assets/images/curated/segara-ketua-panggung-berdiri.jpg",
-      "alt": "Pengarahan alur program dan teknis pelaksanaan Sentra Gerak Agromina oleh Ketua Tim Pelaksana Muhammad Dahron",
+      "alt": "Pengarahan alur program dan teknis pelaksanaan Sentra Gerak Agromina oleh Ketua Tim Pelaksana Muhammad Dahron Mustofa Maksum",
       "caption": "Pengarahan Teknis dan Tata Kelola Program oleh Ketua Tim Pelaksana PPKO SEGARA",
       "category": "Kepemimpinan dan Organisasi",
       "tag": "Pengarahan Teknis",
@@ -1083,8 +1083,8 @@
     },
     {
       "src": "assets/images/mined/04-Foto-Sublaporan-Akhir-KSI-Mist-Dahron/14_Berita_Acara_Serah_Terima_Aplikasi_SEGARA_Bertandatangan_Dahron.jpeg",
-      "alt": "Dokumen Berita Acara Serah Terima Luaran Program SEGARA yang ditandatangani resmi oleh Muhammad Dahron",
-      "caption": "Dokumen Berita Acara Serah Terima Luaran Program SEGARA yang ditandatangani resmi oleh Muhammad Dahron",
+      "alt": "Dokumen Berita Acara Serah Terima Luaran Program SEGARA yang ditandatangani resmi oleh Muhammad Dahron Mustofa Maksum",
+      "caption": "Dokumen Berita Acara Serah Terima Luaran Program SEGARA yang ditandatangani resmi oleh Muhammad Dahron Mustofa Maksum",
       "category": "Media dan Berita Acara",
       "tag": "Legalitas Luaran",
       "source": "Sublaporan Akhir PPK Ormawa"
@@ -1332,7 +1332,7 @@
         "title": "Penerapan Topic Modeling LDA dan AI Recommendation untuk Optimalisasi Keputusan UMKM Sleman",
         "subtitle": "",
         "partner": "Puspresnas Kemdiktisaintek RI, Balai Pengembangan Talenta Indonesia (BPTI), FMIPA UNY",
-        "summary": "Karya ilmiah penambangan data resmi GEMASTIK XIX oleh Tim Rezeki GEMASTIK (Fenti Auliasari, Muhammad Dahron M. M., Farrel Pandyatama I., Zaenal Mustofa). Menganalisis ulasan konsumen UMKM Kabupaten Sleman menggunakan Latent Dirichlet Allocation (LDA) untuk mengidentifikasi topik laten dan pain points operasional berdasarkan nilai Coherence Score tertinggi, dilanjutkan integrasi Generative AI guna memformulasikan rekomendasi keputusan bisnis konkret bagi pelaku UMKM berliterasi data terbatas.",
+        "summary": "Karya ilmiah penambangan data resmi GEMASTIK XIX oleh Tim Rezeki GEMASTIK (Fenti Auliasari, Muhammad Dahron Mustofa Maksum, Farrel Pandyatama I., Zaenal Mustofa). Menganalisis ulasan konsumen UMKM Kabupaten Sleman menggunakan Latent Dirichlet Allocation (LDA) untuk mengidentifikasi topik laten dan pain points operasional berdasarkan nilai Coherence Score tertinggi, dilanjutkan integrasi Generative AI guna memformulasikan rekomendasi keputusan bisnis konkret bagi pelaku UMKM berliterasi data terbatas.",
         "evidencePoints": [
           "Technical Report resmi Buletin GEMASTIK XIX Nomor Registrasi Peserta 260010381919244.",
           "Kolaborasi tim peneliti mahasiswa Statistika dan Sains FMIPA Universitas Negeri Yogyakarta.",
@@ -1370,7 +1370,7 @@
       {
         "id": "pkm-rsh-ai-literacy",
         "category": "Program Kreativitas Mahasiswa (PKM-RSH)",
-        "badge": "Proposal Riset: Ketua Tim Dahron Maksum",
+        "badge": "Proposal Riset: Ketua Tim Muhammad Dahron Mustofa Maksum",
         "period": "2026",
         "title": "Pengaruh Kemampuan Literasi Data dan Intensitas Penggunaan Artificial Intelligence (AI) terhadap Kualitas Pengambilan Keputusan Akademik Mahasiswa FMIPA UNY",
         "subtitle": "",

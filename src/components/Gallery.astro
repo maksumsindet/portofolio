@@ -362,7 +362,7 @@ const categoryCounts = categories.reduce((acc, cat) => {
     gap: 0.6rem;
     padding: 0.5rem;
     background: var(--color-cream-deep);
-    border-radius: 999px;
+    border-radius: 8px;
     justify-content: center;
   }
 
@@ -374,7 +374,7 @@ const categoryCounts = categories.reduce((acc, cat) => {
     font-size: 0.92rem;
     font-weight: 600;
     padding: 0.55rem 1.25rem;
-    border-radius: 999px;
+    border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
   }
@@ -421,7 +421,7 @@ const categoryCounts = categories.reduce((acc, cat) => {
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 10;
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
     background: var(--color-burgundy);
     cursor: pointer;
@@ -448,12 +448,12 @@ const categoryCounts = categories.reduce((acc, cat) => {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    background: rgba(47, 23, 29, 0.85);
+    background: rgba(11, 16, 27, 0.88);
     color: var(--color-cream);
     font-size: 0.8rem;
     font-weight: 500;
     padding: 0.35rem 0.75rem;
-    border-radius: 999px;
+    border-radius: 6px;
     opacity: 0;
     transition: opacity 0.2s ease;
   }
@@ -520,24 +520,22 @@ const categoryCounts = categories.reduce((acc, cat) => {
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
-    background: #0f172a;
-    color: #f59e0b;
-    border: 1px solid rgba(245, 158, 11, 0.4);
+    background: var(--color-midnight-deep, #0B101B);
+    color: var(--color-gold, #C5A880);
+    border: 1px solid var(--color-gold-border, rgba(197, 168, 128, 0.35));
     padding: 0.85rem 2.2rem;
-    border-radius: 999px;
+    border-radius: 6px;
     font-size: 0.95rem;
     font-weight: 700;
     cursor: pointer;
-    
-    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, color 0.25s ease;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
   }
 
   .btn-load-more:hover {
-    background: #f59e0b;
-    color: #05070c;
-    border-color: #f59e0b;
+    background: var(--color-gold, #C5A880);
+    color: var(--color-midnight-deep, #0B101B);
+    border-color: var(--color-gold, #C5A880);
     transform: translateY(-2px);
-    
   }
 
   .showing-count-text {
@@ -548,12 +546,12 @@ const categoryCounts = categories.reduce((acc, cat) => {
 
   /* Lightbox Modal */
   .photo-lightbox {
-    border: none;
+    border: 1px solid var(--color-midnight-border, #23314B);
     border-radius: 16px;
     padding: 0;
     max-width: 90vw;
     max-height: 90vh;
-    background: var(--color-cream);
+    background: var(--color-cream-card, #FFFFFF);
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4); /* taste-skill-ignore: real overlay dialog */
   }
 
@@ -668,7 +666,7 @@ const categoryCounts = categories.reduce((acc, cat) => {
     background: var(--color-cream-deep);
     color: var(--color-burgundy);
     padding: 0.5rem 1.1rem;
-    border-radius: 999px;
+    border-radius: 6px;
     text-decoration: none;
     font-size: 0.88rem;
     font-weight: 600;

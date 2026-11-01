@@ -32,14 +32,11 @@ const categoryThemes: Record<string, { text: string; bg: string; icon: string }>
 
 <section id="data-projects" class="data-projects-section">
   <div class="container section-container">
-    <!-- Section Header -->
     <div class="section-header fade-in">
       <h2 class="section-title">
         Proyek dan Riset
       </h2>
     </div>
-
-    <!-- Distilled Editorial Dossier Cards -->
     <div class="evidence-cards-list">
       {projects.map((proj, pIdx) => {
         const theme = categoryThemes[proj.id] || {
@@ -51,37 +48,25 @@ const categoryThemes: Record<string, { text: string; bg: string; icon: string }>
 
         return (
           <article class="evidence-card slide-up" id={proj.id} data-project-idx={pIdx}>
-            <!-- Top Metadata Strip -->
             <div class="dossier-meta-row">
               <span class="category-badge" style={`color: ${theme.text}; background: ${theme.bg};`}>
                 <i class={`bi ${theme.icon}`} aria-hidden="true"></i>
                 <span>{proj.category}</span>
-              </span>
-              <span class="badge-separator" aria-hidden="true">/</span>
-              <span class="verified-document-code">
-                <i class="bi bi-file-earmark-check-fill" aria-hidden="true"></i>
-                <span>{proj.badge}</span>
               </span>
               <span class="period-pill">
                 <i class="bi bi-calendar3" aria-hidden="true"></i>
                 <span>{proj.period}</span>
               </span>
             </div>
-
-            <!-- Title & Institution -->
             <h3 class="dossier-title">{proj.title}</h3>
             
             <div class="dossier-partner">
               <i class="bi bi-building" aria-hidden="true"></i>
               <span>{proj.partner}</span>
             </div>
-
-            <!-- Editorial Lead Summary (No nested card container) -->
             {proj.summary && (
               <p class="dossier-lead-summary">{proj.summary}</p>
             )}
-
-            <!-- Flat Seamless Metrics Strip -->
             {proj.metrics && proj.metrics.length > 0 && (
               <div class="dossier-metrics-strip" aria-label="Metrik Dampak Proyek">
                 {proj.metrics.map((m) => (
@@ -92,8 +77,6 @@ const categoryThemes: Record<string, { text: string; bg: string; icon: string }>
                 ))}
               </div>
             )}
-
-            <!-- Key Proof Points -->
             {proj.evidencePoints && proj.evidencePoints.length > 0 && (
               <div class="dossier-proof-section">
                 <div class="proof-heading">Sorotan & Pembuktian Ilmiah</div>
@@ -108,7 +91,6 @@ const categoryThemes: Record<string, { text: string; bg: string; icon: string }>
               </div>
             )}
 
-            <!-- Tech Stack Pills -->
             {proj.techStack && proj.techStack.length > 0 && (
               <div class="dossier-tech-strip">
                 <span class="tech-label">Alat & Teknologi:</span>
@@ -120,7 +102,6 @@ const categoryThemes: Record<string, { text: string; bg: string; icon: string }>
               </div>
             )}
 
-            <!-- Action Hierarchy (Primary Gold vs Clean Secondary) -->
             <div class="dossier-actions-row">
               {hasLiveApp ? (
                 <>
@@ -311,10 +292,16 @@ const categoryThemes: Record<string, { text: string; bg: string; icon: string }>
   .period-pill {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
-    color: var(--color-text-secondary, #526071);
-    font-size: 0.82rem;
+    gap: 0.45rem;
+    color: #E2E8F0;
+    font-size: 0.85rem;
+    font-weight: 500;
     margin-left: auto;
+  }
+
+  .period-pill i {
+    color: var(--color-gold, #C5A880);
+    font-size: 0.88rem;
   }
 
   /* Title & Institution */

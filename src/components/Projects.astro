@@ -8,7 +8,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
 const row1Photos = [
   {
     src: `${base}assets/images/curated/segara-ketua-sambutan-meja.jpg`,
-    alt: "Muhammad Dahron (Ketua Tim Pelaksana) memimpin sambutan resmi di hadapan pamong dan warga Sidoagung",
+    alt: "Muhammad Dahron Mustofa Maksum (Ketua Tim Pelaksana) memimpin sambutan resmi di hadapan pamong dan warga Sidoagung",
     caption: "Ketua Tim Sambutan Resmi SEGARA"
   },
   {
@@ -23,7 +23,7 @@ const row1Photos = [
   },
   {
     src: `${base}assets/images/curated/segara-ketua-forum-lesehan.jpg`,
-    alt: "Diskusi Lesehan dan FGD Serap Aspirasi Warga Sidoagung bersama Dahron",
+    alt: "Diskusi Lesehan dan FGD Serap Aspirasi Warga Sidoagung bersama Muhammad Dahron Mustofa Maksum",
     caption: "FGD Lesehan dan Dialog Warga"
   },
   {
@@ -72,12 +72,12 @@ const row1Photos = [
 const row2Photos = [
   {
     src: `${base}assets/images/curated/segara-ketua-sosialisasi-pangan.jpg`,
-    alt: "Dahron memfasilitasi sosialisasi Kebijakan Keamanan Pangan bersama Dinas Kesehatan",
+    alt: "Muhammad Dahron Mustofa Maksum memfasilitasi sosialisasi Kebijakan Keamanan Pangan bersama Dinas Kesehatan",
     caption: "Sosialisasi Pangan Dinkes Sleman"
   },
   {
     src: `${base}assets/images/curated/segara-ketua-panggung-berdiri.jpg`,
-    alt: "Pengarahan Teknis dan Alur Program oleh Ketua Pelaksana Dahron",
+    alt: "Pengarahan Teknis dan Alur Program oleh Ketua Pelaksana Muhammad Dahron Mustofa Maksum",
     caption: "Pengarahan Teknis Lapangan"
   },
   {
@@ -92,7 +92,7 @@ const row2Photos = [
   },
   {
     src: `${base}assets/images/curated/sosialisasi-dinkes-sleman.jpg`,
-    alt: "Penyerahan Sertifikat Penghargaan Narasumber Sosialisasi oleh Dahron",
+    alt: "Penyerahan Sertifikat Penghargaan Narasumber Sosialisasi oleh Muhammad Dahron Mustofa Maksum",
     caption: "Penyerahan Piagam Narasumber"
   },
   {
@@ -140,9 +140,7 @@ const row2Photos = [
     </div>
   </div>
 
-  <!-- Dual Row Continuous Photo Marquee -->
   <div class="marquee-showcase-wrap slide-up">
-    <!-- Row 1: Moves to the Left -->
     <div class="marquee-row marquee-row-top" aria-label="Galeri kegiatan baris atas bergerak ke kiri">
       <div class="marquee-track marquee-track-left">
         {row1Photos.concat(row1Photos).map((item) => (
@@ -161,7 +159,6 @@ const row2Photos = [
       </div>
     </div>
 
-    <!-- Row 2: Moves to the Right -->
     <div class="marquee-row marquee-row-bottom" aria-label="Galeri kegiatan baris bawah bergerak ke kanan">
       <div class="marquee-track marquee-track-right">
         {row2Photos.concat(row2Photos).map((item) => (

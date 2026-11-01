@@ -1,0 +1,771 @@
+---
+// PixelCharacter.astro
+// Interactive Pixel Art Character Widget for Muhammad Dahron Mustofa Maksum
+// Supports: Idle breathing, Periodic Waving, UNY Flag Unfurling, and Nav-click Thumbs Up with Speech Bubble
+const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
+const spritesheetUrl = `${base}character/maksum_spritesheet.png`;
+const idleUrl = `${base}character/maksum_idle.png`;
+---
+
+<div class="pixel-character-widget" id="pixel-character-widget" data-base={base} aria-label="Karakter Pixel Art Muhammad Dahron Mustofa Maksum">
+  <div class="speech-bubble" id="char-speech-bubble" role="status" aria-live="polite">
+    <div class="bubble-header">
+      <span class="bubble-name">Maksum</span>
+      <span class="bubble-status-dot"></span>
+    </div>
+    <div class="bubble-text" id="char-bubble-text">Halo! Selamat datang di portfolio saya. 👋</div>
+    <div class="bubble-arrow" aria-hidden="true"></div>
+  </div>
+
+  <div class="character-stage" id="char-stage" role="button" tabindex="0" aria-label="Sapa Karakter Pixel Art Muhammad Dahron Mustofa Maksum" title="Klik atau tekan Enter untuk berinteraksi!">
+    <div class="character-shadow" aria-hidden="true"></div>
+    
+    <img 
+      id="char-fallback-img" 
+      src={idleUrl} 
+      alt="Karakter Pixel Art Muhammad Dahron Mustofa Maksum" 
+      width="380" 
+      height="536" 
+      class="pixel-canvas fallback-img"
+    />
+
+    <canvas 
+      id="char-canvas" 
+      width="380" 
+      height="536" 
+      class="pixel-canvas char-canvas" 
+      aria-label="Animasi Karakter Pixel Art Muhammad Dahron Mustofa Maksum"
+      style="display: none;"
+    ></canvas>
+
+    <img 
+      id="char-spritesheet-asset" 
+      src={spritesheetUrl} 
+      alt="" 
+      aria-hidden="true" 
+      style="position: absolute; width: 0; height: 0; opacity: 0; pointer-events: none;" 
+    />
+    
+    <div class="stage-hint" id="char-stage-hint">
+      <i class="bi bi-hand-index-thumb" aria-hidden="true"></i> Sapa Saya
+    </div>
+  </div>
+</div>
+
+<style>
+/* Character Widget Layout */
+  .pixel-character-widget {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0.5rem 0 0.8rem 0;
+    padding: 0 0.25rem;
+    user-select: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
+/* Speech Bubble (Pixel / Cyber Bernstein Aesthetic) */
+  .speech-bubble {
+    position: relative;
+    width: 100%;
+    max-width: 220px;
+    background: rgba(11, 16, 27, 0.95);
+    border: 1px solid var(--color-gold, #C5A880);
+    border-radius: 8px;
+    padding: 0.55rem 0.75rem;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 10px rgba(197, 168, 128, 0.12);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    transform: translateY(6px) scale(0.96);
+    pointer-events: none;
+    transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 20;
+    box-sizing: border-box;
+  }
+
+  .speech-bubble.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+
+  .bubble-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.25rem;
+    border-bottom: 1px solid rgba(197, 168, 128, 0.2);
+    padding-bottom: 0.2rem;
+  }
+
+  .bubble-name {
+    font-family: var(--font-serif, 'Gambarino', Georgia, serif);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--color-gold, #C5A880);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .bubble-status-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(34, 197, 94, 0.8);
+    display: inline-block;
+  }
+
+  .bubble-text {
+    font-size: 0.76rem;
+    line-height: 1.35;
+    color: var(--color-text-light, #F8FAFC);
+    font-weight: 500;
+    word-break: break-word;
+  }
+
+  /* Triangle Pointer Arrow */
+  .bubble-arrow {
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    background: rgba(11, 16, 27, 0.95);
+    border-right: 1px solid var(--color-gold, #C5A880);
+    border-bottom: 1px solid var(--color-gold, #C5A880);
+  }
+/* Character Canvas Stage */
+  .character-stage {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+    padding-bottom: 4px;
+    transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .character-stage:hover {
+    transform: translateY(-2px);
+  }
+
+  .character-stage:active {
+    transform: translateY(2px) scale(0.94);
+  }
+
+  .character-stage.bounce-pop {
+    animation: characterHop 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes characterHop {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-7px) scale(1.08); }
+    100% { transform: translateY(0) scale(1); }
+  }
+
+  .character-stage:hover .stage-hint {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Shadow beneath character */
+  .character-shadow {
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 64px;
+    height: 10px;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Pixel Art Canvas and Fallback Img */
+  .pixel-canvas {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 98px;
+    height: 138px;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    transition: filter 0.2s ease;
+    object-fit: contain;
+  }
+
+  .character-stage:hover .pixel-canvas {
+    filter: drop-shadow(0 0 6px rgba(197, 168, 128, 0.35));
+  }
+
+  /* Click me hint */
+  .stage-hint {
+    position: absolute;
+    bottom: -18px;
+    font-size: 0.64rem;
+    color: var(--color-gold, #C5A880);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(2px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+    font-weight: 600;
+  }
+/* Responsive Scaling */
+  @media (max-height: 820px) {
+    .pixel-character-widget {
+      margin: 0.3rem 0 0.5rem 0;
+    }
+    .pixel-canvas {
+      width: 82px;
+      height: 116px;
+    }
+    .character-shadow {
+      width: 52px;
+      height: 8px;
+    }
+    .speech-bubble {
+      max-width: 195px;
+      padding: 0.45rem 0.65rem;
+    }
+    .bubble-text {
+      font-size: 0.72rem;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .pixel-character-widget {
+      margin: 0.8rem 0;
+    }
+    .pixel-canvas {
+      width: 92px;
+      height: 130px;
+    }
+  }
+</style>
+
+<script>
+  // Pixel Character Controller (Full 4-Cycle Animation: Jempol -> Lambaian Ceria -> Bendera UNY -> Lambaian Santai)
+  let activeCleanup: (() => void) | null = null;
+
+  function initPixelCharacter() {
+    if (activeCleanup) {
+      activeCleanup();
+      activeCleanup = null;
+    }
+
+    const canvas = document.getElementById('char-canvas') as HTMLCanvasElement | null;
+    const fallbackImg = document.getElementById('char-fallback-img') as HTMLImageElement | null;
+    const preloaderImg = document.getElementById('char-spritesheet-asset') as HTMLImageElement | null;
+    const bubble = document.getElementById('char-speech-bubble');
+    const bubbleText = document.getElementById('char-bubble-text');
+    const stage = document.getElementById('char-stage');
+
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    ctx.imageSmoothingEnabled = false;
+
+    // Sprite Sheet Configuration
+    const FRAME_W = 380;
+    const FRAME_H = 536;
+
+    const FRAMES = {
+      IDLE: 0,
+      IDLE_BOB: 1,
+      WAVE_1: 2,
+      WAVE_2: 3,
+      WAVE_3: 4,
+      WALK_1: 5,
+      WALK_2: 6,
+      WALK_3: 7,
+      WALK_4: 8,
+      THUMB: 9,
+      FLAG_1: 10,
+      FLAG_2: 11,
+      FLAG_3: 12,
+      FLAG_4: 13,
+    };
+
+    const abortController = new AbortController();
+    const { signal } = abortController;
+
+    const widget = document.getElementById('pixel-character-widget');
+    const baseUrl = (widget?.dataset.base ?? import.meta.env.BASE_URL ?? '').replace(/\/$/, '');
+    const cleanBase = baseUrl ? (baseUrl.startsWith('/') ? baseUrl : `/${baseUrl}`) : '';
+
+    const spritesheet = new Image();
+    const targetSrc = preloaderImg?.getAttribute('src') || `${cleanBase}/character/maksum_spritesheet.png`;
+
+    let currentFrame = FRAMES.IDLE;
+    let currentState: 'idle' | 'waving' | 'thumb' | 'flag' | 'click_cycle' = 'idle';
+    let bubbleTimeout: number | undefined;
+    let idleActionTimeout: number | undefined;
+    let animStepTimeout: number | undefined;
+    let clickAnimTimeout: number | undefined;
+    let breathingInterval: number | undefined;
+    let spamResetTimeout: number | undefined;
+    let idleActionCount = 0;
+    let isCanvasActive = false;
+    let isVisible = true;
+    let isIntersecting = true;
+    let currentClickStage = 0;
+    let spamCount = 0;
+
+    function activateCanvas() {
+      if (isCanvasActive) return;
+      isCanvasActive = true;
+      if (fallbackImg) fallbackImg.style.display = 'none';
+      if (canvas) canvas.style.display = 'block';
+    }
+
+    function getSpriteSource(): HTMLImageElement {
+      if (preloaderImg && preloaderImg.complete && preloaderImg.naturalWidth > 0) {
+        return preloaderImg;
+      }
+      return spritesheet;
+    }
+
+    function drawFrame(frameIdx: number) {
+      const img = getSpriteSource();
+      if (!ctx) return false;
+      if (!img.complete || img.naturalWidth === 0) {
+        if (!spritesheet.src) spritesheet.src = targetSrc;
+        return false;
+      }
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(
+        img,
+        frameIdx * FRAME_W,
+        0,
+        FRAME_W,
+        FRAME_H,
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      );
+      currentFrame = frameIdx;
+      activateCanvas();
+      return true;
+    }
+
+    function stopAllActiveAnimations() {
+      if (clickAnimTimeout) {
+        clearTimeout(clickAnimTimeout);
+        clickAnimTimeout = undefined;
+      }
+      if (animStepTimeout) {
+        clearTimeout(animStepTimeout);
+        animStepTimeout = undefined;
+      }
+      if (idleActionTimeout) {
+        clearTimeout(idleActionTimeout);
+        idleActionTimeout = undefined;
+      }
+    }
+
+    function startIdleBreathing() {
+      if (breathingInterval) clearInterval(breathingInterval);
+      if (!isVisible || !isIntersecting) return;
+      breathingInterval = window.setInterval(() => {
+        if (currentState === 'idle' && isVisible && isIntersecting) {
+          drawFrame(FRAMES.IDLE_BOB);
+          setTimeout(() => {
+            if (currentState === 'idle') {
+              drawFrame(FRAMES.IDLE);
+            }
+          }, 240);
+        }
+      }, 2400);
+    }
+
+    function scheduleNextIdleAction() {
+      if (!isVisible || !isIntersecting) return;
+      if (idleActionTimeout) clearTimeout(idleActionTimeout);
+      const delay = Math.floor(Math.random() * 5000) + 7000;
+      idleActionTimeout = window.setTimeout(() => {
+        if (currentState === 'idle' && isVisible && isIntersecting) {
+          idleActionCount++;
+          if (idleActionCount % 2 === 0) {
+            playFlagAnimation();
+          } else {
+            playWaveAnimation();
+          }
+        } else if (isVisible && isIntersecting) {
+          scheduleNextIdleAction();
+        }
+      }, delay);
+    }
+
+    function onSpritesheetReady() {
+      drawFrame(FRAMES.IDLE);
+      startIdleBreathing();
+      scheduleNextIdleAction();
+    }
+
+    // Connect image loader events
+    spritesheet.onload = onSpritesheetReady;
+    spritesheet.onerror = () => {
+      if (!spritesheet.src.includes('/portofolio/')) {
+        spritesheet.src = '/portofolio/character/maksum_spritesheet.png';
+      } else {
+        spritesheet.src = '/character/maksum_spritesheet.png';
+      }
+    };
+    spritesheet.src = targetSrc;
+
+    // Check if preloader or spritesheet already cached
+    const currentImg = getSpriteSource();
+    if (currentImg.complete && currentImg.naturalWidth > 0) {
+      onSpritesheetReady();
+    }
+
+    // Speech Bubble Helper
+    function showSpeech(text: string, duration = 3000) {
+      if (!bubble || !bubbleText) return;
+      bubbleText.textContent = text;
+      bubble.classList.add('active');
+
+      if (bubbleTimeout) clearTimeout(bubbleTimeout);
+      bubbleTimeout = window.setTimeout(() => {
+        bubble.classList.remove('active');
+      }, duration);
+    }
+
+    // 1. Jempol -> 2. Lambaian Ceria -> 3. Bendera UNY -> 4. Lambaian Santai
+    function playClickCycleStage(stageIndex: number, comboText?: string) {
+      stopAllActiveAnimations();
+      currentState = 'click_cycle';
+      currentClickStage = stageIndex % 4;
+
+      if (stage) {
+        stage.classList.remove('bounce-pop');
+        requestAnimationFrame(() => {
+          if (stage) stage.classList.add('bounce-pop');
+        });
+      }
+
+      if (currentClickStage === 0) {
+        // Tahap 1: Jempol
+        drawFrame(FRAMES.THUMB);
+        showSpeech(comboText || 'Mantap! Semangat terus! 👍', 2400);
+
+        clickAnimTimeout = window.setTimeout(() => {
+          if (currentState === 'click_cycle') {
+            playClickCycleStage(1);
+          }
+        }, 1100);
+
+      } else if (currentClickStage === 1) {
+        // Tahap 2: Lambaian ceria
+        showSpeech(comboText || 'Halo! Senang Anda menyapa saya! 👋✨', 2600);
+
+        const waveSeq = [
+          FRAMES.WAVE_2,
+          FRAMES.WAVE_3,
+          FRAMES.WAVE_2,
+          FRAMES.WAVE_3,
+          FRAMES.WAVE_2,
+        ];
+        let wIdx = 0;
+        function nextWaveStep() {
+          if (currentState !== 'click_cycle') return;
+          if (wIdx < waveSeq.length) {
+            drawFrame(waveSeq[wIdx]);
+            wIdx++;
+            clickAnimTimeout = window.setTimeout(nextWaveStep, 220);
+          } else {
+            playClickCycleStage(2);
+          }
+        }
+        nextWaveStep();
+
+      } else if (currentClickStage === 2) {
+        // Tahap 3: Bendera UNY
+        showSpeech(comboText || 'S1 Statistika FMIPA UNY! 🏛️🎓', 3200);
+
+        const flagSeq = [
+          { frame: FRAMES.FLAG_1, d: 200 },
+          { frame: FRAMES.FLAG_2, d: 200 },
+          { frame: FRAMES.FLAG_3, d: 220 },
+          { frame: FRAMES.FLAG_4, d: 1800 }, // Hold wide UNY flag!
+          { frame: FRAMES.FLAG_3, d: 180 },
+          { frame: FRAMES.FLAG_2, d: 180 },
+          { frame: FRAMES.FLAG_1, d: 180 },
+        ];
+        let fIdx = 0;
+        function nextFlagStep() {
+          if (currentState !== 'click_cycle') return;
+          if (fIdx < flagSeq.length) {
+            const item = flagSeq[fIdx];
+            drawFrame(item.frame);
+            fIdx++;
+            clickAnimTimeout = window.setTimeout(nextFlagStep, item.d);
+          } else {
+            playClickCycleStage(3);
+          }
+        }
+        nextFlagStep();
+
+      } else if (currentClickStage === 3) {
+        // Tahap 4: Lambaian santai
+        showSpeech(comboText || 'Salam hangat dari UNY! 👋😊', 2600);
+
+        const santaiSeq = [
+          FRAMES.WAVE_1,
+          FRAMES.WAVE_2,
+          FRAMES.WAVE_3,
+          FRAMES.WAVE_2,
+          FRAMES.IDLE,
+        ];
+        let sIdx = 0;
+        function nextSantaiStep() {
+          if (currentState !== 'click_cycle') return;
+          if (sIdx < santaiSeq.length) {
+            drawFrame(santaiSeq[sIdx]);
+            sIdx++;
+            clickAnimTimeout = window.setTimeout(nextSantaiStep, 220);
+          } else {
+            currentState = 'idle';
+            drawFrame(FRAMES.IDLE);
+            scheduleNextIdleAction();
+          }
+        }
+        nextSantaiStep();
+      }
+    }
+
+    // Instant Click Handler (with spam support and step advance)
+    function handleSpriteClick(e?: Event) {
+      e?.preventDefault();
+      e?.stopPropagation();
+
+      spamCount++;
+
+      let comboMsg: string | undefined;
+      if (spamCount === 2) {
+        comboMsg = 'Salam hangat dari UNY! 🏛️🎓';
+      } else if (spamCount === 3) {
+        comboMsg = 'Mantap! Semangat terus! 👍';
+      } else if (spamCount === 4) {
+        comboMsg = 'Wah, cepat sekali kliknya! ⚡';
+      } else if (spamCount >= 5 && spamCount < 10) {
+        comboMsg = `Combo x${spamCount}! Luar biasa! 🔥🚀`;
+      } else if (spamCount >= 10 && spamCount < 20) {
+        comboMsg = `Combo x${spamCount}! Tombolnya mau jebol nih! 😂💥`;
+      } else if (spamCount >= 20) {
+        comboMsg = `Combo x${spamCount}! Juara klik sejati! 🏆👑`;
+      }
+
+      // If clicked again during animation, advance immediately to the next stage in the 4-phase sequence
+      const targetStage = (spamCount - 1) % 4;
+      playClickCycleStage(targetStage, comboMsg);
+
+      if (spamResetTimeout) clearTimeout(spamResetTimeout);
+      spamResetTimeout = window.setTimeout(() => {
+        spamCount = 0;
+      }, 2500);
+    }
+
+    // Attach click and keyboard handlers
+    stage?.addEventListener('click', handleSpriteClick, { signal });
+    canvas?.addEventListener('click', handleSpriteClick, { signal });
+    fallbackImg?.addEventListener('click', handleSpriteClick, { signal });
+    stage?.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handleSpriteClick(e);
+      }
+    }, { signal });
+
+    // Periodic Idle Animations (When not interacting)
+    function playWaveAnimation() {
+      if (currentState !== 'idle') return;
+      stopAllActiveAnimations();
+      currentState = 'waving';
+
+      const greetings = [
+        'Halo! Senang Anda berkunjung 👋',
+        'Selamat datang di portfolio saya! ✨',
+        'Semoga harimu menyenangkan! 😊',
+        'Mari jelajahi karya dan riset saya! 🚀'
+      ];
+      const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
+      showSpeech(randomGreeting, 2800);
+
+      const waveSeq = [
+        FRAMES.WAVE_2,
+        FRAMES.WAVE_3,
+        FRAMES.WAVE_2,
+        FRAMES.WAVE_3,
+        FRAMES.WAVE_2,
+        FRAMES.IDLE,
+      ];
+
+      let step = 0;
+      function nextWaveStep() {
+        if (currentState !== 'waving') return;
+        if (step < waveSeq.length) {
+          drawFrame(waveSeq[step]);
+          step++;
+          animStepTimeout = window.setTimeout(nextWaveStep, step === 2 || step === 4 ? 260 : 200);
+        } else {
+          currentState = 'idle';
+          drawFrame(FRAMES.IDLE);
+          scheduleNextIdleAction();
+        }
+      }
+
+      nextWaveStep();
+    }
+
+    function playFlagAnimation() {
+      if (currentState !== 'idle') return;
+      stopAllActiveAnimations();
+      currentState = 'flag';
+
+      const unyQuotes = [
+        'S1 Statistika FMIPA UNY! 🎓✨',
+        'Bangga Almamater UNY! 🏛️💙',
+        'Universitas Negeri Yogyakarta! 🎓',
+        'Unggul, Kreatif, Inovatif Berkelanjutan! 🌟'
+      ];
+      const message = unyQuotes[Math.floor(Math.random() * unyQuotes.length)];
+      showSpeech(message, 3600);
+
+      const flagSeq = [
+        { frame: FRAMES.FLAG_1, duration: 220 },
+        { frame: FRAMES.FLAG_2, duration: 200 },
+        { frame: FRAMES.FLAG_3, duration: 220 },
+        { frame: FRAMES.FLAG_4, duration: 2400 },
+        { frame: FRAMES.FLAG_3, duration: 180 },
+        { frame: FRAMES.FLAG_2, duration: 180 },
+        { frame: FRAMES.FLAG_1, duration: 180 },
+        { frame: FRAMES.IDLE, duration: 0 },
+      ];
+
+      let step = 0;
+      function nextFlagStep() {
+        if (currentState !== 'flag') return;
+        if (step < flagSeq.length) {
+          const item = flagSeq[step];
+          drawFrame(item.frame);
+          step++;
+          if (item.duration > 0) {
+            animStepTimeout = window.setTimeout(nextFlagStep, item.duration);
+          } else {
+            currentState = 'idle';
+            drawFrame(FRAMES.IDLE);
+            scheduleNextIdleAction();
+          }
+        }
+      }
+
+      nextFlagStep();
+    }
+
+    // Navigation Click -> Thumbs Up + Feedback
+    function triggerThumbsUp(sectionLabel: string) {
+      stopAllActiveAnimations();
+      currentState = 'thumb';
+      drawFrame(FRAMES.THUMB);
+
+      let message = `Terima kasih sudah mengunjungi ${sectionLabel} saya! 👍`;
+      if (sectionLabel.toLowerCase().includes('hubungi')) {
+        message = 'Terima kasih sudah menghubungi saya! 📬';
+      }
+
+      showSpeech(message, 3800);
+
+      if (stage) {
+        stage.style.transform = 'translateY(-4px) scale(1.04)';
+        setTimeout(() => {
+          if (stage) stage.style.transform = '';
+        }, 300);
+      }
+
+      animStepTimeout = window.setTimeout(() => {
+        if (currentState === 'thumb') {
+          currentState = 'idle';
+          drawFrame(FRAMES.IDLE);
+          scheduleNextIdleAction();
+        }
+      }, 3600);
+    }
+
+    // Attach to navigation links with signal
+    const navLinks = document.querySelectorAll('.nav-link, .sidebar-cta-btn, .mobile-cta-btn');
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        const textSpan = link.querySelector('.nav-text') || link.querySelector('span');
+        const label = textSpan ? textSpan.textContent?.trim() || 'halaman' : 'halaman';
+        triggerThumbsUp(label);
+      }, { signal });
+    });
+
+    // Performance: Pause animation timers when tab is hidden or element is off-screen
+    document.addEventListener('visibilitychange', () => {
+      isVisible = !document.hidden;
+      if (!isVisible) {
+        if (breathingInterval) clearInterval(breathingInterval);
+        if (idleActionTimeout) clearTimeout(idleActionTimeout);
+      } else if (isIntersecting && currentState === 'idle') {
+        startIdleBreathing();
+        scheduleNextIdleAction();
+      }
+    }, { signal });
+
+    let observer: IntersectionObserver | null = null;
+    if ('IntersectionObserver' in window && stage) {
+      observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          isIntersecting = entry.isIntersecting;
+          if (!isIntersecting) {
+            if (breathingInterval) clearInterval(breathingInterval);
+            if (idleActionTimeout) clearTimeout(idleActionTimeout);
+          } else if (isVisible && currentState === 'idle') {
+            startIdleBreathing();
+            scheduleNextIdleAction();
+          }
+        }
+      }, { threshold: 0.1 });
+      observer.observe(stage);
+    }
+
+    // Teardown cleanup function
+    activeCleanup = () => {
+      abortController.abort();
+      observer?.disconnect();
+      if (breathingInterval) clearInterval(breathingInterval);
+      if (animStepTimeout) clearTimeout(animStepTimeout);
+      if (clickAnimTimeout) clearTimeout(clickAnimTimeout);
+      if (idleActionTimeout) clearTimeout(idleActionTimeout);
+      if (bubbleTimeout) clearTimeout(bubbleTimeout);
+      if (spamResetTimeout) clearTimeout(spamResetTimeout);
+    };
+  }
+
+  // Lifecycle registration
+  initPixelCharacter();
+  document.addEventListener('astro:page-load', initPixelCharacter);
+  document.addEventListener('astro:before-swap', () => {
+    if (activeCleanup) {
+      activeCleanup();
+      activeCleanup = null;
+    }
+  });
+</script>

@@ -1,6 +1,8 @@
 ---
 // Navbar.astro
 // Executive Bernstein Sidebar Navigation System (Left Sidebar Desktop / Drawer Mobile)
+import PixelCharacter from "./PixelCharacter.astro";
+
 interface Props {
   nickname?: string;
 }
@@ -21,7 +23,6 @@ const navItems = [
 ];
 ---
 
-<!-- Mobile Top Bar (Screen <= 1024px) -->
 <header class="mobile-top-header" aria-label="Navigasi Mobile">
   <a href="#home" class="mobile-brand" aria-label="Dashboard Beranda">
     <span class="brand-monogram">M.</span>
@@ -37,13 +38,10 @@ const navItems = [
   </div>
 </header>
 
-<!-- Backdrop Overlay for Mobile Drawer -->
 <div class="sidebar-backdrop" id="sidebar-backdrop" aria-hidden="true"></div>
 
-<!-- Left Vertical Sidebar (Permanent on Desktop, Slide-over on Mobile) -->
 <aside class="sidebar-drawer" id="sidebar-drawer" aria-label="Navigasi Samping">
   <div class="sidebar-inner">
-    <!-- Brand Header -->
     <div class="sidebar-brand-wrapper">
       <a href="#home" class="sidebar-brand" aria-label="Dashboard Beranda">
         <span class="brand-monogram">M.</span>
@@ -57,7 +55,6 @@ const navItems = [
       </button>
     </div>
 
-    <!-- Navigation List -->
     <nav class="sidebar-nav" aria-label="Menu Halaman">
       <div class="nav-group-label">NAVIGASI UTAMA</div>
       <ul class="nav-list">
@@ -72,7 +69,8 @@ const navItems = [
       </ul>
     </nav>
 
-    <!-- Bottom Footer Action -->
+    <PixelCharacter />
+
     <div class="sidebar-footer">
       <a href="#contact" class="sidebar-cta-btn btn-gold">
         <i class="bi bi-calendar-check" aria-hidden="true"></i>
@@ -80,16 +78,14 @@ const navItems = [
       </a>
       <div class="sidebar-meta">
         <span class="sidebar-meta-role">S1 Statistika FMIPA UNY</span>
-        <span class="sidebar-meta-year">&copy; 2026 M. Dahron</span>
+        <span class="sidebar-meta-year">&copy; 2026 Muhammad Dahron Mustofa Maksum</span>
       </div>
     </div>
   </div>
 </aside>
 
 <style>
-  /* -------------------------------------------------------------
-     Mobile Top Header (< 1025px)
-     ------------------------------------------------------------- */
+/* Mobile Top Header (< 1025px) */
   .mobile-top-header {
     display: none;
   }
@@ -167,10 +163,7 @@ const navItems = [
       border-color: var(--color-gold, #C5A880);
     }
   }
-
-  /* -------------------------------------------------------------
-     Sidebar Backdrop (Mobile Drawer Overlay)
-     ------------------------------------------------------------- */
+/* Sidebar Backdrop (Mobile Drawer Overlay) */
   .sidebar-backdrop {
     display: none;
   }
@@ -193,10 +186,7 @@ const navItems = [
       pointer-events: auto;
     }
   }
-
-  /* -------------------------------------------------------------
-     Sidebar Drawer (Core Navigation)
-     ------------------------------------------------------------- */
+/* Sidebar Drawer (Core Navigation) */
   .sidebar-drawer {
     position: fixed;
     top: 0;
@@ -232,10 +222,7 @@ const navItems = [
     background-color: rgba(197, 168, 128, 0.25);
     border-radius: 4px;
   }
-
-  /* -------------------------------------------------------------
-     Brand Area
-     ------------------------------------------------------------- */
+/* Brand Area */
   .sidebar-brand-wrapper {
     display: flex;
     align-items: center;
@@ -308,10 +295,7 @@ const navItems = [
   .drawer-close-btn:hover {
     color: #ffffff;
   }
-
-  /* -------------------------------------------------------------
-     Nav List
-     ------------------------------------------------------------- */
+/* Nav List */
   .sidebar-nav {
     flex: 1;
     margin-bottom: 1.5rem;
@@ -388,10 +372,7 @@ const navItems = [
     outline: 2px solid var(--color-gold, #C5A880);
     outline-offset: 2px;
   }
-
-  /* -------------------------------------------------------------
-     Sidebar Footer (CTA & Meta)
-     ------------------------------------------------------------- */
+/* Sidebar Footer (CTA & Meta) */
   .sidebar-footer {
     padding-top: 1.15rem;
     border-top: 1px solid var(--color-midnight-border, #23314B);
@@ -433,10 +414,7 @@ const navItems = [
     font-size: 0.68rem;
     color: var(--color-text-secondary, #526071);
   }
-
-  /* -------------------------------------------------------------
-     Mobile / Tablet Responsive Rules (<= 1024px)
-     ------------------------------------------------------------- */
+/* Mobile / Tablet Responsive Rules (<= 1024px) */
   @media (max-width: 1024px) {
     .sidebar-drawer {
       width: 280px;
@@ -455,10 +433,7 @@ const navItems = [
       display: inline-flex;
     }
   }
-
-  /* -------------------------------------------------------------
-     Reduced Motion Preference
-     ------------------------------------------------------------- */
+/* Reduced Motion Preference */
   @media (prefers-reduced-motion: reduce) {
     .sidebar-drawer,
     .sidebar-backdrop,
