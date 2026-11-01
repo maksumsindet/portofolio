@@ -103,6 +103,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
             const p = data.personalInfo;
             if (p.name) {
               document.querySelectorAll('.sig-text').forEach(el => el.textContent = p.name);
+              document.querySelectorAll('.author-name').forEach(el => el.textContent = p.name);
             }
             if (p.gpa) {
               document.querySelectorAll('.meta-item span').forEach(el => {
