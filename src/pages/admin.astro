@@ -1061,17 +1061,42 @@ const initialDataJson = JSON.stringify(rawPortfolioContent);
       const defaultServerContent = payloadEl ? JSON.parse(payloadEl.textContent || '{}') : {};
 
       function loadWorkingContent(): any {
+        const fallback = JSON.parse(JSON.stringify(defaultServerContent));
         const saved = localStorage.getItem(STORAGE_DATA_KEY);
         if (saved) {
           try {
             const parsed = JSON.parse(saved);
-            // Validasi sinkronisasi: jika versi server berubah, hapus cache lokal usang
-            if (parsed && parsed.version === defaultServerContent.version) {
-              return parsed;
+            if (parsed && typeof parsed === 'object') {
+              const merged = { ...fallback, ...parsed, version: fallback.version };
+
+              // 1. Pastikan Proyek Data Riset selalu terisi jika di cache lokal masih kosong (0)
+              if (!merged.dataProjects?.projects?.length && fallback.dataProjects?.projects?.length) {
+                merged.dataProjects = JSON.parse(JSON.stringify(fallback.dataProjects));
+              }
+
+              // 2. Pastikan Mitra dan Kolaborasi selalu terisi jika di cache lokal masih kosong (0)
+              if (!merged.partners?.length && fallback.partners?.length) {
+                merged.partners = JSON.parse(JSON.stringify(fallback.partners));
+              }
+
+              // 3. Pastikan Program Utama selalu terisi jika di cache lokal masih kosong (0)
+              if (!merged.programsShowcaseData?.programs?.length && fallback.programsShowcaseData?.programs?.length) {
+                if (!merged.programsShowcaseData) merged.programsShowcaseData = {};
+                merged.programsShowcaseData.programs = JSON.parse(JSON.stringify(fallback.programsShowcaseData.programs));
+              }
+
+              // 4. Pastikan Kartu Sorotan Hero selalu terisi jika di cache lokal masih kosong
+              if (!merged.spotlightCards?.length && fallback.spotlightCards?.length) {
+                merged.spotlightCards = JSON.parse(JSON.stringify(fallback.spotlightCards));
+              }
+
+              // Perbarui cache browser seketika agar sinkron permanen
+              localStorage.setItem(STORAGE_DATA_KEY, JSON.stringify(merged));
+              return merged;
             }
           } catch {}
         }
-        return JSON.parse(JSON.stringify(defaultServerContent));
+        return fallback;
       }
 
       let cmsData: any = loadWorkingContent();
