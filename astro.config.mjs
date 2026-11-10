@@ -163,8 +163,8 @@ function localCmsStoragePlugin() {
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://maksumsindet.github.io',
-  base: '/portofolio',
+  site: 'https://maksum.is-a.dev',
+  base: '/',
   vite: {
     plugins: [localCmsStoragePlugin()]
   }
